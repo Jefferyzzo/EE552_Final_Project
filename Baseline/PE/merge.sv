@@ -4,9 +4,9 @@
 import SystemVerilogCSP::*;
 
 module merge #(
-parameter WIDTH	= 4 ,
-parameter FL	= 0 ,
-parameter BL	= 0 
+parameter WIDTH	= 8 ,
+parameter FL	= 2 ,
+parameter BL	= 1 
 ) (
 interface  L0   ,//A in the diagram
 interface  L1   ,//B in the diagram

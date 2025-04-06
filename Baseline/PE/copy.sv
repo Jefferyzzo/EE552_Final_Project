@@ -21,8 +21,8 @@ always begin
     fork
         R0.Send(packet); 
         R1.Send(packet);
-		#BL;
     join
+    #BL;
 end
 
 endmodule
