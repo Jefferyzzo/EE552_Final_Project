@@ -5,8 +5,8 @@ import SystemVerilogCSP::*;
 
 module copy #(
 parameter WIDTH	= 4 ,
-parameter FL	= 0 ,
-parameter BL	= 0 
+parameter FL	= 2 ,
+parameter BL	= 1 
 ) (
 interface  L    ,
 interface  R0   ,
