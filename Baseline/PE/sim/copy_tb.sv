@@ -2,33 +2,39 @@
 
 import SystemVerilogCSP::*;
 
-// // data_bucket module
-// module data_bucket (interface r);
-//     parameter WIDTH = 8;
-//     parameter BL = 0; //ideal environment no backward delay
+module data_generator (interface r);
 
-//     logic [WIDTH-1:0] ReceiveValue = 0;
+    parameter WIDTH = 8;
+    parameter FL    = 0; // ideal environment no forward delay
 
-//     always begin
-//         // $display("In module %m. Simulation time =%t",$time);
-//         // $display("Start receiving in module %m. Simulation time =%t", $time);
-//         r.Receive(ReceiveValue);
-//         $display("Finished receiving in module %m. Simulation time =%t, data=%b", $time,ReceiveValue);
-//         #BL;
-//     end
-// endmodule
+    logic [WIDTH-1:0] SendValue = 0; 
+
+    always begin 
+        SendValue = $random() % (2**WIDTH); // the range of random number is from 0 to 2^WIDTH
+        #FL;   
+        r.Send(SendValue);
+        $display("DG sends input data = %d @ %t", SendValue, $time);
+    end
+
+endmodule
+
+module data_bucket (interface r);
+    parameter WIDTH = 8;
+    parameter BL    = 0; //ideal environment no backward delay
+
+    logic [WIDTH-1:0] ReceiveValue = 0;
+
+    always begin
+        r.Receive(ReceiveValue);
+        $display("DB %m receives output data = %d @ %t", ReceiveValue, $time);
+        #BL;
+    end
+
+endmodule
 
 module copy_tb ();
 
-    // Parameter definitions
-    parameter WIDTH = 4;
-    
-    // Clock signal
-    reg clk;
-    initial begin
-        clk = 0;
-        forever #5 clk = ~clk; // 10ns clock period
-    end
+    parameter WIDTH = 8;
     
     // Interface signals
     logic [WIDTH-1:0] packet_0, packet_1, packet_r;
@@ -39,35 +45,13 @@ module copy_tb ();
     Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) R1 ();
     
     // Instantiate DUT
-    copy #(.WIDTH(WIDTH)) dut (
+    data_generator #(.WIDTH(WIDTH), .FL(0)) dg (L); 
+    copy #(.WIDTH(WIDTH)) cp (
         .L(L),
         .R0(R0),
         .R1(R1)
     );
-    // Monitor outputs
-    // data_bucket #(.WIDTH(WIDTH)) db0(.r(R0));
-    // data_bucket #(.WIDTH(WIDTH)) db1(.r(R1));
-
-    // Stimulus generation
-    initial begin
-        // Initialize signals
-        packet_0 = 4'b1010;
-        packet_1 = 4'b0101;
-        
-        #10;
-        L.Send(packet_0); 
-        R0.Receive(packet_r);
-        $display("Finished receiving R0. Simulation time =%t, data=%b", $time, packet_r);
-        R1.Receive(packet_r);
-        $display("Finished receiving R1. Simulation time =%t, data=%b", $time, packet_r);
-        #20;
-        L.Send(packet_1); 
-        R1.Receive(packet_r);
-        $display("Finished receiving R1. Simulation time =%t, data=%b", $time, packet_r);
-        R0.Receive(packet_r);
-        $display("Finished receiving R0. Simulation time =%t, data=%b", $time, packet_r);
-        #20;
-        $stop;
-    end
+    data_bucket #(.WIDTH(WIDTH), .BL(0)) db0 (R0);
+    data_bucket #(.WIDTH(WIDTH), .BL(0)) db1 (R1);
 
 endmodule
