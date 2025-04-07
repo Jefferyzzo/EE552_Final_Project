@@ -5,4 +5,4 @@ clean:
 	rm -rf csrc simv simv.daidir ucli.key run.saif *.fsdb *.vcd *.vdd
 
 %:
-	make run file=$@
+	$(MAKE) run file=$@
