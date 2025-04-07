@@ -24,10 +24,4 @@ module split #(
         #FL;
         if (sel == 0) begin
             R0.Send(packet);
-        end else begin
-            R1.Send(packet);
-        end
-    	#BL;
-    end
-
-endmodule
+        end els
