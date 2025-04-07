@@ -1,3 +1,3 @@
-../src/SystemVerilogCSP.sv
+../../src/SystemVerilogCSP.sv
 ./depacketizer_tb.sv
-../src/depacketizer.sv
+../../src/depacketizer.sv
