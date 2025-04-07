@@ -2,7 +2,7 @@
 
 import SystemVerilogCSP::*;
 
-module 2_input_adder #(
+module two_input_adder #(
     parameter WIDTH	= 8,
     parameter FL	= 2,
     parameter BL	= 1 
@@ -14,7 +14,7 @@ module 2_input_adder #(
 
     logic [WIDTH-1:0] in1;
     logic [WIDTH-1:0] in2;
-    logic [WIDTH-1:0] out;
+    logic [WIDTH:0]   out;
     
     always begin
         fork
@@ -22,7 +22,7 @@ module 2_input_adder #(
             L1.Receive(in2);
         join
         #FL;
-        out=in1+in2;
+        out = in1 + in2;
         R.Send(out);
     	#BL;
     end
