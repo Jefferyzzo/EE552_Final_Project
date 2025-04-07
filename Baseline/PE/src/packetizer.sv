@@ -15,10 +15,10 @@ parameter X_HOP = 0,
 parameter Y_HOP = 0,
 parameter PE_NODE = 0 
 ) (
-interface  L0    ,  //timestep
-interface  L1    , //residue
-interface  L2    , //outspike
-interface  R 
+interface  Timestep    ,  //timestep
+interface  Residue    , //residue
+interface  Outspike    , //outspike
+interface  Packet 
 ); 
 
     logic [8+3*FILTER_WIDTH:0] packet;
