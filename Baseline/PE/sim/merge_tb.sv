@@ -36,9 +36,6 @@ module merge_tb ();
 
     parameter WIDTH = 8;
     
-    // Interface signals
-    logic [WIDTH-1:0] packet_0, packet_1, packet_r;
-    
     // Instantiate interfaces  
     Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) L0 ();
     Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) L1 ();

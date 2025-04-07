@@ -1,41 +1,44 @@
+// ************************************************** content orgnization **************************************************
+//  Address    [0]         [1]                    [2:3]         [4:3*filter_width+3] 
+//             timestep    ifmapb(0)_filter(1)    filter_row    3*fliter_width
+// *************************************************************************************************************************
+
 `timescale 1ns/1ns
 
 import SystemVerilogCSP::*;
-// ************************************************** content orgnization **************************************************
-//  Address       [0]         [1]                    [2:3]          [4:3*filter_width+3] 
-//                timestep    ifmapb_filter          filter_row     3*fliter_width
-// *************************************************************************************************************************
+
 module depacketizer #(
-    parameter FILTER_WIDTH = 8, //default is 8 bits
+    parameter FILTER_WIDTH = 8, 
     parameter FL           = 2,
     parameter BL           = 1 
 ) (
-    interface  L,
-    interface  R0,
-    interface  R1,
-    interface  R2,
-    interface  R3   
+    interface  Packet,
+    interface  Timestep,
+    interface  Ifmapb_filter,
+    interface  Filter_row,
+    interface  Data   
 ); 
 
     logic [3*FILTER_WIDTH+3:0] packet;
     logic [3*FILTER_WIDTH-1:0] data;
     logic timestep;
-    logic ifmapb_filter; //0->ifmap; 1->filter
+    logic ifmapb_filter; // 0->ifmap; 1->filter
     logic [1:0] filter_row;
 
     always begin
-    	L.Receive(packet); 
+    	Packet.Receive(packet); 
     	#FL;
-        data=packet[3*FILTER_WIDTH+3:4];
-        timestep=packet[0];
-        ifmapb_filter=packet[1];
-        filter_row=packet[2:3];
+        timestep      = packet[0];
+        ifmapb_filter = packet[1];
+        filter_row    = packet[3:2];
+        data          = packet[3*FILTER_WIDTH+3:4];
         fork
-            R0.Send(data);
-            R1.Send(filter_row);
-            R2.Send(ifmapb_filter);
-            R3.Send(timestep);
+            Timestep.Send(timestep);
+            Ifmapb_filter.Send(ifmapb_filter);
+            Filter_row.Send(filter_row);
+            Data.Send(data);
         join
+        #BL;
     end
 
 endmodule
