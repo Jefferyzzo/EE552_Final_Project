@@ -46,16 +46,12 @@ module copy_tb ();
     
     // Instantiate DUT
     data_generator #(.WIDTH(WIDTH), .FL(0)) dg (L); 
-    copy #(.WIDTH(WIDTH)) cp (
-        .L(L),
-        .R0(R0),
-        .R1(R1)
-    );
+    copy #(.WIDTH(WIDTH)) cp (.L(L), .R0(R0), .R1(R1));
     data_bucket #(.WIDTH(WIDTH), .BL(0)) db0 (R0);
     data_bucket #(.WIDTH(WIDTH), .BL(0)) db1 (R1);
 
     initial begin
-        $display("Simulation started");
+        $display("Start simulation!!!");
         #50
         $finish;
     end

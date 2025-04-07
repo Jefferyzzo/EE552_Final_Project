@@ -17,7 +17,6 @@ module merge #(
     logic sel;
 
      always begin
-     // *******************
             S.Receive(sel);
             if (sel == 0) begin
                 L0.Receive(packet);
