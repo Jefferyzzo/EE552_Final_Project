@@ -1,8 +1,11 @@
+DIR ?= copy
+
 run:
-	vcs -sverilog -f $(file) -full64 -R -debug_access+all
+	@cd $(DIR) && vcs -sverilog -f $(DIR).f -full64 -R -debug_access+all
 
 clean:
-	rm -rf csrc simv simv.daidir ucli.key run.saif *.fsdb *.vcd *.vdd
-
-%:
-	$(MAKE) run file=$@
+	@echo "Cleaning current directory and all subdirectories..."
+	# Remove directories named csrc, simv, or simv.daidir recursively
+	@find . -type d \( -name csrc -o -name simv -o -name simv.daidir \) -exec rm -rf {} +
+	# Remove files matching patterns recursively
+	@find . -type f \( -name "ucli.key" -o -name "run.saif" -o -name "*.fsdb" -o -name "*.vcd" -o -name "*.vdd" \) -exec rm -f {} +
