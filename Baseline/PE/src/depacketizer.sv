@@ -32,4 +32,10 @@ module depacketizer #(
         filter_row=packet[2:3];
         fork
             R0.Send(data);
-            R1.Sen
+            R1.Send(filter_row);
+            R2.Send(ifmapb_filter);
+            R3.Send(timestep);
+        join
+    end
+
+endmodule
