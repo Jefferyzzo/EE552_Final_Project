@@ -54,4 +54,10 @@ module copy_tb ();
     data_bucket #(.WIDTH(WIDTH), .BL(0)) db0 (R0);
     data_bucket #(.WIDTH(WIDTH), .BL(0)) db1 (R1);
 
+    initial begin
+        $display("Simulation started");
+        #50
+        $finish;
+    end
+
 endmodule

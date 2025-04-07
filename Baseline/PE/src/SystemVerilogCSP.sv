@@ -7,7 +7,7 @@
 //-------------------------------------------------------------------------------------------------
 `timescale 1ns/1fs
 // uncomment the following line to enable stall calculation and display
-`define displayStalls 1
+// `define displayStalls 1
 //uncomment the following line for automatic deadlock detection
 `define detectDeadlock 1
 `define defaultWatchDogTime 100ns
