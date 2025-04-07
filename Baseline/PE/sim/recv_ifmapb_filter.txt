@@ -1,0 +1,16 @@
+Time: 2000000 - Received Value: 0
+Time: 5000000 - Received Value: 0
+Time: 8000000 - Received Value: 0
+Time: 11000000 - Received Value: 1
+Time: 14000000 - Received Value: 0
+Time: 17000000 - Received Value: 0
+Time: 20000000 - Received Value: 0
+Time: 23000000 - Received Value: 1
+Time: 26000000 - Received Value: 0
+Time: 29000000 - Received Value: 0
+Time: 32000000 - Received Value: 1
+Time: 35000000 - Received Value: 0
+Time: 38000000 - Received Value: 0
+Time: 41000000 - Received Value: 0
+Time: 44000000 - Received Value: 0
+Time: 47000000 - Received Value: 1
