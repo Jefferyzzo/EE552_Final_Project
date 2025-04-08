@@ -24,6 +24,7 @@ module data_bucket (interface r);
 
     logic [WIDTH-1:0] ReceiveValue = 0;
 
+
     always begin
         r.Receive(ReceiveValue);
         $display("DB %m receives output data = %d @ %t", ReceiveValue, $time);

@@ -17,6 +17,7 @@ module mac #(
     interface  O     
 ); 
 
+
     logic [FILTER_WIDTH*3-1:0] filter_row1;
     logic [FILTER_WIDTH*3-1:0] filter_row2;
     logic [FILTER_WIDTH*3-1:0] filter_row3;

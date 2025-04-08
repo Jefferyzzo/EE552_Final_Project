@@ -14,6 +14,7 @@ module three_input_split #(
     interface  R2  
 ); 
 
+
     logic [3*FILTER_WIDTH-1:0] packet;
     logic [1:0] sel;
     
