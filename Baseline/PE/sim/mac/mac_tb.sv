@@ -40,19 +40,25 @@ module mac_tb ();
     parameter IFMAP_WIDTH  = 1,
 
     // Instantiate interfaces  
-    Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) L0 ();
-    Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) L1 ();
-    Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) R ();
+    Channel #(.WIDTH(FILTER_WIDTH*3),.hsProtocol(P4PhaseBD)) L0 (); // fiter_row1
+    Channel #(.WIDTH(FILTER_WIDTH*3),.hsProtocol(P4PhaseBD)) L1 (); // fiter_row2
+    Channel #(.WIDTH(FILTER_WIDTH*3),.hsProtocol(P4PhaseBD)) L2 (); // fiter_row3
+    Channel #(.WIDTH(IFMAP_WIDTH*9),.hsProtocol(P4PhaseBD)) L3 ();
+    Channel #(.WIDTH(OUTPUT_WIDTH),.hsProtocol(P4PhaseBD)) R ();
     
     // Instantiate DUT
-    data_generator #(.WIDTH(FILTER_WIDTH*9), .FL(0)) dg_filter (L0); 
-    data_generator #(.WIDTH(IFMAP_WIDTH*9), .FL(0)) dg_ifmap (L1); 
+    data_generator #(.WIDTH(FILTER_WIDTH*3), .FL(0)) dg_filter1 (L0); 
+    data_generator #(.WIDTH(FILTER_WIDTH*3), .FL(0)) dg_filter2 (L1); 
+    data_generator #(.WIDTH(FILTER_WIDTH*3), .FL(0)) dg_filter3 (L2); 
+    data_generator #(.WIDTH(IFMAP_WIDTH*9), .FL(0)) dg_ifmap (L3); 
     mac #(.WIDTH(WIDTH)) mac (
         .L0(L0),
         .L1(L1),
+        .L2(L2),
+        .L3(L3),
         .R(R)
     );
-    data_bucket #(.OUTPUT_WIDTH(OUTPUT_WIDTH), .FILTER_WIDTH(FILTER_WIDTH), .IFMAP_WIDTH(IFMAP_WIDTH)) db (R);
+    data_bucket #(.OUTPUT_WIDTH(OUTPUT_WIDTH)) db (R);
 
     initial begin
         $display("Simulation started");
