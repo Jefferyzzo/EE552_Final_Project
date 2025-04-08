@@ -1,6 +1,5 @@
 `timescale 1ns/1ns
 
-
 import SystemVerilogCSP::*;
 
 module mac #(
