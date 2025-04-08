@@ -2,57 +2,78 @@ import re
 
 def extract_value(line):
     """
-    Extracts the binary value from a line using regex.
-    Assumes a format like: "Time: ... - (Sent|Received) Value: <binary_value>"
+    Extracts the binary string after 'Value:' from a line.
     """
     match = re.search(r'Value:\s*([01]+)', line)
     if match:
         return match.group(1)
     else:
-        raise ValueError(f"Could not extract a binary value from line: {line}")
+        raise ValueError(f"Could not extract binary value from line: {line}")
 
-def read_first_line(filename):
+def read_file_lines(filename):
     """
-    Reads the first non-empty line from the given file.
+    Returns all non-empty lines from a file.
     """
     with open(filename, 'r') as f:
-        # Read lines and return the first non-empty one.
-        for line in f:
-            if line.strip():
-                return line.strip()
-    raise ValueError(f"No non-empty lines found in {filename}")
+        return [line.strip() for line in f if line.strip()]
 
 def main():
-    # Filenames
-    send_file = "send_values.txt"
-    recv_data_file = "recv_data.txt"
-    recv_filter_row_file = "recv_filter_row.txt"
-    recv_timestep_file = "recv_timestep.txt"
-    # Note: The 'recv_ifmapb_filter.txt' file is not used in the concatenation check.
+    # File paths
+    send_file               = "send_values.txt"
+    recv_timestep_file      = "recv_timestep.txt"
+    recv_ifmapb_filter_file = "recv_ifmapb_filter.txt"
+    recv_filter_row_file    = "recv_filter_row.txt"
+    recv_data_file          = "recv_data.txt"
+    
+    # Read all lines from each file
+    send_lines          = read_file_lines(send_file)
+    timestep_lines      = read_file_lines(recv_timestep_file)
+    ifmapb_filter_lines = read_file_lines(recv_ifmapb_filter_file)
+    filter_row_lines    = read_file_lines(recv_filter_row_file)
+    data_lines          = read_file_lines(recv_data_file)
 
-    # Read the first valid line from each file
-    send_line = read_first_line(send_file)
-    data_line = read_first_line(recv_data_file)
-    filter_row_line = read_first_line(recv_filter_row_file)
-    timestep_line = read_first_line(recv_timestep_file)
+    # Compare up to the shortest file length
+    num_lines = min(len(send_lines), len(timestep_lines), len(ifmapb_filter_lines), len(filter_row_lines), len(data_lines))
+    print(f"Comparing {num_lines} lines...\n")
 
-    # Extract binary values from each line
-    send_value = extract_value(send_line)
-    data_value = extract_value(data_line)
-    filter_row_value = extract_value(filter_row_line)
-    timestep_value = extract_value(timestep_line)
+    match_count = 0  # Counter for matching lines
 
-    # Build the expected sent value by concatenating:
-    # {recv_data, recv_filter_row, recv_timestep, recv_timestep}
-    expected_value = data_value + filter_row_value + timestep_value + timestep_value
+    for i in range(num_lines):
+        try:
+            send_value          = extract_value(send_lines[i])
+            timestep_value      = extract_value(timestep_lines[i])
+            ifmapb_filter_value = extract_value(ifmapb_filter_lines[i])
+            filter_row_value    = extract_value(filter_row_lines[i])
+            data_value          = extract_value(data_lines[i])
+        except ValueError as e:
+            print(f"Line {i+1}: ERROR - {e}")
+            continue
 
-    # Display the values for comparison
-    print("Sent Value      :", send_value)
-    print("Expected Value  :", expected_value)
-    if send_value == expected_value:
-        print("MATCH: The sent value matches the expected concatenation.")
+        # Concatenate to form expected value in the order:
+        # Expected = recv_data + recv_filter_row + recv_ifmapb_filter + recv_timestep
+        expected_value = data_value + filter_row_value + ifmapb_filter_value + timestep_value
+        match = (send_value == expected_value)
+        if match:
+            match_count += 1
+
+        # Print verbose comparison for the current line
+        print(f"Line {i+1}:")
+        print(f"  Received Timestep      : {timestep_value}")
+        print(f"  Received Ifmapb_filter : {ifmapb_filter_value}")
+        print(f"  Received Filter Row    : {filter_row_value}")
+        print(f"  Received Data          : {data_value}")
+        print(f"  Concatenated Expected  : {expected_value}")
+        print(f"  Sent Value             : {send_value}")
+        print(f"  MATCH?                 : {'✅ YES' if match else '❌ NO'}\n")
+
+    # Summary output
+    print("Summary:")
+    print(f"  Total lines compared   : {num_lines}")
+    print(f"  Matching lines         : {match_count}")
+    if match_count == num_lines:
+        print("  Overall Result         : ✅ All lines match!")
     else:
-        print("NO MATCH: The sent value does not match the expected concatenation.")
+        print("  Overall Result         : ❌ Some lines did not match.")
 
 if __name__ == "__main__":
     main()
