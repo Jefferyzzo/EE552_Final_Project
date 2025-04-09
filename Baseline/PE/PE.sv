@@ -28,6 +28,7 @@ module pe #(
     Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Fiter_row2_data ();
     Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Fiter_row3_data ();
   
+    Channel #(.WIDTH(IFMAP_SIZE),.hsProtocol(P4PhaseBD)) Ifmap_data ();
 
     depacketizer #(
                  .FILTER_WIDTH(FILTER_WIDTH), 
@@ -52,7 +53,7 @@ module pe #(
                     .Ifmap(Ifmap_data),                 //output
                     .Filter_row1(Fiter_row1_data),
                     .Filter_row2(Fiter_row2_data),
-                    .Filter_row3(Fiter_row3_data),
+                    .Filter_row3(Fiter_row3_data)
                 );
     
     // ifmap dataflow
@@ -62,7 +63,7 @@ module pe #(
             ) pr_ifmap (
                .L0(Ifmap_data),
                .L1(),    //todo
-                
+               .R()
             )
 
       
