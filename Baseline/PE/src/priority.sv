@@ -1,32 +1,29 @@
 `timescale 1ns/1ns
 
 import SystemVerilogCSP::*;
-
-module merge #(
+// L0 has the highest priority
+module priority #(
     parameter WIDTH	= 8,
     parameter FL	= 2,
     parameter BL	= 1 
 ) (
     interface  L0,
     interface  L1,
-    interface  S,
     interface  R     
 ); 
 
-    logic [WIDTH-1:0] packet;
-    logic sel;
+    logic [WIDTH-1:0] data;
 
     always begin
-        S.Receive(sel);
-        if (sel == 0) begin
-            L0.Receive(packet);
-			#FL;
+        if(L0.status != idle) begin
+            #FL;
+            L0.Receieve(data);
         end else begin
-            L1.Receive(packet);
-			#FL;
+            #FL;
+            L1.Receieve(data);
         end
-        R.Send(packet);
-		#BL;
+        R.Send(data);
+        #BL;
     end
 
 endmodule
