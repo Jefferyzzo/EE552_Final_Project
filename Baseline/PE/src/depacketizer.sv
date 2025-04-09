@@ -32,13 +32,22 @@ module depacketizer #(
         ifmapb_filter = packet[1];
         filter_row    = packet[3:2];
         data          = packet[3*FILTER_WIDTH+3:4];
-        fork
-            Timestep.Send(timestep);
-            Ifmapb_filter.Send(ifmapb_filter);
-            Filter_row.Send(filter_row);
-            Data.Send(data);
-        join
-        #BL;
+        if(ifmapb_filter == 0) begin 
+            fork
+                Ifmapb_filter.Send(ifmapb_filter);
+                Filter_row.Send(filter_row);
+                Data.Send(data);
+                Timestep.Send(timestep);
+            join
+            #BL;
+        end else begin 
+            fork
+                Ifmapb_filter.Send(ifmapb_filter);
+                Filter_row.Send(filter_row);
+                Data.Send(data);
+            join
+            #BL;
+        end
     end
 
 endmodule
