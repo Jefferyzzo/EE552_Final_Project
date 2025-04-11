@@ -1,61 +1,4 @@
-// `timescale 1ns/1ps
-// import SystemVerilogCSP::*;
 
-// module output_ctrl_tb;
-
-//     parameter WIDTH_packet = 14;
-
-//     // Channels
-//     Channel #(.WIDTH(WIDTH_packet), .hsProtocol(P4PhaseBD)) in1();
-//     Channel #(.WIDTH(WIDTH_packet), .hsProtocol(P4PhaseBD)) in2();
-//     Channel #(.WIDTH(WIDTH_packet), .hsProtocol(P4PhaseBD)) out();
-
-//     // Interfaces
-//     //CSPInterface in1 = new ch_in1;
-//     //CSPInterface in2 = new ch_in2;
-//     //CSPInterface out = new ch_out;
-
-//     // Instantiate DUT
-//     output_ctrl #(
-//         .MASK(3'b001)  // 这个参数目前不影响 arbiter_2to1 行为，可留作扩展用途
-//     ) dut (
-//         .in1(in1),
-//         .in2(in2),
-//         .out(out)
-//     );
-
-//     // Instantiate two generators
-//     data_generator #(
-//         .WIDTH_packet(14),
-//         .FL(2)
-//       ) gen1 (
-//         .r(in1)
-//       );
-      
-//       data_generator #(
-//         .WIDTH_packet(14),
-//         .FL(2) 
-//       ) gen2 (
-//         .r(in2)
-//       );
-
-//     // Output receiver
-//     data_bucket #(
-//         .WIDTH_packet(WIDTH_packet),
-//         .NODE(99) // 自定义 node id 表示接收端
-//     ) bucket (
-//         .r(out)
-//     );
-
-//     // Control simulation runtime
-//     initial begin
-//         $display("*** output_ctrl_tb simulation starts ***");
-//         #2000;
-//         $display("*** Simulation ends ***");
-//         $stop;
-//     end
-
-// endmodule
 
 `timescale 1ns/1ns
 import SystemVerilogCSP::*;
@@ -72,7 +15,13 @@ module output_ctrl_tb ();
     initial begin
         clk = 0;
         forever #5 clk = ~clk; // 10ns clock period
-        #200;
+        #20;
+        //$stop;
+    end
+
+    initial begin
+        #2000; // Run for a fixed duration (adjust as needed)
+        //$display("Simulation finished at time %t", $time);
         $stop;
     end
     
@@ -123,55 +72,6 @@ module output_ctrl_tb ();
 
 endmodule
 
-// `timescale 1ns/1ps
-// import SystemVerilogCSP::*;
 
-// module output_ctrl_tb;
-
-//     parameter WIDTH_packet = 14;
-
-//     // 通道定义
-//     Channel #(.WIDTH(WIDTH_packet), .hsProtocol(P4PhaseBD)) L0 ();
-//     Channel #(.WIDTH(WIDTH_packet), .hsProtocol(P4PhaseBD)) L1 ();
-//     Channel #(.WIDTH(WIDTH_packet), .hsProtocol(P4PhaseBD)) R ();
-
-//     // DUT
-//     output_ctrl #(.WIDTH_packet(WIDTH_packet)) dut (
-//         .in1(L0),
-//         .in2(L1),
-//         .out(R)
-//     );
-
-//     // 输出端 bucket
-//     data_bucket #(.WIDTH_packet(WIDTH_packet)) db(.r(R));
-
-//     logic [WIDTH_packet-1:0] pkt = $urandom_range(0, 2**WIDTH_packet - 1);
-//     int target = $urandom_range(0, 1); // 0: L0, 1: L1
-
-//     // 随机发包逻辑
-//     initial begin
-//         $display("*** output_ctrl_tb simulation starts ***");
-        
-            
-//             #($urandom_range(2, 10)); // 加一点随机延迟
-
-//             if (target == 0) begin
-//                 $display("[%0t] Sending packet %b to L0", $time, pkt);
-//                 L0.Send(pkt);
-//             end else begin
-//                 $display("[%0t] Sending packet %b to L1", $time, pkt);
-//                 L1.Send(pkt);
-//             end
-        
-//     end
-
-//     // 控制仿真时间
-//     initial begin
-//         #20000; // 模拟20,000ns
-//         $display("*** Simulation ends ***");
-//         $stop;
-//     end
-
-// endmodule
 
 

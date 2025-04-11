@@ -73,9 +73,10 @@ module router_test #(
             $display("send: %b",packet);
             #BL;
     end
-    initial begin
-        #100;
+    initial begin 
         $display("*** Router start ***");
+        #100;
+       
         $stop;
     end
 
