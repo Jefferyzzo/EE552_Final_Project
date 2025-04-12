@@ -3,19 +3,19 @@
 import SystemVerilogCSP::*;
 
 module spike_residue #(
-    parameter FILTER_WIDTH = 8,
-    parameter THRESHOLD    = 64,
-    parameter FL	       = 2,
-    parameter BL	       = 1 
+    parameter WIDTH     = 8,
+    parameter THRESHOLD = 64,
+    parameter FL	    = 2,
+    parameter BL	    = 1 
 ) (
     interface  L,
     interface  OutSpike,
     interface  Residue     
 ); 
 
-    logic [FILTER_WIDTH-1:0] data;
-    logic                    outspike;
-    logic [FILTER_WIDTH-1:0] residue;
+    logic [WIDTH-1:0] data;
+    logic             outspike;
+    logic [WIDTH-1:0] residue;
 
     always begin
         L.Receive(data);

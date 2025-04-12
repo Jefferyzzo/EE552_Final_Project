@@ -30,6 +30,10 @@ module mac #(
             Filter_row3.Receive(filter_row3);
             Ifmap.Receive(ifmap);
         join
+        // $display("Filter_row1: %h", filter_row1);
+        // $display("Filter_row2: %h", filter_row2);
+        // $display("Filter_row3: %h", filter_row3);
+        // $display("Ifmap: %b", ifmap);
         #FL;
 
         out = (ifmap[0] ? filter_row1[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +

@@ -15,20 +15,22 @@ module conditional_copy #(
 
     logic [WIDTH-1:0] packet;
     logic timestep;
+
     always begin
         fork
     	    L.Receive(packet); 
             Timestep.Receive(timestep);
         join
         #FL;
-        if(timestep==0) begin
+        if(timestep == 0) begin
             fork
                 R0.Send(packet); 
                 R1.Send(packet);
             join
-        #BL;
+            #BL;
         end else begin 
             R0.Send(packet);
+            #BL;
         end
     end
 

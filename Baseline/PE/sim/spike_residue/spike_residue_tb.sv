@@ -34,19 +34,19 @@ endmodule
 
 module spike_residue_tb ();
 
-    parameter FILTER_WIDTH = 8;
-    parameter THRESHOLD    = 64;
+    parameter WIDTH = 8;
+    parameter THRESHOLD = 64;
     
     // Instantiate interfaces  
-    Channel #(.WIDTH(FILTER_WIDTH),.hsProtocol(P4PhaseBD)) L ();
+    Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) L ();
     Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) OutSpike ();
-    Channel #(.WIDTH(FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Residue ();
+    Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) Residue ();
     
     // Instantiate DUT
-    data_generator #(.WIDTH(FILTER_WIDTH), .FL(0)) dg_data (L);
-    spike_residue #(.FILTER_WIDTH(FILTER_WIDTH), .THRESHOLD(THRESHOLD)) sr (.L(L), .OutSpike(OutSpike), .Residue(Residue));
+    data_generator #(.WIDTH(WIDTH), .FL(0)) dg_data (L);
+    spike_residue #(.WIDTH(WIDTH), .THRESHOLD(THRESHOLD)) sr (.L(L), .OutSpike(OutSpike), .Residue(Residue));
     data_bucket #(.WIDTH(1), .BL(0)) db_spike (OutSpike);
-    data_bucket #(.WIDTH(FILTER_WIDTH), .BL(0)) db_residue (Residue);
+    data_bucket #(.WIDTH(WIDTH), .BL(0)) db_residue (Residue);
 
     initial begin
         $display("Start simulation!!!");

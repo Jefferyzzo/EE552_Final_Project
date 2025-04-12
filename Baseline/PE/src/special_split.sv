@@ -29,9 +29,13 @@ module special_split #(
             Ifmapb_filter.Receive(ifmapb_filter);
             Filter_row.Receive(filter_row);
         join
+        // $display("Data: %h", data);
+        // $display("Ifmapb_filter: %b", ifmapb_filter);
+        // $display("Filter_row: %b", filter_row);
         #FL;
         if (ifmapb_filter == 0) begin               // send ifmap data
             ifmap_data[8:0] = data[8:0];
+            // $display("ifmap_data: %h", ifmap_data);
             Ifmap.Send(ifmap_data);
         end else begin                              // send filter data
             if (filter_row == 2'b01) begin          // row1
@@ -43,7 +47,7 @@ module special_split #(
             end else if (filter_row == 2'b11) begin // row3
                 Filter_row3.Send(data);
                 #BL;
-            end else begin // row3
+            end else begin 
                 $display("Error: filter_row is not valid");
             end
         end

@@ -2,7 +2,14 @@
 ./PE_tb.sv
 ../../src/PE.sv
 ../../src/depacketizer.sv
+../../src/split.sv
 ../../src/special_split.sv
 ../../src/priority_mux.sv
 ../../src/copy.sv
+../../src/copy4.sv
+../../src/conditional_copy.sv
 ../../src/mac.sv
+../../src/spike_residue.sv
+../../src/two_input_adder.sv
+../../src/merge.sv
+../../src/packetizer.sv
