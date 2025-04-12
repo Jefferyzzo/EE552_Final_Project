@@ -3,9 +3,9 @@
 import SystemVerilogCSP::*;
 
 module three_input_split #(
-    parameter FILTER_WIDTH	= 8,
-    parameter FL	= 2,
-    parameter BL	= 1 
+    parameter FILTER_WIDTH = 8,
+    parameter FL	       = 2,
+    parameter BL	       = 1 
 ) (
     interface  L,
     interface  S,

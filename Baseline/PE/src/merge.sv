@@ -11,7 +11,7 @@ module merge #(
     interface  L1,
     interface  S,
     interface  R     
-); 
+);
 
     logic [WIDTH-1:0] packet;
     logic sel;
