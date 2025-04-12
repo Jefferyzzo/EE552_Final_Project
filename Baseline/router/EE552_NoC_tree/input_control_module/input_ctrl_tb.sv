@@ -35,7 +35,6 @@ module input_ctrl_tb #(
         .WIDTH_addr(3),
         .FL(2),
         .BL(1),
-        .MASK(3'b110),
         .LEVEL(2),
         .is_parent(0),
         .NUM_NODE(8),

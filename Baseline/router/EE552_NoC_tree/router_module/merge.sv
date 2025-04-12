@@ -22,6 +22,7 @@ always begin
     //$display("Start of merge operation at time: %t", $time);
 
     // ******************* Receive selector value from S
+    wait(S.status != idle) ;
     S.Receive(sel); 
     //$display("Received selector value: %0d at time: %t", sel, $time);
 

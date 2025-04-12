@@ -10,65 +10,65 @@ cModel Technology
 dD:/EE552/HW/HW2_Student/question2/copy
 YChannel
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 DXx4 work 16 SystemVerilogCSP 0 22 [bF=dZV1dQz=HH2Cgc1[e0
-DXx4 work 24 SystemVerilogCSP_sv_unit 0 22 RU`D=hzlb`^MNOHM_GVK41
+Z1 DXx4 work 16 SystemVerilogCSP 0 22 19eO3J1K5MU7Lbi>5BRj]2
+DXx4 work 24 SystemVerilogCSP_sv_unit 0 22 ?Ib>[OHK9X5:iWhII2>fm3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
 31
 !i10b 1
 !s100 LNXGm4_=J^U76_1l;U10@3
-ISo^B8RTFP7SMklU[dJ^c]2
+Ij6ITY9i1`RE1eR3jm`FQN3
 !s105 SystemVerilogCSP_sv_unit
 S1
 Z3 dD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module
 Z4 w1744149506
-Z5 8SystemVerilogCSP.sv
-Z6 FSystemVerilogCSP.sv
+Z5 8D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/SystemVerilogCSP.sv
+Z6 FD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/SystemVerilogCSP.sv
 L0 24
 Z7 OL;L;10.6e;65
-Z8 !s108 1744340401.000000
-Z9 !s107 input_ctrl_tb.sv|input_ctrl.sv|SystemVerilogCSP.sv|
-Z10 !s90 -reportprogress|300|-work|work|SystemVerilogCSP.sv|input_ctrl.sv|input_ctrl_tb.sv|
+Z8 !s108 1744428945.000000
+!s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/SystemVerilogCSP.sv|
+Z9 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/SystemVerilogCSP.sv|
 !i113 0
-Z11 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z12 tCvgOpt 0
+Z10 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 tCvgOpt 0
 n@channel
 vdata_bucket
 R0
-R1
-DXx4 work 19 data_bucket_sv_unit 0 22 ba1_NmKPcXZ@<@;Kd_LMe0
+Z12 DXx4 work 16 SystemVerilogCSP 0 22 [bF=dZV1dQz=HH2Cgc1[e0
+DXx4 work 19 data_bucket_sv_unit 0 22 `2K2n1P46P>bM?55Fl7>E3
 R2
 r1
 !s85 0
 31
 !i10b 1
 !s100 LkHT^`91cAbQK]fT^L`ao3
-IW^cV@:]XlkkK7VKAQm?UG3
+Ici6J1H]`PR[DN^Kf<28`D0
 !s105 data_bucket_sv_unit
 S1
 R3
 Z13 w1744320534
-Z14 8data_bucket.sv
-Z15 Fdata_bucket.sv
+Z14 8D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/data_bucket.sv
+Z15 FD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/data_bucket.sv
 L0 4
 R7
 R8
-Z16 !s107 data_bucket.sv|data_generator.sv|
-Z17 !s90 -reportprogress|300|-work|work|data_generator.sv|data_bucket.sv|
+Z16 !s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/data_bucket.sv|
+Z17 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/data_bucket.sv|
 !i113 0
+R10
 R11
-R12
 Xdata_bucket_sv_unit
 R0
-R1
-Vba1_NmKPcXZ@<@;Kd_LMe0
+R12
+V`2K2n1P46P>bM?55Fl7>E3
 r1
 !s85 0
 31
 !i10b 1
-!s100 cAa[3<:7XBm_d]IoP^><P3
-Iba1_NmKPcXZ@<@;Kd_LMe0
+!s100 UK]doY8EJgDXon6fhfelM2
+I`2K2n1P46P>bM?55Fl7>E3
 !i103 1
 S1
 R3
@@ -81,43 +81,43 @@ R8
 R16
 R17
 !i113 0
+R10
 R11
-R12
 vdata_generator
 R0
-R1
-DXx4 work 22 data_generator_sv_unit 0 22 RhcRD]zPca:_Hd8l`ahN_2
+R12
+DXx4 work 22 data_generator_sv_unit 0 22 DQKTBKg2z=G6[W41?M<zA2
 R2
 r1
 !s85 0
 31
 !i10b 1
 !s100 G`0z3Qg4<LAj>JRBoRfR73
-I0Ua4zJ87JEE`mX666A_9<0
+Ikb4IolUoYSH;m31<8RHRg0
 !s105 data_generator_sv_unit
 S1
 R3
 Z18 w1744320593
-Z19 8data_generator.sv
-Z20 Fdata_generator.sv
+Z19 8D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/data_generator.sv
+Z20 FD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/data_generator.sv
 L0 4
 R7
 R8
-R16
-R17
+Z21 !s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/data_generator.sv|
+Z22 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/data_generator.sv|
 !i113 0
+R10
 R11
-R12
 Xdata_generator_sv_unit
 R0
-R1
-VRhcRD]zPca:_Hd8l`ahN_2
+R12
+VDQKTBKg2z=G6[W41?M<zA2
 r1
 !s85 0
 31
 !i10b 1
 !s100 B2CPC4=JO<@BeI]VVGnBY3
-IRhcRD]zPca:_Hd8l`ahN_2
+IDQKTBKg2z=G6[W41?M<zA2
 !i103 1
 S1
 R3
@@ -127,118 +127,116 @@ R20
 L0 2
 R7
 R8
-R16
-R17
+R21
+R22
 !i113 0
+R10
 R11
-R12
 vinput_ctrl
 R0
-R1
-DXx4 work 18 input_ctrl_sv_unit 0 22 BOOC]d>`cJ23UbJ8^f7iG2
+R12
+DXx4 work 18 input_ctrl_sv_unit 0 22 6VUW@L2hTa`oj^]NRU<O=3
 R2
 r1
 !s85 0
 31
 !i10b 1
-!s100 HOE0LJhl4n;j6Ik5nmcIV2
-I8NbWAZ9>4;;Ml>U8kn=8j2
+!s100 1E@oD0<zML;PK_R=6Bbe10
+IC<oPdiK6;:HUINbb[m>NU0
 !s105 input_ctrl_sv_unit
 S1
 R3
-Z21 w1744338984
-Z22 8input_ctrl.sv
-Z23 Finput_ctrl.sv
-L0 41
+Z23 w1744428076
+Z24 8D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/input_ctrl.sv
+Z25 FD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/input_ctrl.sv
+L0 73
 R7
 R8
-R9
-R10
+Z26 !s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/input_ctrl.sv|
+Z27 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/input_ctrl.sv|
 !i113 0
+R10
 R11
-R12
 Xinput_ctrl_sv_unit
 R0
-R1
-VBOOC]d>`cJ23UbJ8^f7iG2
+R12
+V6VUW@L2hTa`oj^]NRU<O=3
 r1
 !s85 0
 31
 !i10b 1
-!s100 COGhd:Joc[eQNdPGT`X0O0
-IBOOC]d>`cJ23UbJ8^f7iG2
+!s100 AAiMWb:nojMedB[l3g>a21
+I6VUW@L2hTa`oj^]NRU<O=3
 !i103 1
 S1
 R3
-R21
-R22
 R23
-L0 39
+R24
+R25
+L0 71
 R7
 R8
-R9
-R10
+R26
+R27
 !i113 0
+R10
 R11
-R12
 vinput_ctrl_tb
 R0
-R1
-DXx4 work 21 input_ctrl_tb_sv_unit 0 22 e799]72nUH?m[CJBEl1Z80
+R12
+DXx4 work 21 input_ctrl_tb_sv_unit 0 22 ]KiNUbZ09]hEWV556HQb^2
 R2
 r1
 !s85 0
 31
 !i10b 1
-!s100 TBfTeM:T81[jdmoaT[joD1
-IB=d3:dg__RzP7<OTdgH<=2
+!s100 SGmMCgA1DC9QW;;49I=4l0
+IIAim0A<JNYD@d`F?FThY32
 !s105 input_ctrl_tb_sv_unit
 S1
 R3
-Z24 w1744340387
-Z25 8input_ctrl_tb.sv
-Z26 Finput_ctrl_tb.sv
+Z28 w1744412296
+Z29 8D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/input_ctrl_tb.sv
+Z30 FD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/input_ctrl_tb.sv
 L0 6
 R7
 R8
-R9
-R10
+Z31 !s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/input_ctrl_tb.sv|
+Z32 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/input_ctrl_tb.sv|
 !i113 0
+R10
 R11
-R12
 Xinput_ctrl_tb_sv_unit
 R0
-R1
-Ve799]72nUH?m[CJBEl1Z80
+R12
+V]KiNUbZ09]hEWV556HQb^2
 r1
 !s85 0
 31
 !i10b 1
-!s100 nT_W4Dn5TEJN5U93^edbU2
-Ie799]72nUH?m[CJBEl1Z80
+!s100 A:HD^LdB4^cE`cF@7dbJC3
+I]KiNUbZ09]hEWV556HQb^2
 !i103 1
 S1
 R3
-R24
-R25
-R26
+R28
+R29
+R30
 L0 4
 R7
 R8
-R9
-R10
+R31
+R32
 !i113 0
+R10
 R11
-R12
 XSystemVerilogCSP
 R0
-V[bF=dZV1dQz=HH2Cgc1[e0
-r1
-!s85 0
-31
+!s110 1744428945
 !i10b 1
 !s100 Sd@:S@ckz[LWGOlcJb1P`3
-I[bF=dZV1dQz=HH2Cgc1[e0
+I19eO3J1K5MU7Lbi>5BRj]2
+V19eO3J1K5MU7Lbi>5BRj]2
 S1
 R3
 R4
@@ -246,23 +244,26 @@ R5
 R6
 L0 15
 R7
+r1
+!s85 0
+31
 R8
+Z33 !s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_control_module/SystemVerilogCSP.sv|
 R9
-R10
 !i113 0
+R10
 R11
-R12
 n@system@verilog@c@s@p
 XSystemVerilogCSP_sv_unit
 R0
 R1
-VRU`D=hzlb`^MNOHM_GVK41
+V?Ib>[OHK9X5:iWhII2>fm3
 r1
 !s85 0
 31
 !i10b 1
 !s100 VFJOQ8ED]7[Gd<mA12MG23
-IRU`D=hzlb`^MNOHM_GVK41
+I?Ib>[OHK9X5:iWhII2>fm3
 !i103 1
 S1
 R3
@@ -272,9 +273,9 @@ R6
 L0 22
 R7
 R8
+R33
 R9
-R10
 !i113 0
+R10
 R11
-R12
 n@system@verilog@c@s@p_sv_unit

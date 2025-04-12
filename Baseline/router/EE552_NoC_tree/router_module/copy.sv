@@ -21,6 +21,7 @@ always begin
 
     // ******************* Receive data from input interface L
     //$display("Waiting to receive data from L at time: %t", $time);
+    wait(L.status != idle) ;
     L.Receive(packet);
     //$display("Received data: %0h from L at time: %t", packet, $time);
 
