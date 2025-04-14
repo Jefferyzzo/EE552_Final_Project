@@ -46,19 +46,19 @@ Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) PE2S ();
 
 
 
-input_buffer_E #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(3), .Y_HOP_LOC(4))
+input_buffer_E #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC))
     buffer_E(.Ei(Ei), .E2PE(E2PE), .E2W(E2W), .E2N(E2N), .E2S(E2S));
 
-input_buffer_W #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(3), .Y_HOP_LOC(4))
+input_buffer_W #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC))
     buffer_W(.Wi(Wi), .W2PE(W2PE), .W2E(W2E), .W2N(W2N), .W2S(W2S));
 
-input_buffer_S #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(3), .Y_HOP_LOC(4))
+input_buffer_S #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC))
     buffer_S(.Si(Si), .S2PE(S2PE), .S2N(S2N));
 
-input_buffer_N #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(3), .Y_HOP_LOC(4))
+input_buffer_N #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC))
     buffer_N(.Ni(Ni), .N2PE(N2PE), .N2S(N2S));
 
-input_buffer_PE #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(3), .Y_HOP_LOC(4))
+input_buffer_PE #(.NODE_NUM(NODE_NUM), .WIDTH(WIDTH), .FL(FL), .BL(BL), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC))
     buffer_PE(.PEi(PEi), .PE2W(PE2W), .PE2E(PE2E), .PE2N(PE2N), .PE2S(PE2S));
 
 
@@ -117,8 +117,10 @@ module input_buffer_E#(
             #BL;
         end
         else begin // no x hop but there is still y hop
-            // Eo_packet = {Ei_packet[0:X_HOP_LOC], 1'b0, Ei_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Ei_packet[Y_HOP_LOC+1:WIDTH-1]};
-            Eo_packet = {Ei_packet[0:X_HOP_LOC], 1'b0, Ei_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((Y_HOP_LOC-X_HOP_LOC)>1)
+                Eo_packet = {Ei_packet[0:X_HOP_LOC], 1'b0, Ei_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Ei_packet[Y_HOP_LOC+1:WIDTH-1]};
+            else 
+                Eo_packet = {Ei_packet[0:X_HOP_LOC], 1'b0, Ei_packet[Y_HOP_LOC+1:WIDTH-1]};
             case(Ei_packet[1])
                 0: begin // send to North
                     E2N.Send(Eo_packet);
@@ -174,8 +176,10 @@ module input_buffer_W#(
             #BL;
         end
         else begin // no x hop but there is still y hop
-            // Wo_packet = {Wi_packet[0:X_HOP_LOC], 1'b0, Wi_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Wi_packet[Y_HOP_LOC+1:WIDTH-1]};
-            Wo_packet = {Wi_packet[0:X_HOP_LOC], 1'b0, Wi_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((Y_HOP_LOC-X_HOP_LOC)>1)
+                Wo_packet = {Wi_packet[0:X_HOP_LOC], 1'b0, Wi_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Wi_packet[Y_HOP_LOC+1:WIDTH-1]};
+            else
+                Wo_packet = {Wi_packet[0:X_HOP_LOC], 1'b0, Wi_packet[Y_HOP_LOC+1:WIDTH-1]};
             case(Wi_packet[1])
                 0: begin // send to North
                     W2N.Send(Wo_packet);
@@ -222,8 +226,10 @@ module input_buffer_N#(
             #BL;
         end
         else begin // send to south
-            // No_packet = {Ni_packet[0:X_HOP_LOC], 1'b0, Ni_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Ni_packet[Y_HOP_LOC+1:WIDTH-1]};
-            No_packet = {Ni_packet[0:X_HOP_LOC], 1'b0, Ni_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((Y_HOP_LOC-X_HOP_LOC)>1)
+                No_packet = {Ni_packet[0:X_HOP_LOC], 1'b0, Ni_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Ni_packet[Y_HOP_LOC+1:WIDTH-1]};
+            else
+                No_packet = {Ni_packet[0:X_HOP_LOC], 1'b0, Ni_packet[Y_HOP_LOC+1:WIDTH-1]};
             N2S.Send(No_packet);
             $display("node %d sends packet %h from North to South at %t", NODE_NUM, Ni_packet, $time);
             #BL;
@@ -261,8 +267,10 @@ module input_buffer_S#(
             #BL;
         end
         else begin // send to north
-            // So_packet = {Si_packet[0:X_HOP_LOC], 1'b0, Si_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Si_packet[Y_HOP_LOC+1:WIDTH-1]};
-            So_packet = {Si_packet[0:X_HOP_LOC], 1'b0, Si_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((Y_HOP_LOC-X_HOP_LOC)>1)
+                So_packet = {Si_packet[0:X_HOP_LOC], 1'b0, Si_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Si_packet[Y_HOP_LOC+1:WIDTH-1]};
+            else
+                So_packet = {Si_packet[0:X_HOP_LOC], 1'b0, Si_packet[Y_HOP_LOC+1:WIDTH-1]};
             S2N.Send(So_packet);
             $display("node %d sends packet %h from South to North at %t", NODE_NUM, Si_packet, $time);
             #BL;
@@ -287,8 +295,8 @@ module input_buffer_PE#(
     interface  PE2N
     ); 
 
-    logic [0:WIDTH-1] PEi_packet;
-    logic [0: WIDTH-1-(Y_HOP_LOC + 1)] PEo_packet;
+    logic [0:WIDTH-1] PEi_packet, PEo_packet;
+    // logic [0: WIDTH-1-(Y_HOP_LOC + 1)] PEo_packet;
 
     // PEi channel logic
     always begin
@@ -312,8 +320,10 @@ module input_buffer_PE#(
         endcase
         end
         else begin // no x hop but there is still y hop
-            // PEo_packet = {PEi_packet[0:X_HOP_LOC], 1'b0, PEi_packet[X_HOP_LOC+1:Y_HOP_LOC-1], PEi_packet[Y_HOP_LOC+1:WIDTH-1]};
-            PEo_packet = {PEi_packet[0:X_HOP_LOC], 1'b0, PEi_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((Y_HOP_LOC-X_HOP_LOC)>1)
+                PEo_packet = {PEi_packet[0:X_HOP_LOC], 1'b0, PEi_packet[X_HOP_LOC+1:Y_HOP_LOC-1], PEi_packet[Y_HOP_LOC+1:WIDTH-1]};
+            else
+                PEo_packet = {PEi_packet[0:X_HOP_LOC], 1'b0, PEi_packet[Y_HOP_LOC+1:WIDTH-1]};
             case(PEi_packet[1])
                 0: begin // send to North
                     PE2N.Send(PEo_packet);

@@ -35,7 +35,7 @@ module tb_router;
      Channel #(.WIDTH(15),.hsProtocol(P4PhaseBD)) Wo ();
      Channel #(.WIDTH(15),.hsProtocol(P4PhaseBD)) No ();
      Channel #(.WIDTH(15),.hsProtocol(P4PhaseBD)) So ();
-     Channel #(.WIDTH(15),.hsProtocol(P4PhaseBD)) PEo ();
+     Channel #(.WIDTH(10),.hsProtocol(P4PhaseBD)) PEo ();
      
      //instantiating the test circuit  
      data_generator_E #(.WIDTH(15)) dg_Ei(.r(Ei));
@@ -71,10 +71,10 @@ module data_generator_E (interface r);
      logic [0:WIDTH-1] data = 0;
      int packet_num_E = 0;
      
-     always
+     initial
      begin 
-          $display("packet num E = %d", packet_num_E);
-          if(packet_num_E < packet_limit) begin
+          while(packet_num_E < packet_limit) begin
+               $display("packet num E = %d", packet_num_E);
                data[5:7] = 3'b000; // marking the source direction
                $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places
                $fdisplay(out_file, "%m starts sending %015b at %t", data, $time);
@@ -97,10 +97,10 @@ module data_generator_W (interface r);
      logic [0:WIDTH-1] data = 0;
      int packet_num_W = 0;
      
-     always
+     initial
      begin 
-          $display("packet num W = %d", packet_num_W);
-          if(packet_num_W < packet_limit) begin
+          while(packet_num_W < packet_limit) begin
+               $display("packet num W = %d", packet_num_W);
                data[0] = 1;
                data[5:7] = 3'b001; // marking the source direction
                $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places
@@ -123,10 +123,10 @@ module data_generator_N (interface r);
      logic [0:WIDTH-1] data = 0;
      int packet_num_N = 0;
      
-     always
+     initial
      begin 
-          $display("packet num N = %d", packet_num_N);
-          if(packet_num_N < packet_limit) begin
+          while(packet_num_N < packet_limit) begin
+               $display("packet num E = %d", packet_num_N);
                data[0:1] = 2'b01;
                data[5:7] = 3'b010; // marking the source direction
                $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places
@@ -147,10 +147,10 @@ module data_generator_S (interface r);
      logic [0:WIDTH-1] data = 0;
      int packet_num_S = 0;
      
-     always
+     initial
      begin 
-          $display("packet num S = %d", packet_num_S);
-          if(packet_num_S < packet_limit) begin
+          while(packet_num_S < packet_limit) begin
+               $display("packet num S = %d", packet_num_S);
                data[0:1] = 2'b00;
                data[5:7] = 3'b011; // marking the source direction
                $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places
@@ -160,9 +160,6 @@ module data_generator_S (interface r);
                data[2:4] = data[2:4] + 3; // change hop count
                data[8:WIDTH-1] = data[8:WIDTH-1] + 1;
                packet_num_S = packet_num_S + 1;
-          end
-          else begin
-               #200;
           end
      end
 endmodule
@@ -175,10 +172,10 @@ module data_generator_PE (interface r);
      logic [0:WIDTH-1] data = 0;
      int packet_num_PE = 0;
      
-     always
+     initial
      begin 
-          $display("packet num PE = %d", packet_num_PE);
-          if(packet_num_PE < packet_limit) begin
+          while(packet_num_PE < packet_limit) begin
+               $display("packet num PE = %d", packet_num_PE);
                if(data[3:4] == 0) begin
                     data[3:4] = 2'b01;
                end
@@ -218,7 +215,7 @@ begin
     //Save the simulation time when Receive starts   
     timeOfReceive = $time;  
     r.Receive(ReceiveValue); 
-    $fdisplay(out_file, "%m receives packet %010b at time %t", ReceiveValue, $time);
+    $fdisplay(out_file, "%m receives packet %b at time %t", ReceiveValue, $time);
     #BL;
 //     cycleCounter += 1;		
 //     //Measuring throughput: calculate the number of Receives per unit of time  
