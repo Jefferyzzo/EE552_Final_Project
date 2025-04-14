@@ -27,7 +27,7 @@ Z5 8arbiter.sv
 Z6 Farbiter.sv
 L0 5
 Z7 OL;L;10.6e;65
-Z8 !s108 1744454328.000000
+Z8 !s108 1744601768.000000
 Z9 !s107 arbiter.sv|
 Z10 !s90 -reportprogress|300|-work|work|arbiter.sv|
 !i113 0
@@ -125,9 +125,9 @@ Z19 8SystemVerilogCSP.sv
 Z20 FSystemVerilogCSP.sv
 L0 24
 R7
-R8
-Z21 !s107 SystemVerilogCSP.sv|
-Z22 !s90 -reportprogress|300|-work|work|SystemVerilogCSP.sv|
+Z21 !s108 1744601767.000000
+Z22 !s107 SystemVerilogCSP.sv|
+Z23 !s90 -reportprogress|300|-work|work|SystemVerilogCSP.sv|
 !i113 0
 R11
 R12
@@ -146,16 +146,16 @@ IB?EZ<?HUYaET8;7ai0^le0
 !s105 copy_sv_unit
 S1
 R3
-Z23 w1744398610
-Z24 8D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router_module/copy.sv
-Z25 FD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router_module/copy.sv
+Z24 w1744398610
+Z25 8D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router_module/copy.sv
+Z26 FD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router_module/copy.sv
 L0 6
 R7
-Z26 !s108 1744454324.000000
-Z27 !s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router_module/copy.sv|
-Z28 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router_module/copy.sv|
+Z27 !s108 1744601760.000000
+Z28 !s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router_module/copy.sv|
+Z29 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router_module/copy.sv|
 !i113 0
-Z29 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z30 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R12
 Xcopy_sv_unit
 R0
@@ -170,16 +170,16 @@ I3OX1L02MkaM@k9=eNRXg22
 !i103 1
 S1
 R3
-R23
 R24
 R25
+R26
 L0 4
 R7
-R26
 R27
 R28
-!i113 0
 R29
+!i113 0
+R30
 R12
 vdata_bucket
 R0
@@ -190,19 +190,19 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 f6]RQDH1:UQ1OF?b9i@d;3
-IlS_D5oRQd2TYEMjKE@gKR1
+!s100 LkHT^`91cAbQK]fT^L`ao3
+IW^cV@:]XlkkK7VKAQm?UG3
 !s105 data_bucket_sv_unit
 S1
 R3
-Z30 w1744261137
-Z31 8data_bucket.sv
-Z32 Fdata_bucket.sv
+Z31 w1744514595
+Z32 8data_bucket.sv
+Z33 Fdata_bucket.sv
 L0 4
 R7
 R8
-Z33 !s107 data_bucket.sv|
-Z34 !s90 -reportprogress|300|-work|work|data_bucket.sv|
+Z34 !s107 data_bucket.sv|
+Z35 !s90 -reportprogress|300|-work|work|data_bucket.sv|
 !i113 0
 R11
 R12
@@ -219,14 +219,14 @@ IVoznY`4E4?PJ7DKLQ[ETJ1
 !i103 1
 S1
 R3
-R30
 R31
 R32
+R33
 L0 2
 R7
 R8
-R33
 R34
+R35
 !i113 0
 R11
 R12
@@ -244,14 +244,14 @@ Ij14db:Lk:5mOe3NUPjD9T0
 !s105 data_generator_sv_unit
 S1
 R3
-Z35 w1744403116
-Z36 8data_generator.sv
-Z37 Fdata_generator.sv
+Z36 w1744403116
+Z37 8data_generator.sv
+Z38 Fdata_generator.sv
 L0 4
 R7
 R8
-Z38 !s107 data_generator.sv|
-Z39 !s90 -reportprogress|300|-work|work|data_generator.sv|
+Z39 !s107 data_generator.sv|
+Z40 !s90 -reportprogress|300|-work|work|data_generator.sv|
 !i113 0
 R11
 R12
@@ -268,37 +268,37 @@ I3=YfC1=c<a=<jD`;VO_Z@0
 !i103 1
 S1
 R3
-R35
 R36
 R37
+R38
 L0 2
 R7
 R8
-R38
 R39
+R40
 !i113 0
 R11
 R12
 vinput_ctrl
 R0
 R1
-DXx4 work 18 input_ctrl_sv_unit 0 22 bB@Zce9a;@N;o;EzIeD>30
+DXx4 work 18 input_ctrl_sv_unit 0 22 RkDJTKD_OYCi;ozn1Kl>b3
 R2
 r1
 !s85 0
 31
 !i10b 1
-!s100 KHMdQS_e3o>4c4kVkn[h_0
-IT9OKmc61jI]K<K<V2h]DR3
+!s100 RP0^@]P?W`NjC2g0eXI]32
+Ie;HFJERgc3]gk43AEJKbP3
 !s105 input_ctrl_sv_unit
 S1
 R3
-Z40 w1744454304
-Z41 8input_ctrl.sv
-Z42 Finput_ctrl.sv
+Z41 w1744601701
+Z42 8input_ctrl.sv
+Z43 Finput_ctrl.sv
 L0 5
 R7
-Z43 !s108 1744454329.000000
+R8
 Z44 !s107 input_ctrl.sv|
 Z45 !s90 -reportprogress|300|-work|work|input_ctrl.sv|
 !i113 0
@@ -307,22 +307,22 @@ R12
 Xinput_ctrl_sv_unit
 R0
 R1
-VbB@Zce9a;@N;o;EzIeD>30
+VRkDJTKD_OYCi;ozn1Kl>b3
 r1
 !s85 0
 31
 !i10b 1
-!s100 6jd0oVQ:dRH5fELoA>;zA3
-IbB@Zce9a;@N;o;EzIeD>30
+!s100 Z3o9MGkY`?jW@;Oe0a6b53
+IRkDJTKD_OYCi;ozn1Kl>b3
 !i103 1
 S1
 R3
-R40
 R41
 R42
+R43
 L0 3
 R7
-R43
+R8
 R44
 R45
 !i113 0
@@ -421,7 +421,7 @@ Z58 8output_ctrl.sv
 Z59 Foutput_ctrl.sv
 L0 5
 R7
-R43
+R8
 Z60 !s107 output_ctrl.sv|
 Z61 !s90 -reportprogress|300|-work|work|output_ctrl.sv|
 !i113 0
@@ -445,7 +445,7 @@ R58
 R59
 L0 3
 R7
-R43
+R8
 R60
 R61
 !i113 0
@@ -474,7 +474,7 @@ Z66 !s108 1744272382.000000
 Z67 !s107 D:/EE552/final_project/EE552_NoC_tree/router_module/output_ctrl_tb.sv|
 Z68 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_NoC_tree/router_module/output_ctrl_tb.sv|
 !i113 0
-R29
+R30
 R12
 Xoutput_ctrl_tb_sv_unit
 R0
@@ -498,28 +498,28 @@ R66
 R67
 R68
 !i113 0
-R29
+R30
 R12
 vrouter
 R0
 R1
-DXx4 work 14 router_sv_unit 0 22 ?5iRcQ41MObc9EZiI96>:1
+DXx4 work 14 router_sv_unit 0 22 PfTZ[QfP76TYogOKO`a`F3
 R2
 r1
 !s85 0
 31
 !i10b 1
-!s100 7la4f5El8MVlj7e`gl;@<0
-IaeB5JcXV;hn9BF3Ybm3CI3
+!s100 GGh[z^cm33j8H?SP]I;1H0
+In`]R<Ed_gfX982zBLX;3Q3
 !s105 router_sv_unit
 S1
 R3
-Z69 w1744450275
+Z69 w1744601543
 Z70 8router.sv
 Z71 Frouter.sv
 L0 5
 R7
-R43
+R8
 Z72 !s107 router.sv|
 Z73 !s90 -reportprogress|300|-work|work|router.sv|
 !i113 0
@@ -528,13 +528,13 @@ R12
 Xrouter_sv_unit
 R0
 R1
-V?5iRcQ41MObc9EZiI96>:1
+VPfTZ[QfP76TYogOKO`a`F3
 r1
 !s85 0
 31
 !i10b 1
-!s100 oY90X2`ez?2LA;o]STHYW0
-I?5iRcQ41MObc9EZiI96>:1
+!s100 VRedo>T9J8::[T]^cQN>I1
+IPfTZ[QfP76TYogOKO`a`F3
 !i103 1
 S1
 R3
@@ -543,7 +543,7 @@ R70
 R71
 L0 2
 R7
-R43
+R8
 R72
 R73
 !i113 0
@@ -568,7 +568,7 @@ R47
 R48
 R49
 R7
-R43
+R8
 R50
 R51
 !i113 0
@@ -592,7 +592,7 @@ R47
 R48
 L0 167
 R7
-R43
+R8
 R50
 R51
 !i113 0
@@ -621,7 +621,7 @@ Z78 !s108 1744272383.000000
 Z79 !s107 D:/EE552/final_project/EE552_NoC_tree/router_module/router_test.sv|
 Z80 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_NoC_tree/router_module/router_test.sv|
 !i113 0
-R29
+R30
 R12
 Xrouter_test_sv_unit
 R0
@@ -645,7 +645,7 @@ R78
 R79
 R80
 !i113 0
-R29
+R30
 R12
 XSystemVerilogCSP
 R0
@@ -663,9 +663,9 @@ R19
 R20
 L0 15
 R7
-R8
 R21
 R22
+R23
 !i113 0
 R11
 R12
@@ -688,9 +688,9 @@ R19
 R20
 L0 22
 R7
-R8
 R21
 R22
+R23
 !i113 0
 R11
 R12

@@ -8,7 +8,7 @@ import SystemVerilogCSP::*;
     parameter WIDTH_addr =3,
     parameter FL = 2,
     parameter BL = 1,
-    parameter LEVEL = 0,
+    parameter LEVEL = 1,
     parameter NUM_NODE = 8,
     parameter ADDR = 3'b000,
     parameter IS_PARENT = 1
@@ -36,15 +36,14 @@ import SystemVerilogCSP::*;
     //     .out2(parent_child2)
     // );
     input_ctrl #(
-        .WIDTH_packet(14),
-        .WIDTH_dest(3),
-        .WIDTH_addr(3),
-        .FL(2),
-        .BL(1),
-        .LEVEL(1),
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(LEVEL),
         .IS_PARENT(IS_PARENT),
-        .NUM_NODE(8),
-        .IS_LCHILD(0)
+        .NUM_NODE(8)
     ) pin (
         .in(parent_in),
         .out1(parent_child1),
@@ -63,14 +62,13 @@ import SystemVerilogCSP::*;
     //     .out2(child1_child2)
     // );
     input_ctrl #(
-        .WIDTH_packet(14),
-        .WIDTH_dest(3),
-        .WIDTH_addr(3),
-        .FL(2),
-        .BL(1),
-        .LEVEL(1),
-        .IS_PARENT(0),
-        .IS_LCHILD(1),
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(LEVEL),
+        .IS_PARENT(!IS_PARENT),
         .NUM_NODE(8)
     ) c1in (
         .in(child1_in),
@@ -90,14 +88,13 @@ import SystemVerilogCSP::*;
     //     .out2(child2_parent)
     // );
     input_ctrl #(
-        .WIDTH_packet(14),
-        .WIDTH_dest(3),
-        .WIDTH_addr(3),
-        .FL(2),
-        .BL(1),
-        .LEVEL(1),
-        .IS_PARENT(0),
-        .IS_LCHILD(0),
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(LEVEL),
+        .IS_PARENT(!IS_PARENT),
         .NUM_NODE(8)
     ) c2in (
         .in(child2_in),
