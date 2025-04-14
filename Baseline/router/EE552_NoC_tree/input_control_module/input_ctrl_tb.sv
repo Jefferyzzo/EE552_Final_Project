@@ -3,9 +3,20 @@
 `timescale 1ns/1ps
 import SystemVerilogCSP::*;
 
-module input_ctrl_tb;
+module input_ctrl_tb #(
+    parameter WIDTH_packet = 14,
+    parameter WIDTH_dest = 3,
+    parameter WIDTH_addr =3,
+    parameter FL = 2,
+    parameter BL = 1,
+    parameter MASK = 3'b110,
+    parameter LEVEL = 0,
+    parameter is_parent = 0,
+    parameter NUM_NODE = 8,
+    parameter ADDR = 3'b000
+);
 
-    parameter WIDTH_packet = 14;
+    //parameter WIDTH_packet = 14;
 
     // Channels
     Channel #(.WIDTH(WIDTH_packet), .hsProtocol(P4PhaseBD)) L();
@@ -19,8 +30,15 @@ module input_ctrl_tb;
 
     // Instantiate input_ctrl DUT
     input_ctrl #(
-        .WIDTH_packet(WIDTH_packet),
-        .MASK(3'b001)
+        .WIDTH_packet(14),
+        .WIDTH_dest(3),
+        .WIDTH_addr(3),
+        .FL(2),
+        .BL(1),
+        .LEVEL(2),
+        .is_parent(0),
+        .NUM_NODE(8),
+        .ADDR(3'b000)
     ) dut (
         .in(L),
         .out1(R0),
@@ -52,7 +70,7 @@ module input_ctrl_tb;
     // Simulation control
     initial begin
         $display("*** input_ctrl_tb simulation starts ***");
-        #1000;
+        #500;
         $display("*** Simulation ends ***");
         $stop;
     end

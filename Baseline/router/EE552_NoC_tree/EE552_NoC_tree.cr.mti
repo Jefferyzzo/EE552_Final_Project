@@ -1,66 +1,16 @@
-D:/EE552/final_project/EE552_NoC_tree/output_ctrl.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_NoC_tree/output_ctrl.sv
+D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/tree.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/tree.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/EE552_NoC_tree/output_ctrl.sv(3): (vlog-13233) Design unit "output_ctrl_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package output_ctrl_sv_unit
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/tree.sv(3): (vlog-13233) Design unit "tree_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package tree_sv_unit
 -- Importing package SystemVerilogCSP
--- Compiling module output_ctrl
+-- Compiling module tree
 
 Top level modules:
-	output_ctrl
+	tree
 
-} {} {}} D:/EE552/final_project/EE552_NoC_tree/router.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_NoC_tree/router.sv
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/data_generator.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/data_generator.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/EE552_NoC_tree/router.sv(2): (vlog-13233) Design unit "router_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package router_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module router
-
-Top level modules:
-	router
-
-} {} {}} D:/EE552/final_project/EE552_NoC_tree/arbiter_2to1.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_NoC_tree/arbiter_2to1.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/EE552_NoC_tree/arbiter_2to1.sv(3): (vlog-13233) Design unit "arbiter_2to1_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package arbiter_2to1_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module arbiter_2to1
-
-Top level modules:
-	arbiter_2to1
-
-} {} {}} D:/EE552/final_project/EE552_NoC_tree/data_bucket.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_NoC_tree/data_bucket.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/EE552_NoC_tree/data_bucket.sv(2): (vlog-13233) Design unit "data_bucket_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package data_bucket_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module data_bucket
-
-Top level modules:
-	data_bucket
-
-} {} {}} D:/EE552/final_project/EE552_NoC_tree/SystemVerilogCSP.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_NoC_tree/SystemVerilogCSP.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
--- Compiling package SystemVerilogCSP
-** Warning: D:/EE552/final_project/EE552_NoC_tree/SystemVerilogCSP.sv(22): (vlog-13233) Design unit "SystemVerilogCSP_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package SystemVerilogCSP_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling interface Channel
-
-Top level modules:
-	--none--
-
-} {} {}} D:/EE552/final_project/EE552_NoC_tree/router_test.sv {1 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_NoC_tree/router_test.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
--- Compiling package router_test_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module router_test
-
-Top level modules:
-	router_test
-
-} {} {}} D:/EE552/final_project/EE552_NoC_tree/data_generator.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_NoC_tree/data_generator.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/EE552_NoC_tree/data_generator.sv(2): (vlog-13233) Design unit "data_generator_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/data_generator.sv(2): (vlog-13233) Design unit "data_generator_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 -- Compiling package data_generator_sv_unit
 -- Importing package SystemVerilogCSP
 -- Compiling module data_generator
@@ -68,14 +18,104 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 Top level modules:
 	data_generator
 
-} {} {}} D:/EE552/final_project/EE552_NoC_tree/input_ctrl.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_NoC_tree/input_ctrl.sv
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/EE552_NoC_tree/input_ctrl.sv(3): (vlog-13233) Design unit "input_ctrl_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/router.sv(2): (vlog-13233) Design unit "router_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package router_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module router
+
+Top level modules:
+	router
+
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv {1 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+-- Compiling package copy_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module copy
+
+Top level modules:
+	copy
+
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/output_ctrl.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/output_ctrl.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/output_ctrl.sv(3): (vlog-13233) Design unit "output_ctrl_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package output_ctrl_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module output_ctrl
+
+Top level modules:
+	output_ctrl
+
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/data_bucket.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/data_bucket.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/data_bucket.sv(2): (vlog-13233) Design unit "data_bucket_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package data_bucket_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module data_bucket
+
+Top level modules:
+	data_bucket
+
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/arbiter_merge.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/arbiter_merge.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/arbiter_merge.sv(4): (vlog-13233) Design unit "arbiter_merge_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package arbiter_merge_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module arbiter_merge
+
+Top level modules:
+	arbiter_merge
+
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/merge.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/merge.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/merge.sv(4): (vlog-13233) Design unit "merge_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package merge_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module merge
+
+Top level modules:
+	merge
+
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/arbiter.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/arbiter.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/arbiter.sv(3): (vlog-13233) Design unit "arbiter_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package arbiter_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module arbiter
+
+Top level modules:
+	arbiter
+
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/SystemVerilogCSP.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/SystemVerilogCSP.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+-- Compiling package SystemVerilogCSP
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/SystemVerilogCSP.sv(22): (vlog-13233) Design unit "SystemVerilogCSP_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package SystemVerilogCSP_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling interface Channel
+
+Top level modules:
+	--none--
+
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_ctrl.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_ctrl.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_ctrl.sv(3): (vlog-13233) Design unit "input_ctrl_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 -- Compiling package input_ctrl_sv_unit
 -- Importing package SystemVerilogCSP
 -- Compiling module input_ctrl
 
 Top level modules:
 	input_ctrl
+
+} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/tree_tb.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/tree_tb.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/tree_tb.sv(3): (vlog-13233) Design unit "tree_tb_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package tree_tb_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module tree_tb
+
+Top level modules:
+	tree_tb
 
 } {} {}}

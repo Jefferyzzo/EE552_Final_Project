@@ -17,4 +17,41 @@ vlog -work work router_tb.sv
 
 
 vsim -novopt work.router_tb
+
+add wave -position insertpoint  \
+sim:/router_tb/L0/status \
+sim:/router_tb/L0/req \
+sim:/router_tb/L0/ack \
+sim:/router_tb/L0/data
+
+add wave -position insertpoint  \
+sim:/router_tb/L1/status \
+sim:/router_tb/L1/req \
+sim:/router_tb/L1/ack \
+sim:/router_tb/L1/data
+
+add wave -position insertpoint  \
+sim:/router_tb/L2/status \
+sim:/router_tb/L2/req \
+sim:/router_tb/L2/ack \
+sim:/router_tb/L2/data
+
+add wave -position insertpoint  \
+sim:/router_tb/R0/status \
+sim:/router_tb/R0/req \
+sim:/router_tb/R0/ack \
+sim:/router_tb/R0/data
+
+add wave -position insertpoint  \
+sim:/router_tb/R1/status \
+sim:/router_tb/R1/req \
+sim:/router_tb/R1/ack \
+sim:/router_tb/R1/data
+
+add wave -position insertpoint  \
+sim:/router_tb/R2/status \
+sim:/router_tb/R2/req \
+sim:/router_tb/R2/ack \
+sim:/router_tb/R2/data
+
 run -all

@@ -4,70 +4,187 @@ import SystemVerilogCSP::*;
 
 module tree #(
     parameter WIDTH_packet = 14,
+    parameter WIDTH_dest = 3,
+    parameter WIDTH_addr =3,
     parameter FL = 2,
-    parameter BL = 1
+    parameter BL = 1,
+    parameter LEVEL = 1,
+    parameter NUM_NODE = 8,
+    parameter ADDR = 3'b000,
+    parameter IS_PARENT = 1
 ) (
-    interface node1_lchild,node1_rchild,
-    node2_parent, node2_lchild, node2_rchild,
-    node3_parent, node3_lchild, node3_rchild,
-    node4_parent, node4_lchild, node4_rchild,
-    node5_parent, node5_lchild, node5_rchild,
-    node6_parent, node6_lchild, node6_rchild,
+    interface PE0_in,PE0_out,
+    PE1_in,PE1_out,
+    PE2_in,PE2_out,
+    PE3_in,PE3_out,
+    PE4_in,PE4_out,
+    PE5_in,PE5_out,
+    PE6_in,PE6_out,
+    PE7_in,PE7_out
 );
 
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node1_1();//lchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node1_2();//rchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node2_1();//lchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node2_2();//rchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node2_3();//parent
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node3_1();//lchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node3_2();//rchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node3_3();//parent
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node4_1();//lchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node4_2();//rchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node4_3();//parent
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node5_1();//lchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node5_2();//rchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node5_3();//parent
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node6_1();//lchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node6_2();//rchild
-    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node6_3();//parent
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node1_1_in();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node1_1_out();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node1_2_in();//rchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node1_2_out();//rchild
 
-    router #(.MASK(100)) node1 (
-        .child1(node1_1),
-        .child2(node1_2),
-        .parent()
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node2_1_in();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node2_1_out();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node2_2_in();//rchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node2_2_out();//rchild
+
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node3_1_in();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node3_1_out();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node3_2_in();//rchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node3_2_out();//rchild
+
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node4_1_in();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node4_1_out();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node4_2_in();//rchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node4_2_out();//rchild
+
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node5_1_in();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node5_1_out();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node5_2_in();//rchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node5_2_out();//rchild
+
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node6_1_in();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node6_1_out();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node6_2_in();//rchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node6_2_out();//rchild
+
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node7_1_in();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node7_1_out();//lchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node7_2_in();//rchild
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) node7_2_out();//rchild
+
+    Channel #(.hsProtocol(P4PhaseBD), .WIDTH(WIDTH_packet)) empty[1:0]();//rchild
+
+
+
+
+    router #(
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(0)
+    ) node1 (
+        .parent_in(empty[0]),
+        .parent_out(empty[1]),
+        .child1_in(node1_1_in),
+        .child1_out(node1_1_out),
+        .child2_in(node1_2_in),
+        .child2_out(node1_2_out)
+
     );
 
-    router #(.MASK(010)) node2 (
-        .child1(node2_1),
-        .child2(node2_2),
-        .parent(node2_3)
+    router #(
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(1)
+    ) node2 (
+        .parent_in(node1_1_out),
+        .parent_out(node1_1_in),
+        .child1_in(node2_1_in),
+        .child1_out(node2_1_out),
+        .child2_in(node2_2_in),
+        .child2_out(node2_2_out)
+
     );
 
-    router #(.MASK(010)) node3 (
-        .child1(node3_1),
-        .child2(node3_2),
-        .parent(node3_3)
+    router #(
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(1)
+    ) node3 (
+        .parent_in(node1_2_out),
+        .parent_out(node1_2_in),
+        .child1_in(node3_1_in),
+        .child1_out(node3_1_out),
+        .child2_in(node3_2_in),
+        .child2_out(node3_2_out)
+
     );
 
-    router #(.MASK(001)) node4 (
-        .child1(node4_1),
-        .child2(node4_2),
-        .parent(node4_3)
+    router #(
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(2)
+    ) node4 (
+        .parent_in(node2_1_out),
+        .parent_out(node2_1_in),
+        .child1_in(PE0_in),
+        .child1_out(PE0_out),
+        .child2_in(PE1_in),
+        .child2_out(PE1_out)
+
     );
 
-    router #(.MASK(001)) node5 (
-        .child1(node5_1),
-        .child2(node5_2),
-        .parent(node5_3)
+    router #(
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(2)
+    ) node5 (
+        .parent_in(node2_2_out),
+        .parent_out(node2_2_in),
+        .child1_in(PE2_in),
+        .child1_out(PE2_out),
+        .child2_in(PE3_in),
+        .child2_out(PE3_out)
+
     );
 
-    router #(.MASK(001)) node6 (
-        .child1(node6_1),
-        .child2(node6_2),
-        .parent(node6_3)
+    router #(
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(2)
+    ) node6 (
+        .parent_in(node3_1_out),
+        .parent_out(node3_1_in),
+        .child1_in(PE4_in),
+        .child1_out(PE4_out),
+        .child2_in(PE5_in),
+        .child2_out(PE5_out)
+
     );
+
+    router #(
+        .WIDTH_packet(WIDTH_packet),
+        .WIDTH_dest(WIDTH_dest),
+        .WIDTH_addr(WIDTH_addr),
+        .FL(FL),
+        .BL(BL),
+        .LEVEL(2)
+    ) node7 (
+        .parent_in(node3_2_out),
+        .parent_out(node3_2_in),
+        .child1_in(PE6_in),
+        .child1_out(PE6_out),
+        .child2_in(PE7_in),
+        .child2_out(PE7_out)
+
+    );
+
+
+
+
 
 
 

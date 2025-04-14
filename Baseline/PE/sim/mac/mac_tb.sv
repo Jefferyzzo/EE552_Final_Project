@@ -1,7 +1,7 @@
 `timescale 1ns/1ns
 
 import SystemVerilogCSP::*;
-//
+
 module data_generator (interface r);
 
     parameter WIDTH = 8;
@@ -13,7 +13,7 @@ module data_generator (interface r);
         SendValue = $random() % (2**WIDTH); // the range of random number is from 0 to 2^WIDTH
         #FL;   
         r.Send(SendValue);
-        $display("DG sends input data = %d @ %t", SendValue, $time);
+        $display("DG %m sends input data = %h @ %t", SendValue, $time);
     end
 
 endmodule
@@ -35,9 +35,8 @@ endmodule
 module mac_tb ();
 
     parameter FILTER_WIDTH = 8;
-    parameter OUTPUT_WIDTH = 8,
-    parameter FILTER_WIDTH = 8,
-    parameter IFMAP_WIDTH  = 1,
+    parameter OUTPUT_WIDTH = 12;
+    parameter IFMAP_WIDTH  = 1;
 
     // Instantiate interfaces  
     Channel #(.WIDTH(FILTER_WIDTH*3),.hsProtocol(P4PhaseBD)) L0 (); // fiter_row1
@@ -51,14 +50,14 @@ module mac_tb ();
     data_generator #(.WIDTH(FILTER_WIDTH*3), .FL(0)) dg_filter2 (L1); 
     data_generator #(.WIDTH(FILTER_WIDTH*3), .FL(0)) dg_filter3 (L2); 
     data_generator #(.WIDTH(IFMAP_WIDTH*9), .FL(0)) dg_ifmap (L3); 
-    mac #(.WIDTH(WIDTH)) mac (
+    mac mac (
         .L0(L0),
         .L1(L1),
         .L2(L2),
         .L3(L3),
         .R(R)
     );
-    data_bucket #(.OUTPUT_WIDTH(OUTPUT_WIDTH)) db (R);
+    data_bucket #(.WIDTH(OUTPUT_WIDTH)) db (R);
 
     initial begin
         $display("Simulation started");

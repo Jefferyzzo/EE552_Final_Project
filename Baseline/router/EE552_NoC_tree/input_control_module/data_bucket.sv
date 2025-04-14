@@ -11,7 +11,7 @@ module data_bucket (interface r);
 
   //Variables added for performance measurements
 
-  initial
+  always
   begin
     $display("*** %m starts execution at time %t", $time);
 	//add a display here to see when this module starts its main loop
