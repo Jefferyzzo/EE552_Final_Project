@@ -1,7 +1,7 @@
 quit -sim
 
-vlog -work work SystemVerilogCSP.sv arbiter_merge_4in.sv arbiter_merge.sv arbiter.sv  \
-copy.sv merge.sv tb_router.sv router.sv
+vlog -work work ./design/SystemVerilogCSP.sv ./design/arbiter_merge_4in.sv ./design/arbiter_merge.sv ./design/arbiter.sv  \
+./design/copy.sv ./design/merge.sv ./tb/tb_router.sv ./design/router.sv
 
 vsim -novopt work.tb_router
 

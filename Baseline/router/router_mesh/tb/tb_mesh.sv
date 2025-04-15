@@ -27,9 +27,9 @@ module tb_mesh;
      integer i;
      initial begin
           for(i = 0;i<ROW*COL;i++)begin
-               out_file[i] = $fopen($sformatf("gather_node%0d", i), "w");
+               out_file[i] = $fopen($sformatf("./result/gather_node%0d.txt", i), "w");
           end
-          sent_file = $fopen("sent_file.txt", "w");
+          sent_file = $fopen("./result/sent_file.txt", "w");
           
           #2000;
 
