@@ -1,0 +1,15 @@
+Node 3 | Time = 34ns | Src = 4 | Packet = 430
+Node 3 | Time = 38ns | Src = 0 | Packet = 030
+Node 3 | Time = 46ns | Src = 5 | Packet = 530
+Node 3 | Time = 50ns | Src = 1 | Packet = 130
+Node 3 | Time = 54ns | Src = 4 | Packet = 431
+Node 3 | Time = 60ns | Src = 2 | Packet = 230
+Node 3 | Time = 66ns | Src = 0 | Packet = 031
+Node 3 | Time = 70ns | Src = 5 | Packet = 531
+Node 3 | Time = 74ns | Src = 1 | Packet = 131
+Node 3 | Time = 78ns | Src = 4 | Packet = 432
+Node 3 | Time = 82ns | Src = 2 | Packet = 231
+Node 3 | Time = 88ns | Src = 1 | Packet = 132
+Node 3 | Time = 94ns | Src = 0 | Packet = 032
+Node 3 | Time = 98ns | Src = 5 | Packet = 532
+Node 3 | Time = 108ns | Src = 2 | Packet = 232

@@ -15,7 +15,7 @@ module tb_router;
 
 
      initial begin
-          out_file = $fopen("router_result.txt", "w");
+          out_file = $fopen("./result/router_result.txt", "w");
           #200;
           $fclose(out_file);
           $finish;
