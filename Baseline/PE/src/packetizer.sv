@@ -1,14 +1,15 @@
-// ************************************************** packet orgnization ***********************************************************************
-//             |         HEADER          |                        |                                   3*FILTER_WIDTH                                       |
-//  Address    [0:1]        [2:3]    [4]      [5]         [6:8]    [9]         [10:11]    [12:8+2*filter_width]    [9+2*filter_width:8+3*filter_width]    
-//             direction    x-hop    y-hop    timestep    000      outspike    PE node     0s                      residue  
-// *********************************************************************************************************************************************
+// ************************************************** packet orgnization *******************************************************************************************************
+//             |         HEADER          |                        |                                            3*FILTER_WIDTH                                                  |
+//  Address    [0:1]        [2:3]    [4]      [5]         [6:8]    [9]         [10:11]    [12:8+3*filter_width-output_width]    [9+3*filter_width-output_width:8+3*filter_width]    
+//             direction    x-hop    y-hop    timestep    000      outspike    PE node    0s                                    residue  
+// *****************************************************************************************************************************************************************************
 
 `timescale 1ns/1ns
 import SystemVerilogCSP::*;
 
 module packetizer #(
     parameter FILTER_WIDTH = 8,
+    parameter OUTPUT_WIDTH = 12,
     parameter FL	       = 2,
     parameter BL	       = 1,
     parameter DIRECTION    = 0,
@@ -28,7 +29,7 @@ module packetizer #(
     logic [1:0] x_hop     = X_HOP;
     logic       y_hop     = Y_HOP;
     logic [1:0] pe_node   = PE_NODE;
-    logic [FILTER_WIDTH-1:0]   residue;
+    logic [OUTPUT_WIDTH-1:0]   residue;
     logic [8+3*FILTER_WIDTH:0] packet;
     
     always begin
@@ -38,7 +39,7 @@ module packetizer #(
             Outspike.Receive(outspike);
         join
         #FL;
-        packet = {residue, {(2*FILTER_WIDTH-3){1'b0}}, pe_node, outspike, 3'b000, timestep, y_hop, x_hop, direction};
+        packet = {residue, {(3*FILTER_WIDTH-OUTPUT_WIDTH-3){1'b0}}, pe_node, outspike, 3'b000, timestep, y_hop, x_hop, direction};
         Packet.Send(packet);
         #BL;
     end
