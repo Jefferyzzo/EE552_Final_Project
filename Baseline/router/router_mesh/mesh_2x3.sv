@@ -58,7 +58,7 @@ module mesh_2x3#(
     generate
         for(i = 0; i < 2;i++) begin: gen_row
             for(j = 0; j < 3;j++) begin: gen_col
-                router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(4*i+j), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(X_HOP_LOC)) 
+                router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(COL*i+j), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(X_HOP_LOC)) 
                     router_node(.Wi(W2E[i][j]), .Wo(E2W[i][j]), .Ei(E2W[i][j+1]), .Eo(W2E[i][j+1]), 
                     .Ni(N2S[i+1][j]), .No(S2N[i+1][j]), .Si(S2N[i][j]), .So(N2S[i][j]), 
                     .PEi(PEi[i][j]), .PEo(PEo[i][j]));

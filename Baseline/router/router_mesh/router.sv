@@ -4,12 +4,12 @@
 import SystemVerilogCSP::*;
 
 module router #(
-parameter WIDTH	= 10 ,
+parameter WIDTH	= 20 ,
 parameter FL	= 2 ,
 parameter BL	= 2 ,
 parameter NODE_NUM = 0,
-parameter X_HOP_LOC = 3, // location of last x hop bit in the packet
-parameter Y_HOP_LOC = 4 // location of last y hop bit in the packet
+parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
+parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
 ) (
 interface  Wi    ,
 interface  Wo    ,
@@ -86,8 +86,8 @@ module input_buffer_E#(
     parameter WIDTH	= 10 ,
     parameter FL	= 2 ,
     parameter BL	= 2 ,
-    parameter X_HOP_LOC = 3, // location of last x hop bit in the packet
-    parameter Y_HOP_LOC = 4 // location of last y hop bit in the packet
+    parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
+    parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
     ) (
     interface  Ei    ,
     interface  E2PE  ,
@@ -97,6 +97,7 @@ module input_buffer_E#(
     ); 
     
     logic [0:WIDTH-1] Ei_packet, Eo_packet;
+    integer i;
 
 // Ei channel logic
     always begin
@@ -117,8 +118,15 @@ module input_buffer_E#(
             #BL;
         end
         else begin // no x hop but there is still y hop
-            if((Y_HOP_LOC-X_HOP_LOC)>1)
-                Eo_packet = {Ei_packet[0:X_HOP_LOC], 1'b0, Ei_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Ei_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((X_HOP_LOC+1)<=Y_HOP_LOC) begin
+                Eo_packet[0:X_HOP_LOC] = Ei_packet[0:X_HOP_LOC];
+                for(i = X_HOP_LOC+1; i <= Y_HOP_LOC;i++) begin
+                    if(i == X_HOP_LOC+1) Eo_packet[i] = 0;
+                    else Eo_packet[i] = Ei_packet[i-1];
+                end
+                // Eo_packet[X_HOP_LOC+1:Y_HOP_LOC] = Ei_packet[X_HOP_LOC+1:Y_HOP_LOC]>>1;
+                Eo_packet[(Y_HOP_LOC+1):(WIDTH-1)] = Ei_packet[(Y_HOP_LOC+1):(WIDTH-1)];
+            end
             else 
                 Eo_packet = {Ei_packet[0:X_HOP_LOC], 1'b0, Ei_packet[Y_HOP_LOC+1:WIDTH-1]};
             case(Ei_packet[1])
@@ -145,8 +153,8 @@ module input_buffer_W#(
     parameter WIDTH	= 10 ,
     parameter FL	= 2 ,
     parameter BL	= 2 ,
-    parameter X_HOP_LOC = 3, // location of last x hop bit in the packet
-    parameter Y_HOP_LOC = 4 // location of last y hop bit in the packet
+    parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
+    parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
     ) (
     interface  Wi    ,
     interface  W2PE  ,
@@ -156,6 +164,7 @@ module input_buffer_W#(
     ); 
 
     logic [0:WIDTH-1] Wi_packet, Wo_packet;
+    integer i;
 
 // Wi channel logic
     always begin
@@ -176,8 +185,15 @@ module input_buffer_W#(
             #BL;
         end
         else begin // no x hop but there is still y hop
-            if((Y_HOP_LOC-X_HOP_LOC)>1)
-                Wo_packet = {Wi_packet[0:X_HOP_LOC], 1'b0, Wi_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Wi_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((X_HOP_LOC+1)<=Y_HOP_LOC) begin
+                Wo_packet[0:X_HOP_LOC] = Wi_packet[0:X_HOP_LOC];
+                for(i = X_HOP_LOC+1; i <= Y_HOP_LOC;i++) begin
+                    if(i == X_HOP_LOC+1) Wo_packet[i] = 0;
+                    else Wo_packet[i] = Wi_packet[i-1];
+                end
+                // Wo_packet[X_HOP_LOC+1:Y_HOP_LOC] = Wi_packet[X_HOP_LOC+1:Y_HOP_LOC]>>1;
+                Wo_packet[(Y_HOP_LOC+1):(WIDTH-1)] = Wi_packet[(Y_HOP_LOC+1):(WIDTH-1)];
+            end
             else
                 Wo_packet = {Wi_packet[0:X_HOP_LOC], 1'b0, Wi_packet[Y_HOP_LOC+1:WIDTH-1]};
             case(Wi_packet[1])
@@ -203,8 +219,8 @@ module input_buffer_N#(
     parameter WIDTH	= 10 ,
     parameter FL	= 2 ,
     parameter BL	= 2 ,
-    parameter X_HOP_LOC = 3, // location of last x hop bit in the packet
-    parameter Y_HOP_LOC = 4 // location of last y hop bit in the packet
+    parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
+    parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
     ) (
     interface  Ni    ,
     interface  N2PE  ,
@@ -212,6 +228,7 @@ module input_buffer_N#(
     ); 
 
     logic [0:WIDTH-1] Ni_packet, No_packet;
+    integer i;
 
 // Ni channel logic
     always begin
@@ -226,8 +243,15 @@ module input_buffer_N#(
             #BL;
         end
         else begin // send to south
-            if((Y_HOP_LOC-X_HOP_LOC)>1)
-                No_packet = {Ni_packet[0:X_HOP_LOC], 1'b0, Ni_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Ni_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((X_HOP_LOC+1)<=Y_HOP_LOC) begin
+                No_packet[0:X_HOP_LOC] = Ni_packet[0:X_HOP_LOC];
+                for(i = X_HOP_LOC+1; i <= Y_HOP_LOC;i++) begin
+                    if(i == X_HOP_LOC+1) No_packet[i] = 0;
+                    else No_packet[i] = Ni_packet[i-1];
+                end
+                // No_packet[X_HOP_LOC+1:Y_HOP_LOC] = Ni_packet[X_HOP_LOC+1:Y_HOP_LOC]>>1;
+                No_packet[(Y_HOP_LOC+1):(WIDTH-1)] = Ni_packet[(Y_HOP_LOC+1):(WIDTH-1)];
+            end
             else
                 No_packet = {Ni_packet[0:X_HOP_LOC], 1'b0, Ni_packet[Y_HOP_LOC+1:WIDTH-1]};
             N2S.Send(No_packet);
@@ -244,8 +268,8 @@ module input_buffer_S#(
     parameter WIDTH	= 10 ,
     parameter FL	= 2 ,
     parameter BL	= 2 ,
-    parameter X_HOP_LOC = 3, // location of last x hop bit in the packet
-    parameter Y_HOP_LOC = 4 // location of last y hop bit in the packet
+    parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
+    parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
     ) (
     interface  Si    ,
     interface  S2PE  ,
@@ -253,6 +277,7 @@ module input_buffer_S#(
     ); 
 
     logic [0:WIDTH-1] Si_packet, So_packet;
+    integer i;
 
     // Si channel logic
     always begin
@@ -267,8 +292,15 @@ module input_buffer_S#(
             #BL;
         end
         else begin // send to north
-            if((Y_HOP_LOC-X_HOP_LOC)>1)
-                So_packet = {Si_packet[0:X_HOP_LOC], 1'b0, Si_packet[X_HOP_LOC+1:Y_HOP_LOC-1], Si_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((X_HOP_LOC+1)<=Y_HOP_LOC) begin
+                So_packet[0:X_HOP_LOC] = Si_packet[0:X_HOP_LOC];
+                for(i = X_HOP_LOC+1; i <= Y_HOP_LOC;i++) begin
+                    if(i == X_HOP_LOC+1) So_packet[i] = 0;
+                    else So_packet[i] = Si_packet[i-1];
+                end
+                // So_packet[X_HOP_LOC+1:Y_HOP_LOC] = Si_packet[X_HOP_LOC+1:Y_HOP_LOC]>>1;
+                So_packet[(Y_HOP_LOC+1):(WIDTH-1)] = Si_packet[(Y_HOP_LOC+1):(WIDTH-1)];
+            end
             else
                 So_packet = {Si_packet[0:X_HOP_LOC], 1'b0, Si_packet[Y_HOP_LOC+1:WIDTH-1]};
             S2N.Send(So_packet);
@@ -285,8 +317,8 @@ module input_buffer_PE#(
     parameter WIDTH	= 10 ,
     parameter FL	= 2 ,
     parameter BL	= 2 ,
-    parameter X_HOP_LOC = 3, // location of last x hop bit in the packet
-    parameter Y_HOP_LOC = 4 // location of last y hop bit in the packet
+    parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
+    parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
     ) (
     interface  PEi    ,
     interface  PE2S   ,
@@ -296,6 +328,7 @@ module input_buffer_PE#(
     ); 
 
     logic [0:WIDTH-1] PEi_packet, PEo_packet;
+    integer i;
     // logic [0: WIDTH-1-(Y_HOP_LOC + 1)] PEo_packet;
 
     // PEi channel logic
@@ -320,8 +353,15 @@ module input_buffer_PE#(
         endcase
         end
         else begin // no x hop but there is still y hop
-            if((Y_HOP_LOC-X_HOP_LOC)>1)
-                PEo_packet = {PEi_packet[0:X_HOP_LOC], 1'b0, PEi_packet[X_HOP_LOC+1:Y_HOP_LOC-1], PEi_packet[Y_HOP_LOC+1:WIDTH-1]};
+            if((X_HOP_LOC+1)<=Y_HOP_LOC) begin
+                PEo_packet[0:X_HOP_LOC] = PEi_packet[0:X_HOP_LOC];
+                for(i = X_HOP_LOC+1; i <= Y_HOP_LOC;i++) begin
+                    if(i == X_HOP_LOC+1) PEo_packet[i] = 0;
+                    else PEo_packet[i] = PEi_packet[i-1];
+                end
+                // PEo_packet[X_HOP_LOC+1:Y_HOP_LOC] = PEi_packet[X_HOP_LOC+1:Y_HOP_LOC]>>1;
+                PEo_packet[(Y_HOP_LOC+1):(WIDTH-1)] = PEi_packet[(Y_HOP_LOC+1):(WIDTH-1)];
+            end
             else
                 PEo_packet = {PEi_packet[0:X_HOP_LOC], 1'b0, PEi_packet[Y_HOP_LOC+1:WIDTH-1]};
             case(PEi_packet[1])
