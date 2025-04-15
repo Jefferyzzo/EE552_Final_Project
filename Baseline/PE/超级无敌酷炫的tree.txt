@@ -1,0 +1,76 @@
+.
+├── sim
+│   ├── 3_input_split
+│   │   ├── three_input_split.f
+│   │   └── three_input_split_tb.sv
+│   ├── Makefile
+│   ├── PE
+│   │   ├── PE.f
+│   │   ├── PE_tb.sv
+│   │   ├── scnn_script
+│   │   │   ├── L1_filter.txt
+│   │   │   ├── L1_out_spike_t1.txt
+│   │   │   ├── L1_out_spike_t2.txt
+│   │   │   ├── L1_residue_t1.txt
+│   │   │   ├── L1_residue_t2.txt
+│   │   │   ├── ifmap_t1.txt
+│   │   │   └── ifmap_t2.txt
+│   │   └── test_scnn.py
+│   ├── copy
+│   │   ├── copy.f
+│   │   └── copy_tb.sv
+│   ├── depacketizer
+│   │   ├── depacketizer.f
+│   │   ├── depacketizer_tb.sv
+│   │   ├── recv_data.txt
+│   │   ├── recv_filter_row.txt
+│   │   ├── recv_ifmapb_filter.txt
+│   │   ├── recv_timestep.txt
+│   │   ├── send_values.txt
+│   │   └── test.py
+│   ├── mac
+│   │   ├── mac.f
+│   │   └── mac_tb.sv
+│   ├── merge
+│   │   ├── merge.f
+│   │   └── merge_tb.sv
+│   ├── packetizer
+│   │   ├── packetizer.f
+│   │   ├── packetizer_tb.sv
+│   │   ├── recv_packet.txt
+│   │   ├── send_outspike.txt
+│   │   ├── send_residue.txt
+│   │   ├── send_timestep.txt
+│   │   └── test.py
+│   ├── priority_mux
+│   │   ├── priority_mux.f
+│   │   └── priority_mux_tb.sv
+│   ├── spike_residue
+│   │   ├── spike_residue.f
+│   │   └── spike_residue_tb.sv
+│   ├── split
+│   │   ├── split.f
+│   │   └── split_tb.sv
+│   └── two_input_adder
+│       ├── two_input_adder.f
+│       └── two_input_adder_tb.sv
+├── src
+│   ├── PE.sv
+│   ├── SystemVerilogCSP.sv
+│   ├── arbiter.sv
+│   ├── buffer.sv
+│   ├── conditional_copy.sv
+│   ├── copy.sv
+│   ├── copy4.sv
+│   ├── depacketizer.sv
+│   ├── mac.sv
+│   ├── merge.sv
+│   ├── packetizer.sv
+│   ├── priority_mux.sv
+│   ├── special_split.sv
+│   ├── spike_residue.sv
+│   ├── split.sv
+│   ├── three_input_split.sv
+│   └── two_input_adder.sv
+└── tree.txt
+
