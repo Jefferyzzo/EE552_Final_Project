@@ -15,36 +15,36 @@ tb_router.dg_Ni starts sending 011100100000010 at    4.00 ns
 tb_router.dg_PEi starts sending 100011000000010 at    4.00 ns
 tb_router.dg_Ei starts sending 010010000000011 at    8.00 ns
 tb_router.dg_Wi starts sending 110010010000011 at    8.00 ns
-tb_router.dg_Si starts sending 000010110000011 at    8.00 ns
-tb_router.dg_Ni starts sending 010010100000011 at    8.00 ns
-tb_router.dg_PEi starts sending 111011000000011 at    8.00 ns
-tb_router.dg_Si starts sending 001000110000100 at   12.00 ns
-tb_router.dg_PEi starts sending 000011000000100 at   12.00 ns
+tb_router.db_Wo receives packet 000001000000000 at time    8.00 ns
+tb_router.dg_Si starts sending 000010110000011 at   10.00 ns
+tb_router.dg_Ni starts sending 010010100000011 at   10.00 ns
+tb_router.dg_PEi starts sending 111011000000011 at   10.00 ns
+tb_router.dg_Ei starts sending 001000000000100 at   12.00 ns
+tb_router.dg_Wi starts sending 101000010000100 at   12.00 ns
 tb_router.db_Wo receives packet 010010000000001 at time   12.00 ns
 tb_router.db_Eo receives packet 110010010000001 at time   12.00 ns
-tb_router.dg_Ei starts sending 001000000000100 at   14.00 ns
-tb_router.dg_Wi starts sending 101000010000100 at   14.00 ns
-tb_router.dg_Ni starts sending 011000100000100 at   14.00 ns
-tb_router.db_PEo receives packet 0110000000 at time   14.00 ns
-tb_router.db_No receives packet 000001000000000 at time   14.00 ns
-tb_router.db_So receives packet 011001000000001 at time   18.00 ns
-tb_router.db_Wo receives packet 000100000000010 at time   18.00 ns
-tb_router.db_Eo receives packet 100100010000010 at time   18.00 ns
-tb_router.db_PEo receives packet 0010000000 at time   18.00 ns
-tb_router.db_No receives packet 000100110000001 at time   20.00 ns
-tb_router.db_PEo receives packet 0100000000 at time   22.00 ns
-tb_router.db_So receives packet 010100100000001 at time   24.00 ns
-tb_router.db_No receives packet 100001000000010 at time   26.00 ns
-tb_router.db_PEo receives packet 0000000000 at time   26.00 ns
-tb_router.db_So receives packet 010000000000011 at time   28.00 ns
-tb_router.db_PEo receives packet 0110000010 at time   30.00 ns
-tb_router.db_No receives packet 000000110000011 at time   32.00 ns
-tb_router.db_So receives packet 111001000000011 at time   32.00 ns
-tb_router.db_PEo receives packet 0000000100 at time   34.00 ns
-tb_router.db_So receives packet 110000010000011 at time   36.00 ns
-tb_router.db_No receives packet 000001000000100 at time   38.00 ns
-tb_router.db_PEo receives packet 0100000010 at time   38.00 ns
-tb_router.db_So receives packet 010000100000011 at time   40.00 ns
-tb_router.db_PEo receives packet 0010000100 at time   42.00 ns
-tb_router.db_PEo receives packet 0110000100 at time   46.00 ns
-tb_router.db_PEo receives packet 0100000100 at time   52.00 ns
+tb_router.dg_PEi starts sending 000011000000100 at   14.00 ns
+tb_router.db_PEo receives packet 0000000000 at time   14.00 ns
+tb_router.db_No receives packet 000000010000000 at time   14.00 ns
+tb_router.dg_Si starts sending 001000110000100 at   16.00 ns
+tb_router.dg_Ni starts sending 011000100000100 at   16.00 ns
+tb_router.db_Wo receives packet 010101000000001 at time   16.00 ns
+tb_router.db_Eo receives packet 100001000000010 at time   18.00 ns
+tb_router.db_PEo receives packet 0000000000 at time   18.00 ns
+tb_router.db_No receives packet 100000000000000 at time   18.00 ns
+tb_router.db_Wo receives packet 010000000000011 at time   20.00 ns
+tb_router.db_PEo receives packet 0000000010 at time   22.00 ns
+tb_router.db_Eo receives packet 110000010000011 at time   22.00 ns
+tb_router.db_No receives packet 000110010000001 at time   22.00 ns
+tb_router.db_PEo receives packet 0000000001 at time   26.00 ns
+tb_router.db_Eo receives packet 110101000000011 at time   26.00 ns
+tb_router.db_No receives packet 101100000000010 at time   26.00 ns
+tb_router.db_Wo receives packet 000001000000100 at time   28.00 ns
+tb_router.db_PEo receives packet 0000000100 at time   30.00 ns
+tb_router.db_No receives packet 001100010000010 at time   30.00 ns
+tb_router.db_PEo receives packet 0000000010 at time   34.00 ns
+tb_router.db_No receives packet 101000000000100 at time   34.00 ns
+tb_router.db_No receives packet 000010010000011 at time   38.00 ns
+tb_router.db_PEo receives packet 0000000011 at time   40.00 ns
+tb_router.db_No receives packet 001000010000100 at time   44.00 ns
+tb_router.db_PEo receives packet 0000000100 at time   46.00 ns

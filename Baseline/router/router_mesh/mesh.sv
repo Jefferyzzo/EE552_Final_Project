@@ -5,7 +5,15 @@ module dummy_dg #(parameter WIDTH = 15) (interface r);
     // Dummy generator that does not send data
     initial forever begin
         // No transaction logic (idle)
-        #1000;
+        #10;
+    end
+endmodule
+
+module dummy_db #(parameter WIDTH = 15) (interface r);
+    // Dummy generator that does not send data
+    initial forever begin
+        // No transaction logic (idle)
+        #10;
     end
 endmodule
 
@@ -34,18 +42,22 @@ module mesh#(
         for(i = 0; i < ROW;i++) begin: gen_x_dummy
             dummy_dg #(.WIDTH(WIDTH)) dummyGen_W (.r(W2E[i][0]));
             dummy_dg #(.WIDTH(WIDTH)) dummyGen_E (.r(E2W[i][COL]));
+            dummy_db #(.WIDTH(WIDTH)) dummyBucket_W (.r(E2W[i][0]));
+            dummy_db #(.WIDTH(WIDTH)) dummyBucket_E (.r(W2E[i][COL]));
         end
     endgenerate
     generate
         for(i = 0; i < COL;i++) begin: gen_y_dummy
             dummy_dg #(.WIDTH(WIDTH)) dummyGen_N (.r(N2S[ROW][i]));
             dummy_dg #(.WIDTH(WIDTH)) dummyGen_S (.r(S2N[0][i]));
+            dummy_db #(.WIDTH(WIDTH)) dummyBucket_N (.r(S2N[ROW][i]));
+            dummy_db #(.WIDTH(WIDTH)) dummyBucket_S (.r(N2S[0][i]));
         end
     endgenerate
     generate
         for(i = 0; i < ROW;i++) begin: gen_row
             for(j = 0; j < COL;j++) begin: gen_col
-                router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(4*i+j), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(X_HOP_LOC)) 
+                router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(COL*i+j), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) 
                     router_node(.Wi(W2E[i][j]), .Wo(E2W[i][j]), .Ei(E2W[i][j+1]), .Eo(W2E[i][j+1]), 
                     .Ni(N2S[i+1][j]), .No(S2N[i+1][j]), .Si(S2N[i][j]), .So(N2S[i][j]), 
                     .PEi(PEi[i][j]), .PEo(PEo[i][j]));

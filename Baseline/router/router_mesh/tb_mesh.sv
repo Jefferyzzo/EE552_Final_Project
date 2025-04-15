@@ -3,9 +3,9 @@ import SystemVerilogCSP::*;
 
 
 //top level module instantiating data_generator, reciever, and the interface
-localparam     ROW = 4;
-localparam     COL = 4;
-localparam     WIDTH = 20;
+parameter     ROW = 4;
+parameter     COL = 4;
+parameter     WIDTH = 20;
 integer sent_file;
 integer out_file[0:ROW*COL-1];
 integer packet_limit = 3;
@@ -48,7 +48,7 @@ module tb_mesh;
           for(j=0;j<ROW;j++) begin: gen_row
                for(k=0;k<COL;k++) begin: gen_col
                     data_generator #(.WIDTH(WIDTH),.NODE_NUM(j*COL+k)) dg (.r(PEi[j][k]));
-                    data_bucket #(.WIDTH(WIDTH-(Y_HOP_LOC+1)),.NODE_NUM(j*COL+k)) db(.r(PEo[j][k]), .out_file(out_file[j*COL+k]));
+                    data_bucket #(.WIDTH(WIDTH-(Y_HOP_LOC+1)),.NODE_NUM(j*COL+k)) db(.r(PEo[j][k]));
                end
           end
 
@@ -60,27 +60,28 @@ endmodule
 
 
 //data_generator module
-module data_generator (interface r);
-     parameter NODE_NUM = 0;
-     parameter WIDTH = 15;
+module data_generator #(parameter NODE_NUM = 0, parameter WIDTH = 15) (interface r);
      parameter FL = 0; //ideal environment, no forward delay
      
      logic [0:WIDTH-1] packet = 0;
-     integer packet_num = 0;
+     integer packet_num[0:ROW*COL-1];
      integer i;
      
      initial
      begin 
           $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places
-          while(packet_num < packet_limit) begin
+          for(i=0;i<ROW*COL;i++) begin
+               packet_num[i] = 0;
+          end
+          while(packet_num[NODE_NUM] < packet_limit) begin
                for(i=0;i<ROW*COL;i++) begin
                     if(NODE_NUM != i) begin
-                         packet = generate_packet(NODE_NUM, i, packet_num);
+                         packet = generate_packet(NODE_NUM, i, COL, packet_num[NODE_NUM]);
                          r.Send(packet);
-                         packet_num = packet_num + 1;
                          wait(r.status != s_pend);
                     end
                end
+               packet_num[NODE_NUM] = packet_num[NODE_NUM] + 1;
           end
 
      end
@@ -109,6 +110,7 @@ endfunction
 function [0:WIDTH-1] generate_packet;
 input integer src_pe;
 input integer dst_pe;
+input integer COL;
 input integer packet_index;
 
 integer dest_x, dest_y;
@@ -116,10 +118,10 @@ integer src_x, src_y;
 integer hopcount_x, hopcount_y;
 begin
      // 坐标转换
-     dest_x = dst_pe % 4;
-     dest_y = dst_pe / 4;
-     src_x  = src_pe % 4;
-     src_y  = src_pe / 4;
+     dest_x = dst_pe % COL;
+     dest_y = dst_pe / COL;
+     src_x  = src_pe % COL;
+     src_y  = src_pe / COL;
 
      // hopcount 动态计算
      hopcount_y = dest_y - src_y; // placeholder
@@ -135,8 +137,8 @@ begin
      generate_packet[8:11]  = src_pe; // 源PEID
      generate_packet[12:15] = dst_pe; // 目标PE
      generate_packet[16:WIDTH-1] = packet_index;
-     $fdisplay(sent_file, "src_pe = %d,direction = %b,  hop count = %b, packet = %h at time %0dns", 
-          src_pe, generate_packet[0:1], generate_packet[2:7],generate_packet,$time);
+     $fdisplay(sent_file, "src_pe = %d, dst_pe = %d, direction = %b,  hop count = %b, packet = %h at time %0dns", 
+          src_pe, dst_pe, generate_packet[0:1], generate_packet[2:7],generate_packet,$time);
 
 end
 endfunction
@@ -144,9 +146,8 @@ endfunction
 endmodule
 
 //data_bucket module
-module data_bucket (interface r, input integer out_file);
-parameter WIDTH = 10;
-parameter NODE_NUM = 0;
+module data_bucket #(parameter WIDTH = 10, parameter NODE_NUM = 0) (interface r);
+
 parameter BL = 0; //ideal environment   no backward delay
 
 logic [0:WIDTH-1] ReceiveValue = 0;
