@@ -36,8 +36,8 @@ module top #(
         .FL(FL),
         .BL(BL),
         .DIRECTION(3), // SE
-        .X_HOP(1),
-        .Y_HOP(1),
+        .X_HOP(2'b10),
+        .Y_HOP(1'b1),
         .PE_NODE(0)
     ) pe0 (
         .Packet_in(PEo[1][1]), 
@@ -52,8 +52,8 @@ module top #(
         .FL(FL),
         .BL(BL),
         .DIRECTION(3), // SE
-        .X_HOP(0),
-        .Y_HOP(1),
+        .X_HOP(2'b00),
+        .Y_HOP(1'b1),
         .PE_NODE(1)
     ) pe1 (
         .Packet_in(PEo[1][2]), 
@@ -68,8 +68,8 @@ module top #(
         .FL(FL),
         .BL(BL),
         .DIRECTION(3), // SE
-        .X_HOP(3),
-        .Y_HOP(0),
+        .X_HOP(2'b11),
+        .Y_HOP(1'b0),
         .PE_NODE(2)
     ) pe2 (
         .Packet_in(PEo[0][0]), 
@@ -84,8 +84,8 @@ module top #(
         .FL(FL),
         .BL(BL),
         .DIRECTION(3), // SE
-        .X_HOP(1),
-        .Y_HOP(0),
+        .X_HOP(2'b10),
+        .Y_HOP(1'b0),
         .PE_NODE(3)
     ) pe3 (
         .Packet_in(PEo[0][1]), 
@@ -95,7 +95,7 @@ module top #(
     buffer #(
         .FL(FL),
         .BL(BL),
-        .WIDTH(9+3*FILTER_WIDTH), // packet size
+        .WIDTH(9+3*FILTER_WIDTH) // packet size
     ) buffer_in (
         .left(Packet_in), 
         .right(PEi[1][0])
@@ -104,7 +104,7 @@ module top #(
     buffer #(
         .FL(FL),
         .BL(BL),
-        .WIDTH(9+3*FILTER_WIDTH), // packet size
+        .WIDTH(9+3*FILTER_WIDTH) // packet size
     ) buffer_out (
         .left(PEo[0][2]), 
         .right(Packet_out)
