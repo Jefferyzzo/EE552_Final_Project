@@ -1,0 +1,190 @@
+{
+    "MlibObjs": {},
+    "PrevCompiledModules": {},
+    "CompileProcesses": [
+        "cgproc.57623.json"
+    ],
+    "NameTable": {
+        "SystemVerilogCSP": [
+            "SystemVerilogCSP",
+            "enAc4",
+            "module"
+        ],
+        "_vcs_unit__1339387704": [
+            "_vcs_unit__1339387704",
+            "uTBsP",
+            "module"
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
+        "PE_tb": [
+            "PE_tb",
+            "cjQsN",
+            "module"
+        ],
+        "Channel_0000": [
+            "Channel_0000",
+            "nYY4r",
+            "module"
+        ],
+        "Channel_0002": [
+            "Channel_0002",
+            "kBVPD",
+            "module"
+        ],
+        "Channel_0001": [
+            "Channel_0001",
+            "BMHPQ",
+            "module"
+        ],
+        "Channel_0003": [
+            "Channel_0003",
+            "r58GN",
+            "module"
+        ],
+        "Channel_0004": [
+            "Channel_0004",
+            "YYGAb",
+            "module"
+        ],
+        "priority_mux": [
+            "priority_mux",
+            "jECFW",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ],
+        "Channel_0005": [
+            "Channel_0005",
+            "i5mzk",
+            "module"
+        ],
+        "Channel_0006": [
+            "Channel_0006",
+            "icPSP",
+            "module"
+        ],
+        "copy": [
+            "copy",
+            "WCktd",
+            "module"
+        ],
+        "data_bucket": [
+            "data_bucket",
+            "p8BW1",
+            "module"
+        ],
+        "data_generator": [
+            "data_generator",
+            "w8TC7",
+            "module"
+        ]
+    },
+    "CompileStatus": "Successful",
+    "CompileStrategy": "fullobj",
+    "stat": {
+        "ru_self_cgstart": {
+            "ru_utime_sec": 0.193519,
+            "ru_majflt": 0,
+            "ru_stime_sec": 0.072818999999999995,
+            "ru_maxrss_kb": 66172,
+            "ru_nvcsw": 266,
+            "ru_minflt": 18018,
+            "ru_nivcsw": 300
+        },
+        "ru_childs_cgstart": {
+            "ru_utime_sec": 0.0089110000000000005,
+            "ru_majflt": 0,
+            "ru_stime_sec": 0.040584000000000002,
+            "ru_maxrss_kb": 24956,
+            "ru_nvcsw": 21,
+            "ru_minflt": 2738,
+            "ru_nivcsw": 13
+        },
+        "mopSpeed": 97633.608613771125,
+        "nMops": 29343,
+        "mop/quad": 2.5394201644309824,
+        "totalObjSize": 861693,
+        "nQuads": 11555,
+        "ru_self_end": {
+            "ru_utime_sec": 0.49406099999999997,
+            "ru_majflt": 0,
+            "ru_stime_sec": 0.114477,
+            "ru_maxrss_kb": 74184,
+            "ru_nvcsw": 437,
+            "ru_minflt": 21086,
+            "ru_nivcsw": 333
+        },
+        "Frontend(%)": 39.169049975610299,
+        "ru_childs_end": {
+            "ru_utime_sec": 0.0089110000000000005,
+            "ru_majflt": 0,
+            "ru_stime_sec": 0.040584000000000002,
+            "ru_maxrss_kb": 24956,
+            "ru_nvcsw": 21,
+            "ru_minflt": 2738,
+            "ru_nivcsw": 13
+        },
+        "quadSpeed": 38447.205382276021,
+        "outputSizePerQuad": 74.0,
+        "CodeGen(%)": 60.830950024389701
+    },
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 99776
+    },
+    "CurCompileUdps": {},
+    "LVLData": [
+        "SIM"
+    ],
+    "CurCompileModules": [
+        "...MASTER...",
+        "...MASTER...",
+        "_vcs_unit__1339387704",
+        "_vcs_unit__1339387704",
+        "std",
+        "std",
+        "SystemVerilogCSP",
+        "SystemVerilogCSP",
+        "Channel_0000",
+        "Channel_0000",
+        "Channel_0001",
+        "Channel_0001",
+        "Channel_0002",
+        "Channel_0002",
+        "Channel_0003",
+        "Channel_0003",
+        "Channel_0004",
+        "Channel_0004",
+        "Channel_0005",
+        "Channel_0005",
+        "Channel_0006",
+        "Channel_0006",
+        "data_generator",
+        "data_generator",
+        "data_bucket",
+        "data_bucket",
+        "PE_tb",
+        "PE_tb",
+        "priority_mux",
+        "priority_mux",
+        "copy",
+        "copy"
+    ],
+    "PEModules": [],
+    "Misc": {
+        "cwd": "/home/viterbi/06/ychiu078/552/EE552_Final_Project/Baseline/PE/sim/PE",
+        "daidir": "simv.daidir",
+        "csrc": "csrc",
+        "csrc_abs": "/home/viterbi/06/ychiu078/552/EE552_Final_Project/Baseline/PE/sim/PE/csrc",
+        "archive_dir": "archive.0",
+        "daidir_abs": "/home/viterbi/06/ychiu078/552/EE552_Final_Project/Baseline/PE/sim/PE/simv.daidir",
+        "default_output_dir": "csrc"
+    }
+}

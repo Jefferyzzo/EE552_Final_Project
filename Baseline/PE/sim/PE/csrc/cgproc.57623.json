@@ -1,0 +1,263 @@
+{
+    "reusePaths": {},
+    "Modules": {
+        "Channel_0005": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "...MASTER...": {},
+        "SystemVerilogCSP": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "_vcs_unit__1339387704": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "PE_tb": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0002": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0001": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0003": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "priority_mux": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0004": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "copy": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0006": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "data_bucket": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "data_generator": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "out": "objs/amcQw_d.o",
+            "checksum": 0,
+            "bytes": 7884,
+            "mode": 4
+        },
+        "r58GN_d": {
+            "mod": "Channel_0003",
+            "out": "r58GN_d.o",
+            "checksum": 0,
+            "bytes": 71722,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "WCktd_d": {
+            "mod": "copy",
+            "out": "WCktd_d.o",
+            "checksum": 0,
+            "bytes": 13344,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "enAc4_d": {
+            "mod": "SystemVerilogCSP",
+            "out": "enAc4_d.o",
+            "checksum": 0,
+            "bytes": 7667,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "p8BW1_d": {
+            "mod": "data_bucket",
+            "out": "p8BW1_d.o",
+            "checksum": 0,
+            "bytes": 28868,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "uTBsP_d": {
+            "mod": "_vcs_unit__1339387704",
+            "out": "uTBsP_d.o",
+            "checksum": 0,
+            "bytes": 9994,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "reYIK_d": {
+            "mod": "std",
+            "out": "reYIK_d.o",
+            "checksum": 0,
+            "bytes": 41662,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "nYY4r_d": {
+            "mod": "Channel_0000",
+            "out": "nYY4r_d.o",
+            "checksum": 0,
+            "bytes": 71894,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "BMHPQ_d": {
+            "mod": "Channel_0001",
+            "out": "BMHPQ_d.o",
+            "checksum": 0,
+            "bytes": 73230,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "kBVPD_d": {
+            "mod": "Channel_0002",
+            "out": "kBVPD_d.o",
+            "checksum": 0,
+            "bytes": 67964,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "YYGAb_d": {
+            "mod": "Channel_0004",
+            "out": "YYGAb_d.o",
+            "checksum": 0,
+            "bytes": 65977,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "w8TC7_d": {
+            "mod": "data_generator",
+            "out": "w8TC7_d.o",
+            "checksum": 0,
+            "bytes": 32910,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "i5mzk_d": {
+            "mod": "Channel_0005",
+            "out": "i5mzk_d.o",
+            "checksum": 0,
+            "bytes": 71917,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "icPSP_d": {
+            "mod": "Channel_0006",
+            "out": "icPSP_d.o",
+            "checksum": 0,
+            "bytes": 71708,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "cjQsN_d": {
+            "mod": "PE_tb",
+            "out": "cjQsN_d.o",
+            "checksum": 0,
+            "bytes": 114381,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        },
+        "jECFW_d": {
+            "mod": "priority_mux",
+            "out": "jECFW_d.o",
+            "checksum": 0,
+            "bytes": 10795,
+            "mode": 4,
+            "archive": "archive.0/_57623_archive_1.a"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_57623_archive_1.a",
+            "objects": [
+                [
+                    "uTBsP_d.o",
+                    9994
+                ],
+                [
+                    "reYIK_d.o",
+                    41662
+                ],
+                [
+                    "enAc4_d.o",
+                    7667
+                ],
+                [
+                    "nYY4r_d.o",
+                    71894
+                ],
+                [
+                    "BMHPQ_d.o",
+                    73230
+                ],
+                [
+                    "kBVPD_d.o",
+                    67964
+                ],
+                [
+                    "r58GN_d.o",
+                    71722
+                ],
+                [
+                    "YYGAb_d.o",
+                    65977
+                ],
+                [
+                    "i5mzk_d.o",
+                    71917
+                ],
+                [
+                    "icPSP_d.o",
+                    71708
+                ],
+                [
+                    "w8TC7_d.o",
+                    32910
+                ],
+                [
+                    "p8BW1_d.o",
+                    28868
+                ],
+                [
+                    "cjQsN_d.o",
+                    114381
+                ],
+                [
+                    "jECFW_d.o",
+                    10795
+                ],
+                [
+                    "WCktd_d.o",
+                    13344
+                ]
+            ],
+            "size": 754033
+        }
+    ]
+}
