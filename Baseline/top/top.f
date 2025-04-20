@@ -18,5 +18,10 @@
 ../router/router_mesh/design/arbiter.sv
 ../router/router_mesh/design/arbiter_merge.sv
 ../router/router_mesh/design/arbiter_merge_4in.sv
-../router/router_mesh/design/mesh.sv
-../router/router_mesh/design/router.sv
+// ../router/router_mesh/design/mesh.sv
+// ../router/router_mesh/design/router.sv
+../router/router_mesh/design/mesh_vcs.sv
+../router/router_mesh/design/router_reversed.sv
+
+// 00000101_00000101_00000101_0110_01011
+    //  101_00000101_00000101

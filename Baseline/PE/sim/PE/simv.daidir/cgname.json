@@ -1,0 +1,82 @@
+{
+    "_vcs_unit__1339387704": [
+        "_vcs_unit__1339387704",
+        "uTBsP",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ],
+    "data_generator": [
+        "data_generator",
+        "w8TC7",
+        "module"
+    ],
+    "Channel_0006": [
+        "Channel_0006",
+        "icPSP",
+        "module"
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module"
+    ],
+    "SystemVerilogCSP": [
+        "SystemVerilogCSP",
+        "enAc4",
+        "module"
+    ],
+    "Channel_0002": [
+        "Channel_0002",
+        "kBVPD",
+        "module"
+    ],
+    "Channel_0004": [
+        "Channel_0004",
+        "YYGAb",
+        "module"
+    ],
+    "Channel_0000": [
+        "Channel_0000",
+        "nYY4r",
+        "module"
+    ],
+    "Channel_0001": [
+        "Channel_0001",
+        "BMHPQ",
+        "module"
+    ],
+    "data_bucket": [
+        "data_bucket",
+        "p8BW1",
+        "module"
+    ],
+    "Channel_0003": [
+        "Channel_0003",
+        "r58GN",
+        "module"
+    ],
+    "Channel_0005": [
+        "Channel_0005",
+        "i5mzk",
+        "module"
+    ],
+    "PE_tb": [
+        "PE_tb",
+        "cjQsN",
+        "module"
+    ],
+    "priority_mux": [
+        "priority_mux",
+        "jECFW",
+        "module"
+    ],
+    "copy": [
+        "copy",
+        "WCktd",
+        "module"
+    ]
+}

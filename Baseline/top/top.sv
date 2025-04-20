@@ -12,10 +12,10 @@ module top #(
     interface Packet_out
 );
 
-    Channel #(.WIDTH(9+3*FILTER_WIDTH), .hsProtocol(P4PhaseBD)) PEi [0:ROW-1][0:COL-1] ();
-    Channel #(.WIDTH(9+3*FILTER_WIDTH-(4+1)), .hsProtocol(P4PhaseBD)) PEo [0:ROW-1][0:COL-1] ();
+    Channel #(.WIDTH(9+3*FILTER_WIDTH), .hsProtocol(P4PhaseBD)) PEi [0:ROW*COL-1] ();
+    Channel #(.WIDTH(9+3*FILTER_WIDTH-(4+1)), .hsProtocol(P4PhaseBD)) PEo [0:ROW*COL-1] ();
 
-    mesh #(
+    mesh_vcs #(
         .WIDTH(9+3*FILTER_WIDTH), // packet size
         .FL(FL),
         .BL(BL),
@@ -23,7 +23,7 @@ module top #(
         .COL(COL),
         .X_HOP_LOC(3),
         .Y_HOP_LOC(4)
-    ) (
+    ) mesh (
         .PEi(PEi),
         .PEo(PEo)
     );
@@ -40,8 +40,8 @@ module top #(
         .Y_HOP(1'b1),
         .PE_NODE(0)
     ) pe0 (
-        .Packet_in(PEo[1][1]), 
-        .Packet_out(PEi[1][1])
+        .Packet_in(PEo[1*COL+1]), 
+        .Packet_out(PEi[1*COL+1])
     );
 
     PE #(
@@ -56,8 +56,8 @@ module top #(
         .Y_HOP(1'b1),
         .PE_NODE(1)
     ) pe1 (
-        .Packet_in(PEo[1][2]), 
-        .Packet_out(PEi[1][2])
+        .Packet_in(PEo[1*COL+2]), 
+        .Packet_out(PEi[1*COL+2])
     );
 
     PE #(
@@ -72,8 +72,8 @@ module top #(
         .Y_HOP(1'b0),
         .PE_NODE(2)
     ) pe2 (
-        .Packet_in(PEo[0][0]), 
-        .Packet_out(PEi[0][0])
+        .Packet_in(PEo[0*COL+0]), 
+        .Packet_out(PEi[0*COL+0])
     );
 
     PE #(
@@ -88,8 +88,8 @@ module top #(
         .Y_HOP(1'b0),
         .PE_NODE(3)
     ) pe3 (
-        .Packet_in(PEo[0][1]), 
-        .Packet_out(PEi[0][1])
+        .Packet_in(PEo[0*COL+1]), 
+        .Packet_out(PEi[0*COL+1])
     );
 
     buffer #(
@@ -98,7 +98,7 @@ module top #(
         .WIDTH(9+3*FILTER_WIDTH) // packet size
     ) buffer_in (
         .left(Packet_in), 
-        .right(PEi[1][0])
+        .right(PEi[1*COL+0])
     );
 
     buffer #(
@@ -106,7 +106,7 @@ module top #(
         .BL(BL),
         .WIDTH(9+3*FILTER_WIDTH) // packet size
     ) buffer_out (
-        .left(PEo[0][2]), 
+        .left(PEo[0*COL+2]), 
         .right(Packet_out)
     );
 

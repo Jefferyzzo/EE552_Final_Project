@@ -80,7 +80,7 @@ module mesh_vcs#(
                 localparam int EW_IDX = i * (COL+1) + j; // W2E[i][j] -> W2E[i*(COL+1)+j]
                 localparam int EW_IDX_P1 = i * (COL+1) + j + 1; // E2W[i][j+1] -> E2W[i*(COL+1)+j+1]
                 
-                router_reversed #(
+                router #(
                     .WIDTH(WIDTH), 
                     .FL(FL), 
                     .BL(BL), 

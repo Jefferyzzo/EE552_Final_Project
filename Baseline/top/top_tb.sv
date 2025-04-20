@@ -75,7 +75,7 @@ module data_generator (interface r);
         
         r.Send(SendValue);
         if (counter == 2'b00) begin
-            $display("DG %m sends filter row 1 data = %h @ %t", SendValue, $time);
+            $display("DG %m sends filter row 1 data = %b @ %t", SendValue, $time);
         end else if(counter == 2'b01) begin
             $display("DG %m sends filter row 2 data = %h @ %t", SendValue, $time);
         end else if(counter == 2'b10) begin
@@ -104,7 +104,7 @@ module data_bucket (interface r);
 
     always begin
         r.Receive(ReceiveValue);
-        $display("DB %m receives output data = %d @ %t", ReceiveValue, $time);
+        $display("DB %m receives output data = %b @ %t", ReceiveValue, $time);
         #BL;
     end
 
@@ -138,7 +138,7 @@ module top_tb ();
         .BL(BL),
         .ROW(ROW),
         .COL(COL)
-    ) (
+    ) top (
         .Packet_in(Packet_in), 
         .Packet_out(Packet_out)
     );
@@ -147,7 +147,7 @@ module top_tb ();
 
     initial begin
         $display("Start simulation!!!");
-        #50
+        #120
         $finish;
     end
 
