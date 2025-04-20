@@ -1,7 +1,6 @@
 //Filling in all the blanks marked with ******************* 
-`timescale 1ns/1ns
 
-import SystemVerilogCSP::*;
+
 
 module copy #(
 parameter WIDTH	= 4 ,

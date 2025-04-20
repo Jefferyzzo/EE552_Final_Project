@@ -1,4 +1,3 @@
-//Filling in all the blanks marked with ******************* 
 `timescale 1ns/1ns
 
 import SystemVerilogCSP::*;
@@ -9,7 +8,7 @@ parameter FL	= 2 ,
 parameter BL	= 2 ,
 parameter NODE_NUM = 0,
 parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
-parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
+parameter Y_HOP_LOC = 7  // location of last y hop bit in the packet
 ) (
 interface  Wi    ,
 interface  Wo    ,
@@ -87,7 +86,7 @@ module input_buffer_E#(
     parameter FL	= 2 ,
     parameter BL	= 2 ,
     parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
-    parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
+    parameter Y_HOP_LOC = 7  // location of last y hop bit in the packet
     ) (
     interface  Ei    ,
     interface  E2PE  ,
@@ -154,7 +153,7 @@ module input_buffer_W#(
     parameter FL	= 2 ,
     parameter BL	= 2 ,
     parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
-    parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
+    parameter Y_HOP_LOC = 7  // location of last y hop bit in the packet
     ) (
     interface  Wi    ,
     interface  W2PE  ,
@@ -318,7 +317,7 @@ module input_buffer_PE#(
     parameter FL	= 2 ,
     parameter BL	= 2 ,
     parameter X_HOP_LOC = 4, // location of last x hop bit in the packet
-    parameter Y_HOP_LOC = 7 // location of last y hop bit in the packet
+    parameter Y_HOP_LOC = 7  // location of last y hop bit in the packet
     ) (
     interface  PEi    ,
     interface  PE2S   ,
