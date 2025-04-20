@@ -15,7 +15,7 @@ module top #(
     Channel #(.WIDTH(9+3*FILTER_WIDTH), .hsProtocol(P4PhaseBD)) PEi [0:ROW*COL-1] ();
     Channel #(.WIDTH(9+3*FILTER_WIDTH-(4+1)), .hsProtocol(P4PhaseBD)) PEo [0:ROW*COL-1] ();
 
-    mesh_vcs #(
+    mesh #(
         .WIDTH(9+3*FILTER_WIDTH), // packet size
         .FL(FL),
         .BL(BL),
