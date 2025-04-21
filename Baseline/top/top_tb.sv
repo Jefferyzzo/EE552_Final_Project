@@ -82,11 +82,11 @@ module top_tb ();
     parameter FILTER_WIDTH = 8;
     parameter IFMAP_SIZE   = 9;
     parameter OUTPUT_WIDTH = 12;
-    parameter THRESHOLD = 64;
-    parameter FL = 2;
-    parameter BL = 1;
-    parameter ROW = 2;
-    parameter COL = 3;
+    parameter THRESHOLD    = 16;
+    parameter FL           = 2;
+    parameter BL           = 1;
+    parameter ROW          = 2;
+    parameter COL          = 3;
     
     // Instantiate interfaces  
     Channel #(.WIDTH(3*FILTER_WIDTH+9), .hsProtocol(P4PhaseBD)) Packet_in ();
@@ -99,7 +99,7 @@ module top_tb ();
         .FILTER_WIDTH(FILTER_WIDTH),
         .IFMAP_SIZE(IFMAP_SIZE),
         .OUTPUT_WIDTH(OUTPUT_WIDTH),
-        .THRESHOLD(64),
+        .THRESHOLD(THRESHOLD),
         .FL(FL),
         .BL(BL),
         .ROW(ROW),
