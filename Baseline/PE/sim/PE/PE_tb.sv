@@ -53,8 +53,8 @@ module data_generator (interface r);
         rand_values[0] = {filter_part[0], filter_part[1], filter_part[2], 4'b0110}; // filter row 1
         rand_values[1] = {filter_part[3], filter_part[4], filter_part[5], 4'b1010}; // filter row 2
         rand_values[2] = {filter_part[6], filter_part[7], filter_part[8], 4'b1110}; // filter row 3
-        rand_values[3] = {ifmap_t1_part[6], ifmap_t1_part[7], ifmap_t1_part[8], ifmap_t1_part[3], ifmap_t1_part[4], ifmap_t1_part[5], ifmap_t1_part[0], ifmap_t1_part[1], ifmap_t1_part[2], 4'b0000}; // ifmap t1
-        rand_values[4] = {ifmap_t2_part[6], ifmap_t2_part[7], ifmap_t2_part[8], ifmap_t2_part[3], ifmap_t2_part[4], ifmap_t2_part[5], ifmap_t2_part[0], ifmap_t2_part[1], ifmap_t2_part[2], 4'b0001}; // ifmap t2
+        rand_values[3] = {ifmap_t1_part[0], ifmap_t1_part[1], ifmap_t1_part[2], ifmap_t1_part[3], ifmap_t1_part[4], ifmap_t1_part[5], ifmap_t1_part[6], ifmap_t1_part[7], ifmap_t1_part[8], 4'b0000}; // ifmap t1
+        rand_values[4] = {ifmap_t2_part[0], ifmap_t2_part[1], ifmap_t2_part[2], ifmap_t2_part[3], ifmap_t2_part[4], ifmap_t2_part[5], ifmap_t2_part[6], ifmap_t2_part[7], ifmap_t2_part[8], 4'b0001}; // ifmap t2
     end
 
     always begin

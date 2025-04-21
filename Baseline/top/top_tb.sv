@@ -126,27 +126,43 @@ module data_generator (interface r);
     always begin 
         SendValue = Packet[counter]; 
         #FL;   
-        r.Send(SendValue);
-        $display("DG sends packet data = %b @ %t", SendValue, $time);
 
         if (counter < 5'd20) begin
+            r.Send(SendValue);
+            $display("DG %m sends data = %b @ %t", SendValue, $time);
             counter = counter + 1;
+        end else begin
+            #10;
+        end
     end
 
 endmodule
 
 module data_bucket (interface r);
-    parameter WIDTH = 8;
-    parameter BL    = 0; //ideal environment no backward delay
+    parameter PACKET_WIDTH = 8;
+    parameter BL = 0; // ideal environment, no backward delay
 
-    logic [WIDTH-1:0] ReceiveValue = 0;
+    logic [PACKET_WIDTH-1:0] ReceiveValue = 0;
+    integer out_fh;
+
+    initial begin
+        out_fh = $fopen("data_bucket_output.log", "w");
+        if (out_fh == 0)
+            $fatal("ERROR: could not open output file");
+    end
 
     always begin
         r.Receive(ReceiveValue);
-        $display("DB %m receives output data = %b @ %t", ReceiveValue, $time);
+        $display("DB %m receives output data = %b @ %0t", ReceiveValue, $time);
+        $display("Timestep = %b, OutSpike = %b, PE Node = %d, Residue = %d", ReceiveValue[0], ReceiveValue[4], ReceiveValue[6:5], ReceiveValue[32:16]);
+        $fdisplay(out_fh, "DB %m receives output data = %b @ %0t", ReceiveValue, $time);
+        $fdisplay(out_fh, "Timestep = %b, OutSpike = %b, PE Node = %d, Residue = %d", ReceiveValue[0], ReceiveValue[4], ReceiveValue[6:5], ReceiveValue[32:16]);
         #BL;
     end
 
+    final begin
+        $fclose(out_fh);
+    end
 endmodule
 
 
@@ -182,11 +198,11 @@ module top_tb ();
         .Packet_out(Packet_out)
     );
 
-    data_bucket #(.WIDTH(3*FILTER_WIDTH+9), .BL(0)) db_content (Packet_out);
+    data_bucket #(.PACKET_WIDTH(3*FILTER_WIDTH+9), .BL(0)) db_content (Packet_out);
 
     initial begin
         $display("Start simulation!!!");
-        #120
+        #500;
         $finish;
     end
 

@@ -101,7 +101,7 @@ module input_buffer_E#(
         #FL;
         if(Ei_packet[X_HOP_LOC] == 0 && Ei_packet[Y_HOP_LOC] == 0) begin // x hop and y hop are both 0, reach target node
             E2PE_packet = Ei_packet[Y_HOP_LOC + 1: WIDTH - 1];
-            $display("E2PE_packet = %b", E2PE_packet);
+            // $display("E2PE_packet = %b", E2PE_packet);
             // Eo_reversed[0: WIDTH-1-(Y_HOP_LOC + 1)] = Eo_packet[WIDTH-1-(Y_HOP_LOC + 1):0];
             for (i = 0; i < WIDTH-(Y_HOP_LOC + 1); i++) begin
                 Eo_reversed[i] = E2PE_packet[WIDTH-(Y_HOP_LOC + 1)-1-i];
@@ -170,11 +170,11 @@ module input_buffer_W#(
     always begin
         Wi.Receive(Wi_packet);
         $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places  
-        $display("node %d receives packet %h from West input at %t", NODE_NUM, Wi_packet, $time);
+        $display("node %d receives packet %h from West input at  %t", NODE_NUM, Wi_packet, $time);
         #FL;
         if(Wi_packet[X_HOP_LOC] == 0 && Wi_packet[Y_HOP_LOC] == 0) begin // x hop and y hop are both 0, reach target node
             W2PE_packet = Wi_packet[Y_HOP_LOC + 1: WIDTH - 1];
-            $display("W2PE_packet = %b", W2PE_packet);
+            // $display("W2PE_packet = %b", W2PE_packet);
             // Wo_reversed[0: WIDTH-1-(Y_HOP_LOC + 1)] = Wo_packet[WIDTH-1-(Y_HOP_LOC + 1):0];
             for (i = 0; i < WIDTH-(Y_HOP_LOC + 1); i++) begin
                 Wo_reversed[i] = W2PE_packet[WIDTH-(Y_HOP_LOC + 1)-1-i];
@@ -209,7 +209,7 @@ module input_buffer_W#(
                 end
                 1: begin // send to South
                     W2S.Send(Wo_packet);
-                    $display("node %d sends packet %h from West to South at %t", NODE_NUM, Wi_packet, $time);
+                    $display("node %d sends packet %h from West to South at  %t", NODE_NUM, Wi_packet, $time);
                     #BL;
                 end
             endcase
@@ -245,7 +245,7 @@ module input_buffer_N#(
         #FL;
         if(Ni_packet[Y_HOP_LOC] == 0) begin // reach target node
             N2PE_packet = Ni_packet[Y_HOP_LOC + 1: WIDTH - 1];
-            $display("N2PE_packet = %b", N2PE_packet);
+            // $display("N2PE_packet = %b", N2PE_packet);
             // No_reversed[0: WIDTH-1-(Y_HOP_LOC + 1)] = No_packet[WIDTH-1-(Y_HOP_LOC + 1):0];
             for (i = 0; i < WIDTH-(Y_HOP_LOC + 1); i++) begin
                 No_reversed[i] = N2PE_packet[WIDTH-(Y_HOP_LOC + 1)-1-i];
@@ -300,7 +300,7 @@ module input_buffer_S#(
         #FL;
         if(Si_packet[Y_HOP_LOC] == 0) begin // reach target node
             S2PE_packet = Si_packet[Y_HOP_LOC + 1: WIDTH - 1];
-            $display("S2PE_packet = %b", S2PE_packet);
+            // $display("S2PE_packet = %b", S2PE_packet);
             // So_reversed[0: WIDTH-1-(Y_HOP_LOC + 1)] = So_packet[WIDTH-1-(Y_HOP_LOC + 1):0];
             for (i = 0; i < WIDTH-(Y_HOP_LOC + 1); i++) begin
                 So_reversed[i] = S2PE_packet[WIDTH-(Y_HOP_LOC + 1)-1-i];
@@ -357,7 +357,7 @@ module input_buffer_PE#(
             PEi_packet[i] = PEi_reversed[WIDTH-1-i];
         end
         $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places  
-        $display("node %d receives packet %h from PE input at %t", NODE_NUM, PEi_packet, $time);
+        $display("node %d receives packet %h from PE input at    %t", NODE_NUM, PEi_packet, $time);
         #FL;
         if(PEi_packet[X_HOP_LOC] == 1) begin // if there is x hop, packet must go in x direction
             PEo_packet = {PEi_packet[0:1], 1'b0, PEi_packet[2:X_HOP_LOC-1], PEi_packet[X_HOP_LOC+1:WIDTH-1]};
