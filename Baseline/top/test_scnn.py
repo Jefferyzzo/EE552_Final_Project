@@ -119,7 +119,7 @@ def write_binary_packets(filter_file, ifmap1_file, ifmap2_file, output_file):
 
 def test():
     filtersize, ifmapsize = 3, 4
-    threshold = 64
+    threshold = 32
 
     # Generate random tensors
     filter_L1 = torch.randint(6, (1,1,filtersize,filtersize)).float()
@@ -153,6 +153,10 @@ def test():
     save_to_file("scnn_script/L1_filter.txt", filter_L1, filter_L1.shape)
     save_to_file("scnn_script/ifmap_t1.txt", ifmap_t1, ifmap_t1.shape)
     save_to_file("scnn_script/ifmap_t2.txt", ifmap_t2, ifmap_t2.shape)
+    save_to_file("scnn_script/L1_out_spike_t1.txt", L1_out_spike_t1, L1_out_spike_t1.shape)
+    save_to_file("scnn_script/L1_out_spike_t2.txt", L1_out_spike_t2, L1_out_spike_t2.shape)
+    save_to_file("scnn_script/L1_residue_t1.txt", L1_residue_t1, L1_residue_t1.shape)
+    save_to_file("scnn_script/L1_residue_t2.txt", L1_residue_t2, L1_residue_t2.shape)
 
     generate_packet(
         "scnn_script/L1_filter.txt",
