@@ -1,8 +1,8 @@
-15
+4
+5
+8
 9
-19
-13
 // Original shape: torch.Size([1, 1, 2, 2])
 /* Original data:
-tensor([[[[15.,  9.],
-          [19., 13.]]]])*/
+tensor([[[[4., 5.],
+          [8., 9.]]]])*/

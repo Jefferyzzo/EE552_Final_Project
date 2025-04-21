@@ -119,7 +119,7 @@ def write_binary_packets(filter_file, ifmap1_file, ifmap2_file, output_file):
 
 def test():
     filtersize, ifmapsize = 3, 4
-    threshold = 32
+    threshold = 16
 
     # Generate random tensors
     filter_L1 = torch.randint(6, (1,1,filtersize,filtersize)).float()
