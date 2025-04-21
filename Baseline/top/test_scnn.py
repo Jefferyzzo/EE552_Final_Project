@@ -86,7 +86,7 @@ def write_binary_packets(filter_file, ifmap1_file, ifmap2_file, output_file):
             # Format: data(24)_filter_row(2)_ifmapb(1)_ts(1)_y_hop(1)_x_hop(2)_dir(2)
             line = (
                 f"{data_content}_{filter_row}_{ifmapb}_{ts}_{y_hop}_{x_hop}_{direction} "
-                f"// filter row {row+1} x_hop={x_hop} y_hop={y_hop}"
+                # f"// filter row {row+1} x_hop={x_hop} y_hop={y_hop}"
             )
             lines.append(line)
 
@@ -94,7 +94,7 @@ def write_binary_packets(filter_file, ifmap1_file, ifmap2_file, output_file):
     for idx, ifmap_all in enumerate([ifmap1_all, ifmap2_all], start=1):
         ts = '0' if idx == 1 else '1'
         filter_row = '00'; ifmapb = '0'; direction = '11'
-        for (x_off, y_off), (x_hop, y_hop) in zip(conv_offsets, conv_hops):
+        for (x_off, y_off), (x_hop, y_hop) in zip(conv_offsets, filter_hops):
             # Extract 3×3 window
             window_bits = []
             for dy in range(3):
@@ -107,7 +107,7 @@ def write_binary_packets(filter_file, ifmap1_file, ifmap2_file, output_file):
             # Assemble line
             line = (
                 f"{data_content}_{filter_row}_{ifmapb}_{ts}_{y_hop}_{x_hop}_{direction} "
-                f"// ifmap t{idx} x_hop={x_hop} y_hop={y_hop}"
+                # f"// ifmap t{idx} x_hop={x_hop} y_hop={y_hop}"
             )
             lines.append(line)
 
