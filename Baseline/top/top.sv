@@ -2,7 +2,7 @@ module top #(
     parameter FILTER_WIDTH = 8,
     parameter IFMAP_SIZE   = 9,
     parameter OUTPUT_WIDTH = 12,
-    parameter THRESHOLD    = 64,
+    parameter THRESHOLD    = 32,
     parameter FL	       = 2,
     parameter BL	       = 1,
     parameter ROW          = 2,
