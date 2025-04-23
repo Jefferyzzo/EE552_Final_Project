@@ -323,17 +323,19 @@ node           1 receives packet 180220000 from North input at   83.00 ns
 Threshold =          16
 node           1 sends packet 0000440 from North to PE at   85.00 ns
 node           4 receives packet 198b40000 from West input at    85.00 ns
-node           4 sends packet 198b40000 from West to South at    87.00 ns
-node           5 receives packet 188a28000 from West input at    87.00 ns
-node           0 receives packet 1884c8000 from North input at   88.00 ns
-node           5 sends packet 0001451 from West to PE at   89.00 ns
-node           4 receives packet 1b0000200 from PE input at      89.00 ns
-node           0 sends packet 0001321 from North to PE at   90.00 ns
-node           4 sends packet 1b0000200 from PE to East at   91.00 ns
-node           5 receives packet 190000200 from West input at    97.00 ns
-Threshold =          16
-Threshold =          16
-node           5 sends packet 190000200 from West to South at    99.00 ns
+node           4 sends pacAttempting to Re-Acquire License for VCSRuntime_Net at Mon Apr 21 16:51:36
+Re-Acquired License for VCSRuntime_Net at Mon Apr 21 16:51:36, continuing....
+Received SIGHUP (signal 1), exiting.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 75000000 fs
+CPAttempting to Re-Acquire License for VCSRuntime_Net at Mon Apr 21 22:50:40
+Re-Acquired License for VCSRuntime_Net at Mon Apr 21 22:50:40, continuing....
+Received SIGHUP (signal 1), exiting.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 75000000 fs
+CPU Time:      0.450 seconds;       Data structure size:   1.3Mb
+Mon Apr 21 22:50:40 2025
+sends packet 190000200 from West to South at    99.00 ns
 node           1 receives packet 188b40000 from North input at   99.00 ns
 node           1 sends packet 00002d1 from North to PE at  101.00 ns
 node           5 receives packet 190400a00 from PE input at     102.00 ns

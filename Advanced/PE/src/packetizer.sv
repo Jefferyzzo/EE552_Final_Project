@@ -1,7 +1,7 @@
 // ************************************************** packet orgnization *******************************************************************************************************
-//             |         HEADER          |                        |                                            3*FILTER_WIDTH                                                  |
-//  Address    [0:1]        [2:3]    [4]      [5]         [6:8]    [9]         [10:11]    [12:8+3*filter_width-output_width]    [9+3*filter_width-output_width:8+3*filter_width]    
-//             direction    x-hop    y-hop    timestep    000      outspike    PE node    0s                                    residue  
+//             
+//  Address    [5*FILTER_WIDTH+12]    [26:14]    [13:10]    [9]        [8]         [7:5]    [4:2]    [1:0]            
+//             conv_loc               residue    PE node    outspike   timestep    y-hop    x-hop    direction 
 // *****************************************************************************************************************************************************************************
 
 `timescale 1ns/1ns
@@ -9,7 +9,7 @@ import SystemVerilogCSP::*;
 
 module packetizer #(
     parameter FILTER_WIDTH = 8,
-    parameter OUTPUT_WIDTH = 12,
+    parameter OUTPUT_WIDTH = 13,
     parameter FL	       = 2,
     parameter BL	       = 1,
     parameter DIRECTION    = 0,

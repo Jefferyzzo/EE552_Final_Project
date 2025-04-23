@@ -19,38 +19,30 @@ module mac #(
 ); 
 
 
-    logic [FILTER_WIDTH*5-1:0]  filter_row1;
-    logic [FILTER_WIDTH*5-1:0]  filter_row2;
-    logic [FILTER_WIDTH*5-1:0]  filter_row3;
-    logic [FILTER_WIDTH*5-1:0]  filter_row4;
-    logic [FILTER_WIDTH*5-1:0]  filter_row5;
-    logic [25*IFMAP_WIDTH-1:0]  ifmap;
-    logic [OUTPUT_WIDTH-1:0]    out;
+    logic [FILTER_WIDTH*5-1:0] filter_row1;
+    logic [FILTER_WIDTH*5-1:0] filter_row2;
+    logic [FILTER_WIDTH*5-1:0] filter_row3;
+    logic [FILTER_WIDTH*5-1:0] filter_row4;
+    logic [FILTER_WIDTH*5-1:0] filter_row5;
+    logic [25*IFMAP_WIDTH-1:0] ifmap;
+    logic [OUTPUT_WIDTH-1:0]   out;
 
     always begin
         fork 
             Filter_row1.Receive(filter_row1);
             Filter_row2.Receive(filter_row2);
             Filter_row3.Receive(filter_row3);
-            Filter_row3.Receive(filter_row4);
-            Filter_row2.Receive(filter_row5);
+            Filter_row4.Receive(filter_row4);
+            Filter_row5.Receive(filter_row5);
             Ifmap.Receive(ifmap);
         join
+        #FL;
         // $display("Filter_row1: %h", filter_row1);
         // $display("Filter_row2: %h", filter_row2);
         // $display("Filter_row3: %h", filter_row3);
+        // $display("Filter_row4: %h", filter_row4);
+        // $display("Filter_row5: %h", filter_row5);
         // $display("Ifmap: %b", ifmap);
-        #FL;
-
-        // out = (ifmap[6] ? filter_row1[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
-        //       (ifmap[7] ? filter_row1[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
-        //       (ifmap[8] ? filter_row1[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
-        //       (ifmap[3] ? filter_row2[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
-        //       (ifmap[4] ? filter_row2[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
-        //       (ifmap[5] ? filter_row2[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
-        //       (ifmap[0] ? filter_row3[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
-        //       (ifmap[1] ? filter_row3[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
-        //       (ifmap[2] ? filter_row3[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}});
 
         out = (ifmap[20] ? filter_row1[FILTER_WIDTH*1-1:FILTER_WIDTH*0] : {(FILTER_WIDTH){1'b0}}) +
               (ifmap[21] ? filter_row1[FILTER_WIDTH*2-1:FILTER_WIDTH*1] : {(FILTER_WIDTH){1'b0}}) +

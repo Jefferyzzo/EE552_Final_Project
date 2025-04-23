@@ -35,12 +35,12 @@ module special_copy_tb ();
     
     // Instantiate interfaces  
     Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) L ();
-    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) cp0 ();
+    Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) cp0 ();
     Channel #(.WIDTH(WIDTH),.hsProtocol(P4PhaseBD)) cp1 ();
     
     // Instantiate DUT
-    data_generator #(.WIDTH(WIDTH), .FL(0)) dg_data (L);
-    special_copy #(.WIDTH(WIDTH),.FL(2),.BL(1) ) special_copy (.L(L),.R0(cp0),.R1(cp1)); 
+    data_generator #(.WIDTH(WIDTH), .FL(2)) dg_data (L);
+    special_copy #(.WIDTH(WIDTH),.FL(0),.BL(0) ) special_copy (.L(L),.R0(cp0),.R1(cp1)); 
     data_bucket #(.WIDTH(WIDTH), .BL(0)) db0 (cp0);
     data_bucket #(.WIDTH(WIDTH), .BL(0)) db1 (cp1);
 

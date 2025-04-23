@@ -5,7 +5,7 @@ import SystemVerilogCSP::*;
 module PE #(
     parameter FILTER_WIDTH = 8,  // check
     parameter IFMAP_SIZE   = 25, // check
-    parameter OUTPUT_WIDTH = 12,
+    parameter OUTPUT_WIDTH = 13, // check
     parameter THRESHOLD    = 64,
     parameter FL	       = 2,
     parameter BL	       = 1,
@@ -216,7 +216,7 @@ module PE #(
     );
 
     // MAC operation
-    mac #(
+    mac #( // check
         .OUTPUT_WIDTH(OUTPUT_WIDTH),
         .FILTER_WIDTH(FILTER_WIDTH),
         .IFMAP_WIDTH(1),
