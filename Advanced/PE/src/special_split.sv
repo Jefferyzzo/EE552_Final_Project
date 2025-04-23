@@ -13,15 +13,19 @@ module special_split #(
     interface  Filter_row,    
     // output
     interface  Ifmap,
+    interface  Conv_Loc,
     interface  Filter_row1,
     interface  Filter_row2,
-    interface  Filter_row3
+    interface  Filter_row3,
+    interface  Filter_row4,
+    interface  Filter_row5
 ); 
     
-    logic [3*FILTER_WIDTH-1:0] data;
-    logic                      ifmapb_filter;
-    logic [1:0]                filter_row;
-    logic [8:0]                ifmap_data;
+    logic [5*FILTER_WIDTH-1:0]  data;
+    logic                       ifmapb_filter;
+    logic [2:0]                 filter_row;
+    logic [24:0]                ifmap_data;
+    logic [5*FILTER_WIDTH-26:0] conv_loc;
     
     always begin
         fork
@@ -34,18 +38,30 @@ module special_split #(
         // $display("Filter_row: %b", filter_row);
         #FL;
         if (ifmapb_filter == 0) begin               // send ifmap data
-            ifmap_data[8:0] = data[8:0];
+            ifmap_data = data[5*FILTER_WIDTH-1:5*FILTER_WIDTH-25];
+            conv_loc   = data[5*FILTER_WIDTH-26:0];
             // $display("ifmap_data: %h", ifmap_data);
-            Ifmap.Send(ifmap_data);
-        end else begin                              // send filter data
-            if (filter_row == 2'b01) begin          // row1
+            // $display("conv_loc: %h", conv_loc);
+            fork
+                Ifmap.Send(ifmap_data);
+                Conv_Loc.Send(conv_loc);
+            join
+            #BL;
+        end else begin                               // send filter data
+            if (filter_row == 3'b001) begin          // row1
                 Filter_row1.Send(data);
                 #BL;
-            end else if (filter_row == 2'b10) begin // row2
+            end else if (filter_row == 3'b010) begin // row2
                 Filter_row2.Send(data);
                 #BL;
-            end else if (filter_row == 2'b11) begin // row3
+            end else if (filter_row == 3'b011) begin // row3
                 Filter_row3.Send(data);
+                #BL;
+            end else if (filter_row == 3'b100) begin // row4
+                Filter_row4.Send(data);
+                #BL;
+            end else if (filter_row == 3'b101) begin // row5
+                Filter_row5.Send(data);
                 #BL;
             end else begin 
                 $display("Error: filter_row is not valid");

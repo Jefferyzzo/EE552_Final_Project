@@ -3,8 +3,8 @@
 import SystemVerilogCSP::*;
 
 module PE #(
-    parameter FILTER_WIDTH = 8,
-    parameter IFMAP_SIZE   = 9,
+    parameter FILTER_WIDTH = 8,  // check
+    parameter IFMAP_SIZE   = 25, // check
     parameter OUTPUT_WIDTH = 12,
     parameter THRESHOLD    = 64,
     parameter FL	       = 2,
@@ -17,32 +17,42 @@ module PE #(
     interface Packet_in, 
     interface Packet_out
 ); 
-    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep ();
-    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Ifmapb_filter ();
-    Channel #(.WIDTH(2),.hsProtocol(P4PhaseBD)) Filter_row ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Data ();
+    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep (); // check
+    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Ifmapb_filter (); // check
+    Channel #(.WIDTH(3),.hsProtocol(P4PhaseBD)) Filter_row (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Data (); // check
 
-    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep_copy0 ();
-    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep_copy1 ();
-    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep_copy2 ();
-    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep_copy3 ();
+    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep_copy0 (); // check 
+    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep_copy1 (); // check
+    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep_copy2 (); // check
+    Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep_copy3 (); // check
 
-    Channel #(.WIDTH(IFMAP_SIZE),.hsProtocol(P4PhaseBD)) Ifmap_data ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row1_data ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row2_data ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row3_data ();
+    Channel #(.WIDTH(IFMAP_SIZE),.hsProtocol(P4PhaseBD)) Ifmap_data (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH-25),.hsProtocol(P4PhaseBD)) Conv_Loc (); // check
 
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row1_data_reg ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row2_data_reg ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row3_data_reg ();
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row1_data (); // check 
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row2_data (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row3_data (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row4_data (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row5_data (); // check
 
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row1_data_copy0 ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row2_data_copy0 ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row3_data_copy0 ();
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row1_data_reg (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row2_data_reg (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row3_data_reg (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row4_data_reg (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row5_data_reg (); // check
 
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row1_data_copy1 ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row2_data_copy1 ();
-    Channel #(.WIDTH(3*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row3_data_copy1 ();
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row1_data_copy0 (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row2_data_copy0 (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row3_data_copy0 (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row4_data_copy0 (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row5_data_copy0 (); // check
+
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row1_data_copy1 (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row2_data_copy1 (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row3_data_copy1 (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row4_data_copy1 (); // check
+    Channel #(.WIDTH(5*FILTER_WIDTH),.hsProtocol(P4PhaseBD)) Filter_row5_data_copy1 (); // check
 
     Channel #(.WIDTH(OUTPUT_WIDTH),.hsProtocol(P4PhaseBD)) Mac_out ();
 
@@ -59,7 +69,7 @@ module PE #(
     Channel #(.WIDTH(OUTPUT_WIDTH),.hsProtocol(P4PhaseBD)) Residue_copy0 ();
     Channel #(.WIDTH(OUTPUT_WIDTH),.hsProtocol(P4PhaseBD)) Residue_copy1 ();
   
-    depacketizer #(
+    depacketizer #( // check
         .FILTER_WIDTH(FILTER_WIDTH), 
         .FL(FL),
         .BL(BL)
@@ -71,7 +81,7 @@ module PE #(
         .Data(Data)
     );
 
-    copy4 #(
+    copy4 #( // check
         .WIDTH(1),
         .FL(FL),
         .BL(BL)
@@ -83,7 +93,7 @@ module PE #(
         .R3(Timestep_copy3) 
     );
 
-    special_split #(
+    special_split #( // check
         .FILTER_WIDTH(FILTER_WIDTH),
         .FL(FL),
         .BL(BL)
@@ -92,14 +102,17 @@ module PE #(
         .Ifmapb_filter(Ifmapb_filter), 
         .Filter_row(Filter_row), 
         .Ifmap(Ifmap_data),                 // output
+        .Conv_Loc(Conv_Loc),
         .Filter_row1(Filter_row1_data),
         .Filter_row2(Filter_row2_data),
-        .Filter_row3(Filter_row3_data)
+        .Filter_row3(Filter_row3_data),
+        .Filter_row4(Filter_row4_data),
+        .Filter_row5(Filter_row5_data)
     );
     
     // Register for Filter_row1_data
-    priority_mux #(
-        .WIDTH(3*FILTER_WIDTH),
+    priority_mux #( // check
+        .WIDTH(5*FILTER_WIDTH),
         .FL(FL),
         .BL(BL)
     ) pr_filter_row1 (
@@ -108,8 +121,8 @@ module PE #(
         .R(Filter_row1_data_reg)
     );
 
-    copy #(
-        .WIDTH(3*FILTER_WIDTH),
+    special_copy #( // check
+        .WIDTH(5*FILTER_WIDTH),
         .FL(FL),
         .BL(BL)
     ) copy_filter_row1 (
@@ -119,8 +132,8 @@ module PE #(
     );
 
     // Register for Filter_row2_data
-    priority_mux #(
-        .WIDTH(3*FILTER_WIDTH),
+    priority_mux #( // check
+        .WIDTH(5*FILTER_WIDTH),
         .FL(FL),
         .BL(BL)
     ) pr_filter_row2 (
@@ -129,8 +142,8 @@ module PE #(
         .R(Filter_row2_data_reg)
     );
 
-    copy #(
-        .WIDTH(3*FILTER_WIDTH),
+    special_copy #( // check
+        .WIDTH(5*FILTER_WIDTH),
         .FL(FL),
         .BL(BL)
     ) copy_filter_row2 (
@@ -140,8 +153,8 @@ module PE #(
     );
 
     // Register for Filter_row3_data
-    priority_mux #(
-        .WIDTH(3*FILTER_WIDTH),
+    priority_mux #( // check
+        .WIDTH(5*FILTER_WIDTH),
         .FL(FL),
         .BL(BL)
     ) pr_filter_row3 (
@@ -150,14 +163,56 @@ module PE #(
         .R(Filter_row3_data_reg)
     );
 
-    copy #(
-        .WIDTH(3*FILTER_WIDTH),
+    special_copy #( // check
+        .WIDTH(5*FILTER_WIDTH),
         .FL(FL),
         .BL(BL)
     ) copy_filter_row3 (
         .L(Filter_row3_data_reg),
         .R0(Filter_row3_data_copy0),
         .R1(Filter_row3_data_copy1)    
+    );
+
+    // Register for Filter_row4_data
+    priority_mux #( // check
+        .WIDTH(5*FILTER_WIDTH),
+        .FL(FL),
+        .BL(BL)
+    ) pr_filter_row4 (
+        .L0(Filter_row4_data),
+        .L1(Filter_row4_data_copy1),    
+        .R(Filter_row4_data_reg)
+    );
+
+    special_copy #( // check
+        .WIDTH(5*FILTER_WIDTH),
+        .FL(FL),
+        .BL(BL)
+    ) copy_filter_row4 (
+        .L(Filter_row4_data_reg),
+        .R0(Filter_row4_data_copy0),
+        .R1(Filter_row4_data_copy1)    
+    );
+
+    // Register for Filter_row5_data
+    priority_mux #( // check
+        .WIDTH(5*FILTER_WIDTH),
+        .FL(FL),
+        .BL(BL)
+    ) pr_filter_row5 ( // check
+        .L0(Filter_row5_data),
+        .L1(Filter_row5_data_copy1),    
+        .R(Filter_row5_data_reg)
+    );
+
+    special_copy #( // check
+        .WIDTH(5*FILTER_WIDTH),
+        .FL(FL),
+        .BL(BL)
+    ) copy_filter_row5 (
+        .L(Filter_row5_data_reg),
+        .R0(Filter_row5_data_copy0),
+        .R1(Filter_row5_data_copy1)    
     );
 
     // MAC operation
@@ -170,7 +225,9 @@ module PE #(
     ) mac (
         .Filter_row1(Filter_row1_data_copy0), 
         .Filter_row2(Filter_row2_data_copy0), 
-        .Filter_row3(Filter_row3_data_copy0), 
+        .Filter_row3(Filter_row3_data_copy0),
+        .Filter_row4(Filter_row4_data_copy0),
+        .Filter_row5(Filter_row5_data_copy0), 
         .Ifmap(Ifmap_data),
         .Out(Mac_out)
     );

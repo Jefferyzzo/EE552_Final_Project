@@ -2,7 +2,7 @@
 
 import SystemVerilogCSP::*;
 
-module copy #(
+module special_copy #(
     parameter WIDTH	= 4,
     parameter FL	= 2,
     parameter BL	= 1 
@@ -15,8 +15,8 @@ module copy #(
     logic [WIDTH-1:0] packet;
     initial begin
         fork
-            R0.Send((WIDTH){1'b0});
-            R1.Send((WIDTH){1'b0});
+            R0.Send({(WIDTH){1'b0}});
+            R1.Send({(WIDTH){1'b0}});
         join
     end
     always begin

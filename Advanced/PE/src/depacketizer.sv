@@ -1,7 +1,12 @@
-// ************************************************** content orgnization **************************************************
-//  Address    [0]         [1]                    [2:3]         [4:3*filter_width+3] 
-//             timestep    ifmapb(0)_filter(1)    filter_row    3*fliter_width
-// *************************************************************************************************************************
+// ************************************************** filter content orgnization **********************************************
+//  Address    [5*FILTER_WIDTH+4:5]    [4:2]         [1]                    [0]     
+//             filter_data             filter_row    ifmapb(0)_filter(1)    timestep
+// ****************************************************************************************************************************
+
+// ************************************************** ifmap content orgnization ***********************************************
+//  Address    [5*FILTER_WIDTH+4:5*FILTER_WIDTH-20]    [5*FILTER_WIDTH-21:5]    [4:2]         [1]                    [0]     
+//             ifmap_data                              conv_loc                 filter_row    ifmapb(0)_filter(1)    timestep
+// ****************************************************************************************************************************
 
 `timescale 1ns/1ns
 
@@ -19,19 +24,19 @@ module depacketizer #(
     interface  Data   
 ); 
 
-    logic [3*FILTER_WIDTH+3:0] packet;
-    logic [3*FILTER_WIDTH-1:0] data;
+    logic [5*FILTER_WIDTH+4:0] packet;
+    logic [5*FILTER_WIDTH-1:0] data;
     logic timestep;
     logic ifmapb_filter; // 0->ifmap; 1->filter
-    logic [1:0] filter_row;
+    logic [2:0] filter_row;
 
     always begin
     	Packet.Receive(packet); 
     	#FL;
         timestep      = packet[0];
         ifmapb_filter = packet[1];
-        filter_row    = packet[3:2];
-        data          = packet[3*FILTER_WIDTH+3:4];
+        filter_row    = packet[4:2];
+        data          = packet[5*FILTER_WIDTH+4:5];
         // $display("timestep: %0d, ifmapb_filter: %0d, filter_row: %0d, data: %0b", timestep, ifmapb_filter, filter_row, data);
         if(ifmapb_filter == 0) begin 
             fork
