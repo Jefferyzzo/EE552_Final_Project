@@ -15,11 +15,7 @@ module PE #(
     parameter PE_NODE      = 0 
 ) (
     interface Packet_in, 
-    interface Packet_out 
-    // interface OutSpike,
-    // interface Residue_copy0,
-    // interface Residue_copy1
-
+    interface Packet_out
 ); 
     Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Timestep ();
     Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) Ifmapb_filter ();
@@ -68,7 +64,7 @@ module PE #(
         .FL(FL),
         .BL(BL)
     ) dp (
-        .Packet(Packet_in),                // input
+        .Packet(Packet_in),             // input
         .Timestep(Timestep),            // output
         .Ifmapb_filter(Ifmapb_filter), 
         .Filter_row(Filter_row), 
@@ -235,6 +231,7 @@ module PE #(
 
     packetizer #(
         .FILTER_WIDTH(FILTER_WIDTH),
+        .OUTPUT_WIDTH(OUTPUT_WIDTH),
         .FL(FL),
         .BL(BL),
         .DIRECTION(DIRECTION),

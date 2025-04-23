@@ -20,7 +20,8 @@ module spike_residue #(
     always begin
         L.Receive(data);
         #FL;
-
+        // $display("Spike Residue %m : Received data = %0d", data);
+        // $display("Threshold = ", THRESHOLD);
         if (data > THRESHOLD) begin
             outspike = 1'b1;
             residue = data - THRESHOLD;

@@ -36,15 +36,25 @@ module mac #(
         // $display("Ifmap: %b", ifmap);
         #FL;
 
-        out = (ifmap[0] ? filter_row1[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
-              (ifmap[1] ? filter_row1[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
-              (ifmap[2] ? filter_row1[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
+        // out = (ifmap[0] ? filter_row1[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
+        //       (ifmap[1] ? filter_row1[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
+        //       (ifmap[2] ? filter_row1[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
+        //       (ifmap[3] ? filter_row2[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
+        //       (ifmap[4] ? filter_row2[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
+        //       (ifmap[5] ? filter_row2[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
+        //       (ifmap[6] ? filter_row3[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
+        //       (ifmap[7] ? filter_row3[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
+        //       (ifmap[8] ? filter_row3[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}});
+
+        out = (ifmap[6] ? filter_row1[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
+              (ifmap[7] ? filter_row1[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
+              (ifmap[8] ? filter_row1[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
               (ifmap[3] ? filter_row2[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
               (ifmap[4] ? filter_row2[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
               (ifmap[5] ? filter_row2[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
-              (ifmap[6] ? filter_row3[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
-              (ifmap[7] ? filter_row3[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
-              (ifmap[8] ? filter_row3[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}});
+              (ifmap[0] ? filter_row3[FILTER_WIDTH-1:0]                : {(FILTER_WIDTH){1'b0}}) +
+              (ifmap[1] ? filter_row3[2*FILTER_WIDTH-1:1*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}}) +
+              (ifmap[2] ? filter_row3[3*FILTER_WIDTH-1:2*FILTER_WIDTH] : {(FILTER_WIDTH){1'b0}});
         #BL;
         Out.Send(out);
     end
