@@ -1,0 +1,17 @@
+Time: 0 - Sent Value: 0
+Time: 3000000 - Sent Value: 1
+Time: 6000000 - Sent Value: 1
+Time: 9000000 - Sent Value: 1
+Time: 12000000 - Sent Value: 1
+Time: 15000000 - Sent Value: 0
+Time: 18000000 - Sent Value: 1
+Time: 21000000 - Sent Value: 1
+Time: 24000000 - Sent Value: 0
+Time: 27000000 - Sent Value: 1
+Time: 30000000 - Sent Value: 1
+Time: 33000000 - Sent Value: 0
+Time: 36000000 - Sent Value: 0
+Time: 39000000 - Sent Value: 1
+Time: 42000000 - Sent Value: 0
+Time: 45000000 - Sent Value: 1
+Time: 48000000 - Sent Value: 0
