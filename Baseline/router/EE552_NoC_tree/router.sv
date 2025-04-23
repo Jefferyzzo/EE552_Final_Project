@@ -8,10 +8,10 @@ import SystemVerilogCSP::*;
     parameter WIDTH_addr =3,
     parameter FL = 2,
     parameter BL = 1,
-    parameter LEVEL = 1,
+    parameter LEVEL = 2,
     parameter NUM_NODE = 8,
-    parameter ADDR = 3'b000,
-    parameter IS_PARENT = 1
+    parameter ADDR = 3'b000
+    //parameter IS_PARENT = 1
  ) (
    interface parent_in, parent_out,
     child1_in, child1_out,
@@ -42,7 +42,7 @@ import SystemVerilogCSP::*;
         .FL(FL),
         .BL(BL),
         .LEVEL(LEVEL),
-        .IS_PARENT(IS_PARENT),
+        .IS_PARENT(1),
         .NUM_NODE(8)
     ) pin (
         .in(parent_in),
@@ -68,7 +68,7 @@ import SystemVerilogCSP::*;
         .FL(FL),
         .BL(BL),
         .LEVEL(LEVEL),
-        .IS_PARENT(!IS_PARENT),
+        .IS_PARENT(0),
         .NUM_NODE(8)
     ) c1in (
         .in(child1_in),
@@ -94,7 +94,7 @@ import SystemVerilogCSP::*;
         .FL(FL),
         .BL(BL),
         .LEVEL(LEVEL),
-        .IS_PARENT(!IS_PARENT),
+        .IS_PARENT(0),
         .NUM_NODE(8)
     ) c2in (
         .in(child2_in),

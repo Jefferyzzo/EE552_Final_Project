@@ -173,7 +173,7 @@ module router_tb #(
     parameter FL = 2,
     parameter BL = 1,
     parameter MASK = 3'b110,
-    parameter LEVEL = 0,
+    parameter LEVEL = 2,
     parameter is_parent = 0,
     parameter NUM_NODE = 8,
     parameter ADDR = 3'b000
@@ -201,9 +201,9 @@ module router_tb #(
         .WIDTH_addr(3),
         .FL(2),
         .BL(1),//MASK shouldn't exist
-        .LEVEL(1),
-        .NUM_NODE(8),
-        .IS_PARENT(1)
+        .LEVEL(2),
+        .NUM_NODE(8)
+        //.router_addr(3'b000)
     ) dut (
         .parent_in(L0), 
         .parent_out(R0),
@@ -216,24 +216,24 @@ module router_tb #(
     // Generator (sends 2 fixed packets)
     data_generator #(
         .WIDTH_packet(WIDTH_packet),
-        .SENDVALUE1(14'b01010111111110), //p->c1
-        .SENDVALUE2(14'b01011111111101)  //p->c2
+        .SENDVALUE1(14'b11001011111110), //p->c1
+        .SENDVALUE2(14'b10101111111101)  //p->c2
     ) gen0 (
         .r(L0)
     );
 
     data_generator #(
         .WIDTH_packet(WIDTH_packet),
-        .SENDVALUE1(14'b10000111111011),//c1->p
-        .SENDVALUE2(14'b10011011110111)//c1->c2 14'b10011011110111
+        .SENDVALUE1(14'b01010011111011),//c1->p
+        .SENDVALUE2(14'b01001111110111)//c1->c2 14'b10011011110111
     ) gen1 (
         .r(L1)
     );
 
     data_generator #(
         .WIDTH_packet(WIDTH_packet),
-        .SENDVALUE1(14'b11000111101111),//c2->p 14'b11000111101111
-        .SENDVALUE2(14'b11010111011111)//c2->c1
+        .SENDVALUE1(14'b01110111101111),//c2->p 14'b11000111101111
+        .SENDVALUE2(14'b01101011011111)//c2->c1
     ) gen2 (
         .r(L2)
     );

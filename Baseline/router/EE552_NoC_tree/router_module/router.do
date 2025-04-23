@@ -54,4 +54,15 @@ sim:/router_tb/R2/req \
 sim:/router_tb/R2/ack \
 sim:/router_tb/R2/data
 
+add wave -position insertpoint  \
+sim:/router_tb/dut/child2_parent/status \
+sim:/router_tb/dut/child2_parent/req \
+sim:/router_tb/dut/child2_parent/ack \
+sim:/router_tb/dut/child2_parent/data
+add wave -position insertpoint  \
+sim:/router_tb/dut/child2_child1/status \
+sim:/router_tb/dut/child2_child1/req \
+sim:/router_tb/dut/child2_child1/ack \
+sim:/router_tb/dut/child2_child1/data
+
 run -all

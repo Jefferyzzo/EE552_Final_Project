@@ -61,51 +61,66 @@ tree #(
 
     // Generator (sends 2 fixed packets)
 data_generator #(
-    .WIDTH_packet(WIDTH_packet)
+    .WIDTH_packet(WIDTH_packet),
+    .SENDVALUE1(14'b00010011111110), //pe1->pe5
+    .SENDVALUE2(14'b00010011111101)  //pe1->pe5
 ) gen0 (
     .r(L0)
 );
 
 data_generator #(
-    .WIDTH_packet(WIDTH_packet)
+    .WIDTH_packet(WIDTH_packet),
+    .SENDVALUE1(14'b00110111111110), //pe2->pe6
+    .SENDVALUE2(14'b00110111111101)  //pe2->pe6
 ) gen1 (
     .r(L1)
 );
 
 data_generator #(
-    .WIDTH_packet(WIDTH_packet)
+    .WIDTH_packet(WIDTH_packet),
+    .SENDVALUE1(14'b01011011111110), //pe3->pe7
+    .SENDVALUE2(14'b01011011111101)  //pe3->pe7
 ) gen2 (
     .r(L2)
 );
 
 data_generator #(
-    .WIDTH_packet(WIDTH_packet)
+    .WIDTH_packet(WIDTH_packet),
+    .SENDVALUE1(14'b01111111111110), //pe4->pe8
+    .SENDVALUE2(14'b01111111111101)  //pe4->pe8
 ) gen3 (
     .r(L3)
 );
 
 data_generator #(
     .WIDTH_packet(WIDTH_packet),
-    .SENDVALUE1(14'b01010111111110)
+    .SENDVALUE1(14'b10010111111110), //pe5->pe8
+    .SENDVALUE2(14'b10011111111101)  //pe5->pe8
 ) gen4 (
     .r(L4)
 );
 
 data_generator #(
-    .WIDTH_packet(WIDTH_packet)
+    .WIDTH_packet(WIDTH_packet),
+    .SENDVALUE1(14'b10111111111110), //pe6->pe8
+    .SENDVALUE2(14'b10111111111101)  //pe6->pe8
 ) gen5 (
     .r(L5)
 );
 
 data_generator #(
-    .WIDTH_packet(WIDTH_packet)
+    .WIDTH_packet(WIDTH_packet),
+    .SENDVALUE1(14'b11011111111110), //pe7->pe8
+    .SENDVALUE2(14'b11011111111101)  //pe7->pe8
 
 ) gen6 (
     .r(L6)
 );
 
 data_generator #(
-    .WIDTH_packet(WIDTH_packet) 
+    .WIDTH_packet(WIDTH_packet),
+    .SENDVALUE1(14'b11111011111110), //pe8->pe7
+    .SENDVALUE2(14'b11111011111101)  //pe8->pe7 
 ) gen7 (
     .r(L7)
 );
@@ -169,7 +184,7 @@ data_bucket #(
     // Simulation control
 initial begin
     $display("*** input_ctrl_tb simulation starts ***");
-    #500;
+    #1000;
     $display("*** Simulation ends ***");
     $stop;
 end

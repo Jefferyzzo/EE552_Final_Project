@@ -98,16 +98,6 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 Top level modules:
 	--none--
 
-} {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_ctrl.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_ctrl.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/input_ctrl.sv(3): (vlog-13233) Design unit "input_ctrl_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package input_ctrl_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module input_ctrl
-
-Top level modules:
-	input_ctrl
-
 } {} {}} D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/tree_tb.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/tree_tb.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 ** Warning: D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/tree_tb.sv(3): (vlog-13233) Design unit "tree_tb_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.

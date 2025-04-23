@@ -10,8 +10,8 @@ module tree #(
     parameter BL = 1,
     parameter LEVEL = 1,
     parameter NUM_NODE = 8,
-    parameter ADDR = 3'b000,
-    parameter IS_PARENT = 1
+    parameter ADDR = 3'b000
+    // parameter IS_PARENT = 1
 ) (
     interface PE0_in,PE0_out,
     PE1_in,PE1_out,

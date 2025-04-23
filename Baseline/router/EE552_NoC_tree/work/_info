@@ -27,7 +27,7 @@ Z5 8arbiter.sv
 Z6 Farbiter.sv
 L0 5
 Z7 OL;L;10.6e;65
-Z8 !s108 1744607773.000000
+Z8 !s108 1745384997.000000
 Z9 !s107 arbiter.sv|
 Z10 !s90 -reportprogress|300|-work|work|arbiter.sv|
 !i113 0
@@ -101,9 +101,9 @@ Z23 8arbiter_merge.sv
 Z24 Farbiter_merge.sv
 L0 6
 R7
-Z25 !s108 1744607774.000000
-Z26 !s107 arbiter_merge.sv|
-Z27 !s90 -reportprogress|300|-work|work|arbiter_merge.sv|
+R8
+Z25 !s107 arbiter_merge.sv|
+Z26 !s90 -reportprogress|300|-work|work|arbiter_merge.sv|
 !i113 0
 R11
 R12
@@ -125,9 +125,9 @@ R23
 R24
 L0 4
 R7
+R8
 R25
 R26
-R27
 !i113 0
 R11
 R12
@@ -169,14 +169,14 @@ ISo^B8RTFP7SMklU[dJ^c]2
 !s105 SystemVerilogCSP_sv_unit
 S1
 R3
-Z28 w1744149506
-Z29 8SystemVerilogCSP.sv
-Z30 FSystemVerilogCSP.sv
+Z27 w1744149506
+Z28 8SystemVerilogCSP.sv
+Z29 FSystemVerilogCSP.sv
 L0 24
 R7
 R8
-Z31 !s107 SystemVerilogCSP.sv|
-Z32 !s90 -reportprogress|300|-work|work|SystemVerilogCSP.sv|
+Z30 !s107 SystemVerilogCSP.sv|
+Z31 !s90 -reportprogress|300|-work|work|SystemVerilogCSP.sv|
 !i113 0
 R11
 R12
@@ -195,16 +195,16 @@ IYT<T;j]iANUTc<3ENbMli2
 !s105 copy_sv_unit
 S1
 R3
-Z33 w1744398610
-Z34 8D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv
-Z35 FD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv
+Z32 w1744398610
+Z33 8D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv
+Z34 FD:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv
 L0 6
 R7
-Z36 !s108 1744607768.000000
-Z37 !s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv|
-Z38 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv|
+Z35 !s108 1745184915.000000
+Z36 !s107 D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv|
+Z37 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|D:/EE552/final_project/EE552_Final_Project/Baseline/router/EE552_NoC_tree/copy.sv|
 !i113 0
-Z39 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z38 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R12
 Xcopy_sv_unit
 R0
@@ -219,16 +219,16 @@ IE5YY]VVR<BG0145Fgd2B60
 !i103 1
 S1
 R3
+R32
 R33
 R34
-R35
 L0 4
 R7
+R35
 R36
 R37
-R38
 !i113 0
-R39
+R38
 R12
 vdata_bucket
 R0
@@ -244,14 +244,14 @@ I@17dUN=F>DXGKUF]IZSoM2
 !s105 data_bucket_sv_unit
 S1
 R3
-Z40 w1744607760
-Z41 8data_bucket.sv
-Z42 Fdata_bucket.sv
+Z39 w1744607760
+Z40 8data_bucket.sv
+Z41 Fdata_bucket.sv
 L0 4
 R7
 R8
-Z43 !s107 data_bucket.sv|
-Z44 !s90 -reportprogress|300|-work|work|data_bucket.sv|
+Z42 !s107 data_bucket.sv|
+Z43 !s90 -reportprogress|300|-work|work|data_bucket.sv|
 !i113 0
 R11
 R12
@@ -268,14 +268,14 @@ IVoznY`4E4?PJ7DKLQ[ETJ1
 !i103 1
 S1
 R3
+R39
 R40
 R41
-R42
 L0 2
 R7
 R8
+R42
 R43
-R44
 !i113 0
 R11
 R12
@@ -293,14 +293,14 @@ Ij14db:Lk:5mOe3NUPjD9T0
 !s105 data_generator_sv_unit
 S1
 R3
-Z45 w1744403116
-Z46 8data_generator.sv
-Z47 Fdata_generator.sv
+Z44 w1744403116
+Z45 8data_generator.sv
+Z46 Fdata_generator.sv
 L0 4
 R7
 R8
-Z48 !s107 data_generator.sv|
-Z49 !s90 -reportprogress|300|-work|work|data_generator.sv|
+Z47 !s107 data_generator.sv|
+Z48 !s90 -reportprogress|300|-work|work|data_generator.sv|
 !i113 0
 R11
 R12
@@ -317,14 +317,14 @@ I3=YfC1=c<a=<jD`;VO_Z@0
 !i103 1
 S1
 R3
+R44
 R45
 R46
-R47
 L0 2
 R7
 R8
+R47
 R48
-R49
 !i113 0
 R11
 R12
@@ -339,66 +339,66 @@ r1
 !i10b 1
 !s100 jUnTGaT<LfHN691e9k]CT3
 INU6]bZ;AXlhafi[U><0`g1
-Z50 !s105 input_ctrl_sv_unit
+Z49 !s105 input_ctrl_sv_unit
 S1
 R14
 w1744181670
-Z51 8input_ctrl.sv
-Z52 Finput_ctrl.sv
+Z50 8input_ctrl.sv
+Z51 Finput_ctrl.sv
 L0 5
 R7
 !s108 1744182048.000000
-Z53 !s107 input_ctrl.sv|
-Z54 !s90 -reportprogress|300|-work|work|input_ctrl.sv|
+Z52 !s107 input_ctrl.sv|
+Z53 !s90 -reportprogress|300|-work|work|input_ctrl.sv|
 !i113 0
 R11
 R12
 vinput_ctrl
 R0
 R1
-DXx4 work 18 input_ctrl_sv_unit 0 22 RkDJTKD_OYCi;ozn1Kl>b3
+DXx4 work 18 input_ctrl_sv_unit 0 22 YbTj7HJV9W9>_SZ<SoIlP0
 R2
 r1
 !s85 0
 31
 !i10b 1
-!s100 `WkW0aGAS`_;I^V1:5<H<0
-Ic3@V5`hPB>Nb^Df>Ofzfd1
-R50
+!s100 ae4:k6njdR3NFIe@^<d;Q0
+IXRCMjnVB`JODGCH4kPSFb0
+R49
 S1
 R3
-Z55 w1744601726
+Z54 w1745384875
+R50
 R51
-R52
 L0 5
 R7
-R25
+R8
+R52
 R53
-R54
 !i113 0
 R11
 R12
 Xinput_ctrl_sv_unit
 R0
 R1
-VRkDJTKD_OYCi;ozn1Kl>b3
+VYbTj7HJV9W9>_SZ<SoIlP0
 r1
 !s85 0
 31
 !i10b 1
-!s100 Z3o9MGkY`?jW@;Oe0a6b53
-IRkDJTKD_OYCi;ozn1Kl>b3
+!s100 JliGkfYESBOWK;GmbBjOU0
+IYbTj7HJV9W9>_SZ<SoIlP0
 !i103 1
 S1
 R3
-R55
+R54
+R50
 R51
-R52
 L0 3
 R7
-R25
+R8
+R52
 R53
-R54
 !i113 0
 R11
 R12
@@ -416,14 +416,14 @@ IWG_=7n49ajoY0ETmE6gE81
 !s105 merge_sv_unit
 S1
 R3
-Z56 w1744398738
-Z57 8merge.sv
-Z58 Fmerge.sv
+Z55 w1744398738
+Z56 8merge.sv
+Z57 Fmerge.sv
 L0 6
 R7
-R25
-Z59 !s107 merge.sv|
-Z60 !s90 -reportprogress|300|-work|work|merge.sv|
+R8
+Z58 !s107 merge.sv|
+Z59 !s90 -reportprogress|300|-work|work|merge.sv|
 !i113 0
 R11
 R12
@@ -440,14 +440,14 @@ IY@FC2AgD2X;8dM>@z]dAT3
 !i103 1
 S1
 R3
+R55
 R56
 R57
-R58
 L0 4
 R7
-R25
+R8
+R58
 R59
-R60
 !i113 0
 R11
 R12
@@ -465,14 +465,14 @@ IaSeLez]L?:If7VRLk0EBL0
 !s105 output_ctrl_sv_unit
 S1
 R3
-Z61 w1744443925
-Z62 8output_ctrl.sv
-Z63 Foutput_ctrl.sv
+Z60 w1744443925
+Z61 8output_ctrl.sv
+Z62 Foutput_ctrl.sv
 L0 5
 R7
-R25
-Z64 !s107 output_ctrl.sv|
-Z65 !s90 -reportprogress|300|-work|work|output_ctrl.sv|
+R8
+Z63 !s107 output_ctrl.sv|
+Z64 !s90 -reportprogress|300|-work|work|output_ctrl.sv|
 !i113 0
 R11
 R12
@@ -489,14 +489,14 @@ I6;7E45CcozD38m>gTVNW[2
 !i103 1
 S1
 R3
+R60
 R61
 R62
-R63
 L0 3
 R7
-R25
+R8
+R63
 R64
-R65
 !i113 0
 R11
 R12
@@ -509,19 +509,19 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 GGh[z^cm33j8H?SP]I;1H0
-In`]R<Ed_gfX982zBLX;3Q3
+!s100 3bU4EA>DH@YFDiJb]LA?X3
+IBIR3oCSfme1O[maPO=b`83
 !s105 router_sv_unit
 S1
 R3
-Z66 w1744601551
-Z67 8router.sv
-Z68 Frouter.sv
+Z65 w1744684621
+Z66 8router.sv
+Z67 Frouter.sv
 L0 5
 R7
-R25
-Z69 !s107 router.sv|
-Z70 !s90 -reportprogress|300|-work|work|router.sv|
+R8
+Z68 !s107 router.sv|
+Z69 !s90 -reportprogress|300|-work|work|router.sv|
 !i113 0
 R11
 R12
@@ -538,14 +538,14 @@ IPfTZ[QfP76TYogOKO`a`F3
 !i103 1
 S1
 R3
+R65
 R66
 R67
-R68
 L0 2
 R7
-R25
+R8
+R68
 R69
-R70
 !i113 0
 R11
 R12
@@ -563,14 +563,14 @@ IW^Q=G4oHomLOio[^3R2K32
 !s105 router_tb_sv_unit
 S1
 R14
-Z71 w1744229969
-Z72 8router_tb.sv
-Z73 Frouter_tb.sv
+Z70 w1744229969
+Z71 8router_tb.sv
+Z72 Frouter_tb.sv
 L0 5
 R7
-Z74 !s108 1744230029.000000
-Z75 !s107 router_tb.sv|
-Z76 !s90 -reportprogress|300|-work|work|router_tb.sv|
+Z73 !s108 1744230029.000000
+Z74 !s107 router_tb.sv|
+Z75 !s90 -reportprogress|300|-work|work|router_tb.sv|
 !i113 0
 R11
 R12
@@ -587,14 +587,14 @@ IL6_Y6nQZobTiNL??h?8lR2
 !i103 1
 S1
 R14
+R70
 R71
 R72
-R73
 L0 3
 R7
+R73
 R74
 R75
-R76
 !i113 0
 R11
 R12
@@ -612,14 +612,14 @@ Iooj<FV72USNkKXL8`d4FB0
 !s105 router_test_sv_unit
 S1
 R14
-Z77 w1744230116
-Z78 8router_test.sv
-Z79 Frouter_test.sv
+Z76 w1744230116
+Z77 8router_test.sv
+Z78 Frouter_test.sv
 L0 4
 R7
-Z80 !s108 1744230624.000000
-Z81 !s107 router_test.sv|
-Z82 !s90 -sv|-lint|-reportprogress|300|-work|work|router_test.sv|
+Z79 !s108 1744230624.000000
+Z80 !s107 router_test.sv|
+Z81 !s90 -sv|-lint|-reportprogress|300|-work|work|router_test.sv|
 !i113 0
 R21
 R12
@@ -636,14 +636,14 @@ I9_f]hLf8WQATk7i2lYfRF1
 !i103 1
 S1
 R14
+R76
 R77
 R78
-R79
 L0 3
 R7
+R79
 R80
 R81
-R82
 !i113 0
 R21
 R12
@@ -658,14 +658,14 @@ r1
 I[bF=dZV1dQz=HH2Cgc1[e0
 S1
 R3
+R27
 R28
 R29
-R30
 L0 15
 R7
 R8
+R30
 R31
-R32
 !i113 0
 R11
 R12
@@ -683,14 +683,14 @@ IRU`D=hzlb`^MNOHM_GVK41
 !i103 1
 S1
 R3
+R27
 R28
 R29
-R30
 L0 22
 R7
 R8
+R30
 R31
-R32
 !i113 0
 R11
 R12
@@ -704,17 +704,17 @@ r1
 !s85 0
 31
 !i10b 1
-!s100 ;CdSjkDa0U<L`eV<clOj41
-I:RRCJCA:3=c0CliNf7;CM0
+!s100 Be;<n=V;FhNgAbTUib6V71
+IU;JX8[;9m5A<KlDC=5Of;0
 !s105 tree_sv_unit
 S1
 R3
-Z83 w1744607552
-Z84 8tree.sv
-Z85 Ftree.sv
+Z82 w1744684696
+Z83 8tree.sv
+Z84 Ftree.sv
 L0 5
 R7
-R25
+Z85 !s108 1745384998.000000
 Z86 !s107 tree.sv|
 Z87 !s90 -reportprogress|300|-work|work|tree.sv|
 !i113 0
@@ -733,12 +733,12 @@ I?;c4:5i<6FkoObWdof[Dn1
 !i103 1
 S1
 R3
+R82
 R83
 R84
-R85
 L0 3
 R7
-R25
+R85
 R86
 R87
 !i113 0
@@ -747,23 +747,23 @@ R12
 vtree_tb
 R0
 R1
-DXx4 work 15 tree_tb_sv_unit 0 22 h@b3[?hO8?QDo2BOoIUFV1
+DXx4 work 15 tree_tb_sv_unit 0 22 RlQ`Zz5A_F]i;`6J_ccjP3
 R2
 r1
 !s85 0
 31
 !i10b 1
-!s100 :bn^>V4dkaBN0@dPW@@Y^0
-I0X12oUIzEDgBa2Kic]GF12
+!s100 Rd7SJ6GhiOi9LBo2M0?3Q3
+IeT82_Bf8RK[Z]<G>mc]Fg3
 !s105 tree_tb_sv_unit
 S1
 R3
-Z88 w1744607737
+Z88 w1744684733
 Z89 8tree_tb.sv
 Z90 Ftree_tb.sv
 L0 5
 R7
-R25
+R85
 Z91 !s107 tree_tb.sv|
 Z92 !s90 -reportprogress|300|-work|work|tree_tb.sv|
 !i113 0
@@ -772,13 +772,13 @@ R12
 Xtree_tb_sv_unit
 R0
 R1
-Vh@b3[?hO8?QDo2BOoIUFV1
+VRlQ`Zz5A_F]i;`6J_ccjP3
 r1
 !s85 0
 31
 !i10b 1
-!s100 oVi9zeQLFa`Yo=mD@LU^N1
-Ih@b3[?hO8?QDo2BOoIUFV1
+!s100 X?99L]YJNCZ=Tj@S1<X0A0
+IRlQ`Zz5A_F]i;`6J_ccjP3
 !i103 1
 S1
 R3
@@ -787,7 +787,7 @@ R89
 R90
 L0 3
 R7
-R25
+R85
 R91
 R92
 !i113 0

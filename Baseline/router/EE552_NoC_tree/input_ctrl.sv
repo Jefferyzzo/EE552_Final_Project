@@ -12,6 +12,7 @@ module input_ctrl #(
     parameter IS_PARENT = 0,
     //parameter IS_LCHILD = 0,
     parameter NUM_NODE = 8
+    ///parameter router_addr = 3'b000
 ) (interface in, out1, out2);
 
     logic [WIDTH_packet-1:0] packet; 
@@ -43,7 +44,7 @@ module input_ctrl #(
 
                 $display("Parent node: bit_index = %0d, dest_bit = %b", bit_index, dest_bit);
                 $display(">>> Received parent packet: %b", packet);
-                $display(">>> !!!!!IS_PARENT = %0d, LEVEL = %0d, addr = %b, dest = %b", 
+                $display(">>> !!!!!IS_PARENT = %0d,  LEVEL = %0d, addr = %b, dest = %b", 
                         IS_PARENT,  LEVEL, addr, dest);
 
                 if (dest_bit == 1'b0) begin  //取出的值是0的话传给左孩子，取出的值是1的话，传给右孩子。
@@ -64,20 +65,39 @@ module input_ctrl #(
 
 
                 $display(">>> Received child packet: %b", packet);
-                $display(">>> addr_bit = %b,masked_dest_bit = %b,mask = %b, IS_PARENT = %0d,  LEVEL = %0d, addr = %b, dest = %b", addr_bit,masked_dest_bit,mask, IS_PARENT, LEVEL, addr, dest);
+                $display(">>> mask = %b, IS_PARENT = %0d,  LEVEL = %0d, addr = %b, dest = %b,masked_dest = %b,masked_addr=%b",mask, IS_PARENT,  LEVEL, addr, dest,masked_dest,mask&addr);
 
                 //if (IS_LCHILD) begin
                 addr_bit = addr[WIDTH_addr - LEVEL];//代表addr取被MASK的那几位数字
-                    $display("Left child node: addr_bit = %b, masked_dest = %b",addr_bit,masked_dest);
-                    if (masked_dest_bit != addr_bit) begin //如果masked_dest_bit结果与address_bit不一致则向parent发，如果masked dest结果与address一致则向另一个child发，
+                if(dest == addr) begin
+
+                    //$display("Left child node: addr_bit = %b, masked_dest = %b",addr_bit,masked_dest);
+
+                $display("!!!!!!!!!!Ilegal packet!!!!!!!!!!!!!");
+               
+                end 
+                else begin
+                    if (masked_dest != (addr & mask)) begin //如果masked_dest_bit结果与address_bit不一致则向parent发，如果masked dest结果与address一致则向另一个child发，
                         $display("Routed to out1 (parent)");
                         out1.Send(packet);
+                        #BL;
                     end else begin
                         $display("Routed to out2 (sibling)");
                         out2.Send(packet);
+                        #BL;
                     end
-            
-                #BL;
+                end
+                // else if(addr > dest ) begin
+                //     if (masked_dest == (addr & mask)) begin //如果masked_dest_bit结果与address_bit不一致则向parent发，如果masked dest结果与address一致则向另一个child发，
+                //         $display("Routed to out1 (parent)");
+                //         out1.Send(packet);
+                //         #BL;
+                //     end else begin
+                //         $display("Routed to out2 (sibling)");
+                //         out2.Send(packet);
+                //         #BL;
+                //     end
+                // end
             end
         end
     end

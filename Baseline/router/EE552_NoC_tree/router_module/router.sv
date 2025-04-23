@@ -8,10 +8,11 @@ import SystemVerilogCSP::*;
     parameter WIDTH_addr =3,
     parameter FL = 2,
     parameter BL = 1,
-    parameter LEVEL = 1,
+    parameter LEVEL = 2,
     parameter NUM_NODE = 8,
     parameter ADDR = 3'b000,
-    parameter IS_PARENT = 1
+    parameter IS_PARENT = 1,
+    parameter router_addr = 3'b000
  ) (
    interface parent_in, parent_out,
     child1_in, child1_out,
@@ -44,6 +45,7 @@ import SystemVerilogCSP::*;
         .LEVEL(LEVEL),
         .IS_PARENT(IS_PARENT),
         .NUM_NODE(8)
+        //.router_addr(3'b000)
     ) pin (
         .in(parent_in),
         .out1(parent_child1),
