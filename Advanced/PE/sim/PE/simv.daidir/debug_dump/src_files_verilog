@@ -1,0 +1,15 @@
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/sim/PE/PE_tb.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/PE.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/SystemVerilogCSP.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/conditional_copy.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/copy4.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/depacketizer.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/mac.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/merge.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/packetizer.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/priority_mux.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/special_copy.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/special_split.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/spike_residue.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/split.sv
+/home/viterbi/06/ychiu078/552/EE552_Final_Project/Advanced/PE/src/two_input_adder.sv

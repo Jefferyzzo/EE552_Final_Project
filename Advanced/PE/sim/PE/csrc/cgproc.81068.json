@@ -1,0 +1,439 @@
+{
+    "Modules": {
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0004": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "data_generator": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "...MASTER...": {},
+        "special_split": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "_vcs_unit__3579906574": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "packetizer": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "SystemVerilogCSP": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0001": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0003": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0002": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "depacketizer": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0005": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "merge": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0006": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "Channel_0007": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "data_bucket": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "PE_tb": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "split": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "priority_mux": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "copy4": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "two_input_adder": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "conditional_copy": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "special_copy": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "mac": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "spike_residue": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "CompUnits": {
+        "p8BW1_d": {
+            "bytes": 28876,
+            "mod": "data_bucket",
+            "checksum": 0,
+            "out": "p8BW1_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "amcQw_d": {
+            "bytes": 7884,
+            "mod": "...MASTER...",
+            "checksum": 0,
+            "out": "objs/amcQw_d.o",
+            "mode": 4
+        },
+        "jECFW_d": {
+            "bytes": 12326,
+            "mod": "priority_mux",
+            "checksum": 0,
+            "out": "jECFW_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "BMHPQ_d": {
+            "bytes": 73328,
+            "mod": "Channel_0001",
+            "checksum": 0,
+            "out": "BMHPQ_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "NCi3F_d": {
+            "bytes": 10002,
+            "mod": "_vcs_unit__3579906574",
+            "checksum": 0,
+            "out": "NCi3F_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "enAc4_d": {
+            "bytes": 7667,
+            "mod": "SystemVerilogCSP",
+            "checksum": 0,
+            "out": "enAc4_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "reYIK_d": {
+            "bytes": 41662,
+            "mod": "std",
+            "checksum": 0,
+            "out": "reYIK_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "ataCm_d": {
+            "bytes": 15056,
+            "mod": "spike_residue",
+            "checksum": 0,
+            "out": "ataCm_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "y5LLG_d": {
+            "bytes": 14107,
+            "mod": "split",
+            "checksum": 0,
+            "out": "y5LLG_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "nYY4r_d": {
+            "bytes": 73314,
+            "mod": "Channel_0000",
+            "checksum": 0,
+            "out": "nYY4r_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "kBVPD_d": {
+            "bytes": 67964,
+            "mod": "Channel_0002",
+            "checksum": 0,
+            "out": "kBVPD_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "zzdLZ_d": {
+            "bytes": 71726,
+            "mod": "Channel_0007",
+            "checksum": 0,
+            "out": "zzdLZ_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "r58GN_d": {
+            "bytes": 66105,
+            "mod": "Channel_0003",
+            "checksum": 0,
+            "out": "r58GN_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "YYGAb_d": {
+            "bytes": 73344,
+            "mod": "Channel_0004",
+            "checksum": 0,
+            "out": "YYGAb_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "w8TC7_d": {
+            "bytes": 33952,
+            "mod": "data_generator",
+            "checksum": 0,
+            "out": "w8TC7_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "IeBrF_d": {
+            "bytes": 16416,
+            "mod": "copy4",
+            "checksum": 0,
+            "out": "IeBrF_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "icPSP_d": {
+            "bytes": 71646,
+            "mod": "Channel_0006",
+            "checksum": 0,
+            "out": "icPSP_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "i5mzk_d": {
+            "bytes": 71894,
+            "mod": "Channel_0005",
+            "checksum": 0,
+            "out": "i5mzk_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "cjQsN_d": {
+            "bytes": 16440,
+            "mod": "PE_tb",
+            "checksum": 0,
+            "out": "cjQsN_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "n6KiC_d": {
+            "bytes": 25964,
+            "mod": "depacketizer",
+            "checksum": 0,
+            "out": "n6KiC_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "HC07W_d": {
+            "bytes": 9931,
+            "mod": "merge",
+            "checksum": 0,
+            "out": "HC07W_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "Kc3TV_d": {
+            "bytes": 25989,
+            "mod": "special_split",
+            "checksum": 0,
+            "out": "Kc3TV_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "ZqqcA_d": {
+            "bytes": 18269,
+            "mod": "special_copy",
+            "checksum": 0,
+            "out": "ZqqcA_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "D8bfC_d": {
+            "bytes": 18643,
+            "mod": "conditional_copy",
+            "checksum": 0,
+            "out": "D8bfC_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "duZ3t_d": {
+            "bytes": 38561,
+            "mod": "mac",
+            "checksum": 0,
+            "out": "duZ3t_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "dkgQb_d": {
+            "bytes": 14545,
+            "mod": "two_input_adder",
+            "checksum": 0,
+            "out": "dkgQb_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        },
+        "PyREV_d": {
+            "bytes": 23717,
+            "mod": "packetizer",
+            "checksum": 0,
+            "out": "PyREV_d.o",
+            "mode": 4,
+            "archive": "archive.0/_81068_archive_1.a"
+        }
+    },
+    "reusePaths": {},
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_81068_archive_1.a",
+            "objects": [
+                [
+                    "NCi3F_d.o",
+                    10002
+                ],
+                [
+                    "reYIK_d.o",
+                    41662
+                ],
+                [
+                    "enAc4_d.o",
+                    7667
+                ],
+                [
+                    "nYY4r_d.o",
+                    73314
+                ],
+                [
+                    "BMHPQ_d.o",
+                    73328
+                ],
+                [
+                    "kBVPD_d.o",
+                    67964
+                ],
+                [
+                    "r58GN_d.o",
+                    66105
+                ],
+                [
+                    "YYGAb_d.o",
+                    73344
+                ],
+                [
+                    "i5mzk_d.o",
+                    71894
+                ],
+                [
+                    "icPSP_d.o",
+                    71646
+                ],
+                [
+                    "zzdLZ_d.o",
+                    71726
+                ],
+                [
+                    "w8TC7_d.o",
+                    33952
+                ],
+                [
+                    "p8BW1_d.o",
+                    28876
+                ],
+                [
+                    "cjQsN_d.o",
+                    16440
+                ],
+                [
+                    "n6KiC_d.o",
+                    25964
+                ],
+                [
+                    "y5LLG_d.o",
+                    14107
+                ],
+                [
+                    "Kc3TV_d.o",
+                    25989
+                ],
+                [
+                    "jECFW_d.o",
+                    12326
+                ],
+                [
+                    "IeBrF_d.o",
+                    16416
+                ],
+                [
+                    "ZqqcA_d.o",
+                    18269
+                ],
+                [
+                    "D8bfC_d.o",
+                    18643
+                ],
+                [
+                    "duZ3t_d.o",
+                    38561
+                ],
+                [
+                    "ataCm_d.o",
+                    15056
+                ],
+                [
+                    "dkgQb_d.o",
+                    14545
+                ],
+                [
+                    "HC07W_d.o",
+                    9931
+                ],
+                [
+                    "PyREV_d.o",
+                    23717
+                ]
+            ],
+            "size": 941444
+        }
+    ]
+}

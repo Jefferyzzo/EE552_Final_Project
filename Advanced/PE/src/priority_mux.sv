@@ -18,9 +18,11 @@ module priority_mux #(
         wait((L0.status != idle) || (L1.status != idle));
         if(L0.status != idle) begin
             L0.Receive(data);
+            $display("%m L0 received data: %0h", data);
             #FL;
         end else begin
             L1.Receive(data);
+            $display("%m L1 received data: %0h", data);
             #FL;
         end
         R.Send(data);

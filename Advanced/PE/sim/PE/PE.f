@@ -5,7 +5,6 @@
 ../../src/split.sv
 ../../src/special_split.sv
 ../../src/priority_mux.sv
-../../src/copy.sv
 ../../src/copy4.sv
 ../../src/special_copy.sv
 ../../src/conditional_copy.sv

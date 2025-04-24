@@ -50,11 +50,11 @@ module data_generator (interface r);
         $fclose(file1);
         $fclose(file2);
 
-        rand_values[0] = {filter_part[0], filter_part[1], filter_part[2], 4'b0110}; // filter row 1
-        rand_values[1] = {filter_part[3], filter_part[4], filter_part[5], 4'b1010}; // filter row 2
-        rand_values[2] = {filter_part[6], filter_part[7], filter_part[8], 4'b1110}; // filter row 3
-        rand_values[3] = {ifmap_t1_part[0], ifmap_t1_part[1], ifmap_t1_part[2], ifmap_t1_part[3], ifmap_t1_part[4], ifmap_t1_part[5], ifmap_t1_part[6], ifmap_t1_part[7], ifmap_t1_part[8], 4'b0000}; // ifmap t1
-        rand_values[4] = {ifmap_t2_part[0], ifmap_t2_part[1], ifmap_t2_part[2], ifmap_t2_part[3], ifmap_t2_part[4], ifmap_t2_part[5], ifmap_t2_part[6], ifmap_t2_part[7], ifmap_t2_part[8], 4'b0001}; // ifmap t2
+        rand_values[0] = {filter_part[0], filter_part[1], filter_part[2], 5'b001_10}; // filter row 1
+        rand_values[1] = {filter_part[3], filter_part[4], filter_part[5], 5'b010_10}; // filter row 2
+        rand_values[2] = {filter_part[6], filter_part[7], filter_part[8], 5'b011_10}; // filter row 3
+        rand_values[3] = {ifmap_t1_part[0], ifmap_t1_part[1], ifmap_t1_part[2], ifmap_t1_part[3], ifmap_t1_part[4], ifmap_t1_part[5], ifmap_t1_part[6], ifmap_t1_part[7], ifmap_t1_part[8], 5'b00000}; // ifmap t1
+        rand_values[4] = {ifmap_t2_part[0], ifmap_t2_part[1], ifmap_t2_part[2], ifmap_t2_part[3], ifmap_t2_part[4], ifmap_t2_part[5], ifmap_t2_part[6], ifmap_t2_part[7], ifmap_t2_part[8], 5'b00001}; // ifmap t2
     end
 
     always begin
@@ -175,27 +175,53 @@ endmodule
 
 module PE_tb ();
 
-    parameter FILTER_WIDTH = 8;
-    parameter IFMAP_SIZE   = 9;
-    parameter OUTPUT_WIDTH  = 12;
-    
+    parameter FILTER_WIDTH  = 8;
+    parameter IFMAP_SIZE    = 25;
+    parameter OUTPUT_WIDTH  = 13;
+    parameter THRESHOLD     = 16;
+    parameter FL	        = 2;
+    parameter BL	        = 1;
+    parameter DIRECTION_OUT = 0;
+    parameter X_HOP_OUT     = 0;
+    parameter Y_HOP_OUT     = 0;
+    parameter PE_NODE       = 0;
+    parameter X_HOP_ACK     = 0;
+    parameter Y_HOP_ACK     = 0;
+    parameter DIRECTION_ACK = 0;
+
     // Instantiate interfaces  
-    Channel #(.WIDTH(3*FILTER_WIDTH+4), .hsProtocol(P4PhaseBD)) Packet_in ();
-    Channel #(.WIDTH(3*FILTER_WIDTH+9), .hsProtocol(P4PhaseBD)) Packet_out ();
-    Channel #(.WIDTH(1), .hsProtocol(P4PhaseBD)) OutSpike ();
-    Channel #(.WIDTH(OUTPUT_WIDTH), .hsProtocol(P4PhaseBD)) Residue_copy0 ();
+    Channel #(.WIDTH(5*FILTER_WIDTH+5), .hsProtocol(P4PhaseBD)) Packet_in ();
+    Channel #(.WIDTH(5*FILTER_WIDTH+13), .hsProtocol(P4PhaseBD)) Packet_out ();
+    // Channel #(.WIDTH(1), .hsProtocol(P4PhaseBD)) OutSpike ();
+    // Channel #(.WIDTH(OUTPUT_WIDTH), .hsProtocol(P4PhaseBD)) Residue_copy0 ();
 
     // Instantiate DUT
-    data_generator #(.PACKET_WIDTH(3*FILTER_WIDTH+4), .FL(0)) dg_content (Packet_in);
-    // PE pe (.Packet_in(Packet_in), .OutSpike(OutSpike), .Residue_copy0(Residue_copy0));
-    PE pe (.Packet_in(Packet_in), .Packet_out(Packet_out));
-    // data_bucket #(.WIDTH(1), .BL(0)) db_spike (OutSpike);
-    // data_bucket #(.WIDTH(OUTPUT_WIDTH), .BL(0)) db_residue0 (Residue_copy0);
-    data_bucket #(.WIDTH(3*FILTER_WIDTH+9), .BL(0)) db_content (Packet_out);
+    data_generator #(.PACKET_WIDTH(5*FILTER_WIDTH+5), .FL(0)) dg_content (Packet_in);
+
+    PE #(
+        .FILTER_WIDTH(FILTER_WIDTH),
+        .IFMAP_SIZE(IFMAP_SIZE),
+        .OUTPUT_WIDTH(OUTPUT_WIDTH),
+        .THRESHOLD(THRESHOLD),
+        .FL(FL),	        
+        .BL(BL),        
+        .DIRECTION_OUT(DIRECTION_OUT),
+        .X_HOP_OUT(X_HOP_OUT),     
+        .Y_HOP_OUT(Y_HOP_OUT),    
+        .PE_NODE(PE_NODE),       
+        .X_HOP_ACK(X_HOP_ACK),     
+        .Y_HOP_ACK(Y_HOP_ACK),    
+        .DIRECTION_ACK(DIRECTION_ACK)
+    ) PE (
+        .Packet_in(Packet_in), 
+        .Packet_out(Packet_out)
+    );
+
+    data_bucket #(.WIDTH(5*FILTER_WIDTH+13), .BL(0)) db_content (Packet_out);
 
     initial begin
         $display("Start simulation!!!");
-        #40
+        #100;
         $finish;
     end
 

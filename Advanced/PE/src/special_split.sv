@@ -33,9 +33,7 @@ module special_split #(
             Ifmapb_filter.Receive(ifmapb_filter);
             Filter_row.Receive(filter_row);
         join
-        // $display("Data: %h", data);
-        // $display("Ifmapb_filter: %b", ifmapb_filter);
-        // $display("Filter_row: %b", filter_row);
+        $display("%m Data: %h, Ifmapb_filter: %b, Filter_row: %d", data, ifmapb_filter, filter_row);
         #FL;
         if (ifmapb_filter == 0) begin               // send ifmap data
             ifmap_data = data[5*FILTER_WIDTH-1:5*FILTER_WIDTH-25];

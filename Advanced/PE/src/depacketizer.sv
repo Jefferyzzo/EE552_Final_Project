@@ -37,7 +37,7 @@ module depacketizer #(
         ifmapb_filter = packet[1];
         filter_row    = packet[4:2];
         data          = packet[5*FILTER_WIDTH+4:5];
-        // $display("timestep: %0d, ifmapb_filter: %0d, filter_row: %0d, data: %0b", timestep, ifmapb_filter, filter_row, data);
+        $display("%m timestep: %0d, ifmapb_filter: %0d, filter_row: %0d, data: %0h", timestep, ifmapb_filter, filter_row, data);
         if(ifmapb_filter == 0) begin 
             fork
                 Ifmapb_filter.Send(ifmapb_filter);
