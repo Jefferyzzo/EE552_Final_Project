@@ -30,7 +30,6 @@ module packetizer #(
     interface  Timestep,  
     interface  Residue, 
     interface  Outspike,
-    interface  Conv_loc,
     interface  Packet,
     interface  Ack 
 ); 
@@ -61,10 +60,9 @@ module packetizer #(
         if (timestep==1) begin        
             Packet.Send(packet);
             #BL;
-            Conv_loc.Send(packet);
+            Packet.Send(packet);
             #BL;
         end else begin
-        //packet = {residue, {(3*FILTER_WIDTH-OUTPUT_WIDTH-3){1'b0}}, pe_node, outspike, 3'b000, timestep, y_hop, x_hop, direction};
             Packet.Send(packet);
             #BL;
         end
