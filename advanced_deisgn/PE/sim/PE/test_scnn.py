@@ -44,7 +44,7 @@ def generate_filter_packets(filter_tensor, FILTER_WIDTH, output_path):
             packet |= 1 << bit_pos         # flag (1 = filter)
             bit_pos += 1
 
-            packet |= (row & 0b111) << bit_pos  # 3-bit row
+            packet |= ((row+1) & 0b111) << bit_pos  # 3-bit row
             bit_pos += 3
 
             # Add N filter values: D[N-1] (LSB) to D[0] (MSB of data)
