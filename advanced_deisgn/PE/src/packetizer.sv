@@ -10,23 +10,22 @@
 //             0s                        PE node   ack    y-hop    x-hop    direction 
 // ********************************************************************************************************************************
 
-
 `timescale 1ns/1ns
 
 import SystemVerilogCSP::*;
 
 module packetizer #(
-    parameter FILTER_WIDTH     = 8,
-    parameter OUTPUT_WIDTH     = 13,
-    parameter FL	           = 2,
-    parameter BL	           = 1,
-    parameter DIRECTION_OUT    = 0,
-    parameter X_HOP_OUT        = 0,
-    parameter Y_HOP_OUT        = 0,
-    parameter PE_NODE          = 0,
-    parameter X_HOP_ACK        = 0,
-    parameter Y_HOP_ACK        = 0,
-    parameter DIRECTION_ACK    = 0
+    parameter FILTER_WIDTH  = 8,
+    parameter OUTPUT_WIDTH  = 13,
+    parameter FL	        = 2,
+    parameter BL	        = 1,
+    parameter DIRECTION_OUT = 0,
+    parameter X_HOP_OUT     = 0,
+    parameter Y_HOP_OUT     = 0,
+    parameter PE_NODE       = 0,
+    parameter X_HOP_ACK     = 0,
+    parameter Y_HOP_ACK     = 0,
+    parameter DIRECTION_ACK = 0
 ) (
     interface Timestep,  
     interface Residue, 
@@ -60,7 +59,7 @@ module packetizer #(
         #FL;
         
         packet_out = {conv_loc, residue, pe_node, outspike, timestep, y_hop_out, x_hop_out, direction_out};
-        packet_ack = {{(5*FILTER_WIDTH-OUTPUT_WIDTH){1'b0}}, pe_node, y_hop_ack, x_hop_ack, direction_ack};
+        packet_ack = {{(5*FILTER_WIDTH){1'b0}}, pe_node, 1'b1, y_hop_ack, x_hop_ack, direction_ack};
 
         if (timestep == 1'b1) begin        
             Packet.Send(packet_out);
@@ -74,4 +73,3 @@ module packetizer #(
     end
 
 endmodule
-

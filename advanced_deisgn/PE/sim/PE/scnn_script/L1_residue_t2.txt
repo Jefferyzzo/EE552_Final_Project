@@ -1,4 +1,4 @@
-2502
+1619
 // Original shape: torch.Size([1, 1, 1, 1])
 /* Original data:
-tensor([[[[2502.]]]])*/
+tensor([[[[1619.]]]])*/

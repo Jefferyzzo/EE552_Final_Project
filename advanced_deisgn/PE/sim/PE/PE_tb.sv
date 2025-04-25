@@ -8,6 +8,7 @@ module data_generator (interface r);
     parameter PACKET_NUMBER = 7;
     parameter FL = 0;
 
+    logic [$clog2(PACKET_NUMBER)-1:0] counter = 0;
     logic [5*FILTER_WIDTH+4:0] SendValue;
     logic [5*FILTER_WIDTH+4:0] Packet [0:PACKET_NUMBER-1];
 
@@ -16,12 +17,14 @@ module data_generator (interface r);
     end
 
     always begin
-        for (integer i = 0; i < PACKET_NUMBER; ++i) begin
-            SendValue = Packet[i];
-        end
+        SendValue = Packet[counter];
         #FL;
         r.Send(SendValue);
-        $display("DG %m sends data = %h @ %t", SendValue, $time);
+        $display("DG %m sends data = %b @ %t", SendValue, $time);
+        if (counter < PACKET_NUMBER-1)
+            counter = counter + 1;
+        else
+            counter = counter - 1;
     end
 
 endmodule
@@ -87,12 +90,12 @@ module data_bucket (interface r);
             if (ReceiveValue[1:0] == 2'b11) begin
                 if (ReceiveValue[26:14] == L1_residue_t2 && ReceiveValue[9] == L1_out_spike_t2) begin
                     $display("\n==================================================== Congratulations ====================================================");
-                    $display("Golden value             for L1_residue_t2 = %d and L1_out_spike_t2 = %b", L1_residue_t1, L1_out_spike_t1);
+                    $display("Golden value             for L1_residue_t2 = %d and L1_out_spike_t2 = %b", L1_residue_t2, L1_out_spike_t2);
                     $display("DB %m received L1_residue_t2 = %d and L1_out_spike_t2 = %b @ %t", ReceiveValue[26:14], ReceiveValue[9], $time);
                     $display("==================================================== Congratulations ====================================================\n");
                 end else begin
                     $display("\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Comparison Fail xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-                    $display("Golden value             for L1_residue_t2 = %d and L1_out_spike_t2 = %b", L1_residue_t1, L1_out_spike_t1);
+                    $display("Golden value             for L1_residue_t2 = %d and L1_out_spike_t2 = %b", L1_residue_t2, L1_out_spike_t2);
                     $display("DB %m received L1_residue_t2 = %d and L1_out_spike_t2 = %b @ %t", ReceiveValue[26:14], ReceiveValue[9], $time);
                     $display("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Comparison Fail xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
                 end
@@ -119,6 +122,7 @@ module PE_tb ();
     parameter X_HOP_ACK     = 0;
     parameter Y_HOP_ACK     = 0;
     parameter DIRECTION_ACK = 0;
+    parameter PACKET_NUMBER = 6;
 
     // Instantiate interfaces  
     Channel #(.WIDTH(5*FILTER_WIDTH+5), .hsProtocol(P4PhaseBD)) Packet_in ();
@@ -150,7 +154,7 @@ module PE_tb ();
 
     initial begin
         $display("Start simulation!!!");
-        #50;
+        #75;
         $finish;
     end
 

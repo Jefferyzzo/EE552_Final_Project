@@ -38,8 +38,8 @@ module special_split #(
         // $display("%m Data: %h, Ifmapb_filter: %b, Filter_row: %d", data, ifmapb_filter, filter_row);
         #FL;
         if (ifmapb_filter == 0) begin               // send ifmap data
-            ifmap_data = data[5*FILTER_WIDTH-1:5*FILTER_WIDTH-23];
-            conv_loc   = data[5*FILTER_WIDTH-24:2];
+            ifmap_data = data[5*FILTER_WIDTH-1:5*FILTER_WIDTH-25];
+            conv_loc   = data[5*FILTER_WIDTH-26:2];
             size       = data[1:0];
             // $display("ifmap_data: %b", ifmap_data);
             fork
