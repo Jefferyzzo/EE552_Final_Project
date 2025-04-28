@@ -81,7 +81,7 @@ module mesh_advanced#(
                 
                 localparam int EW_IDX = i * (COL+1) + j; // W2E[i][j] -> W2E[i*(COL+1)+j]
                 localparam int EW_IDX_P1 = i * (COL+1) + j + 1; // E2W[i][j+1] -> E2W[i*(COL+1)+j+1]
-                if(!((i == (ROW-1) && j == 0) || (i == 0 && j == (COL-1)) )) begin // left-top node and right_bottom node are specially defined for input and output port
+                if(!((i == (ROW-1) && j == 0))) begin // left-top node is specially defined for input port
                     router_reversed #(
                         .WIDTH(WIDTH), 
                         .FL(FL), 
@@ -102,7 +102,7 @@ module mesh_advanced#(
                         .PEo(PEo[PE_IDX])         // PEo[i][j]
                     );
                 end
-                else if((i == (ROW-1) && j == 0)) begin
+                else begin // define special node for input port
                     router_reversed #(
                         .WIDTH(WIDTH), 
                         .FL(FL), 
@@ -122,28 +122,6 @@ module mesh_advanced#(
                         .PEi(PEi[PE_IDX]),        // PEi[i][j]
                         .PEo(PEo[PE_IDX])         // PEo[i][j]
                     );
-                end
-                else begin
-                    router_reversed #(
-                        .WIDTH(WIDTH), 
-                        .FL(FL), 
-                        .BL(BL), 
-                        .NODE_NUM(COL*i+j), 
-                        .X_HOP_LOC(X_HOP_LOC), 
-                        .Y_HOP_LOC(Y_HOP_LOC)
-                    ) router_node(
-                        .Wi(W2E[EW_IDX]),         // W2E[i][j]
-                        .Wo(E2W[EW_IDX]),         // E2W[i][j]
-                        .Ei(E2W[EW_IDX_P1]),      // E2W[i][j+1]
-                        .Eo(W2E[EW_IDX_P1]),      // W2E[i][j+1]
-                        .Ni(N2S[NS_IDX_P1]),      // N2S[i+1][j]
-                        .No(S2N[NS_IDX_P1]),      // S2N[i+1][j]
-                        .Si(S2N[NS_IDX]),         // S2N[i][j]
-                        .So(O),                   // external output
-                        .PEi(PEi[PE_IDX]),        // PEi[i][j]
-                        .PEo(PEo[PE_IDX])         // PEo[i][j]
-                    );
-
                 end
             end
         end
