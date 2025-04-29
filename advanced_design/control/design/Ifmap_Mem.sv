@@ -1,0 +1,150 @@
+`timescale 1ns/1ns
+
+import SystemVerilogCSP::*;
+
+// ************************************************** Input DATA Format***********************************
+//  Address    [5*FILTER_WIDTH+2:7]     [6:1]       [0]         
+//             ifmap_data               ifmap_size  timestep   
+// *******************************************************************************************************
+
+// ************************************************** Input Addr Format***********************************
+//  Address    [14:13]      [12:7]     [12:1]    [0]         
+//             filter_size  x_loc      y_loc     timestep   
+// *******************************************************************************************************
+module Ifmap_Mem #(
+    parameter WIDTH_IN = 43,
+    parameter WIDTH_OUT = 25,
+    parameter SIZE	= 38,
+    parameter DEPTH = 5 ,
+    parameter FL	= 2 ,
+    parameter BL	= 2
+    ) (
+    interface   W,
+    interface   R_req,
+    interface   R_data
+    );
+    logic [SIZE-1:0] data_ts0 [SIZE-1:0]; // data storage for timestep 0  
+    logic [SIZE-1:0] data_ts1 [SIZE-1:0]; // data storage for timestep 1
+    logic [WIDTH_IN-1:0] in_packet;
+    logic [5:0] if_size;
+    logic [5:0] x_ts0, y_ts0, x_ts1, y_ts1; // location for storing ifmap data bit
+    integer i_ts0, i_ts1, cnt_ts0, cnt_ts1;
+    integer i, j;
+
+    
+    logic [14:0] in_addr;
+    logic [WIDTH_OUT-1:0] out_packet;
+
+    initial begin
+        x_ts0 = 0;
+        y_ts0 = 0;
+        x_ts1 = 0;
+        y_ts1 = 0;
+        i_ts0 = 0;
+        i_ts1 = 0;
+        for(i = 0; i < SIZE; i++) begin  // initialize memory data to 0
+            data_ts0[i] = 0;
+            data_ts1[i] = 0;
+        end
+    end
+
+
+    always begin // Write Operation
+        W.Receive(in_packet); // receive write address and data
+        #FL;
+        if_size = in_packet[6:1];
+        if(!in_packet[0]) begin // timestep 0
+            for(i_ts0 = 0; i_ts0 < 36; i_ts0++) begin
+                data_ts0[x_ts0][y_ts0] = in_packet[i_ts0+7];
+                if(!(x_ts0 == (if_size-1) && y_ts0 == (if_size-1))) begin
+                    if(x_ts0 == (if_size-1)) begin
+                        x_ts0 = 0;
+                        y_ts0++;
+                    end
+                    else
+                        x_ts0++;
+
+                end
+            end
+
+        end
+        else begin // timestep 1
+            for(i_ts1 = 0; i_ts1 < 36; i_ts1++) begin
+                data_ts1[x_ts1][y_ts1] = in_packet[i_ts1+7];
+                if(!(x_ts1 == (if_size-1) && y_ts1 == (if_size-1))) begin
+                    if(x_ts1 == (if_size-1)) begin
+                        x_ts1 = 0;
+                        y_ts1++;
+                    end
+                    else
+                        x_ts1++;
+                end
+            end
+        end
+
+    end
+
+    always begin // Read Operation
+        R_req.Receive(in_addr);
+        #FL;
+        if(!in_addr[0]) begin // Read timestep 0 data
+            case(in_addr[14:13]) // fill data packet according to filter size
+                2'b00:
+                begin
+                    out_packet[30:28] = data_ts0[in_addr[12:7]][in_addr[6:1]+2:in_addr[6:1]];
+                    out_packet[33:31] = data_ts0[in_addr[12:7]+1][in_addr[6:1]+2:in_addr[6:1]];
+                    out_packet[36:34] = data_ts0[in_addr[12:7]+2][in_addr[6:1]+2:in_addr[6:1]];
+                end
+                2'b01:
+                begin
+                    out_packet[31:28] = data_ts0[in_addr[12:7]][in_addr[6:1]+3:in_addr[6:1]];
+                    out_packet[35:32] = data_ts0[in_addr[12:7]+1][in_addr[6:1]+3:in_addr[6:1]];
+                    out_packet[39:36] = data_ts0[in_addr[12:7]+2][in_addr[6:1]+3:in_addr[6:1]];
+                    out_packet[43:40] = data_ts0[in_addr[12:7]+3][in_addr[6:1]+3:in_addr[6:1]];
+                end
+                2'b10:
+                begin
+                    out_packet[32:28] = data_ts0[in_addr[12:7]][in_addr[6:1]+4:in_addr[6:1]];
+                    out_packet[37:37] = data_ts0[in_addr[12:7]+1][in_addr[6:1]+4:in_addr[6:1]];
+                    out_packet[42:38] = data_ts0[in_addr[12:7]+2][in_addr[6:1]+4:in_addr[6:1]];
+                    out_packet[47:43] = data_ts0[in_addr[12:7]+3][in_addr[6:1]+4:in_addr[6:1]];
+                    out_packet[52:48] = data_ts0[in_addr[12:7]+4][in_addr[6:1]+4:in_addr[6:1]];
+                end
+                default:;
+            endcase
+        end
+        else begin // Read timestep 1 data
+            case(in_addr[14:13]) // fill data packet according to filter size
+                2'b00:
+                begin
+                    out_packet[30:28] = data_ts1[in_addr[12:7]][in_addr[6:1]+2:in_addr[6:1]];
+                    out_packet[33:31] = data_ts1[in_addr[12:7]+1][in_addr[6:1]+2:in_addr[6:1]];
+                    out_packet[36:34] = data_ts1[in_addr[12:7]+2][in_addr[6:1]+2:in_addr[6:1]];
+                end
+                2'b01:
+                begin
+                    out_packet[31:28] = data_ts1[in_addr[12:7]][in_addr[6:1]+3:in_addr[6:1]];
+                    out_packet[35:32] = data_ts1[in_addr[12:7]+1][in_addr[6:1]+3:in_addr[6:1]];
+                    out_packet[39:36] = data_ts1[in_addr[12:7]+2][in_addr[6:1]+3:in_addr[6:1]];
+                    out_packet[43:40] = data_ts1[in_addr[12:7]+3][in_addr[6:1]+3:in_addr[6:1]];
+                end
+                2'b10:
+                begin
+                    out_packet[32:28] = data_ts1[in_addr[12:7]][in_addr[6:1]+4:in_addr[6:1]];
+                    out_packet[37:37] = data_ts1[in_addr[12:7]+1][in_addr[6:1]+4:in_addr[6:1]];
+                    out_packet[42:38] = data_ts1[in_addr[12:7]+2][in_addr[6:1]+4:in_addr[6:1]];
+                    out_packet[47:43] = data_ts1[in_addr[12:7]+3][in_addr[6:1]+4:in_addr[6:1]];
+                    out_packet[52:48] = data_ts1[in_addr[12:7]+4][in_addr[6:1]+4:in_addr[6:1]];
+                end
+                default:;
+            endcase
+        end
+        R_data.Send(out_packet);
+        #BL;
+    end
+endmodule
+
+
+
+
+
