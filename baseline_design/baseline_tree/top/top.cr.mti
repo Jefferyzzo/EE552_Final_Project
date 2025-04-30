@@ -97,6 +97,16 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 Top level modules:
 	input_ctrl
 
+} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/two_input_adder.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/two_input_adder.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/two_input_adder.sv(3): (vlog-13233) Design unit "two_input_adder_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package two_input_adder_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module two_input_adder
+
+Top level modules:
+	two_input_adder
+
 } {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/output_ctrl.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/output_ctrl.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 ** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/output_ctrl.sv(3): (vlog-13233) Design unit "output_ctrl_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
@@ -117,25 +127,6 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 Top level modules:
 	merge
 
-} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/two_input_adder.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/two_input_adder.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/two_input_adder.sv(3): (vlog-13233) Design unit "two_input_adder_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package two_input_adder_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module two_input_adder
-
-Top level modules:
-	two_input_adder
-
-} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/arbiter.sv {1 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/arbiter.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
--- Compiling package arbiter_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module arbiter
-
-Top level modules:
-	arbiter
-
 } {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/mac.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/mac.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 ** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/mac.sv(3): (vlog-13233) Design unit "mac_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
@@ -146,6 +137,15 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 Top level modules:
 	mac
 
+} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/arbiter.sv {1 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/arbiter.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+-- Compiling package arbiter_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module arbiter
+
+Top level modules:
+	arbiter
+
 } {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/buffer.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/buffer.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 ** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/buffer.sv(3): (vlog-13233) Design unit "buffer_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
@@ -155,56 +155,6 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 
 Top level modules:
 	buffer
-
-} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/packetizer.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/packetizer.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/packetizer.sv(8): (vlog-13233) Design unit "packetizer_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package packetizer_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module packetizer
-
-Top level modules:
-	packetizer
-
-} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/tree.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/tree.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/tree.sv(3): (vlog-13233) Design unit "tree_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package tree_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module tree
-
-Top level modules:
-	tree
-
-} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_tree.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_tree.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_tree.sv(3): (vlog-13233) Design unit "arbiter_tree_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package arbiter_tree_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module arbiter_tree
-
-Top level modules:
-	arbiter_tree
-
-} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_merge.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_merge.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_merge.sv(4): (vlog-13233) Design unit "arbiter_merge_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package arbiter_merge_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module arbiter_merge
-
-Top level modules:
-	arbiter_merge
-
-} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/depacketizer.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/depacketizer.sv
-Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/depacketizer.sv(9): (vlog-13233) Design unit "depacketizer_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package depacketizer_sv_unit
--- Importing package SystemVerilogCSP
--- Compiling module depacketizer
-
-Top level modules:
-	depacketizer
 
 } {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/SystemVerilogCSP.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/SystemVerilogCSP.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
@@ -217,15 +167,55 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 Top level modules:
 	--none--
 
-} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/router.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/router.sv
+} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/depacketizer.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/depacketizer.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/router.sv(2): (vlog-13233) Design unit "router_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package router_sv_unit
+** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/depacketizer.sv(9): (vlog-13233) Design unit "depacketizer_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package depacketizer_sv_unit
 -- Importing package SystemVerilogCSP
--- Compiling module router
+-- Compiling module depacketizer
 
 Top level modules:
-	router
+	depacketizer
+
+} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_merge.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_merge.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_merge.sv(4): (vlog-13233) Design unit "arbiter_merge_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package arbiter_merge_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module arbiter_merge
+
+Top level modules:
+	arbiter_merge
+
+} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_tree.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_tree.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/arbiter_tree.sv(3): (vlog-13233) Design unit "arbiter_tree_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package arbiter_tree_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module arbiter_tree
+
+Top level modules:
+	arbiter_tree
+
+} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/tree.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/tree.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/tree.sv(3): (vlog-13233) Design unit "tree_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package tree_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module tree
+
+Top level modules:
+	tree
+
+} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/split.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/split.sv
+Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
+** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/split.sv(3): (vlog-13233) Design unit "split_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package split_sv_unit
+-- Importing package SystemVerilogCSP
+-- Compiling module split
+
+Top level modules:
+	split
 
 } {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/spike_residue.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/spike_residue.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
@@ -237,15 +227,15 @@ Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
 Top level modules:
 	spike_residue
 
-} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/split.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/split.sv
+} {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/router.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/router.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018
-** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/PE/split.sv(3): (vlog-13233) Design unit "split_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
--- Compiling package split_sv_unit
+** Warning: D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/router.sv(2): (vlog-13233) Design unit "router_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+-- Compiling package router_sv_unit
 -- Importing package SystemVerilogCSP
--- Compiling module split
+-- Compiling module router
 
 Top level modules:
-	split
+	router
 
 } {} {}} D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/copy_tree.sv {2 {vlog -work work -vopt -sv -stats=none D:/EE552/final_project/NoC_tree_branch/EE552_Final_Project/baseline_design/baseline_tree/router_tree/copy_tree.sv
 Model Technology ModelSim SE-64 vlog 10.6e Compiler 2018.06 Jun 23 2018

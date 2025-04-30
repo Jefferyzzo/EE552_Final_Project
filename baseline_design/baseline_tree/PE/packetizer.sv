@@ -50,7 +50,7 @@ module packetizer #(
         join
         #FL;
                 // Modify fields
-        new_addr = PE_NODE;       // New addr = previous dest
+        new_addr = PE_NODE + 1;       // New addr = previous dest
         new_dest = 3'b101;     // New dest = fixed 101
         packet = {residue, {(3*FILTER_WIDTH-OUTPUT_WIDTH-3){1'b0}}, pe_node, outspike, 3'b000, timestep, new_addr, new_dest};
         Packet.Send(packet);

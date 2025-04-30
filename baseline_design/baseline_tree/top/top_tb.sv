@@ -81,7 +81,7 @@ PE #(
     .THRESHOLD(16),
     .FL(FL),
     .BL(BL),
-    .PE_NODE(1)
+    .PE_NODE(0)
 ) pe1 (
     .Packet_in(R1), 
     .Packet_out(L1)
@@ -124,7 +124,7 @@ PE #(
     .THRESHOLD(16),
     .FL(FL),
     .BL(BL),
-    .PE_NODE(1)
+    .PE_NODE(2)
 ) pe3 (
     .Packet_in(R3), 
     .Packet_out(L3)
@@ -137,7 +137,7 @@ PE #(
     .THRESHOLD(16),
     .FL(FL),
     .BL(BL),
-    .PE_NODE(1)
+    .PE_NODE(3)
 ) pe4 (
     .Packet_in(R4), 
     .Packet_out(L4)
