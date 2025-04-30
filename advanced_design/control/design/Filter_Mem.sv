@@ -17,17 +17,23 @@ module Filter_Mem #(
     interface   R_data
     );
     logic [WIDTH-1:0] data [DEPTH-1:0];
-    logic [WIDTH+2:0] in_packet;
+    logic [WIDTH+3:0] in_packet;
     logic [2:0] row;
+    logic done;
+    initial begin
+        done = 0;
+    end
 
 
     always begin // Write Operation
         W.Receive(in_packet); // receive write address and data
         #FL;
         data[in_packet[WIDTH+2:WIDTH]] = in_packet[WIDTH-1:0];
+        if(in_packet[WIDTH+3]) done = 1'b1;
     end
 
     always begin // Read Operation
+        wait(done);
         R_req.Receive(row);
         #FL;
         R_data.Send(data[row]);

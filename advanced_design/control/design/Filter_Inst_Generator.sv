@@ -4,13 +4,12 @@ import SystemVerilogCSP::*;
 
 
 module Filter_Inst_Generator #(
-    parameter WIDTH	= 14 ,
+    parameter WIDTH	= 15 ,
     parameter FL	= 2 ,
     parameter BL	= 2
     )(
         interface I,
-        interface O_FIFO,
-        interface O_done
+        interface O_FIFO
     );
 
     logic [2:0] row, i;
@@ -26,11 +25,13 @@ module Filter_Inst_Generator #(
         I.Receive(row);
         #FL;
         for(i = 0; i < row; i++) begin
+            if(i < row) out_packet[14] = 1'b0;
+            else out_packet[14] = 1'b1;
+
             out_packet[3:1] = i;
             O_FIFO.Send(out_packet);
             #BL;
         end
-        O_done.Send();  // ????????????? ack condition
     end
 
 endmodule

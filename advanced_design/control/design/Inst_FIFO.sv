@@ -33,6 +33,7 @@ module Inst_FIFO  #(
 
     logic [4:0] rp, wp;
     logic [WIDTH-1:0] data [DEPTH-1:0];
+    logic ack_dummy;
 
     initial begin
         rp = 0;
@@ -41,7 +42,7 @@ module Inst_FIFO  #(
 
     // Write Operation
     always begin
-        wait((wp-rp) != DEPTH);  // ???? acceptable behavior modelling
+        wait((wp-rp) != DEPTH);  
         I.Receive(data[wp]);
         #FL;
         wp++;
@@ -51,8 +52,8 @@ module Inst_FIFO  #(
     // Read Operation
     always begin
         wait((wp-rp) != 0);
-        if(data[rp][1:0] == 2'b00) begin
-            I_ack.Receive();
+        if(data[rp][1:0] == 2'b00) begin // for a new set of ifmap data, wait unti PE ack to send it
+            I_ack.Receive(ack_dummy);
         end
         O.Send({data[rp], PE_node}); 
         #BL;

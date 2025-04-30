@@ -47,22 +47,95 @@ interface  O
 
 
 // Channels between input packets and output arbiter
-Channel #(.WIDTH(43),.hsProtocol(P4PhaseBD)) ID_Ifmem ();
-Channel #(.WIDTH(43),.hsProtocol(P4PhaseBD)) ID_filmem ();
-Channel #(.WIDTH(8),.hsProtocol(P4PhaseBD)) ID_Ifgen ();
-Channel #(.WIDTH(3),.hsProtocol(P4PhaseBD)) ID_filgen ();
-Channel #(.WIDTH(0),.hsProtocol(P4PhaseBD)) ID_TB [13:0] ();
+Channel #(.WIDTH(46),.hsProtocol(P4PhaseBD)) ID_Ifmem ();
+Channel #(.WIDTH(44),.hsProtocol(P4PhaseBD)) ID_Filmem ();
+Channel #(.WIDTH(3),.hsProtocol(P4PhaseBD)) ID_Filgen ();
+Channel #(.WIDTH(2),.hsProtocol(P4PhaseBD)) ID_Pkt ();
+Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) ID_TB [13:0] ();
+Channel #(.WIDTH(6),.hsProtocol(P4PhaseBD)) Ifmem_Ifgen ();
 Channel #(.WIDTH(25),.hsProtocol(P4PhaseBD)) Pkt_Ifmem ();
 Channel #(.WIDTH(15),.hsProtocol(P4PhaseBD)) Ifmem_Pkt ();
-Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) Ifgen_Mrg ();
-Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) Filgen_Mrg_inst ();
-Channel #(.WIDTH(0),.hsProtocol(P4PhaseBD)) Filgen_Mrg_done ();
-Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) Mrg_Cpy ();
-Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) Cpy_FIFO [13:0] ();
-Channel #(.WIDTH(0),.hsProtocol(P4PhaseBD)) TB_FIFO [13:0] ();
+Channel #(.WIDTH(3),.hsProtocol(P4PhaseBD)) Pkt_Filmem ();
+Channel #(.WIDTH(40),.hsProtocol(P4PhaseBD)) Filmem_Pkt ();
+Channel #(.WIDTH(18),.hsProtocol(P4PhaseBD)) Ifgen_Alloc ();
+Channel #(.WIDTH(15),.hsProtocol(P4PhaseBD)) Filgen_Alloc ();
+Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) Alloc_FIFO [13:0] ();
+Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) TB_FIFO [13:0] ();
 Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) FIFO_Arb [13:0] ();
 Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) Arb_Pkt ();
 
+
+Instr_Decoder ID (
+    .I(I),  
+    .O_if_data(ID_Ifmem), 
+    .O_fil_data(ID_Filmem), 
+    .O_fil_inst(ID_Filgen),
+    .O_packetizer(ID_Pkt), 
+    .PE_ack(ID_TB)
+);
+
+Ifmap_Mem Ifmem (
+    .W(ID_Ifmem),
+    .R_req(Pkt_Ifmem),
+    .R_data(Ifmem_Pkt),
+    .Inst_gen(Ifmem_Ifgen)
+);
+
+Filter_Mem Filmem (
+    .W(ID_Filmem),
+    .R_req(Pkt_Filmem),
+    .R_data(Filmem_Pkt)
+);
+
+Ifmap_Inst_Generator Ifgen (
+    .I(Ifmem_Ifgen),
+    .O_FIFO(Ifgen_Alloc)
+);
+
+Filter_Inst_Generator Filgen (
+    .I(ID_Filgen),
+    .O_FIFO(Filgen_Alloc)
+);
+
+Allocate Alloc (
+    .I_fil(Filgen_Alloc),
+    .I_if(Ifgen_Alloc),
+    .O(Alloc_FIFO)
+);
+
+
+genvar i;
+generate
+    for (i = 0; i <= 13; i = i + 1) begin : gen_fifo
+        Inst_FIFO PE_FIFO (
+            .I_inst(Alloc_FIFO[i]),
+            .I_ack(ID_TB[i]),
+            .O(FIFO_Arb[i])
+        );
+
+        token_buffer TB (
+            .left(ID_TB[i]), 
+            .right(TB_FIFO[i])
+        );
+    end
+endgenerate
+
+
+arbiter_14in Arb (
+    .L(FIFO_Arb),
+    .R(Arb_Pkt)     
+); 
+
+
+packetizer_cu pkt(
+    .I_FIFO(Arb_Pkt),
+    .I_fil_size(ID_Pkt),
+    .Fil_addr(Pkt_Filmem),
+    .Fil_data(Filmem_Pkt),
+    .If_addr(Pkt_Ifmem),
+    .If_data(Ifmem_Pkt),
+    .O(O)
+);
 
 
 

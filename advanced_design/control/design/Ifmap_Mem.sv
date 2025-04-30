@@ -2,17 +2,17 @@
 
 import SystemVerilogCSP::*;
 
-// ************************************************** Input DATA Format***********************************
-//  Address    [5*FILTER_WIDTH+2:7]     [6:1]       [0]         
-//             ifmap_data               ifmap_size  timestep   
-// *******************************************************************************************************
+// ************************************************** Input DATA Format****************************************************
+//  Address    [5*FILTER_WIDTH+5]   [5*FILTER_WIDTH+4:5*FILTER_WIDTH+3]      [5*FILTER_WIDTH+2:7]     [6:1]       [0]         
+//             done                 fil_size                                 ifmap_data               ifmap_size  timestep   
+// ************************************************************************************************************************
 
 // ************************************************** Input Addr Format***********************************
 //  Address    [14:13]      [12:7]     [12:1]    [0]         
 //             filter_size  x_loc      y_loc     timestep   
 // *******************************************************************************************************
 module Ifmap_Mem #(
-    parameter WIDTH_IN = 43,
+    parameter WIDTH_IN = 46,
     parameter WIDTH_OUT = 25,
     parameter SIZE	= 38,
     parameter DEPTH = 5 ,
@@ -21,12 +21,13 @@ module Ifmap_Mem #(
     ) (
     interface   W,
     interface   R_req,
-    interface   R_data
+    interface   R_data,
+    interface   Inst_gen
     );
     logic [SIZE-1:0] data_ts0 [SIZE-1:0]; // data storage for timestep 0  
     logic [SIZE-1:0] data_ts1 [SIZE-1:0]; // data storage for timestep 1
     logic [WIDTH_IN-1:0] in_packet;
-    logic [5:0] if_size;
+    logic [5:0] if_size, conv_size;
     logic [5:0] x_ts0, y_ts0, x_ts1, y_ts1; // location for storing ifmap data bit
     integer i_ts0, i_ts1, cnt_ts0, cnt_ts1;
     integer i, j;
@@ -79,6 +80,10 @@ module Ifmap_Mem #(
                     else
                         x_ts1++;
                 end
+            end
+            if(in_packet[WIDTH_IN-1]) begin  // all ifmap data finishes storing
+                conv_size = in_packet[6:1] - in_packet[44:43] - 2;
+                Inst_gen.Send(conv_size);
             end
         end
 

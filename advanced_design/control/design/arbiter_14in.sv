@@ -4,7 +4,7 @@
 import SystemVerilogCSP::*;
 
 module arbiter_14in #(
-parameter WIDTH	= 4 ,
+parameter WIDTH	= 14 ,
 parameter FL	= 2 ,
 parameter BL	= 2 
 ) (
