@@ -6,7 +6,7 @@ Warning-[LNX_OS_VERUN] Unsupported Linux version
   Please refer to release notes for information on supported platforms.
 
                          Chronologic VCS (TM)
-        Version L-2016.06-1_Full64 -- Wed Apr 30 23:17:12 2025
+        Version L-2016.06-1_Full64 -- Thu May  1 13:08:11 2025
                Copyright (c) 1991-2016 by Synopsys Inc.
                          ALL RIGHTS RESERVED
 
@@ -14,175 +14,175 @@ This program is proprietary and confidential information of Synopsys Inc.
 and may be used and disclosed only as authorized in a license agreement
 controlling such use and disclosure.
 
-Parsing design file '../PE/src/SystemVerilogCSP.sv'
+Parsing design file '../PE_mesh/src/SystemVerilogCSP.sv'
 Parsing design file './top_tb.sv'
 Parsing design file './top.sv'
-Parsing design file '../PE/src/PE.sv'
+Parsing design file '../PE_mesh/src/PE.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/PE.sv, 3
+../PE_mesh/src/PE.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/depacketizer.sv'
+Parsing design file '../PE_mesh/src/depacketizer.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/depacketizer.sv, 8
+../PE_mesh/src/depacketizer.sv, 8
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/split.sv'
+Parsing design file '../PE_mesh/src/split.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/split.sv, 3
+../PE_mesh/src/split.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/special_split.sv'
+Parsing design file '../PE_mesh/src/special_split.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/special_split.sv, 3
+../PE_mesh/src/special_split.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/priority_mux.sv'
+Parsing design file '../PE_mesh/src/priority_mux.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/priority_mux.sv, 3
+../PE_mesh/src/priority_mux.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/copy.sv'
+Parsing design file '../PE_mesh/src/copy.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/copy.sv, 3
+../PE_mesh/src/copy.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/copy4.sv'
+Parsing design file '../PE_mesh/src/copy4.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/copy4.sv, 3
+../PE_mesh/src/copy4.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/conditional_copy.sv'
+Parsing design file '../PE_mesh/src/conditional_copy.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/conditional_copy.sv, 3
+../PE_mesh/src/conditional_copy.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/mac.sv'
+Parsing design file '../PE_mesh/src/mac.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/mac.sv, 3
+../PE_mesh/src/mac.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/spike_residue.sv'
+Parsing design file '../PE_mesh/src/spike_residue.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/spike_residue.sv, 3
+../PE_mesh/src/spike_residue.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/two_input_adder.sv'
+Parsing design file '../PE_mesh/src/two_input_adder.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/two_input_adder.sv, 3
+../PE_mesh/src/two_input_adder.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/merge.sv'
+Parsing design file '../PE_mesh/src/merge.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/merge.sv, 3
+../PE_mesh/src/merge.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/packetizer.sv'
+Parsing design file '../PE_mesh/src/packetizer.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/packetizer.sv, 9
+../PE_mesh/src/packetizer.sv, 9
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../PE/src/buffer.sv'
+Parsing design file '../PE_mesh/src/buffer.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/buffer.sv, 3
+../PE_mesh/src/buffer.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../router/router_mesh/design/arbiter.sv'
+Parsing design file '../router_mesh/design/arbiter.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../router/router_mesh/design/arbiter.sv, 3
+../router_mesh/design/arbiter.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../router/router_mesh/design/arbiter_merge.sv'
+Parsing design file '../router_mesh/design/arbiter_merge.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../router/router_mesh/design/arbiter_merge.sv, 4
+../router_mesh/design/arbiter_merge.sv, 4
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../router/router_mesh/design/arbiter_merge_4in.sv'
+Parsing design file '../router_mesh/design/arbiter_merge_4in.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../router/router_mesh/design/arbiter_merge_4in.sv, 4
+../router_mesh/design/arbiter_merge_4in.sv, 4
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../router/router_mesh/design/mesh.sv'
+Parsing design file '../router_mesh/design/mesh.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../router/router_mesh/design/mesh.sv, 3
+../router_mesh/design/mesh.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
   See the System Verilog LRM(1800-2005), section 18.1.
 
-Parsing design file '../router/router_mesh/design/router.sv'
+Parsing design file '../router_mesh/design/router.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../router/router_mesh/design/router.sv, 3
+../router_mesh/design/router.sv, 3
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
@@ -212,17 +212,17 @@ recompiling module dummy_dg
 recompiling module dummy_db
 recompiling module router
 18 of 11 modules done
-make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/top/csrc'
-make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/top/csrc'
-make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/top/csrc'
+make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
+make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
+make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
 rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
 if [ -x ../simv ]; then chmod -x ../simv; fi
-g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   amcQwB.o objs/amcQw_d.o   _251252_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libzerosoft_rt_stubs.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvirsim.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/liberrorinf.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsnpsmalloc.so    /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsnew.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsimprofile.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libuclinative.so   -Wl,-whole-archive /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsucli.so -Wl,-no-whole-archive          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
+g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   amcQwB.o objs/amcQw_d.o   _254338_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libzerosoft_rt_stubs.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvirsim.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/liberrorinf.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsnpsmalloc.so    /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsnew.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsimprofile.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libuclinative.so   -Wl,-whole-archive /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsucli.so -Wl,-no-whole-archive          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
 ../simv up to date
-make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/top/csrc'
+make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06-1_Full64; Runtime version L-2016.06-1_Full64;  Apr 30 23:17 2025
+Compiler version L-2016.06-1_Full64; Runtime version L-2016.06-1_Full64;  May  1 13:08 2025
 Start simulation!!!
 DG top_tb.dg sends data = 000000000000010100000100011001011 @                    0
 node           3 receives packet 1a620a000 from PE input at       2.00 ns
@@ -572,6 +572,6 @@ $finish called from file "./top_tb.sv", line 117.
 $finish at simulation time  250.00 ns
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 250000000 fs
-CPU Time:      0.270 seconds;       Data structure size:   1.3Mb
-Wed Apr 30 23:17:15 2025
-CPU time: .811 seconds to compile + .462 seconds to elab + .309 seconds to link + .444 seconds in simulation
+CPU Time:      0.290 seconds;       Data structure size:   1.3Mb
+Thu May  1 13:08:14 2025
+CPU time: .902 seconds to compile + .481 seconds to elab + .336 seconds to link + .506 seconds in simulation
