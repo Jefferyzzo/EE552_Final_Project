@@ -1,8 +1,6 @@
 .
+├── PE_tree.txt
 ├── sim
-│   ├── 3_input_split
-│   │   ├── three_input_split.f
-│   │   └── three_input_split_tb.sv
 │   ├── Makefile
 │   ├── PE
 │   │   ├── PE.f
@@ -54,23 +52,21 @@
 │   └── two_input_adder
 │       ├── two_input_adder.f
 │       └── two_input_adder_tb.sv
-├── src
-│   ├── PE.sv
-│   ├── SystemVerilogCSP.sv
-│   ├── arbiter.sv
-│   ├── buffer.sv
-│   ├── conditional_copy.sv
-│   ├── copy.sv
-│   ├── copy4.sv
-│   ├── depacketizer.sv
-│   ├── mac.sv
-│   ├── merge.sv
-│   ├── packetizer.sv
-│   ├── priority_mux.sv
-│   ├── special_split.sv
-│   ├── spike_residue.sv
-│   ├── split.sv
-│   ├── three_input_split.sv
-│   └── two_input_adder.sv
-└── PE_tree.txt
+└── src
+    ├── PE.sv
+    ├── SystemVerilogCSP.sv
+    ├── buffer.sv
+    ├── conditional_copy.sv
+    ├── copy.sv
+    ├── copy4.sv
+    ├── depacketizer.sv
+    ├── mac.sv
+    ├── merge.sv
+    ├── packetizer.sv
+    ├── priority_mux.sv
+    ├── special_split.sv
+    ├── spike_residue.sv
+    ├── split.sv
+    └── two_input_adder.sv
 
+14 directories, 56 files
