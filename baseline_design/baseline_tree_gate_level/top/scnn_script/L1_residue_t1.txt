@@ -1,0 +1,8 @@
+4
+5
+8
+9
+// Original shape: torch.Size([1, 1, 2, 2])
+/* Original data:
+tensor([[[[4., 5.],
+          [8., 9.]]]])*/
