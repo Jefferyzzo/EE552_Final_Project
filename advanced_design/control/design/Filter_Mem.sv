@@ -3,8 +3,8 @@
 import SystemVerilogCSP::*;
 
 // ************************************************** Input DATA Format***********************************
-//  Address    [5*FILTER_WIDTH+2:7]     [6:1]       [0]         
-//             ifmap_data               ifmap_size  timestep   
+//  Address    [5*FILTER_WIDTH+3]   [5*FILTER_WIDTH+2:5*FILTER_WIDTH]   [5*FILTER_WIDTH-1:0]       
+//             done                 fil_row                             fil_data
 // *******************************************************************************************************
 module Filter_Mem #(
     parameter WIDTH	= 40, // total size of filter data
@@ -29,7 +29,7 @@ module Filter_Mem #(
         W.Receive(in_packet); // receive write address and data
         #FL;
         data[in_packet[WIDTH+2:WIDTH]] = in_packet[WIDTH-1:0];
-        if(in_packet[WIDTH+3]) done = 1'b1;
+        done  = in_packet[WIDTH+3];
     end
 
     always begin // Read Operation

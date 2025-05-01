@@ -54,6 +54,7 @@ module Inst_FIFO  #(
         wait((wp-rp) != 0);
         if(data[rp][1:0] == 2'b00) begin // for a new set of ifmap data, wait unti PE ack to send it
             I_ack.Receive(ack_dummy);
+            #FL;
         end
         O.Send({data[rp], PE_node}); 
         #BL;

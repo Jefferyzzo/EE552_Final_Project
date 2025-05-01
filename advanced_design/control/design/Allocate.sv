@@ -53,7 +53,23 @@ module Allocate #(
         else begin
             I_if.Receive(packet_if);
             #FL;
-            O[packet_if[WIDTH_IF-1:WIDTH_OUT]].Send(packet_if[WIDTH_OUT-1:0]);
+            case (packet_if[WIDTH_IF-1:WIDTH_OUT])
+                4'd0 : O[0].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd1 : O[1].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd2 : O[2].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd3 : O[3].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd4 : O[4].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd5 : O[5].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd6 : O[6].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd7 : O[7].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd8 : O[8].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd9 : O[9].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd10: O[10].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd11: O[11].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd12: O[12].Send(packet_if[WIDTH_OUT-1:0]);
+                4'd13: O[13].Send(packet_if[WIDTH_OUT-1:0]);
+                default: ; 
+            endcase
             #BL;
         end
     end

@@ -106,8 +106,9 @@ Allocate Alloc (
 
 genvar i;
 generate
-    for (i = 0; i <= 13; i = i + 1) begin : gen_fifo
-        Inst_FIFO PE_FIFO (
+    for (i = 0; i <= 13; i = i + 1) begin : gen_fifo_tb
+        Inst_FIFO #(.PE_node(i)) PE_FIFO 
+        (
             .I_inst(Alloc_FIFO[i]),
             .I_ack(ID_TB[i]),
             .O(FIFO_Arb[i])

@@ -69,7 +69,7 @@ module packetizer_cu #(
             4'b1101: out_packet[7:0] = 8'b0001_1111;
             default: out_packet[7:0] = 8'b1110_0011;
         endcase
-        if(in_packet[4] == 1'b0) begin  // fetch filter data and send instructions
+        if(in_packet[4] == 1'b1) begin  // fetch filter data and send instructions
             out_packet[12:10] = in_packet[7:5];
             out_packet[9] = 1'b1;
             Fil_addr.Send(in_packet[7:5]);

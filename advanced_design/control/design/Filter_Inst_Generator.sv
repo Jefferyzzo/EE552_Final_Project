@@ -12,7 +12,7 @@ module Filter_Inst_Generator #(
         interface O_FIFO
     );
 
-    logic [2:0] row, i;
+    logic [2:0] fil_size, i;
     logic [WIDTH-1:0] out_packet;
 
     initial begin
@@ -22,10 +22,10 @@ module Filter_Inst_Generator #(
     
 
     always begin
-        I.Receive(row);
+        I.Receive(fil_size);
         #FL;
-        for(i = 0; i < row; i++) begin
-            if(i < row) out_packet[14] = 1'b0;
+        for(i = 0; i < fil_size; i++) begin
+            if(i < fil_size) out_packet[14] = 1'b0;
             else out_packet[14] = 1'b1;
 
             out_packet[3:1] = i;

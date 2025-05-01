@@ -82,68 +82,132 @@ module Ifmap_Mem #(
                 end
             end
             if(in_packet[WIDTH_IN-1]) begin  // all ifmap data finishes storing
-                conv_size = in_packet[6:1] - in_packet[44:43] - 2;
+                conv_size = in_packet[6:1] - in_packet[44:43] - 1;
                 Inst_gen.Send(conv_size);
             end
         end
 
     end
 
+
+    logic  [5:0]  x, y, y_end;
+    logic  [SIZE-1:0] line;
     always begin // Read Operation
         R_req.Receive(in_addr);
         #FL;
-        if(!in_addr[0]) begin // Read timestep 0 data
-            case(in_addr[14:13]) // fill data packet according to filter size
-                2'b00:
-                begin
-                    out_packet[30:28] = data_ts0[in_addr[12:7]][in_addr[6:1]+2:in_addr[6:1]];
-                    out_packet[33:31] = data_ts0[in_addr[12:7]+1][in_addr[6:1]+2:in_addr[6:1]];
-                    out_packet[36:34] = data_ts0[in_addr[12:7]+2][in_addr[6:1]+2:in_addr[6:1]];
+        x = in_addr[12:7];
+        y = in_addr[6:1];
+        // out_packet[30:28] = line[y_end:y];
+
+
+        if (!in_addr[0]) begin // timestep 0
+            case (in_addr[14:13])
+                2'b00: begin // 2*2 filter
+                    for (int i = 0; i < 2; i++) begin
+                        out_packet[28 + i*2 +: 2] = data_ts0[x + i][y +: 2];
+                    end
                 end
-                2'b01:
-                begin
-                    out_packet[31:28] = data_ts0[in_addr[12:7]][in_addr[6:1]+3:in_addr[6:1]];
-                    out_packet[35:32] = data_ts0[in_addr[12:7]+1][in_addr[6:1]+3:in_addr[6:1]];
-                    out_packet[39:36] = data_ts0[in_addr[12:7]+2][in_addr[6:1]+3:in_addr[6:1]];
-                    out_packet[43:40] = data_ts0[in_addr[12:7]+3][in_addr[6:1]+3:in_addr[6:1]];
+                2'b01: begin  // 3*3 filter
+                    for (int i = 0; i < 3; i++) begin
+                        out_packet[28 + i*3 +: 3] = data_ts0[x + i][y +: 3];
+                    end
                 end
-                2'b10:
-                begin
-                    out_packet[32:28] = data_ts0[in_addr[12:7]][in_addr[6:1]+4:in_addr[6:1]];
-                    out_packet[37:37] = data_ts0[in_addr[12:7]+1][in_addr[6:1]+4:in_addr[6:1]];
-                    out_packet[42:38] = data_ts0[in_addr[12:7]+2][in_addr[6:1]+4:in_addr[6:1]];
-                    out_packet[47:43] = data_ts0[in_addr[12:7]+3][in_addr[6:1]+4:in_addr[6:1]];
-                    out_packet[52:48] = data_ts0[in_addr[12:7]+4][in_addr[6:1]+4:in_addr[6:1]];
+                2'b10: begin // 4*4 filter
+                    for (int i = 0; i < 4; i++) begin
+                        out_packet[28 + i*4 +: 4] = data_ts0[x + i][y +: 4];
+                    end
                 end
-                default:;
+                2'b11: begin // 5*5 filter
+                    for (int i = 0; i < 5; i++) begin
+                        out_packet[28 + i*5 +: 5] = data_ts0[x + i][y +: 5];
+                    end
+                end
+                default: ;
+            endcase
+        end else begin // timestep 1
+            case (in_addr[14:13])
+                2'b00: begin // 2*2 filter
+                    for (int i = 0; i < 2; i++) begin
+                        out_packet[28 + i*2 +: 2] = data_ts1[x + i][y +: 2];
+                    end
+                end
+                2'b01: begin  // 3*3 filter
+                    for (int i = 0; i < 3; i++) begin
+                        out_packet[28 + i*3 +: 3] = data_ts1[x + i][y +: 3];
+                    end
+                end
+                2'b10: begin // 4*4 filter
+                    for (int i = 0; i < 4; i++) begin
+                        out_packet[28 + i*4 +: 4] = data_ts1[x + i][y +: 4];
+                    end
+                end
+                2'b11: begin // 5*5 filter
+                    for (int i = 0; i < 5; i++) begin
+                        out_packet[28 + i*5 +: 5] = data_ts1[x + i][y +: 5];
+                    end
+                end
+                default: ;
             endcase
         end
-        else begin // Read timestep 1 data
-            case(in_addr[14:13]) // fill data packet according to filter size
-                2'b00:
-                begin
-                    out_packet[30:28] = data_ts1[in_addr[12:7]][in_addr[6:1]+2:in_addr[6:1]];
-                    out_packet[33:31] = data_ts1[in_addr[12:7]+1][in_addr[6:1]+2:in_addr[6:1]];
-                    out_packet[36:34] = data_ts1[in_addr[12:7]+2][in_addr[6:1]+2:in_addr[6:1]];
-                end
-                2'b01:
-                begin
-                    out_packet[31:28] = data_ts1[in_addr[12:7]][in_addr[6:1]+3:in_addr[6:1]];
-                    out_packet[35:32] = data_ts1[in_addr[12:7]+1][in_addr[6:1]+3:in_addr[6:1]];
-                    out_packet[39:36] = data_ts1[in_addr[12:7]+2][in_addr[6:1]+3:in_addr[6:1]];
-                    out_packet[43:40] = data_ts1[in_addr[12:7]+3][in_addr[6:1]+3:in_addr[6:1]];
-                end
-                2'b10:
-                begin
-                    out_packet[32:28] = data_ts1[in_addr[12:7]][in_addr[6:1]+4:in_addr[6:1]];
-                    out_packet[37:37] = data_ts1[in_addr[12:7]+1][in_addr[6:1]+4:in_addr[6:1]];
-                    out_packet[42:38] = data_ts1[in_addr[12:7]+2][in_addr[6:1]+4:in_addr[6:1]];
-                    out_packet[47:43] = data_ts1[in_addr[12:7]+3][in_addr[6:1]+4:in_addr[6:1]];
-                    out_packet[52:48] = data_ts1[in_addr[12:7]+4][in_addr[6:1]+4:in_addr[6:1]];
-                end
-                default:;
-            endcase
-        end
+
+
+
+/*
+        // if(!in_addr[0]) begin // Read timestep 0 data
+        //     case(in_addr[14:13]) // fill data packet according to filter size
+        //         2'b00:
+        //         begin
+        //             out_packet[30:28] = data_ts0[x][y_end:y];
+        //             out_packet[33:31] = data_ts0[x+1][y_end:y];
+        //             out_packet[36:34] = data_ts0[x+2][y_end:y];
+        //         end
+        //         2'b01:
+        //         begin
+        //             out_packet[31:28] = data_ts0[x][y+3:y];
+        //             out_packet[35:32] = data_ts0[x+1][y+3:y];
+        //             out_packet[39:36] = data_ts0[x+2][y+3:y];
+        //             out_packet[43:40] = data_ts0[x+3][y+3:y];
+        //         end
+        //         2'b10:
+        //         begin
+        //             out_packet[32:28] = data_ts0[x][y+4:y];
+        //             out_packet[37:37] = data_ts0[x+1][y+4:y];
+        //             out_packet[42:38] = data_ts0[x+2][y+4:y];
+        //             out_packet[47:43] = data_ts0[x+3][y+4:y];
+        //             out_packet[52:48] = data_ts0[x+4][y+4:y];
+        //         end
+        //         default:;
+        //     endcase
+        // end
+        // else begin // Read timestep 1 data
+        //     case(in_addr[14:13]) // fill data packet according to filter size
+        //         2'b00:
+        //         begin
+        //             out_packet[30:28] = data_ts1[x][y+2:y];
+        //             out_packet[33:31] = data_ts1[x+1][y+2:y];
+        //             out_packet[36:34] = data_ts1[x+2][y+2:y];
+        //         end
+        //         2'b01:
+        //         begin
+        //             out_packet[31:28] = data_ts1[x][y+3:y];
+        //             out_packet[35:32] = data_ts1[x+1][y+3:y];
+        //             out_packet[39:36] = data_ts1[x+2][y+3:y];
+        //             out_packet[43:40] = data_ts1[x+3][y+3:y];
+        //         end
+        //         2'b10:
+        //         begin
+        //             out_packet[32:28] = data_ts1[x][y+4:y];
+        //             out_packet[37:37] = data_ts1[x+1][y+4:y];
+        //             out_packet[42:38] = data_ts1[x+2][y+4:y];
+        //             out_packet[47:43] = data_ts1[x+3][y+4:y];
+        //             out_packet[52:48] = data_ts1[x+4][y+4:y];
+        //         end
+        //         default:;
+        //     endcase
+        // end
+*/
+        
+
         R_data.Send(out_packet);
         #BL;
     end
