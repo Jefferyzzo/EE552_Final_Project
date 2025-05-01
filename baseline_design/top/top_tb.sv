@@ -113,7 +113,7 @@ module top_tb ();
 
     initial begin
         $display("Start simulation!!!");
-        #500;
+        #250;
         $finish;
     end
 

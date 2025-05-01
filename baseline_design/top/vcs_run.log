@@ -6,7 +6,7 @@ Warning-[LNX_OS_VERUN] Unsupported Linux version
   Please refer to release notes for information on supported platforms.
 
                          Chronologic VCS (TM)
-        Version L-2016.06-1_Full64 -- Mon Apr 21 16:22:28 2025
+        Version L-2016.06-1_Full64 -- Wed Apr 30 23:17:12 2025
                Copyright (c) 1991-2016 by Synopsys Inc.
                          ALL RIGHTS RESERVED
 
@@ -128,7 +128,7 @@ $unit
 Parsing design file '../PE/src/packetizer.sv'
 
 Note-[SV-LCM-PPWI] Package previously wildcard imported
-../PE/src/packetizer.sv, 8
+../PE/src/packetizer.sv, 9
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
@@ -193,21 +193,36 @@ Top Level Modules:
 TimeScale is 1 ns / 1 fs
 Starting vcs inline pass...
 11 unique modules to generate
+recompiling package SystemVerilogCSP
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
 recompiling module top_tb
-	However, due to incremental compilation, only 1 module needs to be compiled. 
-make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/Baseline/top/csrc'
-make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/Baseline/top/csrc'
-make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/Baseline/top/csrc'
+recompiling module PE
+recompiling module priority_mux
+recompiling module copy
+recompiling module arbiter_merge
+recompiling module arbiter_merge
+recompiling module arbiter_merge_4in
+recompiling module dummy_dg
+recompiling module dummy_db
+recompiling module router
+18 of 11 modules done
+make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/top/csrc'
+make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/top/csrc'
+make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/top/csrc'
 rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
-ld -shared  -o .//../simv.daidir//_csrc0.so objs/amcQw_d.o 
-rm -f _csrc0.so
 if [ -x ../simv ]; then chmod -x ../simv; fi
-g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   amcQwB.o   _163743_archive_1.so _prev_archive_1.so _csrc0.so  SIM_l.o  _csrc0.so     rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libzerosoft_rt_stubs.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvirsim.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/liberrorinf.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsnpsmalloc.so    /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsnew.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsimprofile.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libuclinative.so   -Wl,-whole-archive /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsucli.so -Wl,-no-whole-archive          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
+g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   amcQwB.o objs/amcQw_d.o   _251252_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libzerosoft_rt_stubs.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvirsim.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/liberrorinf.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsnpsmalloc.so    /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsnew.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsimprofile.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libuclinative.so   -Wl,-whole-archive /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsucli.so -Wl,-no-whole-archive          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
 ../simv up to date
-make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/Baseline/top/csrc'
+make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/top/csrc'
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06-1_Full64; Runtime version L-2016.06-1_Full64;  Apr 21 16:22 2025
+Compiler version L-2016.06-1_Full64; Runtime version L-2016.06-1_Full64;  Apr 30 23:17 2025
 Start simulation!!!
 DG top_tb.dg sends data = 000000000000010100000100011001011 @                    0
 node           3 receives packet 1a620a000 from PE input at       2.00 ns
@@ -320,42 +335,33 @@ node           3 sends packet 1b8b40000 from PE to East at   79.00 ns
 node           4 receives packet 1a8a28000 from West input at    79.00 ns
 node           4 sends packet 1a8a28000 from West to East at   81.00 ns
 node           1 receives packet 180220000 from North input at   83.00 ns
-Threshold =          16
 node           1 sends packet 0000440 from North to PE at   85.00 ns
 node           4 receives packet 198b40000 from West input at    85.00 ns
-node           4 sends pacAttempting to Re-Acquire License for VCSRuntime_Net at Mon Apr 21 16:51:36
-Re-Acquired License for VCSRuntime_Net at Mon Apr 21 16:51:36, continuing....
-Received SIGHUP (signal 1), exiting.
-           V C S   S i m u l a t i o n   R e p o r t 
-Time: 75000000 fs
-CPAttempting to Re-Acquire License for VCSRuntime_Net at Mon Apr 21 22:50:40
-Re-Acquired License for VCSRuntime_Net at Mon Apr 21 22:50:40, continuing....
-Received SIGHUP (signal 1), exiting.
-           V C S   S i m u l a t i o n   R e p o r t 
-Time: 75000000 fs
-CPU Time:      0.450 seconds;       Data structure size:   1.3Mb
-Mon Apr 21 22:50:40 2025
-sends packet 190000200 from West to South at    99.00 ns
+node           4 sends packet 198b40000 from West to South at    87.00 ns
+node           5 receives packet 188a28000 from West input at    87.00 ns
+node           0 receives packet 1884c8000 from North input at   88.00 ns
+node           5 sends packet 0001451 from West to PE at   89.00 ns
+node           4 receives packet 1b0000200 from PE input at      89.00 ns
+node           0 sends packet 0001321 from North to PE at   90.00 ns
+node           4 sends packet 1b0000200 from PE to East at   91.00 ns
+node           5 receives packet 190000200 from West input at    97.00 ns
+node           5 sends packet 190000200 from West to South at    99.00 ns
 node           1 receives packet 188b40000 from North input at   99.00 ns
 node           1 sends packet 00002d1 from North to PE at  101.00 ns
 node           5 receives packet 190400a00 from PE input at     102.00 ns
-Threshold =          16
 node           0 receives packet 1e0200100 from PE input at     103.00 ns
 node           5 sends packet 190400a00 from PE to South at  104.00 ns
 node           0 sends packet 1e0200100 from PE to East at  105.00 ns
 node           4 receives packet 1b8800a00 from PE input at     107.00 ns
 node           4 sends packet 1b8800a00 from PE to East at  109.00 ns
-Threshold =          16
 node           1 receives packet 1a0200100 from West input at   111.00 ns
 node           2 receives packet 180000200 from North input at  111.00 ns
 node           1 sends packet 1a0200100 from West to East at  113.00 ns
 node           2 sends packet 0040000 from North to PE at  113.00 ns
 node           1 receives packet 1a0600900 from PE input at     114.00 ns
 node           5 receives packet 198800a00 from West input at   115.00 ns
-Threshold =          16
 node           1 sends packet 1a0600900 from PE to East at  116.00 ns
 node           2 receives packet 180400a00 from North input at  116.00 ns
-Threshold =          16
 node           5 sends packet 198800a00 from West to South at   117.00 ns
 node           2 sends packet 0050020 from North to PE at  118.00 ns
 node           2 receives packet 180200100 from West input at   119.00 ns
@@ -368,7 +374,6 @@ node           0 sends packet 1e8a00c00 from PE to East at  123.00 ns
 node           2 sends packet 0090060 from West to PE at  126.00 ns
 DB top_tb.db_content receives output data = 000000000000001000000000000000000 @ 127.00 ns
 Timestep = 0, OutSpike = 0, PE Node = 0, Residue =      4
-Threshold =          16
 node           1 receives packet 1a8a00c00 from West input at   129.00 ns
 node           2 receives packet 188800a00 from North input at  129.00 ns
 node           1 sends packet 1a8a00c00 from West to East at  131.00 ns
@@ -563,165 +568,10 @@ Timestep = 1, OutSpike = 1, PE Node = 3, Residue =      6
 ###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.PEo_arb.arb1_out @    0.00 ns
 ###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.PEo_arb.arb1.winner @    0.00 ns
 ###Deadlock Detected on top_tb.top.PEi[2] @    0.00 ns
-###Deadlock Detected on top_tb.Packet_in @   78.00 ns
-###Deadlock Detected on top_tb.top.PEi[3] @   80.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[0].router_node.PE2S @   81.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.W2PE @   81.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[0].router_node.So_arb.arb1.winner @   83.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.PEo_arb.arb0.winner @   83.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[0].router_node.PE2E @   84.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[0].router_node.Eo_arb.winner @   86.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.W2E @   86.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[0].router_node.So_arb.arb1_out @   87.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.PEo_arb.arb0_out @   87.00 ns
-###Deadlock Detected on top_tb.top.mesh.W2E[5] @   88.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[0].router_node.So_arb.arb2.winner @   89.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.PEo_arb.arb2.winner @   89.00 ns
-###Deadlock Detected on top_tb.top.mesh.N2S[3] @   91.00 ns
-###Deadlock Detected on top_tb.top.PEo[4] @   91.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.W2S @   92.00 ns
-###Deadlock Detected on top_tb.top.pe0.Ifmapb_filter @   92.00 ns
-###Deadlock Detected on top_tb.top.pe0.Filter_row @   92.00 ns
-###Deadlock Detected on top_tb.top.pe0.Data @   92.00 ns
-###Deadlock Detected on top_tb.top.pe0.Timestep @   93.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.So_arb.arb0.winner @   94.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.W2PE @   94.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[0].router_node.N2PE @   95.00 ns
-###Deadlock Detected on top_tb.top.pe0.Ifmap_data @   95.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.PEo_arb.arb0.winner @   96.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[0].router_node.PEo_arb.arb1.winner @   97.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.So_arb.arb0_out @   98.00 ns
-###Deadlock Detected on top_tb.top.pe0.Timestep_copy0 @   98.00 ns
-###Deadlock Detected on top_tb.top.pe0.Filter_row1_data_copy0 @   98.00 ns
-###Deadlock Detected on top_tb.top.pe0.Filter_row2_data_copy0 @   98.00 ns
-###Deadlock Detected on top_tb.top.pe0.Filter_row3_data_copy0 @   98.00 ns
-###Deadlock Detected on top_tb.top.pe0.Mac_out @   98.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.So_arb.arb2.winner @  100.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.PEo_arb.arb0_out @  100.00 ns
-###Deadlock Detected on top_tb.top.pe0.Filter_row1_data_reg @  100.00 ns
-###Deadlock Detected on top_tb.top.pe0.Filter_row2_data_reg @  100.00 ns
-###Deadlock Detected on top_tb.top.pe0.Filter_row3_data_reg @  100.00 ns
-###Deadlock Detected on top_tb.top.pe0.Mac_out_timestep2 @  100.00 ns
-###Deadlock Detected on top_tb.top.pe0.Residue_copy1 @  100.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[0].router_node.PEo_arb.arb1_out @  101.00 ns
-###Deadlock Detected on top_tb.top.mesh.N2S[4] @  102.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.PEo_arb.arb2.winner @  102.00 ns
-###Deadlock Detected on top_tb.top.pe0.Timestep_copy1 @  102.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[0].router_node.PEo_arb.arb2.winner @  103.00 ns
-###Deadlock Detected on top_tb.top.pe0.Merge_out @  104.00 ns
-###Deadlock Detected on top_tb.top.PEo[5] @  104.00 ns
-###Deadlock Detected on top_tb.top.pe1.Ifmapb_filter @  105.00 ns
-###Deadlock Detected on top_tb.top.pe1.Filter_row @  105.00 ns
-###Deadlock Detected on top_tb.top.pe1.Data @  105.00 ns
-###Deadlock Detected on top_tb.top.PEo[0] @  105.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[1].router_node.N2PE @  106.00 ns
-###Deadlock Detected on top_tb.top.pe0.Timestep_copy2 @  106.00 ns
-###Deadlock Detected on top_tb.top.pe0.Residue @  106.00 ns
-###Deadlock Detected on top_tb.top.pe1.Timestep @  106.00 ns
-###Deadlock Detected on top_tb.top.pe2.Ifmapb_filter @  106.00 ns
-###Deadlock Detected on top_tb.top.pe2.Filter_row @  106.00 ns
-###Deadlock Detected on top_tb.top.pe2.Data @  106.00 ns
-###Deadlock Detected on top_tb.top.pe2.Timestep @  107.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[1].router_node.PEo_arb.arb1.winner @  108.00 ns
-###Deadlock Detected on top_tb.top.pe0.Timestep_copy3 @  108.00 ns
-###Deadlock Detected on top_tb.top.pe0.OutSpike @  108.00 ns
-###Deadlock Detected on top_tb.top.pe0.Residue_copy0 @  108.00 ns
-###Deadlock Detected on top_tb.top.pe1.Ifmap_data @  108.00 ns
-###Deadlock Detected on top_tb.top.pe2.Ifmap_data @  109.00 ns
-###Deadlock Detected on top_tb.top.PEi[4] @  110.00 ns
-###Deadlock Detected on top_tb.top.pe1.Timestep_copy0 @  111.00 ns
-###Deadlock Detected on top_tb.top.pe1.Filter_row1_data_copy0 @  111.00 ns
-###Deadlock Detected on top_tb.top.pe1.Filter_row2_data_copy0 @  111.00 ns
-###Deadlock Detected on top_tb.top.pe1.Filter_row3_data_copy0 @  111.00 ns
-###Deadlock Detected on top_tb.top.pe1.Mac_out @  111.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[1].router_node.PEo_arb.arb1_out @  112.00 ns
-###Deadlock Detected on top_tb.top.pe2.Timestep_copy0 @  112.00 ns
-###Deadlock Detected on top_tb.top.pe2.Filter_row1_data_copy0 @  112.00 ns
-###Deadlock Detected on top_tb.top.pe2.Filter_row2_data_copy0 @  112.00 ns
-###Deadlock Detected on top_tb.top.pe2.Filter_row3_data_copy0 @  112.00 ns
-###Deadlock Detected on top_tb.top.pe2.Mac_out @  112.00 ns
-###Deadlock Detected on top_tb.top.pe1.Filter_row1_data_reg @  113.00 ns
-###Deadlock Detected on top_tb.top.pe1.Filter_row2_data_reg @  113.00 ns
-###Deadlock Detected on top_tb.top.pe1.Filter_row3_data_reg @  113.00 ns
-###Deadlock Detected on top_tb.top.pe1.Mac_out_timestep2 @  113.00 ns
-###Deadlock Detected on top_tb.top.pe1.Residue_copy1 @  113.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[1].router_node.PEo_arb.arb2.winner @  114.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.PE2E @  114.00 ns
-###Deadlock Detected on top_tb.top.pe2.Filter_row1_data_reg @  114.00 ns
-###Deadlock Detected on top_tb.top.pe2.Filter_row2_data_reg @  114.00 ns
-###Deadlock Detected on top_tb.top.pe2.Filter_row3_data_reg @  114.00 ns
-###Deadlock Detected on top_tb.top.pe2.Mac_out_timestep2 @  114.00 ns
-###Deadlock Detected on top_tb.top.pe2.Residue_copy1 @  114.00 ns
-###Deadlock Detected on top_tb.top.pe1.Timestep_copy1 @  115.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[1].router_node.Eo_arb.winner @  116.00 ns
-###Deadlock Detected on top_tb.top.pe2.Timestep_copy1 @  116.00 ns
-###Deadlock Detected on top_tb.top.PEo[1] @  116.00 ns
-###Deadlock Detected on top_tb.top.pe1.Merge_out @  117.00 ns
-###Deadlock Detected on top_tb.top.pe3.Ifmapb_filter @  117.00 ns
-###Deadlock Detected on top_tb.top.pe3.Filter_row @  117.00 ns
-###Deadlock Detected on top_tb.top.pe3.Data @  117.00 ns
-###Deadlock Detected on top_tb.top.mesh.W2E[6] @  118.00 ns
-###Deadlock Detected on top_tb.top.pe2.Merge_out @  118.00 ns
-###Deadlock Detected on top_tb.top.pe3.Timestep @  118.00 ns
-###Deadlock Detected on top_tb.top.pe1.Timestep_copy2 @  119.00 ns
-###Deadlock Detected on top_tb.top.pe1.Residue @  119.00 ns
-###Deadlock Detected on top_tb.top.pe2.Timestep_copy2 @  120.00 ns
-###Deadlock Detected on top_tb.top.pe2.Residue @  120.00 ns
-###Deadlock Detected on top_tb.top.pe3.Ifmap_data @  120.00 ns
-###Deadlock Detected on top_tb.top.pe1.Timestep_copy3 @  121.00 ns
-###Deadlock Detected on top_tb.top.pe1.OutSpike @  121.00 ns
-###Deadlock Detected on top_tb.top.pe1.Residue_copy0 @  121.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.W2S @  122.00 ns
-###Deadlock Detected on top_tb.top.pe2.Timestep_copy3 @  122.00 ns
-###Deadlock Detected on top_tb.top.pe2.OutSpike @  122.00 ns
-###Deadlock Detected on top_tb.top.pe2.Residue_copy0 @  122.00 ns
-###Deadlock Detected on top_tb.top.pe3.Timestep_copy0 @  123.00 ns
-###Deadlock Detected on top_tb.top.pe3.Filter_row1_data_copy0 @  123.00 ns
-###Deadlock Detected on top_tb.top.pe3.Filter_row2_data_copy0 @  123.00 ns
-###Deadlock Detected on top_tb.top.pe3.Filter_row3_data_copy0 @  123.00 ns
-###Deadlock Detected on top_tb.top.pe3.Mac_out @  123.00 ns
-###Deadlock Detected on top_tb.top.PEi[5] @  123.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.So_arb.arb0.winner @  124.00 ns
-###Deadlock Detected on top_tb.top.PEi[0] @  124.00 ns
-###Deadlock Detected on top_tb.top.pe3.Filter_row1_data_reg @  125.00 ns
-###Deadlock Detected on top_tb.top.pe3.Filter_row2_data_reg @  125.00 ns
-###Deadlock Detected on top_tb.top.pe3.Filter_row3_data_reg @  125.00 ns
-###Deadlock Detected on top_tb.top.pe3.Mac_out_timestep2 @  125.00 ns
-###Deadlock Detected on top_tb.top.pe3.Residue_copy1 @  125.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.PE2S @  127.00 ns
-###Deadlock Detected on top_tb.top.pe3.Timestep_copy1 @  127.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[0].router_node.PE2E @  128.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.So_arb.arb0_out @  128.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.So_arb.arb1.winner @  129.00 ns
-###Deadlock Detected on top_tb.top.pe3.Merge_out @  129.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[0].router_node.Eo_arb.winner @  130.00 ns
-###Deadlock Detected on top_tb.top.pe3.Timestep_copy2 @  131.00 ns
-###Deadlock Detected on top_tb.top.pe3.Residue @  131.00 ns
-###Deadlock Detected on top_tb.top.mesh.W2E[1] @  132.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.So_arb.arb1_out @  133.00 ns
-###Deadlock Detected on top_tb.top.pe3.Timestep_copy3 @  133.00 ns
-###Deadlock Detected on top_tb.top.pe3.OutSpike @  133.00 ns
-###Deadlock Detected on top_tb.top.pe3.Residue_copy0 @  133.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[1].gen_col[2].router_node.So_arb.arb2.winner @  135.00 ns
-###Deadlock Detected on top_tb.top.PEi[1] @  135.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[1].router_node.W2E @  136.00 ns
-###Deadlock Detected on top_tb.top.mesh.N2S[5] @  137.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[1].router_node.PE2E @  139.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[1].router_node.Eo_arb.winner @  141.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[2].router_node.N2PE @  141.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[2].router_node.PEo_arb.arb1.winner @  143.00 ns
-###Deadlock Detected on top_tb.top.mesh.W2E[2] @  145.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[2].router_node.PEo_arb.arb1_out @  147.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[2].router_node.W2PE @  149.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[2].router_node.PEo_arb.arb0.winner @  151.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[2].router_node.PEo_arb.arb0_out @  155.00 ns
-###Deadlock Detected on top_tb.top.mesh.gen_row[0].gen_col[2].router_node.PEo_arb.arb2.winner @  157.00 ns
-###Deadlock Detected on top_tb.Packet_out @  158.00 ns
-###Deadlock Detected on top_tb.top.PEo[2] @  159.00 ns
 $finish called from file "./top_tb.sv", line 117.
-$finish at simulation time  500.00 ns
+$finish at simulation time  250.00 ns
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 500000000 fs
-CPU Time:      0.390 seconds;       Data structure size:   1.3Mb
-Mon Apr 21 16:22:31 2025
-CPU time: .691 seconds to compile + .515 seconds to elab + .384 seconds to link + .688 seconds in simulation
+Time: 250000000 fs
+CPU Time:      0.270 seconds;       Data structure size:   1.3Mb
+Wed Apr 30 23:17:15 2025
+CPU time: .811 seconds to compile + .462 seconds to elab + .309 seconds to link + .444 seconds in simulation

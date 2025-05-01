@@ -14,3 +14,4 @@ DB top_tb.db_content receives output data = 000000000000000110000000001010001 @ 
 Timestep = 1, OutSpike = 1, PE Node = 2, Residue =      3
 DB top_tb.db_content receives output data = 000000000000001100000000001110001 @ 158.00 ns
 Timestep = 1, OutSpike = 1, PE Node = 3, Residue =      6
+
