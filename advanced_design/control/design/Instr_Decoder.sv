@@ -56,20 +56,23 @@ module Instr_Decoder #(
     
 
     always begin
+        wait(I.status != idle);
+        // $display("module= %m,width = %d, I_data = %h", WIDTH, I.data);
         I.Receive(in_packet);
-        $display("width = %d, in_packet = %h, I_data = %h", WIDTH, in_packet, I.data1);
+        // $display("module= %m,I_data = %h", I.data);
+        // $display("width = %d, in_packet = %h, I_data = %h", WIDTH, in_packet, I.data1);
         #FL;
         if(in_packet[0]) begin // if packet comes from external input
             if(in_packet[1]) begin // filter packet
                 size_filter = in_packet[4:3]; // get filter size information
-                $display("filter_row - size_filter - 1 = %b", filter_row - size_filter - 1);
-                if((filter_row - size_filter - 3'b1) == 0) fil_done = 1'b1;  // sending the last row of data
+                $display("(filter_row + 3'b001)= %b, (3'b010 + size_filter) = %b", (filter_row + 3'b001), (3'b010 + size_filter));
+                if((filter_row + 3'b001) == (3'b010 + size_filter)) fil_done = 1'b1;  // sending the last row of data
                 else fil_done = 1'b0;
                 fork
                     O_packetizer.Send(size_filter); // inform packetizer of filter size
                     O_fil_data.Send({fil_done, filter_row, in_packet[WIDTH-1:5]}); // write to filter data memory
-                    O_fil_inst.Send(filter_row); // call filter instr gen to generate instructions
                 join
+                O_fil_inst.Send({fil_done,filter_row}); // call filter instr gen to generate instructions
                 #BL;
                 filter_row = filter_row + 1;
             end
@@ -111,6 +114,7 @@ module Instr_Decoder #(
             endcase
             #BL;
         end
+        // $display("At %t, finish instruction decoding for : %b", $time, in_packet);
     end
 
 

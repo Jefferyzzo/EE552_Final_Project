@@ -142,7 +142,7 @@ lastSendEvent = $time;
 	end
 `ifdef displayStalls
 stall = $time - start;
-if(stall != 0) $display("### %m Stalled(%d) @ %t",stall,$time);
+// if(stall != 0) $display("### %m Stalled(%d) @ %t",stall,$time);
 `endif
 endtask
 //-------------------------------------------------------------------------------------------------
@@ -259,7 +259,7 @@ lastReceiveEvent = $time;
   end
 `ifdef displayStalls
 stall = $time - start;
-if(stall != 0) $display("### %m Stalled(%d) @ %t",stall,$time);
+// if(stall != 0) $display("### %m Stalled(%d) @ %t",stall,$time);
 `endif
 endtask
 //-------------------------------------------------------------------------------------------------

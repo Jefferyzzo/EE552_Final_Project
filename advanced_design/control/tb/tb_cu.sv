@@ -75,7 +75,7 @@ endmodule
 
 //data_generator module
 module data_generator #(parameter WIDTH = 45) (interface r);
-    parameter FL = 0; //ideal environment, no forward delay
+    parameter FL = 4; //ideal environment, no forward delay
 
 
     integer fd;
@@ -135,7 +135,7 @@ endmodule
 //data_bucket module
 module data_bucket #(parameter WIDTH = 53) (interface r);
 
-    parameter BL = 0; //ideal environment no backward delay
+    parameter BL = 1; //ideal environment no backward delay
 
     //Variables added for performance measurements
     real cycleCounter=0;  //# of cycles = Total number of times a value is received

@@ -30,6 +30,7 @@ module Allocate #(
 
         if(sel == 0) begin  // cause problem???????????
             I_fil.Receive(packet_fil);
+            $display("At %t, alloc receives filgen packet %b", $time, packet_fil);
             #FL;
             sel = packet_fil[WIDTH_FIL-1];
             fork
@@ -48,6 +49,7 @@ module Allocate #(
                 O[12].Send(packet_fil[WIDTH_OUT-1:0]);
                 O[13].Send(packet_fil[WIDTH_OUT-1:0]);
             join
+            $display("At %t, alloc finished sending to FIFO %b", $time, packet_fil[WIDTH_OUT-1:0]);
             #BL;
         end
         else begin

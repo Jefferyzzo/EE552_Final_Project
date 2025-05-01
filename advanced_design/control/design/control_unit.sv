@@ -13,7 +13,7 @@ import SystemVerilogCSP::*;
 //  Address    [5*FILTER_WIDTH+4:9]     [8:3]       [2]         [1]                 [0]              
 //             ifmap_data               ifmap_size  timestep    ifmap(0)_filter(1)  ack(0)_input(1)  
 // **********************************************************************************************************************************************************************
-// ifmap_data width is 36 bits
+// ifmap_data width is 36 bits when FILTER_WIDTH = 8
 
 // ************************************************** Input Ack Packet Format***********************************************************************************************
 //             
@@ -22,10 +22,11 @@ import SystemVerilogCSP::*;
 // **********************************************************************************************************************************************************************
 
 // ************************************************** Output Pakcet Data***********************************************************************************************
-//             
+//  Packet format for filter data:           
 //  Address    [5*FILTER_WIDTH+12:13]       [12:10]     [9]                 [8]       [7:5]    [4:2]    [1:0]            
 //             data                         filter_row  ifmap(0)_filter(1)  timestep  y-hop    x-hop    direction 
-//  data format for ifmap data:
+//
+//  Packet format for ifmap data:
 //  Address    [5*FILTER_WIDTH+12:5*FILTER_WIDTH-12]    [5*FILTER_WIDTH-13:15]  [14:13]
 //             ifmap data                               conv_loc                size
 // *****************************************************************************************************************************************************************************
@@ -49,7 +50,7 @@ interface  O
 // Channels between input packets and output arbiter
 Channel #(.WIDTH(46),.hsProtocol(P4PhaseBD)) ID_Ifmem ();
 Channel #(.WIDTH(44),.hsProtocol(P4PhaseBD)) ID_Filmem ();
-Channel #(.WIDTH(3),.hsProtocol(P4PhaseBD)) ID_Filgen ();
+Channel #(.WIDTH(4),.hsProtocol(P4PhaseBD)) ID_Filgen ();
 Channel #(.WIDTH(2),.hsProtocol(P4PhaseBD)) ID_Pkt ();
 Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) ID_TB [13:0] ();
 Channel #(.WIDTH(6),.hsProtocol(P4PhaseBD)) Ifmem_Ifgen ();

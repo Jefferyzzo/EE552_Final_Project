@@ -44,6 +44,7 @@ module Inst_FIFO  #(
     always begin
         wait((wp-rp) != DEPTH);  
         I.Receive(data[wp]);
+        $display("At %t, FIFO %d finish storing Inst %b", $time, PE_node, data[wp]);
         #FL;
         wp++;
     end
