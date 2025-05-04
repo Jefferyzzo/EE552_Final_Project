@@ -6,8 +6,8 @@
 
 // ************************************************** ACK packet orgnization ******************************************************
 //             
-//  Address    [5*FILTER_WIDTH+12:13]    [12:9]    [8]    [7:5]    [4:2]    [1:0]            
-//             0s                        PE node   ack    y-hop    x-hop    direction 
+//  Address    [5*FILTER_WIDTH+12:13]    [12:9]    [8]       [7:5]    [4:2]    [1:0]            
+//             0s                        PE node   ack(0)    y-hop    x-hop    direction 
 // ********************************************************************************************************************************
 
 `timescale 1ns/1ns
@@ -59,7 +59,7 @@ module packetizer #(
         #FL;
         
         packet_out = {conv_loc, residue, pe_node, outspike, timestep, y_hop_out, x_hop_out, direction_out};
-        packet_ack = {{(5*FILTER_WIDTH){1'b0}}, pe_node, 1'b1, y_hop_ack, x_hop_ack, direction_ack};
+        packet_ack = {{(5*FILTER_WIDTH){1'b0}}, pe_node, 1'b0, y_hop_ack, x_hop_ack, direction_ack};
 
         if (timestep == 1'b1) begin        
             Packet.Send(packet_out);

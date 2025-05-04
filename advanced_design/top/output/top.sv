@@ -1,6 +1,10 @@
 `timescale 1ns/1ns
 import SystemVerilogCSP::*;
 
+/*TODO: 1.the width of each parameter
+        2.control unit
+        3.output memory
+*/
 module top#(
     parameter FILTER_WIDTH = 8,
     parameter IFMAP_SIZE   = 25,
@@ -10,9 +14,9 @@ module top#(
     parameter BL	       = 1,
     parameter ROW          = 4,
     parameter COL          = 4,
-    parameter WIDTH        = 9 + 3*FILTER_WIDTH
+    parameter WIDTH        = 13 + 5*FILTER_WIDTH,
     parameter Y_HOP_LOC    = 7,
-    parameter X_HOP_LOC    = 4,
+    parameter X_HOP_LOC    = 4
 ) (
     interface Packet_in,
     interface Packet_out
@@ -20,7 +24,7 @@ module top#(
 
     // Declare Channels
     Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) PEi [0:ROW*COL-1] ();
-    Channel #(.WIDTH(WIDTH-(4+1)), .hsProtocol(P4PhaseBD)) PEo [0:ROW*COL-1] (); //todo
+    Channel #(.WIDTH(WIDTH-(8)), .hsProtocol(P4PhaseBD)) PEo [0:ROW*COL-1] (); 
     Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) N2S [0:(ROW+1)*COL-1] ();
     Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) S2N [0:(ROW+1)*COL-1] ();
     Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) E2W [0:ROW*(COL+1)-1] ();
@@ -177,8 +181,9 @@ module top#(
 
 
 
-    // Router (top right) - output to Packet_out
-    //todo: control unit
+    // Router (bottom right) - output to Packet_out
+    // output port
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi3 (.r(PEi[3]));
     router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(3), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_3 (
         .Wi(W2E[3]),
         .Wo(E2W[3]),
@@ -189,8 +194,11 @@ module top#(
         .Si(S2N[3]),
         .So(N2S[3]),
         .PEi(PEi[3]),
-        .PEo(PEo[3])
+        .PEo(packet_out)
     );
+
+
+
 
 
 
@@ -500,21 +508,29 @@ module top#(
 
 
 
-    // Router (left bottom) - input from Packet_in
-    //todo: output memory
+    // Router (right bottom) - input from Packet_in
+    //control unit
     //************************************************************************************
     router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(12), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_3_0 (
         .Wi(W2E[15]),
         .Wo(E2W[15]),
         .Ei(E2W[16]),
         .Eo(W2E[16]),
-        .Ni(N2S[16]),
+        .Ni(packet_in),
         .No(S2N[16]),
         .Si(S2N[12]),
         .So(N2S[12]),
         .PEi(PEi[12]),
         .PEo(PEo[12])
     );
+    
+    control_unit #(
+        .FL(FL),
+        .BL(BL)
+    ) cu (
+        .I(PEo[12]),
+        .O(PEi[12])
+    ); 
 
 
 

@@ -14,7 +14,7 @@ module top#(
     parameter BL	       = {{ BL | default(1) }},
     parameter ROW          = {{ ROW | default(4) }},
     parameter COL          = {{ COL | default(4) }},
-    parameter WIDTH        = 9 + 3*FILTER_WIDTH
+    parameter WIDTH        = 13 + 5*FILTER_WIDTH
     parameter Y_HOP_LOC    = {{ Y_HOP_LOC | default(7) }},
     parameter X_HOP_LOC    = {{ X_HOP_LOC | default(4) }},
 ) (
@@ -24,7 +24,7 @@ module top#(
 
     // Declare Channels
     Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) PEi [0:ROW*COL-1] ();
-    Channel #(.WIDTH(WIDTH-(4+1)), .hsProtocol(P4PhaseBD)) PEo [0:ROW*COL-1] (); //todo
+    Channel #(.WIDTH(WIDTH-(8)), .hsProtocol(P4PhaseBD)) PEo [0:ROW*COL-1] (); 
     Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) N2S [0:(ROW+1)*COL-1] ();
     Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) S2N [0:(ROW+1)*COL-1] ();
     Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) E2W [0:ROW*(COL+1)-1] ();
@@ -61,24 +61,33 @@ module top#(
             {% set rtr_name = "router_%d_%d" % (i, j) %}
 
             {% if i == ROW-1 and j == 0 %}
-    // Router (left bottom) - input from Packet_in
-    //todo: output memory
+    // Router (right bottom) - input from Packet_in
+    //control unit
     //************************************************************************************
     router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
         .Wi(W2E[{{EW_IDX}}]),
         .Wo(E2W[{{EW_IDX}}]),
         .Ei(E2W[{{EW_IDX_P1}}]),
         .Eo(W2E[{{EW_IDX_P1}}]),
-        .Ni(N2S[{{NS_IDX_P1}}]),
+        .Ni(Packet_in),
         .No(S2N[{{NS_IDX_P1}}]),
         .Si(S2N[{{NS_IDX}}]),
         .So(N2S[{{NS_IDX}}]),
         .PEi(PEi[{{PE_IDX}}]),
         .PEo(PEo[{{PE_IDX}}])
     );
+    
+    control_unit #(
+        .FL(FL),
+        .BL(BL)
+    ) cu (
+        .I(PEo[{{PE_IDX}}]),
+        .O(PEi[{{PE_IDX}}])
+    ); 
             {% elif i == 0 and j == COL-1 %}
-    // Router (top right) - output to Packet_out
-    //todo: control unit
+    // Router (bottom right) - output to Packet_out
+    // output port
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi{{PE_IDX}} (.r(PEi[{{PE_IDX}}]));
     router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
         .Wi(W2E[{{EW_IDX}}]),
         .Wo(E2W[{{EW_IDX}}]),
@@ -89,8 +98,11 @@ module top#(
         .Si(S2N[{{NS_IDX}}]),
         .So(N2S[{{NS_IDX}}]),
         .PEi(PEi[{{PE_IDX}}]),
-        .PEo(PEo[{{PE_IDX}}])
+        .PEo(Packet_out)
     );
+
+
+
             {% else %}
     // Regular Router
     router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
