@@ -30,14 +30,16 @@ import SystemVerilogCSP::*;
 //             ifmap data                               conv_loc                size
 // *****************************************************************************************************************************************************************************
 
-// e.g for data field under 3*3 filter: 0, 0, filter2, filter1, filter0
-// e.g for ifmap data: if0, if1, if2 ..., if24
+// e.g for data field under 3*3 filter: 0, 0, filter0, filter1, filter2
+// ifmap_data width is 36 bits
+// e.g for 4x4 ifmap data: 0, 0, ..., 0, if15, ... if3, if2, if1, if0
+// e.g for 7x7 ifmap data: if35, ... if3, if2, if1, if0(inst 1) ; 0, ..., 0, if48, ... , if37, if36(inst 2)
 // FILTER_WIDTH = 8, maximum conv size is (2^5)^2, maximum ifmap size is (2*5+4)^2
 
 
 // Instruction must input filter data and size first, then input ifmap data and size
 
-localparam RUNTIME = 500;
+localparam RUNTIME = 800;
 module tb_cu #(
     parameter FL	= 2 ,
     parameter BL	= 2
@@ -75,7 +77,7 @@ endmodule
 
 //data_generator module
 module data_generator #(parameter WIDTH = 45) (interface r);
-    parameter FL = 4; //ideal environment, no forward delay
+    parameter FL = 2; //ideal environment, no forward delay
 
 
     integer fd;
@@ -104,7 +106,9 @@ module data_generator #(parameter WIDTH = 45) (interface r);
                 status = $sscanf(cleaned_line, "%b", inst);
                 if (status == 1) begin
                     $display("At time %t, send %d th\t inst %s", $time, idx, format_bin45(inst));
+                    // $display("At time %t, send %d th\t inst %h", $time, idx, inst);
                     r.Send(inst);
+                    // $display("At time %t, finish send %d th\t inst %h", $time, idx, inst);
                     #FL;
                     idx++;
                 end else begin
@@ -124,7 +128,7 @@ module data_generator #(parameter WIDTH = 45) (interface r);
             s = "";
             for (i = 44; i >= 0; i--) begin
                 s = {s, data[i] ? "1" : "0"};
-                if (i % 4 == 0 && i != 0) s = {s, "_"};  // 每 4 位插入分隔符（除了最后一组）
+                if (i % 4 == 0 && i != 0) s = {s, "_"};
             end
             return s;
         end

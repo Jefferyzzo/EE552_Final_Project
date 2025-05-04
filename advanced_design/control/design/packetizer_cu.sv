@@ -2,26 +2,27 @@
 
 import SystemVerilogCSP::*;
 
-// ************************************************** Input Filter Packet Format***********************************************************************************************
+// ************************************************** General Input Format ***********************************************************************************************
+//  Address    [17:4]       [3:0]              
+//             FIFO_content PE_node 
+// **********************************************************************************************************************************************************************
+
+// ************************************************** FIFO content for filter***********************************************************************************************
 //  Address    [13:4]     [3:1]       [0]                 
 //             0s         filter_row  ifmap(0)_filter(1)  
 // **********************************************************************************************************************************************************************
 
 
-// ************************************************** Input Ifmap Packet Format***********************************************************************************************
+// ************************************************** FIFO content for ifmap***********************************************************************************************
 //  Address    [13:8]           [7:2]           [1]         [0]                 
-//             if_mem_loc_x     if_mem_loc_y    timestep    ifmap(0)_filter(1) 
-// **********************************************************************************************************************************************************************
-
-// ************************************************** Output Format ***********************************************************************************************
-//  Address    [17:4]       [3:0]              
-//             FIFO_content PE_node 
+//             if_mem_loc_y     if_mem_loc_x    timestep    ifmap(0)_filter(1) 
 // **********************************************************************************************************************************************************************
 
 module packetizer_cu #(
     parameter WIDTH_IN	= 18,
     parameter WIDTH_OUT	= 53,
-    parameter WIDTH_DATA	= 25,
+    parameter WIDTH_FIL_DATA	= 40,
+    parameter WIDTH_IF_DATA	= 25,
     parameter FL	= 2 ,
     parameter BL	= 2
     ) (
@@ -35,7 +36,8 @@ module packetizer_cu #(
     );
     logic [WIDTH_IN-1:0] in_packet;
     logic [WIDTH_OUT-1:0] out_packet;
-    logic [WIDTH_DATA-1:0] data;
+    logic [WIDTH_FIL_DATA-1:0] data_fil;
+    logic [WIDTH_IF_DATA-1:0] data_if;
     logic [1:0] fil_size;
     integer i;
 
@@ -48,9 +50,10 @@ module packetizer_cu #(
     end
 
 
-    always begin // Write Operation
+    always begin 
         out_packet = 0;
         I_FIFO.Receive(in_packet);
+        //$display("At %t, pkt receives packet %h", $time, in_packet);
         #FL;
         case(in_packet[3:0]) // generate header
             4'b0000: out_packet[7:0] = 8'b1110_0011;
@@ -72,12 +75,15 @@ module packetizer_cu #(
         if(in_packet[4] == 1'b1) begin  // fetch filter data and send instructions
             out_packet[12:10] = in_packet[7:5];
             out_packet[9] = 1'b1;
+            //$display("At %t, pkt sends filter addr %h", $time, in_packet[7:5]);
             Fil_addr.Send(in_packet[7:5]);
             #BL;
-            Fil_data.Receive(data);
+            Fil_data.Receive(data_fil);
+            //$display("At %t, pkt recieves filter data %h", $time, data_fil);
             #FL;
-            out_packet[WIDTH_OUT-1:13] = data;
+            out_packet[WIDTH_OUT-1:13] = data_fil;
             O.Send(out_packet);
+            //$display("At %t, pkt sends filter inst %h", $time, out_packet);
         end
         else begin // fetch ifmap data and send instructions
             out_packet[8] = in_packet[5];
@@ -85,10 +91,12 @@ module packetizer_cu #(
             out_packet[12:10] = 3'b0;
             out_packet[14:13] = fil_size;
             out_packet[26:15] = in_packet[17:6];
-            If_addr.Send(in_packet[13:1]);
+            //$display("At %t, pkt sends ifmap addr %h", $time, in_packet[17:5]);
+            If_addr.Send(in_packet[17:5]);
             #BL;
-            If_data.Receive(data);
-            out_packet[52:28] = data;
+            If_data.Receive(data_if);
+            //$display("At %t, pkt recieves ifmap data %h", $time, data_if);
+            out_packet[52:28] = data_if;
             #FL;
             O.Send(out_packet);
         end

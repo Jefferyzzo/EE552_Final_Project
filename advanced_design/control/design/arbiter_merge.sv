@@ -5,8 +5,8 @@ import SystemVerilogCSP::*;
 
 module arbiter_merge #(
 parameter WIDTH	= 4 ,
-parameter FL	= 2 ,
-parameter BL	= 2 
+parameter FL	= 0 ,
+parameter BL	= 0 
 ) (
 interface  L0   ,
 interface  L1   ,

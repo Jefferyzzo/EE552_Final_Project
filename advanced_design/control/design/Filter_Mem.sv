@@ -14,7 +14,8 @@ module Filter_Mem #(
     ) (
     interface   W,
     interface   R_req,
-    interface   R_data
+    interface   R_data,
+    interface   Inst_gen
     );
     logic [WIDTH-1:0] data [DEPTH-1:0];
     logic [WIDTH+3:0] in_packet;
@@ -30,6 +31,7 @@ module Filter_Mem #(
         #FL;
         data[in_packet[WIDTH+2:WIDTH]] = in_packet[WIDTH-1:0];
         done  = in_packet[WIDTH+3];
+        Inst_gen.Send(in_packet[WIDTH+3:WIDTH]);
     end
 
     always begin // Read Operation

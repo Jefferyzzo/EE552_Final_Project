@@ -9,19 +9,21 @@ module token_buffer #(
     parameter INIT_VALUE = 0
     
 ) (
-    interface left, 
-    interface right
+    interface l, 
+    interface r
 );
 
     logic [WIDTH-1:0] data;
     
     initial begin
-        right.Send(INIT_VALUE);
+        // $display("%m start sending a token at %t", $time);
+        r.Send(INIT_VALUE);
+        // $display("%m finish sending a token at %t", $time);
         #BL;
         forever begin
-            left.Receive(data);
+            l.Receive(data);
             #FL; 
-            right.Send(data);
+            r.Send(data);
             #BL;
         end
     end

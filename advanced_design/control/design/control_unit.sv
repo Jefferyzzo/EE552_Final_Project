@@ -28,11 +28,12 @@ import SystemVerilogCSP::*;
 //
 //  Packet format for ifmap data:
 //  Address    [5*FILTER_WIDTH+12:5*FILTER_WIDTH-12]    [5*FILTER_WIDTH-13:15]  [14:13]
-//             ifmap data                               conv_loc                size
+//             ifmap data                               conv_loc(y,x)           fil_size
 // *****************************************************************************************************************************************************************************
 
-// e.g for data field under 3*3 filter: 0, 0, filter2, filter1, filter0
-// e.g for ifmap data: if0, if1, if2 ..., if24
+// e.g for data field under 3*3 filter: 0, 0, filter0, filter1, filter2
+// ifmap_data width is 36 bits
+// e.g for 4x4 ifmap data: 0, 0, ..., 0, if15, ... if3, if2, if1, if0
 // FILTER_WIDTH = 8, maximum conv size is (2^5)^2, maximum ifmap size is (2*5+4)^2
 
 
@@ -50,11 +51,11 @@ interface  O
 // Channels between input packets and output arbiter
 Channel #(.WIDTH(46),.hsProtocol(P4PhaseBD)) ID_Ifmem ();
 Channel #(.WIDTH(44),.hsProtocol(P4PhaseBD)) ID_Filmem ();
-Channel #(.WIDTH(4),.hsProtocol(P4PhaseBD)) ID_Filgen ();
+Channel #(.WIDTH(4),.hsProtocol(P4PhaseBD)) Filmem_Filgen ();
 Channel #(.WIDTH(2),.hsProtocol(P4PhaseBD)) ID_Pkt ();
 Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) ID_TB [13:0] ();
 Channel #(.WIDTH(6),.hsProtocol(P4PhaseBD)) Ifmem_Ifgen ();
-Channel #(.WIDTH(15),.hsProtocol(P4PhaseBD)) Pkt_Ifmem ();
+Channel #(.WIDTH(13),.hsProtocol(P4PhaseBD)) Pkt_Ifmem ();
 Channel #(.WIDTH(25),.hsProtocol(P4PhaseBD)) Ifmem_Pkt ();
 Channel #(.WIDTH(3),.hsProtocol(P4PhaseBD)) Pkt_Filmem ();
 Channel #(.WIDTH(40),.hsProtocol(P4PhaseBD)) Filmem_Pkt ();
@@ -62,15 +63,14 @@ Channel #(.WIDTH(18),.hsProtocol(P4PhaseBD)) Ifgen_Alloc ();
 Channel #(.WIDTH(15),.hsProtocol(P4PhaseBD)) Filgen_Alloc ();
 Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) Alloc_FIFO [13:0] ();
 Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) TB_FIFO [13:0] ();
-Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) FIFO_Arb [13:0] ();
-Channel #(.WIDTH(14),.hsProtocol(P4PhaseBD)) Arb_Pkt ();
+Channel #(.WIDTH(18),.hsProtocol(P4PhaseBD)) FIFO_Arb [13:0] ();
+Channel #(.WIDTH(18),.hsProtocol(P4PhaseBD)) Arb_Pkt ();
 
 
 Instr_Decoder ID (
     .I(I),  
     .O_if_data(ID_Ifmem), 
-    .O_fil_data(ID_Filmem), 
-    .O_fil_inst(ID_Filgen),
+    .O_fil_data(ID_Filmem),
     .O_packetizer(ID_Pkt), 
     .PE_ack(ID_TB)
 );
@@ -85,7 +85,8 @@ Ifmap_Mem Ifmem (
 Filter_Mem Filmem (
     .W(ID_Filmem),
     .R_req(Pkt_Filmem),
-    .R_data(Filmem_Pkt)
+    .R_data(Filmem_Pkt),
+    .Inst_gen(Filmem_Filgen)
 );
 
 Ifmap_Inst_Generator Ifgen (
@@ -94,7 +95,7 @@ Ifmap_Inst_Generator Ifgen (
 );
 
 Filter_Inst_Generator Filgen (
-    .I(ID_Filgen),
+    .I(Filmem_Filgen),
     .O_FIFO(Filgen_Alloc)
 );
 
@@ -111,13 +112,13 @@ generate
         Inst_FIFO #(.PE_node(i)) PE_FIFO 
         (
             .I_inst(Alloc_FIFO[i]),
-            .I_ack(ID_TB[i]),
-            .O(FIFO_Arb[i])
+            .I_ack(TB_FIFO[i]),
+            .O_arb(FIFO_Arb[i])
         );
 
-        token_buffer TB (
-            .left(ID_TB[i]), 
-            .right(TB_FIFO[i])
+        token_buffer #(.WIDTH(1)) TB (
+            .l(ID_TB[i]), 
+            .r(TB_FIFO[i])
         );
     end
 endgenerate

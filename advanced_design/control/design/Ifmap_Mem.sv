@@ -8,8 +8,8 @@ import SystemVerilogCSP::*;
 // ************************************************************************************************************************
 
 // ************************************************** Input Addr Format***********************************
-//  Address    [14:13]      [12:7]     [12:1]    [0]         
-//             filter_size  x_loc      y_loc     timestep   
+//  Address    [12:7]     [12:1]    [0]         
+//             y_loc      x_loc     timestep   
 // *******************************************************************************************************
 module Ifmap_Mem #(
     parameter WIDTH_IN = 46,
@@ -27,20 +27,22 @@ module Ifmap_Mem #(
     logic [SIZE-1:0] data_ts0 [SIZE-1:0]; // data storage for timestep 0  
     logic [SIZE-1:0] data_ts1 [SIZE-1:0]; // data storage for timestep 1
     logic [WIDTH_IN-1:0] in_packet;
+    logic [1:0] fil_size;
     logic [5:0] if_size, conv_size;
-    logic [5:0] x_ts0, y_ts0, x_ts1, y_ts1; // location for storing ifmap data bit
+    logic [5:0] y_ts0, x_ts0, y_ts1, x_ts1; // location for storing ifmap data bit
     integer i_ts0, i_ts1, cnt_ts0, cnt_ts1;
     integer i, j;
+    logic done;
 
     
-    logic [14:0] in_addr;
+    logic [12:0] in_addr;
     logic [WIDTH_OUT-1:0] out_packet;
 
     initial begin
-        x_ts0 = 0;
         y_ts0 = 0;
-        x_ts1 = 0;
+        x_ts0 = 0;
         y_ts1 = 0;
+        x_ts1 = 0;
         i_ts0 = 0;
         i_ts1 = 0;
         for(i = 0; i < SIZE; i++) begin  // initialize memory data to 0
@@ -51,13 +53,21 @@ module Ifmap_Mem #(
 
 
     always begin // Write Operation
+        done = 0;
         W.Receive(in_packet); // receive write address and data
+        // $display("At %t, ifmap receive packet %h of timestep %d, done = %d", $time, in_packet, in_packet[0], in_packet[WIDTH_IN-1]);
         #FL;
         if_size = in_packet[6:1];
+        fil_size = in_packet[44:43];
+        // $display("At %t, if_size %h", $time, if_size);
         if(!in_packet[0]) begin // timestep 0
             for(i_ts0 = 0; i_ts0 < 36; i_ts0++) begin
-                data_ts0[x_ts0][y_ts0] = in_packet[i_ts0+7];
-                if(!(x_ts0 == (if_size-1) && y_ts0 == (if_size-1))) begin
+                
+                if(!done) begin
+                    data_ts0[y_ts0][x_ts0] = in_packet[i_ts0+7];
+                    // $display("Storing %d th number %b in y = %d, x = %d", i_ts0, in_packet[i_ts0+7], y_ts0, x_ts0);
+                end
+                if(!(y_ts0 == (if_size-1) && x_ts0 == (if_size-1))) begin
                     if(x_ts0 == (if_size-1)) begin
                         x_ts0 = 0;
                         y_ts0++;
@@ -66,20 +76,27 @@ module Ifmap_Mem #(
                         x_ts0++;
 
                 end
+                else done = 1;
             end
 
         end
         else begin // timestep 1
             for(i_ts1 = 0; i_ts1 < 36; i_ts1++) begin
-                data_ts1[x_ts1][y_ts1] = in_packet[i_ts1+7];
-                if(!(x_ts1 == (if_size-1) && y_ts1 == (if_size-1))) begin
+                
+                if(!done) begin
+                    data_ts1[y_ts1][x_ts1] = in_packet[i_ts1+7];
+                    // $display("Storing %d th number %b in y = %d, x = %d", i_ts1, in_packet[i_ts1+7], y_ts1, x_ts1);
+                end
+                if(!(y_ts1 == (if_size-1) && x_ts1 == (if_size-1))) begin
                     if(x_ts1 == (if_size-1)) begin
                         x_ts1 = 0;
                         y_ts1++;
                     end
                     else
                         x_ts1++;
+
                 end
+                else done = 1;
             end
             if(in_packet[WIDTH_IN-1]) begin  // all ifmap data finishes storing
                 conv_size = in_packet[6:1] - in_packet[44:43] - 1;
@@ -95,59 +112,76 @@ module Ifmap_Mem #(
     always begin // Read Operation
         R_req.Receive(in_addr);
         #FL;
-        x = in_addr[12:7];
-        y = in_addr[6:1];
-        // out_packet[30:28] = line[y_end:y];
-
-
+        y = in_addr[12:7];
+        x = in_addr[6:1];
+        out_packet = 0;
+        // $display("At %t, ifmap receives addr, y = %h, x = %h, timestep = %h", $time, y, x, in_addr[0]);
         if (!in_addr[0]) begin // timestep 0
-            case (in_addr[14:13])
+            case (fil_size)
                 2'b00: begin // 2*2 filter
                     for (int i = 0; i < 2; i++) begin
-                        out_packet[28 + i*2 +: 2] = data_ts0[x + i][y +: 2];
+                        for(int j = 0; j < 2; j++) begin
+                            out_packet[3-(i*2 + j)] = data_ts0[y + i][x + j];
+                        end
                     end
                 end
                 2'b01: begin  // 3*3 filter
                     for (int i = 0; i < 3; i++) begin
-                        out_packet[28 + i*3 +: 3] = data_ts0[x + i][y +: 3];
+                        for(int j = 0; j < 3; j++) begin
+                            out_packet[8-(i*3 + j)] = data_ts0[y + i][x + j];
+                        end
                     end
                 end
                 2'b10: begin // 4*4 filter
                     for (int i = 0; i < 4; i++) begin
-                        out_packet[28 + i*4 +: 4] = data_ts0[x + i][y +: 4];
+                        for(int j = 0; j < 4; j++) begin
+                            out_packet[15-(i*4 + j)] = data_ts0[y + i][x + j];
+                        end
                     end
                 end
                 2'b11: begin // 5*5 filter
                     for (int i = 0; i < 5; i++) begin
-                        out_packet[28 + i*5 +: 5] = data_ts0[x + i][y +: 5];
+                        for(int j = 0; j < 5; j++) begin
+                            out_packet[24-(i*5 + j)] = data_ts0[y + i][x + j];
+                        end
                     end
                 end
                 default: ;
             endcase
+            // $display("Timestep 0 out packet = %b", out_packet);
         end else begin // timestep 1
-            case (in_addr[14:13])
+            case (fil_size)
                 2'b00: begin // 2*2 filter
                     for (int i = 0; i < 2; i++) begin
-                        out_packet[28 + i*2 +: 2] = data_ts1[x + i][y +: 2];
+                        for(int j = 0; j < 2; j++) begin
+                            out_packet[3-(i*2 + j)] = data_ts1[y + i][x + j];
+                        end
                     end
                 end
                 2'b01: begin  // 3*3 filter
                     for (int i = 0; i < 3; i++) begin
-                        out_packet[28 + i*3 +: 3] = data_ts1[x + i][y +: 3];
+                        for(int j = 0; j < 3; j++) begin
+                            out_packet[8-(i*3 + j)] = data_ts1[y + i][x + j];
+                        end
                     end
                 end
                 2'b10: begin // 4*4 filter
                     for (int i = 0; i < 4; i++) begin
-                        out_packet[28 + i*4 +: 4] = data_ts1[x + i][y +: 4];
+                        for(int j = 0; j < 4; j++) begin
+                            out_packet[15-(i*4 + j)] = data_ts1[y + i][x + j];
+                        end
                     end
                 end
                 2'b11: begin // 5*5 filter
                     for (int i = 0; i < 5; i++) begin
-                        out_packet[28 + i*5 +: 5] = data_ts1[x + i][y +: 5];
+                        for(int j = 0; j < 5; j++) begin
+                            out_packet[24-(i*5 + j)] = data_ts1[y + i][x + j];
+                        end
                     end
                 end
                 default: ;
             endcase
+            // $display("Timestep 1 out packet = %b", out_packet);
         end
 
 

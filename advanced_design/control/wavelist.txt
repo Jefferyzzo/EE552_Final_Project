@@ -1,0 +1,42 @@
+fil inst:
+
+add wave -position insertpoint  \
+sim:/tb_cu/I/status \
+sim:/tb_cu/I/data
+add wave -position insertpoint  \
+sim:/tb_cu/cu/ID/I/status \
+sim:/tb_cu/cu/ID/I/data
+add wave -position insertpoint  \
+sim:/tb_cu/cu/ID_Filmem/status \
+sim:/tb_cu/cu/ID_Filmem/data
+add wave -position insertpoint  \
+sim:/tb_cu/cu/ID/in_packet \
+sim:/tb_cu/cu/ID/size_filter \
+sim:/tb_cu/cu/ID/filter_row \
+sim:/tb_cu/cu/ID/fil_done
+add wave -position insertpoint  \
+sim:/tb_cu/cu/Filmem_Filgen/status \
+sim:/tb_cu/cu/Filmem_Filgen/data
+add wave -position insertpoint  \
+sim:/tb_cu/cu/Filgen_Alloc/status \
+sim:/tb_cu/cu/Filgen_Alloc/data
+add wave -position insertpoint  \
+{sim:/tb_cu/cu/Alloc_FIFO[0]/status} \
+{sim:/tb_cu/cu/Alloc_FIFO[0]/data}
+add wave -position insertpoint  \
+{sim:/tb_cu/cu/TB_FIFO[0]/status} \
+{sim:/tb_cu/cu/TB_FIFO[0]/data}
+add wave -position insertpoint  \
+{sim:/tb_cu/cu/FIFO_Arb[0]/status} \
+{sim:/tb_cu/cu/FIFO_Arb[0]/data}
+add wave -position insertpoint  \
+sim:/tb_cu/cu/Arb_Pkt/status \
+sim:/tb_cu/cu/Arb_Pkt/data
+add wave -position insertpoint  \
+sim:/tb_cu/cu/O/status \
+sim:/tb_cu/cu/O/data
+add wave -position insertpoint  \
+{sim:/tb_cu/cu/gen_fifo_tb[0]/PE_FIFO/rp} \
+{sim:/tb_cu/cu/gen_fifo_tb[0]/PE_FIFO/wp} \
+{sim:/tb_cu/cu/gen_fifo_tb[0]/PE_FIFO/data} \
+{sim:/tb_cu/cu/gen_fifo_tb[0]/PE_FIFO/ack_dummy}
