@@ -127,11 +127,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT(({{ROW}}-1)'b{{ "1" * X_HOP_OUT_CAL }}{{ "0" * ((ROW - 1) - X_HOP_OUT_CAL) }}),  
-        .Y_HOP_OUT(({{COL}}-1)'b{{ "1" * Y_HOP_OUT_CAL }}{{ "0" * ((COL - 1) - Y_HOP_OUT_CAL) }}),  
+        .X_HOP_OUT({{ (ROW - 1) }}'b{{ "1" * X_HOP_OUT_CAL + "0" * ((ROW - 1) - X_HOP_OUT_CAL) }}),  
+        .Y_HOP_OUT({{ (COL - 1) }}'b{{ "1" * Y_HOP_OUT_CAL + "0" * ((COL - 1) - Y_HOP_OUT_CAL) }}),  
         .PE_NODE({{PE_IDX}}),
-        .X_HOP_ACK(({{ROW}}-1)'b{{ "1" * X_HOP_ACK_CAL }}{{ "0" * ((ROW - 1) - X_HOP_ACK_CAL) }}), 
-        .Y_HOP_ACK(({{COL}}-1)'b{{ "1" * Y_HOP_ACK_CAL }}{{ "0" * ((COL - 1) - Y_HOP_ACK_CAL) }}),
+        .X_HOP_ACK({{(ROW-1)}}'b{{ "1" * X_HOP_ACK_CAL }}{{ "0" * ((ROW - 1) - X_HOP_ACK_CAL) }}), 
+        .Y_HOP_ACK({{(COL-1)}}'b{{ "1" * Y_HOP_ACK_CAL }}{{ "0" * ((COL - 1) - Y_HOP_ACK_CAL) }}),
         .DIRECTION_ACK(0)
     ) {{pe_name}} (
         .Packet_in(PEo[{{PE_IDX}}]),

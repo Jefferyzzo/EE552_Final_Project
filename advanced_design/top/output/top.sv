@@ -14,9 +14,9 @@ module top#(
     parameter BL	       = 1,
     parameter ROW          = 4,
     parameter COL          = 4,
-    parameter WIDTH        = 13 + 5*FILTER_WIDTH,
+    parameter WIDTH        = 13 + 5*FILTER_WIDTH
     parameter Y_HOP_LOC    = 7,
-    parameter X_HOP_LOC    = 4
+    parameter X_HOP_LOC    = 4,
 ) (
     interface Packet_in,
     interface Packet_out
@@ -90,11 +90,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b111),  
-        .Y_HOP_OUT((4-1)'b000),  
+        .X_HOP_OUT(3'b111),  
+        .Y_HOP_OUT(3'b000),  
         .PE_NODE(0),
-        .X_HOP_ACK((4-1)'b000), 
-        .Y_HOP_ACK((4-1)'b111),
+        .X_HOP_ACK(3'b000), 
+        .Y_HOP_ACK(3'b111),
         .DIRECTION_ACK(0)
     ) pe0_0 (
         .Packet_in(PEo[0]),
@@ -128,11 +128,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b110),  
-        .Y_HOP_OUT((4-1)'b000),  
+        .X_HOP_OUT(3'b110),  
+        .Y_HOP_OUT(3'b000),  
         .PE_NODE(1),
-        .X_HOP_ACK((4-1)'b100), 
-        .Y_HOP_ACK((4-1)'b111),
+        .X_HOP_ACK(3'b100), 
+        .Y_HOP_ACK(3'b111),
         .DIRECTION_ACK(0)
     ) pe0_1 (
         .Packet_in(PEo[1]),
@@ -166,11 +166,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b100),  
-        .Y_HOP_OUT((4-1)'b000),  
+        .X_HOP_OUT(3'b100),  
+        .Y_HOP_OUT(3'b000),  
         .PE_NODE(2),
-        .X_HOP_ACK((4-1)'b110), 
-        .Y_HOP_ACK((4-1)'b111),
+        .X_HOP_ACK(3'b110), 
+        .Y_HOP_ACK(3'b111),
         .DIRECTION_ACK(0)
     ) pe0_2 (
         .Packet_in(PEo[2]),
@@ -194,7 +194,7 @@ module top#(
         .Si(S2N[3]),
         .So(N2S[3]),
         .PEi(PEi[3]),
-        .PEo(packet_out)
+        .PEo(Packet_out)
     );
 
 
@@ -227,11 +227,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b111),  
-        .Y_HOP_OUT((4-1)'b100),  
+        .X_HOP_OUT(3'b111),  
+        .Y_HOP_OUT(3'b100),  
         .PE_NODE(4),
-        .X_HOP_ACK((4-1)'b000), 
-        .Y_HOP_ACK((4-1)'b110),
+        .X_HOP_ACK(3'b000), 
+        .Y_HOP_ACK(3'b110),
         .DIRECTION_ACK(0)
     ) pe1_0 (
         .Packet_in(PEo[4]),
@@ -265,11 +265,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b110),  
-        .Y_HOP_OUT((4-1)'b100),  
+        .X_HOP_OUT(3'b110),  
+        .Y_HOP_OUT(3'b100),  
         .PE_NODE(5),
-        .X_HOP_ACK((4-1)'b100), 
-        .Y_HOP_ACK((4-1)'b110),
+        .X_HOP_ACK(3'b100), 
+        .Y_HOP_ACK(3'b110),
         .DIRECTION_ACK(0)
     ) pe1_1 (
         .Packet_in(PEo[5]),
@@ -303,11 +303,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b100),  
-        .Y_HOP_OUT((4-1)'b100),  
+        .X_HOP_OUT(3'b100),  
+        .Y_HOP_OUT(3'b100),  
         .PE_NODE(6),
-        .X_HOP_ACK((4-1)'b110), 
-        .Y_HOP_ACK((4-1)'b110),
+        .X_HOP_ACK(3'b110), 
+        .Y_HOP_ACK(3'b110),
         .DIRECTION_ACK(0)
     ) pe1_2 (
         .Packet_in(PEo[6]),
@@ -341,11 +341,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b000),  
-        .Y_HOP_OUT((4-1)'b100),  
+        .X_HOP_OUT(3'b000),  
+        .Y_HOP_OUT(3'b100),  
         .PE_NODE(7),
-        .X_HOP_ACK((4-1)'b111), 
-        .Y_HOP_ACK((4-1)'b110),
+        .X_HOP_ACK(3'b111), 
+        .Y_HOP_ACK(3'b110),
         .DIRECTION_ACK(0)
     ) pe1_3 (
         .Packet_in(PEo[7]),
@@ -379,11 +379,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b111),  
-        .Y_HOP_OUT((4-1)'b110),  
+        .X_HOP_OUT(3'b111),  
+        .Y_HOP_OUT(3'b110),  
         .PE_NODE(8),
-        .X_HOP_ACK((4-1)'b000), 
-        .Y_HOP_ACK((4-1)'b100),
+        .X_HOP_ACK(3'b000), 
+        .Y_HOP_ACK(3'b100),
         .DIRECTION_ACK(0)
     ) pe2_0 (
         .Packet_in(PEo[8]),
@@ -417,11 +417,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b110),  
-        .Y_HOP_OUT((4-1)'b110),  
+        .X_HOP_OUT(3'b110),  
+        .Y_HOP_OUT(3'b110),  
         .PE_NODE(9),
-        .X_HOP_ACK((4-1)'b100), 
-        .Y_HOP_ACK((4-1)'b100),
+        .X_HOP_ACK(3'b100), 
+        .Y_HOP_ACK(3'b100),
         .DIRECTION_ACK(0)
     ) pe2_1 (
         .Packet_in(PEo[9]),
@@ -455,11 +455,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b100),  
-        .Y_HOP_OUT((4-1)'b110),  
+        .X_HOP_OUT(3'b100),  
+        .Y_HOP_OUT(3'b110),  
         .PE_NODE(10),
-        .X_HOP_ACK((4-1)'b110), 
-        .Y_HOP_ACK((4-1)'b100),
+        .X_HOP_ACK(3'b110), 
+        .Y_HOP_ACK(3'b100),
         .DIRECTION_ACK(0)
     ) pe2_2 (
         .Packet_in(PEo[10]),
@@ -493,11 +493,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b000),  
-        .Y_HOP_OUT((4-1)'b110),  
+        .X_HOP_OUT(3'b000),  
+        .Y_HOP_OUT(3'b110),  
         .PE_NODE(11),
-        .X_HOP_ACK((4-1)'b111), 
-        .Y_HOP_ACK((4-1)'b100),
+        .X_HOP_ACK(3'b111), 
+        .Y_HOP_ACK(3'b100),
         .DIRECTION_ACK(0)
     ) pe2_3 (
         .Packet_in(PEo[11]),
@@ -516,7 +516,7 @@ module top#(
         .Wo(E2W[15]),
         .Ei(E2W[16]),
         .Eo(W2E[16]),
-        .Ni(packet_in),
+        .Ni(Packet_in),
         .No(S2N[16]),
         .Si(S2N[12]),
         .So(N2S[12]),
@@ -559,11 +559,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b110),  
-        .Y_HOP_OUT((4-1)'b111),  
+        .X_HOP_OUT(3'b110),  
+        .Y_HOP_OUT(3'b111),  
         .PE_NODE(13),
-        .X_HOP_ACK((4-1)'b100), 
-        .Y_HOP_ACK((4-1)'b000),
+        .X_HOP_ACK(3'b100), 
+        .Y_HOP_ACK(3'b000),
         .DIRECTION_ACK(0)
     ) pe3_1 (
         .Packet_in(PEo[13]),
@@ -597,11 +597,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b100),  
-        .Y_HOP_OUT((4-1)'b111),  
+        .X_HOP_OUT(3'b100),  
+        .Y_HOP_OUT(3'b111),  
         .PE_NODE(14),
-        .X_HOP_ACK((4-1)'b110), 
-        .Y_HOP_ACK((4-1)'b000),
+        .X_HOP_ACK(3'b110), 
+        .Y_HOP_ACK(3'b000),
         .DIRECTION_ACK(0)
     ) pe3_2 (
         .Packet_in(PEo[14]),
@@ -635,11 +635,11 @@ module top#(
         .FL(FL),
         .BL(BL),
         .DIRECTION_OUT(3),
-        .X_HOP_OUT((4-1)'b000),  
-        .Y_HOP_OUT((4-1)'b111),  
+        .X_HOP_OUT(3'b000),  
+        .Y_HOP_OUT(3'b111),  
         .PE_NODE(15),
-        .X_HOP_ACK((4-1)'b111), 
-        .Y_HOP_ACK((4-1)'b000),
+        .X_HOP_ACK(3'b111), 
+        .Y_HOP_ACK(3'b000),
         .DIRECTION_ACK(0)
     ) pe3_3 (
         .Packet_in(PEo[15]),
