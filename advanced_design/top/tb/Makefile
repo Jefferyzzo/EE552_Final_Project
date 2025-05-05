@@ -1,6 +1,6 @@
 DIR ?= top
 
-all: run extract check  
+all: run extract check print 
 run:
 	@echo "[RUN] Simulating design..."
 	@vcs -sverilog -f $(DIR).f -full64 -R -debug_access+all | tee sim.log
@@ -58,6 +58,80 @@ check:
 		in_comment==0 && $$0 !~ /^\s*\/\// { print }' timestep2_residue.txt > .file2_clean
 	@cmp -s .file1_clean .file2_clean && echo "timestep2 residue match"
 	@rm -f .file1_clean .file2_clean
+
+print:
+	@lines=$$(wc -l < timestep1_residue.txt); \
+	sqrt=$$(echo "scale=0; sqrt($$lines)" | bc); \
+	if [ $$((sqrt * sqrt)) -ne $$lines ]; then \
+		echo "[ERROR] Input line count ($$lines) is not a perfect square."; exit 1; \
+	fi; \
+	count=0; \
+	echo "["; \
+	echo "["; \
+	while read -r val; do \
+		printf "%s%.1f" "$$([ $$count -ne 0 ] && echo ", ")" $$val; \
+		count=$$((count + 1)); \
+		if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
+			echo "],"; \
+			echo "["; \
+		fi; \
+	done < timestep1_residue.txt; \
+	echo "]"; \
+	echo "]"
+	@lines=$$(wc -l < timestep2_residue.txt); \
+	sqrt=$$(echo "scale=0; sqrt($$lines)" | bc); \
+	if [ $$((sqrt * sqrt)) -ne $$lines ]; then \
+		echo "[ERROR] Input line count ($$lines) is not a perfect square."; exit 1; \
+	fi; \
+	count=0; \
+	echo "["; \
+	echo "["; \
+	while read -r val; do \
+		printf "%s%.1f" "$$([ $$count -ne 0 ] && echo ", ")" $$val; \
+		count=$$((count + 1)); \
+		if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
+			echo "],"; \
+			echo "["; \
+		fi; \
+	done < timestep2_residue.txt; \
+	echo "]"; \
+	echo "]"
+	@lines=$$(wc -l < timestep1_outspike.txt); \
+	sqrt=$$(echo "scale=0; sqrt($$lines)" | bc); \
+	if [ $$((sqrt * sqrt)) -ne $$lines ]; then \
+		echo "[ERROR] Input line count ($$lines) is not a perfect square."; exit 1; \
+	fi; \
+	count=0; \
+	echo "["; \
+	echo "["; \
+	while read -r val; do \
+		printf "%s%.1f" "$$([ $$count -ne 0 ] && echo ", ")" $$val; \
+		count=$$((count + 1)); \
+		if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
+			echo "],"; \
+			echo "["; \
+		fi; \
+	done < timestep1_outspike.txt; \
+	echo "]"; \
+	echo "]"
+	@lines=$$(wc -l < timestep2_outspike.txt); \
+	sqrt=$$(echo "scale=0; sqrt($$lines)" | bc); \
+	if [ $$((sqrt * sqrt)) -ne $$lines ]; then \
+		echo "[ERROR] Input line count ($$lines) is not a perfect square."; exit 1; \
+	fi; \
+	count=0; \
+	echo "["; \
+	echo "["; \
+	while read -r val; do \
+		printf "%s%.1f" "$$([ $$count -ne 0 ] && echo ", ")" $$val; \
+		count=$$((count + 1)); \
+		if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
+			echo "],"; \
+			echo "["; \
+		fi; \
+	done < timestep2_outspike.txt; \
+	echo "]"; \
+	echo "]"
 
 
 clean:
