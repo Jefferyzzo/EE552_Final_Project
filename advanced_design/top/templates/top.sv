@@ -23,27 +23,27 @@ module top#(
 );
 
     // Declare Channels
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) PEi [0:ROW*COL-1] ();
-    Channel #(.WIDTH(WIDTH-(8)), .hsProtocol(P4PhaseBD)) PEo [0:ROW*COL-1] (); 
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) N2S [0:(ROW+1)*COL-1] ();
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) S2N [0:(ROW+1)*COL-1] ();
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) E2W [0:ROW*(COL+1)-1] ();
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) W2E [0:ROW*(COL+1)-1] ();
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) PEi [0:{{ROW*COL-1}}] ();
+    Channel #(.WIDTH(WIDTH-(8)), .hsProtocol(P4PhaseBD)) PEo [0:{{ROW*COL-1}}] (); 
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) N2S [0:{{(ROW+1)*COL-1}}] ();
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) S2N [0:{{(ROW+1)*COL-1}}] ();
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) E2W [0:{{ROW*(COL+1)-1}}] ();
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) W2E [0:{{ROW*(COL+1)-1}}] ();
 
     // Dummy generators and buckets on edges
     {% for i in range(ROW) %}
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W{{i}} (.r(W2E[{{i}}*(COL+1)]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E{{i}} (.r(E2W[{{i}}*(COL+1)+COL]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W{{i}} (.r(E2W[{{i}}*(COL+1)]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E{{i}} (.r(W2E[{{i}}*(COL+1)+COL]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W{{i}} (.r(W2E[{{i*(COL+1)}}]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E{{i}} (.r(E2W[{{  i*(COL+1)+COL  }}]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W{{i}} (.r(E2W[{{  i*(COL+1)  }}]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E{{i}} (.r(W2E[{{  i*(COL+1)+COL }}]));
     {% endfor %}
     {% for j in range(COL) %}
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N{{j}} (.r(N2S[ROW*COL+{{j}}]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N{{j}} (.r(N2S[{{ ROW*COL+j  }}]));
     dummy_dg #(.WIDTH(WIDTH)) dummyGen_S{{j}} (.r(S2N[{{j}}]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N{{j}} (.r(S2N[ROW*COL+{{j}}]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N{{j}} (.r(S2N[{{ ROW*COL+j }}]));
     dummy_db #(.WIDTH(WIDTH)) dummyBucket_S{{j}} (.r(N2S[{{j}}]));
     {% endfor %}
-
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi{{PE_IDX}} (.r(PEi[{{PE_IDX}}]));
     // Router + PE per node
     {% for i in range(ROW) %}
         {% for j in range(COL) %}
@@ -64,7 +64,7 @@ module top#(
     // Router (right bottom) - input from Packet_in
     //control unit
     //************************************************************************************
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
         .Wi(W2E[{{EW_IDX}}]),
         .Wo(E2W[{{EW_IDX}}]),
         .Ei(E2W[{{EW_IDX_P1}}]),
@@ -87,8 +87,8 @@ module top#(
             {% elif i == 0 and j == COL-1 %}
     // Router (bottom right) - output to Packet_out
     // output port
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi{{PE_IDX}} (.r(PEi[{{PE_IDX}}]));
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
+    
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
         .Wi(W2E[{{EW_IDX}}]),
         .Wo(E2W[{{EW_IDX}}]),
         .Ei(E2W[{{EW_IDX_P1}}]),
@@ -105,7 +105,7 @@ module top#(
 
             {% else %}
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
         .Wi(W2E[{{EW_IDX}}]),
         .Wo(E2W[{{EW_IDX}}]),
         .Ei(E2W[{{EW_IDX_P1}}]),

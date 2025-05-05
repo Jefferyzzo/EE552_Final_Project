@@ -23,52 +23,52 @@ module top#(
 );
 
     // Declare Channels
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) PEi [0:ROW*COL-1] ();
-    Channel #(.WIDTH(WIDTH-(8)), .hsProtocol(P4PhaseBD)) PEo [0:ROW*COL-1] (); 
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) N2S [0:(ROW+1)*COL-1] ();
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) S2N [0:(ROW+1)*COL-1] ();
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) E2W [0:ROW*(COL+1)-1] ();
-    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) W2E [0:ROW*(COL+1)-1] ();
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) PEi [0:15] ();
+    Channel #(.WIDTH(WIDTH-(8)), .hsProtocol(P4PhaseBD)) PEo [0:15] (); 
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) N2S [0:19] ();
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) S2N [0:19] ();
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) E2W [0:19] ();
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) W2E [0:19] ();
 
     // Dummy generators and buckets on edges
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W0 (.r(W2E[0*(COL+1)]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E0 (.r(E2W[0*(COL+1)+COL]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W0 (.r(E2W[0*(COL+1)]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E0 (.r(W2E[0*(COL+1)+COL]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W1 (.r(W2E[1*(COL+1)]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E1 (.r(E2W[1*(COL+1)+COL]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W1 (.r(E2W[1*(COL+1)]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E1 (.r(W2E[1*(COL+1)+COL]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W2 (.r(W2E[2*(COL+1)]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E2 (.r(E2W[2*(COL+1)+COL]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W2 (.r(E2W[2*(COL+1)]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E2 (.r(W2E[2*(COL+1)+COL]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W3 (.r(W2E[3*(COL+1)]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E3 (.r(E2W[3*(COL+1)+COL]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W3 (.r(E2W[3*(COL+1)]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E3 (.r(W2E[3*(COL+1)+COL]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N0 (.r(N2S[ROW*COL+0]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W0 (.r(W2E[0]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E0 (.r(E2W[4]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W0 (.r(E2W[0]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E0 (.r(W2E[4]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W1 (.r(W2E[5]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E1 (.r(E2W[9]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W1 (.r(E2W[5]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E1 (.r(W2E[9]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W2 (.r(W2E[10]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E2 (.r(E2W[14]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W2 (.r(E2W[10]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E2 (.r(W2E[14]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_W3 (.r(W2E[15]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_E3 (.r(E2W[19]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_W3 (.r(E2W[15]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_E3 (.r(W2E[19]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N0 (.r(N2S[16]));
     dummy_dg #(.WIDTH(WIDTH)) dummyGen_S0 (.r(S2N[0]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N0 (.r(S2N[ROW*COL+0]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N0 (.r(S2N[16]));
     dummy_db #(.WIDTH(WIDTH)) dummyBucket_S0 (.r(N2S[0]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N1 (.r(N2S[ROW*COL+1]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N1 (.r(N2S[17]));
     dummy_dg #(.WIDTH(WIDTH)) dummyGen_S1 (.r(S2N[1]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N1 (.r(S2N[ROW*COL+1]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N1 (.r(S2N[17]));
     dummy_db #(.WIDTH(WIDTH)) dummyBucket_S1 (.r(N2S[1]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N2 (.r(N2S[ROW*COL+2]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N2 (.r(N2S[18]));
     dummy_dg #(.WIDTH(WIDTH)) dummyGen_S2 (.r(S2N[2]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N2 (.r(S2N[ROW*COL+2]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N2 (.r(S2N[18]));
     dummy_db #(.WIDTH(WIDTH)) dummyBucket_S2 (.r(N2S[2]));
-    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N3 (.r(N2S[ROW*COL+3]));
+    dummy_dg #(.WIDTH(WIDTH)) dummyGen_N3 (.r(N2S[19]));
     dummy_dg #(.WIDTH(WIDTH)) dummyGen_S3 (.r(S2N[3]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N3 (.r(S2N[ROW*COL+3]));
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_N3 (.r(S2N[19]));
     dummy_db #(.WIDTH(WIDTH)) dummyBucket_S3 (.r(N2S[3]));
-
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi (.r(PEi[]));
     // Router + PE per node
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(0), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_0 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(0), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_0 (
         .Wi(W2E[0]),
         .Wo(E2W[0]),
         .Ei(E2W[1]),
@@ -106,7 +106,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(1), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_1 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(1), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_1 (
         .Wi(W2E[1]),
         .Wo(E2W[1]),
         .Ei(E2W[2]),
@@ -144,7 +144,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(2), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_2 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(2), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_2 (
         .Wi(W2E[2]),
         .Wo(E2W[2]),
         .Ei(E2W[3]),
@@ -183,8 +183,8 @@ module top#(
 
     // Router (bottom right) - output to Packet_out
     // output port
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi3 (.r(PEi[3]));
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(3), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_3 (
+    
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(3), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_3 (
         .Wi(W2E[3]),
         .Wo(E2W[3]),
         .Ei(E2W[4]),
@@ -205,7 +205,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(4), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_1_0 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(4), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_1_0 (
         .Wi(W2E[5]),
         .Wo(E2W[5]),
         .Ei(E2W[6]),
@@ -243,7 +243,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(5), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_1_1 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(5), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_1_1 (
         .Wi(W2E[6]),
         .Wo(E2W[6]),
         .Ei(E2W[7]),
@@ -281,7 +281,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(6), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_1_2 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(6), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_1_2 (
         .Wi(W2E[7]),
         .Wo(E2W[7]),
         .Ei(E2W[8]),
@@ -319,7 +319,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(7), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_1_3 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(7), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_1_3 (
         .Wi(W2E[8]),
         .Wo(E2W[8]),
         .Ei(E2W[9]),
@@ -357,7 +357,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(8), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_2_0 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(8), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_2_0 (
         .Wi(W2E[10]),
         .Wo(E2W[10]),
         .Ei(E2W[11]),
@@ -395,7 +395,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(9), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_2_1 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(9), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_2_1 (
         .Wi(W2E[11]),
         .Wo(E2W[11]),
         .Ei(E2W[12]),
@@ -433,7 +433,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(10), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_2_2 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(10), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_2_2 (
         .Wi(W2E[12]),
         .Wo(E2W[12]),
         .Ei(E2W[13]),
@@ -471,7 +471,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(11), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_2_3 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(11), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_2_3 (
         .Wi(W2E[13]),
         .Wo(E2W[13]),
         .Ei(E2W[14]),
@@ -511,7 +511,7 @@ module top#(
     // Router (right bottom) - input from Packet_in
     //control unit
     //************************************************************************************
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(12), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_3_0 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(12), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_3_0 (
         .Wi(W2E[15]),
         .Wo(E2W[15]),
         .Ei(E2W[16]),
@@ -537,7 +537,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(13), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_3_1 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(13), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_3_1 (
         .Wi(W2E[16]),
         .Wo(E2W[16]),
         .Ei(E2W[17]),
@@ -575,7 +575,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(14), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_3_2 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(14), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_3_2 (
         .Wi(W2E[17]),
         .Wo(E2W[17]),
         .Ei(E2W[18]),
@@ -613,7 +613,7 @@ module top#(
 
 
     // Regular Router
-    router_reversed #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(15), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_3_3 (
+    router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(15), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_3_3 (
         .Wi(W2E[18]),
         .Wo(E2W[18]),
         .Ei(E2W[19]),
