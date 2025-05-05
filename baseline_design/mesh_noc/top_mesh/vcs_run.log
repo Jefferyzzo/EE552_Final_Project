@@ -6,7 +6,7 @@ Warning-[LNX_OS_VERUN] Unsupported Linux version
   Please refer to release notes for information on supported platforms.
 
                          Chronologic VCS (TM)
-        Version L-2016.06-1_Full64 -- Thu May  1 13:08:11 2025
+        Version L-2016.06-1_Full64 -- Mon May  5 16:11:25 2025
                Copyright (c) 1991-2016 by Synopsys Inc.
                          ALL RIGHTS RESERVED
 
@@ -217,12 +217,12 @@ make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/ba
 make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
 rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
 if [ -x ../simv ]; then chmod -x ../simv; fi
-g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   amcQwB.o objs/amcQw_d.o   _254338_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libzerosoft_rt_stubs.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvirsim.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/liberrorinf.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsnpsmalloc.so    /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsnew.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsimprofile.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libuclinative.so   -Wl,-whole-archive /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsucli.so -Wl,-no-whole-archive          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
+g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   amcQwB.o objs/amcQw_d.o   _8888_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libzerosoft_rt_stubs.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvirsim.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/liberrorinf.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsnpsmalloc.so    /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsnew.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsimprofile.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libuclinative.so   -Wl,-whole-archive /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsucli.so -Wl,-no-whole-archive          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
 ../simv up to date
 make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
 Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version L-2016.06-1_Full64; Runtime version L-2016.06-1_Full64;  May  1 13:08 2025
+Compiler version L-2016.06-1_Full64; Runtime version L-2016.06-1_Full64;  May  5 16:11 2025
 Start simulation!!!
 DG top_tb.dg sends data = 000000000000010100000100011001011 @                    0
 node           3 receives packet 1a620a000 from PE input at       2.00 ns
@@ -572,6 +572,6 @@ $finish called from file "./top_tb.sv", line 117.
 $finish at simulation time  250.00 ns
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 250000000 fs
-CPU Time:      0.290 seconds;       Data structure size:   1.3Mb
-Thu May  1 13:08:14 2025
-CPU time: .902 seconds to compile + .481 seconds to elab + .336 seconds to link + .506 seconds in simulation
+CPU Time:      0.330 seconds;       Data structure size:   1.3Mb
+Mon May  5 16:11:27 2025
+CPU time: .850 seconds to compile + .557 seconds to elab + .400 seconds to link + .592 seconds in simulation
