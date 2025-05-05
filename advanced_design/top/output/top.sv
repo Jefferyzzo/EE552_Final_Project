@@ -14,9 +14,9 @@ module top#(
     parameter BL	       = 1,
     parameter ROW          = 4,
     parameter COL          = 4,
-    parameter WIDTH        = 13 + 5*FILTER_WIDTH
+    parameter WIDTH        = 13+5*FILTER_WIDTH,
     parameter Y_HOP_LOC    = 7,
-    parameter X_HOP_LOC    = 4,
+    parameter X_HOP_LOC    = 4
 ) (
     interface Packet_in,
     interface Packet_out
