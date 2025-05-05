@@ -36,7 +36,7 @@ import SystemVerilogCSP::*;
     //     .out1(parent_child1),
     //     .out2(parent_child2)
     // );
-    input_ctrl_gate #(
+    input_ctrl #(
         .WIDTH(WIDTH),
         .WIDTH_packet(WIDTH_packet),
         .WIDTH_dest(WIDTH_dest),
@@ -63,7 +63,7 @@ import SystemVerilogCSP::*;
     //     .out1(child1_parent),
     //     .out2(child1_child2)
     // );
-    input_ctrl_gate #(
+    input_ctrl #(
         .WIDTH(WIDTH),
         .WIDTH_packet(WIDTH_packet),
         .WIDTH_dest(WIDTH_dest),
@@ -90,7 +90,7 @@ import SystemVerilogCSP::*;
     //     .out1(child2_child1),
     //     .out2(child2_parent)
     // );
-    input_ctrl_gate #(
+    input_ctrl #(
         .WIDTH(WIDTH),
         .WIDTH_packet(WIDTH_packet),
         .WIDTH_dest(WIDTH_dest),
