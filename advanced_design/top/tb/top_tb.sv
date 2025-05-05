@@ -1,45 +1,44 @@
 
-module data_generator (interface r);
+module data_generator #(parameter WIDTH = 45) (interface r);
+    parameter FL = 2; //ideal environment, no forward delay
 
-    parameter PACKET_WIDTH = 33;
-    parameter FL = 0; // ideal environment no forward delay
 
-    logic [PACKET_WIDTH-1:0] SendValue;
-    logic [PACKET_WIDTH-1:0] Packet[];  // dynamic array
+    integer fd;
+    string line, cleaned_line;
+    int status;
+    logic [WIDTH-1:0] packet;
 
     initial begin
-        integer file, status;
-        string line;
-        logic [PACKET_WIDTH-1:0] temp;
-
-        file = $fopen("./scnn_script/send_values_bin.txt", "r");
-
-        if (!file) begin
-            $display("ERROR: Could not open send_values_bin.txt");
+        fd = $fopen("./scnn_script/send_values_bin.txt", "r");
+        if (fd == 0) begin
+            $display("ERROR: Cannot open file.");
             $finish;
         end
 
-        // read line by line until EOF
-        while (!$feof(file)) begin
-            status = $fscanf(file, "%b\n", temp);
-            if (status == 1) begin
-                Packet.push_back(temp);
+        while (!$feof(fd)) begin
+            line = "";
+            void'($fgets(line, fd));
+
+            if (line.len() > 0 ) begin
+                cleaned_line = "";
+                foreach (line[i]) begin
+                  if (line[i] != " " && line[i] != "_")
+                    cleaned_line = {cleaned_line, line[i]};
+                end
+                status = $sscanf(cleaned_line, "%b", packet);
+                if (status == 1) begin
+                    // $display("At time %t, send %d th\t inst %h", $time, idx, inst);
+                    r.Send(packet);
+                    // $display("At time %t, finish send %d th\t inst %h", $time, idx, inst);
+                    #FL;
+                end else begin
+                    $display("WARNING: Failed to parse line: %s", line);
+                end
             end
         end
 
-        $fclose(file);
-
-        // send each packet
-        foreach (Packet[i]) begin
-            SendValue = Packet[i];
-            #FL;
-            r.Send(SendValue);
-            $display("DG %m sends data = %b @ %t", SendValue, $time);
-        end
-
-        $display("DG %m finished sending all packets.");
-        #10;
-        $finish;
+        $fclose(fd);
+        $display("Finished sending packet at time %t.", $time);
     end
 
 endmodule
