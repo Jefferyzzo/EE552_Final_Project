@@ -49,19 +49,19 @@ module special_split #(
             join
             #BL;
         end else begin                               // send filter data
-            if (filter_row == 3'b001) begin          // row1
+            if (filter_row == 3'b000) begin          // row1
                 Filter_row1.Send(data);
                 #BL;
-            end else if (filter_row == 3'b010) begin // row2
+            end else if (filter_row == 3'b001) begin // row2
                 Filter_row2.Send(data);
                 #BL;
-            end else if (filter_row == 3'b011) begin // row3
+            end else if (filter_row == 3'b010) begin // row3
                 Filter_row3.Send(data);
                 #BL;
-            end else if (filter_row == 3'b100) begin // row4
+            end else if (filter_row == 3'b011) begin // row4
                 Filter_row4.Send(data);
                 #BL;
-            end else if (filter_row == 3'b101) begin // row5
+            end else if (filter_row == 3'b100) begin // row5
                 Filter_row5.Send(data);
                 #BL;
             end else begin 

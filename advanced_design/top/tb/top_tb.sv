@@ -7,7 +7,8 @@ module data_generator #(parameter WIDTH = 45) (interface r);
     string line, cleaned_line;
     int status;
     logic [WIDTH-1:0] packet;
-
+    logic [WIDTH-1:0] packet_out;
+    integer i;
     initial begin
         fd = $fopen("./scnn_script/send_values_bin.txt", "r");
         if (fd == 0) begin
@@ -27,8 +28,11 @@ module data_generator #(parameter WIDTH = 45) (interface r);
                 end
                 status = $sscanf(cleaned_line, "%b", packet);
                 if (status == 1) begin
-                    // $display("At time %t, send %d th\t inst %h", $time, idx, inst);
-                    r.Send(packet);
+                    $display("At time %t, send packet %b", $time, packet);
+		    for (i = 0; i < WIDTH; i++) begin
+                        packet_out[i] = packet[WIDTH-1-i];
+                    end
+                    r.Send(packet_out);
                     // $display("At time %t, finish send %d th\t inst %h", $time, idx, inst);
                     #FL;
                 end else begin
@@ -88,7 +92,7 @@ module data_bucket (interface r);
 
     always begin
         r.Receive(ReceiveValue);
-        $display("DB %m receives output data = %d @ %t", ReceiveValue, $time);
+        $display("DB %m receives output data = %b @ %t", ReceiveValue, $time);
         #BL;
     end
 
@@ -109,11 +113,11 @@ module top_tb ();
     parameter X_HOP_LOC    = 4;
     
     // Instantiate interfaces  
-    Channel #(.WIDTH(3*FILTER_WIDTH+9), .hsProtocol(P4PhaseBD)) Packet_in ();
-    Channel #(.WIDTH(3*FILTER_WIDTH+9), .hsProtocol(P4PhaseBD)) Packet_out ();
+    Channel #(.WIDTH(WIDTH-8), .hsProtocol(P4PhaseBD)) Packet_in ();
+    Channel #(.WIDTH(WIDTH), .hsProtocol(P4PhaseBD)) Packet_out ();
 
     // Instantiate DUT
-    data_generator #(.PACKET_WIDTH(3*FILTER_WIDTH+9), .FL(0)) dg (Packet_in);
+    data_generator #(.WIDTH(WIDTH), .FL(0)) dg (Packet_in);
 
     top#(
         .FILTER_WIDTH(FILTER_WIDTH),
@@ -132,11 +136,11 @@ module top_tb ();
         .Packet_out(Packet_out)
     );
 
-    data_bucket #(.PACKET_WIDTH(3*FILTER_WIDTH+9), .BL(0)) db_content (Packet_out);
+    data_bucket #(.WIDTH(WIDTH-8), .BL(0)) db_content (Packet_out);
 
     initial begin
         $display("Start simulation!!!");
-        #250;
+        #2000;
         $finish;
     end
 

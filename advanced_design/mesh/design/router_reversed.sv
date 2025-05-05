@@ -114,13 +114,13 @@ module input_buffer_E#(
                 Eo_reversed[i] = E2PE_packet[WIDTH-(Y_HOP_LOC + 1)-1-i];
             end
             E2PE.Send(Eo_reversed);
-            $display("node %d sends packet %h from East to PE at %t", NODE_NUM, Eo_reversed, $time);
+            $display("node %d sends packet %b from East to PE at %t", NODE_NUM, Eo_reversed, $time);
             #BL;
         end
         else if(Ei_packet[X_HOP_LOC] == 1) begin // if there is x hop, packet must go in x direction
             Eo_packet = {Ei_packet[0:1], 1'b0, Ei_packet[2:X_HOP_LOC-1], Ei_packet[X_HOP_LOC+1:WIDTH-1]};
             E2W.Send(Eo_packet);
-            $display("node %d sends packet %h from East to West at %t", NODE_NUM, Eo_packet, $time);
+            $display("node %d sends packet %b from East to West at %t", NODE_NUM, Eo_packet, $time);
             #BL;
         end
         else begin // no x hop but there is still y hop
@@ -138,12 +138,12 @@ module input_buffer_E#(
             case(Ei_packet[1])
                 0: begin // send to North
                     E2N.Send(Eo_packet);
-                    $display("node %d sends packet %h from East to North at %t", NODE_NUM, Ei_packet, $time);
+                    $display("node %d sends packet %b from East to North at %t", NODE_NUM, Ei_packet, $time);
                     #BL;
                 end
                 1: begin // send to South
                     E2S.Send(Eo_packet);
-                    $display("node %d sends packet %h from East to South at %t", NODE_NUM, Ei_packet, $time);
+                    $display("node %d sends packet %b from East to South at %t", NODE_NUM, Ei_packet, $time);
                     #BL;
                 end
             endcase
@@ -177,7 +177,7 @@ module input_buffer_W#(
     always begin
         Wi.Receive(Wi_packet);
         $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places  
-        $display("node %d receives packet %h from West input at %t", NODE_NUM, Wi_packet, $time);
+        $display("node %d receives packet %b from West input at %t", NODE_NUM, Wi_packet, $time);
         #FL;
         if(Wi_packet[X_HOP_LOC] == 0 && Wi_packet[Y_HOP_LOC] == 0) begin // x hop and y hop are both 0, reach target node
             W2PE_packet = Wi_packet[Y_HOP_LOC + 1: WIDTH - 1];
@@ -187,13 +187,13 @@ module input_buffer_W#(
                 Wo_reversed[i] = W2PE_packet[WIDTH-(Y_HOP_LOC + 1)-1-i];
             end
             W2PE.Send(Wo_reversed);
-            $display("node %d sends packet %h from West to PE at %t", NODE_NUM, Wo_reversed, $time);
+            $display("node %d sends packet %b from West to PE at %t", NODE_NUM, Wo_reversed, $time);
             #BL;
         end
         else if(Wi_packet[X_HOP_LOC] == 1) begin // if there is x hop, packet must go in x direction
             Wo_packet = {Wi_packet[0:1], 1'b0, Wi_packet[2:X_HOP_LOC-1], Wi_packet[X_HOP_LOC+1:WIDTH-1]};
             W2E.Send(Wo_packet);
-            $display("node %d sends packet %h from West to East at %t", NODE_NUM, Wi_packet, $time);
+            $display("node %d sends packet %b from West to East at %t", NODE_NUM, Wi_packet, $time);
             #BL;
         end
         else begin // no x hop but there is still y hop
@@ -211,12 +211,12 @@ module input_buffer_W#(
             case(Wi_packet[1])
                 0: begin // send to North
                     W2N.Send(Wo_packet);
-                    $display("node %d sends packet %h from West to North at %t", NODE_NUM, Wi_packet, $time);
+                    $display("node %d sends packet %b from West to North at %t", NODE_NUM, Wi_packet, $time);
                     #BL;
                 end
                 1: begin // send to South
                     W2S.Send(Wo_packet);
-                    $display("node %d sends packet %h from West to South at %t", NODE_NUM, Wi_packet, $time);
+                    $display("node %d sends packet %b from West to South at %t", NODE_NUM, Wi_packet, $time);
                     #BL;
                 end
             endcase
@@ -248,7 +248,7 @@ module input_buffer_N#(
     always begin
         Ni.Receive(Ni_packet);
         $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places  
-        $display("node %d receives packet %h from North input at %t", NODE_NUM, Ni_packet, $time);
+        $display("node %d receives packet %b from North input at %t", NODE_NUM, Ni_packet, $time);
         #FL;
         if(Ni_packet[Y_HOP_LOC] == 0) begin // reach target node
             N2PE_packet = Ni_packet[Y_HOP_LOC + 1: WIDTH - 1];
@@ -258,7 +258,7 @@ module input_buffer_N#(
                 No_reversed[i] = N2PE_packet[WIDTH-(Y_HOP_LOC + 1)-1-i];
             end
             N2PE.Send(No_reversed);
-            $display("node %d sends packet %h from North to PE at %t", NODE_NUM, No_reversed, $time);
+            $display("node %d sends packet %b from North to PE at %t", NODE_NUM, No_reversed, $time);
             #BL;
         end
         else begin // send to south
@@ -274,7 +274,7 @@ module input_buffer_N#(
             else
                 No_packet = {Ni_packet[0:X_HOP_LOC], 1'b0, Ni_packet[Y_HOP_LOC+1:WIDTH-1]};
             N2S.Send(No_packet);
-            $display("node %d sends packet %h from North to South at %t", NODE_NUM, Ni_packet, $time);
+            $display("node %d sends packet %b from North to South at %t", NODE_NUM, Ni_packet, $time);
             #BL;
         end
     end
@@ -303,7 +303,7 @@ module input_buffer_S#(
     always begin
         Si.Receive(Si_packet);
         $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places  
-        $display("node %d receives packet %h from South input at %t", NODE_NUM, Si_packet, $time);
+        $display("node %d receives packet %b from South input at %t", NODE_NUM, Si_packet, $time);
         #FL;
         if(Si_packet[Y_HOP_LOC] == 0) begin // reach target node
             S2PE_packet = Si_packet[Y_HOP_LOC + 1: WIDTH - 1];
@@ -313,7 +313,7 @@ module input_buffer_S#(
                 So_reversed[i] = S2PE_packet[WIDTH-(Y_HOP_LOC + 1)-1-i];
             end
             S2PE.Send(So_reversed);
-            $display("node %d sends packet %h from South to PE at %t", NODE_NUM, So_reversed, $time);
+            $display("node %d sends packet %b from South to PE at %t", NODE_NUM, So_reversed, $time);
             #BL;
         end
         else begin // send to north
@@ -329,7 +329,7 @@ module input_buffer_S#(
             else
                 So_packet = {Si_packet[0:X_HOP_LOC], 1'b0, Si_packet[Y_HOP_LOC+1:WIDTH-1]};
             S2N.Send(So_packet);
-            $display("node %d sends packet %h from South to North at %t", NODE_NUM, Si_packet, $time);
+            $display("node %d sends packet %b from South to North at %t", NODE_NUM, Si_packet, $time);
             #BL;
         end
     end
@@ -364,19 +364,19 @@ module input_buffer_PE#(
             PEi_packet[i] = PEi_reversed[WIDTH-1-i];
         end
         $timeformat(-9, 2, " ns", 10);  // Scale to ns, 2 decimal places  
-        $display("node %d receives packet %h from PE input at %t", NODE_NUM, PEi_packet, $time);
+        $display("node %d receives packet %b from PE input at %t", NODE_NUM, PEi_packet, $time);
         #FL;
         if(PEi_packet[X_HOP_LOC] == 1) begin // if there is x hop, packet must go in x direction
             PEo_packet = {PEi_packet[0:1], 1'b0, PEi_packet[2:X_HOP_LOC-1], PEi_packet[X_HOP_LOC+1:WIDTH-1]};
             case(PEi_packet[0])
             0: begin // send to West
                 PE2W.Send(PEo_packet);
-                $display("node %d sends packet %h from PE to West at %t", NODE_NUM, PEi_packet, $time);
+                $display("node %d sends packet %b from PE to West at %t", NODE_NUM, PEi_packet, $time);
                 #BL;
             end
             1: begin // send to East
                 PE2E.Send(PEo_packet);
-                $display("node %d sends packet %h from PE to East at %t", NODE_NUM, PEi_packet, $time);
+                $display("node %d sends packet %b from PE to East at %t", NODE_NUM, PEi_packet, $time);
                 #BL;
             end
         endcase
@@ -396,12 +396,12 @@ module input_buffer_PE#(
             case(PEi_packet[1])
                 0: begin // send to North
                     PE2N.Send(PEo_packet);
-                    $display("node %d sends packet %h from PE to North at %t", NODE_NUM, PEi_packet, $time);
+                    $display("node %d sends packet %b from PE to North at %t", NODE_NUM, PEi_packet, $time);
                     #BL;
                 end
                 1: begin // send to South
                     PE2S.Send(PEo_packet);
-                    $display("node %d sends packet %h from PE to South at %t", NODE_NUM, PEi_packet, $time);
+                    $display("node %d sends packet %b from PE to South at %t", NODE_NUM, PEi_packet, $time);
                     #BL;
                 end
             endcase

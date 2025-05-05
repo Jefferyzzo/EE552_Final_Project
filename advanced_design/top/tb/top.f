@@ -15,6 +15,7 @@
 ../../PE/src/merge.sv
 ../../PE/src/packetizer.sv
 
+../../mesh/design/dummy.sv
 ../../mesh/design/arbiter.sv 
 ../../mesh/design/router_reversed.sv 
 
