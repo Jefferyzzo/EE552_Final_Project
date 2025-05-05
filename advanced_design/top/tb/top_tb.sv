@@ -103,7 +103,7 @@ module top_tb ();
     parameter FILTER_WIDTH = 8;
     parameter IFMAP_SIZE   = 25;
     parameter OUTPUT_WIDTH = 13;
-    parameter THRESHOLD    = 64;
+    parameter THRESHOLD    = 16;
     parameter FL	       = 2;
     parameter BL	       = 1;
     parameter ROW          = 4;
