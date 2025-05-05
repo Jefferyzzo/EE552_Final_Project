@@ -64,5 +64,5 @@ clean:
 	@echo "[CLEAN] Cleaning current directory and all subdirectories..."
 	@find . -type d \( -name csrc -o -name simv -o -name simv.daidir \) -exec rm -rf {} +
 	@find . -type f \( -name "ucli.key" -o -name "simv" -o -name "run.saif" -o -name "*.fsdb" -o -name "*.vcd" -o -name "*.vdd" \) -exec rm -f {} +
-	@rm -rf sim.log matrix_output outspike_t*.txt residue_t*.txt
+	@rm -rf sim.log timestep*.txt
 
