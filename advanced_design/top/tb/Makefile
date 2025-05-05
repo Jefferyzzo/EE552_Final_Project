@@ -1,6 +1,6 @@
 DIR ?= top
 
-all: run extract check print 
+all: run extract print check
 run:
 	@echo "[RUN] Simulating design..."
 	@vcs -sverilog -f $(DIR).f -full64 -R -debug_access+all | tee sim.log
@@ -60,78 +60,126 @@ check:
 	@rm -f .file1_clean .file2_clean
 
 print:
+	@echo "timestep 1 residue simulation result"
 	@lines=$$(wc -l < timestep1_residue.txt); \
 	sqrt=$$(echo "scale=0; sqrt($$lines)" | bc); \
 	if [ $$((sqrt * sqrt)) -ne $$lines ]; then \
 		echo "[ERROR] Input line count ($$lines) is not a perfect square."; exit 1; \
 	fi; \
 	count=0; \
-	echo "["; \
-	echo "["; \
-	while read -r val; do \
-		printf "%s%.1f" "$$([ $$count -ne 0 ] && echo ", ")" $$val; \
-		count=$$((count + 1)); \
-		if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
-			echo "],"; \
-			echo "["; \
-		fi; \
+	printf "["; \
+	printf "["; \
+	comma="" ; \
+        while read -r val; do \
+                printf "%s%d" "$$comma" $$val; \
+                count=$$((count + 1)); \
+                if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
+                        printf "],\n["; \
+                        comma=""; \
+                else \
+                        comma=", "; \
+                fi; \
 	done < timestep1_residue.txt; \
-	echo "]"; \
+	printf "]"; \
 	echo "]"
+	@echo "timestep 1 residue golden result"
+	@sed -n '/tensor/,/]]]]/p' ./scnn_script/L1_residue_t1.txt \
+	| sed 's/tensor(\[\[\[//' \
+  	| grep '^\s*\[' \
+  	| sed 's/^[ \t]*//' \
+  	| sed 's/,\s*$$//' \
+  	| sed 's/]])\*\/\?//' \
+  	| awk 'NR==1{ printf "[" }  { print } '
+	@echo "the timestep 2 residue simulation result"
 	@lines=$$(wc -l < timestep2_residue.txt); \
 	sqrt=$$(echo "scale=0; sqrt($$lines)" | bc); \
 	if [ $$((sqrt * sqrt)) -ne $$lines ]; then \
 		echo "[ERROR] Input line count ($$lines) is not a perfect square."; exit 1; \
 	fi; \
 	count=0; \
-	echo "["; \
-	echo "["; \
+	printf "["; \
+	printf "["; \
+	comma="" ; \
 	while read -r val; do \
-		printf "%s%.1f" "$$([ $$count -ne 0 ] && echo ", ")" $$val; \
+		printf "%s%d" "$$comma" $$val; \
 		count=$$((count + 1)); \
 		if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
-			echo "],"; \
-			echo "["; \
+			printf "],\n["; \
+			comma=""; \
+		else \
+			comma=", "; \
 		fi; \
 	done < timestep2_residue.txt; \
-	echo "]"; \
+	printf "]"; \
 	echo "]"
+	@echo "timestep 2 residue golden result"
+	@sed -n '/tensor/,/]]]]/p' ./scnn_script/L1_residue_t2.txt \
+	| sed 's/tensor(\[\[\[//' \
+  	| grep '^\s*\[' \
+  	| sed 's/^[ \t]*//' \
+  	| sed 's/,\s*$$//' \
+  	| sed 's/]])\*\/\?//' \
+  	| awk 'NR==1{ printf "[" }  { print } '
+	@echo "timestep 1 outspike simulation result"
 	@lines=$$(wc -l < timestep1_outspike.txt); \
 	sqrt=$$(echo "scale=0; sqrt($$lines)" | bc); \
 	if [ $$((sqrt * sqrt)) -ne $$lines ]; then \
 		echo "[ERROR] Input line count ($$lines) is not a perfect square."; exit 1; \
 	fi; \
 	count=0; \
-	echo "["; \
-	echo "["; \
-	while read -r val; do \
-		printf "%s%.1f" "$$([ $$count -ne 0 ] && echo ", ")" $$val; \
-		count=$$((count + 1)); \
-		if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
-			echo "],"; \
-			echo "["; \
-		fi; \
+	printf "["; \
+	printf "["; \
+	comma="" ; \
+        while read -r val; do \
+                printf "%s%d" "$$comma" $$val; \
+                count=$$((count + 1)); \
+                if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
+                        printf "],\n["; \
+                        comma=""; \
+                else \
+                        comma=", "; \
+                fi; \
 	done < timestep1_outspike.txt; \
-	echo "]"; \
+	printf "]"; \
 	echo "]"
+	@echo "timestep 1 outspike golden result"
+	@sed -n '/tensor/,/]]]]/p' ./scnn_script/L1_out_spike_t1.txt \
+	| sed 's/tensor(\[\[\[//' \
+  	| grep '^\s*\[' \
+  	| sed 's/^[ \t]*//' \
+  	| sed 's/,\s*$$//' \
+  	| sed 's/]]], dtype=torch.*$$/]/' \
+  	| awk 'NR==1{ printf "[" }  { print } '
+	@echo "timestep 2 outspike simulation result"
 	@lines=$$(wc -l < timestep2_outspike.txt); \
 	sqrt=$$(echo "scale=0; sqrt($$lines)" | bc); \
 	if [ $$((sqrt * sqrt)) -ne $$lines ]; then \
 		echo "[ERROR] Input line count ($$lines) is not a perfect square."; exit 1; \
 	fi; \
 	count=0; \
-	echo "["; \
-	echo "["; \
-	while read -r val; do \
-		printf "%s%.1f" "$$([ $$count -ne 0 ] && echo ", ")" $$val; \
-		count=$$((count + 1)); \
-		if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
-			echo "],"; \
-			echo "["; \
-		fi; \
+	printf "["; \
+	printf "["; \
+	comma="" ; \
+        while read -r val; do \
+                printf "%s%d" "$$comma" $$val; \
+                count=$$((count + 1)); \
+                if [ $$((count % sqrt)) -eq 0 ] && [ $$count -ne $$lines ]; then \
+                        printf "],\n["; \
+                        comma=""; \
+                else \
+                        comma=", "; \
+                fi; \
 	done < timestep2_outspike.txt; \
-	echo "]"; \
+	printf "]"; \
 	echo "]"
+	@echo "timestep 2 outspike golden result"
+	@sed -n '/tensor/,/]]]]/p' ./scnn_script/L1_out_spike_t2.txt \
+	| sed 's/tensor(\[\[\[//' \
+  	| grep '^\s*\[' \
+  	| sed 's/^[ \t]*//' \
+  	| sed 's/,\s*$$//' \
+  	| sed 's/]]], dtype=torch.*$$/]/' \
+  	| awk 'NR==1{ printf "[" }  { print } '
 
 
 clean:
