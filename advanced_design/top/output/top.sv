@@ -14,9 +14,9 @@ module top#(
     parameter BL	       = 1,
     parameter ROW          = 4,
     parameter COL          = 4,
-    parameter WIDTH        = 13+5*FILTER_WIDTH,
+    parameter WIDTH        = 13 + 5*FILTER_WIDTH
     parameter Y_HOP_LOC    = 7,
-    parameter X_HOP_LOC    = 4
+    parameter X_HOP_LOC    = 4,
 ) (
     interface Packet_in,
     interface Packet_out
@@ -63,7 +63,7 @@ module top#(
     dummy_dg #(.WIDTH(WIDTH)) dummyGen_S3 (.r(S2N[3]));
     dummy_db #(.WIDTH(WIDTH)) dummyBucket_N3 (.r(S2N[19]));
     dummy_db #(.WIDTH(WIDTH)) dummyBucket_S3 (.r(N2S[3]));
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi (.r(PEi[]));
+    
     // Router + PE per node
 
 
@@ -183,7 +183,7 @@ module top#(
 
     // Router (bottom right) - output to Packet_out
     // output port
-    
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi3 (.r(PEi[3]));
     router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM(3), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) router_0_3 (
         .Wi(W2E[3]),
         .Wo(E2W[3]),

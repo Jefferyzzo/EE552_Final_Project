@@ -43,7 +43,7 @@ module top#(
     dummy_db #(.WIDTH(WIDTH)) dummyBucket_N{{j}} (.r(S2N[{{ ROW*COL+j }}]));
     dummy_db #(.WIDTH(WIDTH)) dummyBucket_S{{j}} (.r(N2S[{{j}}]));
     {% endfor %}
-    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi{{PE_IDX}} (.r(PEi[{{PE_IDX}}]));
+    
     // Router + PE per node
     {% for i in range(ROW) %}
         {% for j in range(COL) %}
@@ -87,7 +87,7 @@ module top#(
             {% elif i == 0 and j == COL-1 %}
     // Router (bottom right) - output to Packet_out
     // output port
-    
+    dummy_db #(.WIDTH(WIDTH)) dummyBucket_PEi{{PE_IDX}} (.r(PEi[{{PE_IDX}}]));
     router #(.WIDTH(WIDTH), .FL(FL), .BL(BL), .NODE_NUM({{PE_IDX}}), .X_HOP_LOC(X_HOP_LOC), .Y_HOP_LOC(Y_HOP_LOC)) {{rtr_name}} (
         .Wi(W2E[{{EW_IDX}}]),
         .Wo(E2W[{{EW_IDX}}]),
