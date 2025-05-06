@@ -1,16 +1,16 @@
-DB top_tb.db_content receives output data = 000000000000001000000000000000000 @ 127.00 ns
-Timestep = 0, OutSpike = 0, PE Node = 0, Residue =      4
-DB top_tb.db_content receives output data = 000000000000001010000000000100000 @ 132.00 ns
-Timestep = 0, OutSpike = 0, PE Node = 1, Residue =      5
-DB top_tb.db_content receives output data = 000000000000010000000000001000000 @ 135.00 ns
-Timestep = 0, OutSpike = 0, PE Node = 2, Residue =      8
-DB top_tb.db_content receives output data = 000000000000010010000000001100000 @ 140.00 ns
-Timestep = 0, OutSpike = 0, PE Node = 3, Residue =      9
-DB top_tb.db_content receives output data = 000000000000001010000000000010001 @ 145.00 ns
-Timestep = 1, OutSpike = 1, PE Node = 0, Residue =      5
-DB top_tb.db_content receives output data = 000000000000000100000000000110001 @ 150.00 ns
-Timestep = 1, OutSpike = 1, PE Node = 1, Residue =      2
-DB top_tb.db_content receives output data = 000000000000000110000000001010001 @ 153.00 ns
-Timestep = 1, OutSpike = 1, PE Node = 2, Residue =      3
-DB top_tb.db_content receives output data = 000000000000001100000000001110001 @ 158.00 ns
-Timestep = 1, OutSpike = 1, PE Node = 3, Residue =      6
+DB top_tb.db_content receives output data = 000000000000001100000000000000000 @ 127.00 ns
+Timestep = 0, OutSpike = 0, PE Node = 0, Residue =      6
+DB top_tb.db_content receives output data = 000000000000010110000000000100000 @ 132.00 ns
+Timestep = 0, OutSpike = 0, PE Node = 1, Residue =     11
+DB top_tb.db_content receives output data = 000000000000000100000000001000000 @ 135.00 ns
+Timestep = 0, OutSpike = 0, PE Node = 2, Residue =      2
+DB top_tb.db_content receives output data = 000000000000001100000000001100000 @ 140.00 ns
+Timestep = 0, OutSpike = 0, PE Node = 3, Residue =      6
+DB top_tb.db_content receives output data = 000000000000010110000000000000001 @ 145.00 ns
+Timestep = 1, OutSpike = 0, PE Node = 0, Residue =     11
+DB top_tb.db_content receives output data = 000000000000100000000000000100001 @ 150.00 ns
+Timestep = 1, OutSpike = 0, PE Node = 1, Residue =     16
+DB top_tb.db_content receives output data = 000000000000011000000000001000001 @ 153.00 ns
+Timestep = 1, OutSpike = 0, PE Node = 2, Residue =     12
+DB top_tb.db_content receives output data = 000000000000000100000000001110001 @ 158.00 ns
+Timestep = 1, OutSpike = 1, PE Node = 3, Residue =      2

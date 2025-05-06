@@ -1,18 +1,21 @@
-
-Warning-[LNX_OS_VERUN] Unsupported Linux version
-  Linux version 'CentOS Linux release 7.9.2009 (Core)' is not supported on 
-  'x86_64' officially, assuming linux compatibility by default. Set 
-  VCS_ARCH_OVERRIDE to linux or suse32 to override.
-  Please refer to release notes for information on supported platforms.
-
                          Chronologic VCS (TM)
-        Version L-2016.06-1_Full64 -- Mon May  5 16:11:25 2025
-               Copyright (c) 1991-2016 by Synopsys Inc.
-                         ALL RIGHTS RESERVED
+       Version S-2021.09-SP1_Full64 -- Mon May  5 17:23:10 2025
 
-This program is proprietary and confidential information of Synopsys Inc.
-and may be used and disclosed only as authorized in a license agreement
-controlling such use and disclosure.
+                    Copyright (c) 1991 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
 
 Parsing design file '../PE_mesh/src/SystemVerilogCSP.sv'
 Parsing design file './top_tb.sv'
@@ -24,7 +27,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/depacketizer.sv'
 
@@ -33,7 +36,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/split.sv'
 
@@ -42,7 +45,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/special_split.sv'
 
@@ -51,7 +54,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/priority_mux.sv'
 
@@ -60,7 +63,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/copy.sv'
 
@@ -69,7 +72,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/copy4.sv'
 
@@ -78,7 +81,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/conditional_copy.sv'
 
@@ -87,7 +90,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/mac.sv'
 
@@ -96,7 +99,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/spike_residue.sv'
 
@@ -105,7 +108,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/two_input_adder.sv'
 
@@ -114,7 +117,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/merge.sv'
 
@@ -123,7 +126,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/packetizer.sv'
 
@@ -132,7 +135,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../PE_mesh/src/buffer.sv'
 
@@ -141,7 +144,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../router_mesh/design/arbiter.sv'
 
@@ -150,7 +153,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../router_mesh/design/arbiter_merge.sv'
 
@@ -159,7 +162,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../router_mesh/design/arbiter_merge_4in.sv'
 
@@ -168,7 +171,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../router_mesh/design/mesh.sv'
 
@@ -177,7 +180,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Parsing design file '../router_mesh/design/router.sv'
 
@@ -186,220 +189,219 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the System Verilog LRM(1800-2005), section 18.1.
+  See the SystemVerilog LRM(1800-2005), section 19.2.1.
 
 Top Level Modules:
        top_tb
 TimeScale is 1 ns / 1 fs
+Notice: Ports coerced to inout, use -notice for details
 Starting vcs inline pass...
-11 unique modules to generate
+
+15 modules and 0 UDP read.
 recompiling package SystemVerilogCSP
-recompiling module Channel
-recompiling module Channel
-recompiling module Channel
-recompiling module Channel
-recompiling module Channel
-recompiling module Channel
 recompiling module Channel
 recompiling module top_tb
 recompiling module PE
 recompiling module priority_mux
 recompiling module copy
-recompiling module arbiter_merge
+recompiling module conditional_copy
+recompiling module spike_residue
+recompiling module two_input_adder
+recompiling module packetizer
 recompiling module arbiter_merge
 recompiling module arbiter_merge_4in
 recompiling module dummy_dg
 recompiling module dummy_db
 recompiling module router
-18 of 11 modules done
-make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
-make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
-make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
-rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
-if [ -x ../simv ]; then chmod -x ../simv; fi
-g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   amcQwB.o objs/amcQw_d.o   _8888_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libzerosoft_rt_stubs.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvirsim.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/liberrorinf.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsnpsmalloc.so    /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsnew.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsimprofile.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libuclinative.so   -Wl,-whole-archive /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsucli.so -Wl,-no-whole-archive          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
+All of 15 modules done
+make[1]: Entering directory `/home/ychiu078/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
+make[1]: Leaving directory `/home/ychiu078/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
+make[1]: Entering directory `/home/ychiu078/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/cad/synopsys/vcs/S-2021.09-SP1/linux64/lib -L/cad/synopsys/vcs/S-2021.09-SP1/linux64/lib  -Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _147285_archive_1.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o           -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /cad/synopsys/vcs/S-2021.09-SP1/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive        _vcs_pli_stub_.o   /cad/synopsys/vcs/S-2021.09-SP1/linux64/lib/vcs_save_restore_new.o /cad/synopsys/verdi/T-2022.06-SP2-6//share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl 
 ../simv up to date
-make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
-Chronologic VCS simulator copyright 1991-2016
+make[1]: Leaving directory `/home/ychiu078/EE552_Final_Project/baseline_design/mesh_noc/top_mesh/csrc'
+Chronologic VCS simulator copyright 1991-2021
 Contains Synopsys proprietary information.
-Compiler version L-2016.06-1_Full64; Runtime version L-2016.06-1_Full64;  May  5 16:11 2025
+Compiler version S-2021.09-SP1_Full64; Runtime version S-2021.09-SP1_Full64;  May  5 17:23 2025
 Start simulation!!!
-DG top_tb.dg sends data = 000000000000010100000100011001011 @                    0
-node           3 receives packet 1a620a000 from PE input at       2.00 ns
-DG top_tb.dg sends data = 000000000000010100000100011001111 @    3.00 ns
-node           3 sends packet 1a620a000 from PE to East at    4.00 ns
-node           3 receives packet 1e620a000 from PE input at       5.00 ns
-DG top_tb.dg sends data = 000000000000010100000100011010011 @    6.00 ns
-node           3 sends packet 1e620a000 from PE to East at    9.00 ns
-node           3 receives packet 19620a000 from PE input at      10.00 ns
-node           4 receives packet 18620a000 from West input at    10.00 ns
-DG top_tb.dg sends data = 000000000000010100000100011011011 @   11.00 ns
-node           3 sends packet 19620a000 from PE to South at   12.00 ns
-node           4 sends packet 0005046 from West to PE at   12.00 ns
-node           3 receives packet 1b620a000 from PE input at      13.00 ns
+DG top_tb.dg sends data = 000000100000000100000001011001011 @                    0
+node           3 receives packet 1a6808040 from PE input at       2.00 ns
+DG top_tb.dg sends data = 000000100000000100000001011001111 @    3.00 ns
+node           3 sends packet 1a6808040 from PE to East at    4.00 ns
+node           3 receives packet 1e6808040 from PE input at       5.00 ns
+DG top_tb.dg sends data = 000000100000000100000001011010011 @    6.00 ns
+node           3 sends packet 1e6808040 from PE to East at    9.00 ns
+node           3 receives packet 196808040 from PE input at      10.00 ns
+node           4 receives packet 186808040 from West input at    10.00 ns
+DG top_tb.dg sends data = 000000100000000100000001011011011 @   11.00 ns
+node           3 sends packet 196808040 from PE to South at   12.00 ns
+node           4 sends packet 0201016 from West to PE at   12.00 ns
+node           3 receives packet 1b6808040 from PE input at      13.00 ns
 DG top_tb.dg sends data = 000001000000010000000000101001011 @   14.00 ns
-node           3 sends packet 1b620a000 from PE to East at   15.00 ns
-node           4 receives packet 1a620a000 from West input at    15.00 ns
+node           3 sends packet 1b6808040 from PE to East at   15.00 ns
+node           4 receives packet 1a6808040 from West input at    15.00 ns
 node           3 receives packet 1a5002020 from PE input at      16.00 ns
 DG top_tb.dg sends data = 000001000000010000000000101001111 @   17.00 ns
-node           4 sends packet 1a620a000 from West to East at   17.00 ns
+node           4 sends packet 1a6808040 from West to East at   17.00 ns
 node           3 sends packet 1a5002020 from PE to East at   20.00 ns
 node           3 receives packet 1e5002020 from PE input at      21.00 ns
-node           4 receives packet 19620a000 from West input at    21.00 ns
+node           4 receives packet 196808040 from West input at    21.00 ns
 DG top_tb.dg sends data = 000001000000010000000000101010011 @   22.00 ns
-node           4 sends packet 19620a000 from West to South at    23.00 ns
-node           5 receives packet 18620a000 from West input at    23.00 ns
-node           0 receives packet 18620a000 from North input at   24.00 ns
+node           4 sends packet 196808040 from West to South at    23.00 ns
+node           5 receives packet 186808040 from West input at    23.00 ns
+node           0 receives packet 186808040 from North input at   24.00 ns
 node           3 sends packet 1e5002020 from PE to East at   25.00 ns
-node           5 sends packet 0005046 from West to PE at   25.00 ns
-node           0 sends packet 0005046 from North to PE at   26.00 ns
+node           5 sends packet 0201016 from West to PE at   25.00 ns
+node           0 sends packet 0201016 from North to PE at   26.00 ns
 node           3 receives packet 195002020 from PE input at      26.00 ns
 node           4 receives packet 185002020 from West input at    26.00 ns
 DG top_tb.dg sends data = 000001000000010000000000101011011 @   27.00 ns
 node           3 sends packet 195002020 from PE to South at   28.00 ns
 node           4 sends packet 040400a from West to PE at   28.00 ns
 node           3 receives packet 1b5002020 from PE input at      29.00 ns
-DG top_tb.dg sends data = 000001010000001100000100111001011 @   30.00 ns
+DG top_tb.dg sends data = 000000010000010100000100111001011 @   30.00 ns
 node           3 sends packet 1b5002020 from PE to East at   31.00 ns
 node           4 receives packet 1a5002020 from West input at    31.00 ns
-node           3 receives packet 1a720c0a0 from PE input at      32.00 ns
-DG top_tb.dg sends data = 000001010000001100000100111001111 @   33.00 ns
+node           3 receives packet 1a720a080 from PE input at      32.00 ns
+DG top_tb.dg sends data = 000000010000010100000100111001111 @   33.00 ns
 node           4 sends packet 1a5002020 from West to East at   33.00 ns
-node           1 receives packet 18620a000 from North input at   35.00 ns
-node           3 sends packet 1a720c0a0 from PE to East at   36.00 ns
-node           1 sends packet 0005046 from North to PE at   37.00 ns
-node           3 receives packet 1e720c0a0 from PE input at      37.00 ns
+node           1 receives packet 186808040 from North input at   35.00 ns
+node           3 sends packet 1a720a080 from PE to East at   36.00 ns
+node           1 sends packet 0201016 from North to PE at   37.00 ns
+node           3 receives packet 1e720a080 from PE input at      37.00 ns
 node           4 receives packet 195002020 from West input at    37.00 ns
-DG top_tb.dg sends data = 000001010000001100000100111010011 @   38.00 ns
+DG top_tb.dg sends data = 000000010000010100000100111010011 @   38.00 ns
 node           4 sends packet 195002020 from West to South at    39.00 ns
 node           5 receives packet 185002020 from West input at    39.00 ns
 node           0 receives packet 185002020 from North input at   40.00 ns
-node           3 sends packet 1e720c0a0 from PE to East at   41.00 ns
+node           3 sends packet 1e720a080 from PE to East at   41.00 ns
 node           5 sends packet 040400a from West to PE at   41.00 ns
 node           0 sends packet 040400a from North to PE at   42.00 ns
-node           3 receives packet 19720c0a0 from PE input at      42.00 ns
-node           4 receives packet 18720c0a0 from West input at    42.00 ns
-DG top_tb.dg sends data = 000001010000001100000100111011011 @   43.00 ns
-node           3 sends packet 19720c0a0 from PE to South at   44.00 ns
-node           4 sends packet 050304e from West to PE at   44.00 ns
-node           3 receives packet 1b720c0a0 from PE input at      45.00 ns
-DG top_tb.dg sends data = 000000000000000101000000000001011 @   46.00 ns
-node           3 sends packet 1b720c0a0 from PE to East at   47.00 ns
-node           4 receives packet 1a720c0a0 from West input at    47.00 ns
-node           3 receives packet 1a0028000 from PE input at      48.00 ns
-DG top_tb.dg sends data = 000000000000000010001000000001111 @   49.00 ns
-node           4 sends packet 1a720c0a0 from West to East at   49.00 ns
+node           3 receives packet 19720a080 from PE input at      42.00 ns
+node           4 receives packet 18720a080 from West input at    42.00 ns
+DG top_tb.dg sends data = 000000010000010100000100111011011 @   43.00 ns
+node           3 sends packet 19720a080 from PE to South at   44.00 ns
+node           4 sends packet 010504e from West to PE at   44.00 ns
+node           3 receives packet 1b720a080 from PE input at      45.00 ns
+DG top_tb.dg sends data = 000000000000000011010000000001011 @   46.00 ns
+node           3 sends packet 1b720a080 from PE to East at   47.00 ns
+node           4 receives packet 1a720a080 from West input at    47.00 ns
+node           3 receives packet 1a00b0000 from PE input at      48.00 ns
+DG top_tb.dg sends data = 000000000000000110100001000001111 @   49.00 ns
+node           4 sends packet 1a720a080 from West to East at   49.00 ns
 node           1 receives packet 185002020 from North input at   51.00 ns
-node           3 sends packet 1a0028000 from PE to East at   52.00 ns
+node           3 sends packet 1a00b0000 from PE to East at   52.00 ns
 node           1 sends packet 040400a from North to PE at   53.00 ns
-node           3 receives packet 1e0110000 from PE input at      53.00 ns
-node           4 receives packet 19720c0a0 from West input at    53.00 ns
-DG top_tb.dg sends data = 000000000000000000000110000010011 @   54.00 ns
-node           4 sends packet 19720c0a0 from West to South at    55.00 ns
-node           5 receives packet 18720c0a0 from West input at    55.00 ns
-node           0 receives packet 18720c0a0 from North input at   56.00 ns
-node           3 sends packet 1e0110000 from PE to East at   57.00 ns
-node           5 sends packet 050304e from West to PE at   57.00 ns
-node           0 sends packet 050304e from North to PE at   58.00 ns
-node           3 receives packet 190600000 from PE input at      58.00 ns
-node           4 receives packet 180028000 from West input at    58.00 ns
-DG top_tb.dg sends data = 000000000000000001000100000011011 @   59.00 ns
-node           3 sends packet 190600000 from PE to South at   60.00 ns
-node           4 sends packet 0001400 from West to PE at   60.00 ns
-node           3 receives packet 1b0220000 from PE input at      61.00 ns
-DG top_tb.dg sends data = 000000000000000010100110000101011 @   62.00 ns
-node           3 sends packet 1b0220000 from PE to East at   63.00 ns
-node           4 receives packet 1a0110000 from West input at    63.00 ns
-node           3 receives packet 1a8650000 from PE input at      64.00 ns
-DG top_tb.dg sends data = 000000000000000101000101000101111 @   65.00 ns
-node           4 sends packet 1a0110000 from West to East at   65.00 ns
-node           1 receives packet 18720c0a0 from North input at   67.00 ns
-node           3 sends packet 1a8650000 from PE to East at   68.00 ns
-node           1 sends packet 050304e from North to PE at   69.00 ns
-node           3 receives packet 1e8a28000 from PE input at      69.00 ns
-node           4 receives packet 190220000 from West input at    69.00 ns
-DG top_tb.dg sends data = 000000000000000100110010000110011 @   70.00 ns
-node           4 sends packet 190220000 from West to South at    71.00 ns
-node           5 receives packet 180110000 from West input at    71.00 ns
-node           0 receives packet 180600000 from North input at   72.00 ns
-node           3 sends packet 1e8a28000 from PE to East at   73.00 ns
-node           5 sends packet 0000880 from West to PE at   73.00 ns
-node           0 sends packet 0000060 from North to PE at   74.00 ns
-node           3 receives packet 1984c8000 from PE input at      74.00 ns
-node           4 receives packet 188650000 from West input at    74.00 ns
-DG top_tb.dg sends data = 000000000000000000101101000111011 @   75.00 ns
-node           3 sends packet 1984c8000 from PE to South at   76.00 ns
-node           4 sends packet 0000a61 from West to PE at   76.00 ns
-node           3 receives packet 1b8b40000 from PE input at      77.00 ns
-node           3 sends packet 1b8b40000 from PE to East at   79.00 ns
-node           4 receives packet 1a8a28000 from West input at    79.00 ns
-node           4 sends packet 1a8a28000 from West to East at   81.00 ns
-node           1 receives packet 180220000 from North input at   83.00 ns
-node           1 sends packet 0000440 from North to PE at   85.00 ns
-node           4 receives packet 198b40000 from West input at    85.00 ns
-node           4 sends packet 198b40000 from West to South at    87.00 ns
-node           5 receives packet 188a28000 from West input at    87.00 ns
-node           0 receives packet 1884c8000 from North input at   88.00 ns
-node           5 sends packet 0001451 from West to PE at   89.00 ns
-node           4 receives packet 1b0000200 from PE input at      89.00 ns
-node           0 sends packet 0001321 from North to PE at   90.00 ns
-node           4 sends packet 1b0000200 from PE to East at   91.00 ns
-node           5 receives packet 190000200 from West input at    97.00 ns
-node           5 sends packet 190000200 from West to South at    99.00 ns
-node           1 receives packet 188b40000 from North input at   99.00 ns
-node           1 sends packet 00002d1 from North to PE at  101.00 ns
-node           5 receives packet 190400a00 from PE input at     102.00 ns
-node           0 receives packet 1e0200100 from PE input at     103.00 ns
-node           5 sends packet 190400a00 from PE to South at  104.00 ns
-node           0 sends packet 1e0200100 from PE to East at  105.00 ns
-node           4 receives packet 1b8800a00 from PE input at     107.00 ns
-node           4 sends packet 1b8800a00 from PE to East at  109.00 ns
-node           1 receives packet 1a0200100 from West input at   111.00 ns
-node           2 receives packet 180000200 from North input at  111.00 ns
-node           1 sends packet 1a0200100 from West to East at  113.00 ns
-node           2 sends packet 0040000 from North to PE at  113.00 ns
-node           1 receives packet 1a0600900 from PE input at     114.00 ns
-node           5 receives packet 198800a00 from West input at   115.00 ns
-node           1 sends packet 1a0600900 from PE to East at  116.00 ns
-node           2 receives packet 180400a00 from North input at  116.00 ns
-node           5 sends packet 198800a00 from West to South at   117.00 ns
-node           2 sends packet 0050020 from North to PE at  118.00 ns
-node           2 receives packet 180200100 from West input at   119.00 ns
-node           5 receives packet 198c00400 from PE input at     120.00 ns
-node           2 sends packet 0080040 from West to PE at  121.00 ns
-node           0 receives packet 1e8a00c00 from PE input at     121.00 ns
-node           5 sends packet 198c00400 from PE to South at  122.00 ns
-node           2 receives packet 180600900 from West input at   122.00 ns
-node           0 sends packet 1e8a00c00 from PE to East at  123.00 ns
-node           2 sends packet 0090060 from West to PE at  126.00 ns
-DB top_tb.db_content receives output data = 000000000000001000000000000000000 @ 127.00 ns
-Timestep = 0, OutSpike = 0, PE Node = 0, Residue =      4
-node           1 receives packet 1a8a00c00 from West input at   129.00 ns
-node           2 receives packet 188800a00 from North input at  129.00 ns
-node           1 sends packet 1a8a00c00 from West to East at  131.00 ns
-node           2 sends packet 0050011 from North to PE at  131.00 ns
-node           1 receives packet 1a8e00600 from PE input at     132.00 ns
-DB top_tb.db_content receives output data = 000000000000001010000000000100000 @ 132.00 ns
-Timestep = 0, OutSpike = 0, PE Node = 1, Residue =      5
-node           1 sends packet 1a8e00600 from PE to East at  134.00 ns
-node           2 receives packet 188c00400 from North input at  134.00 ns
-DB top_tb.db_content receives output data = 000000000000010000000000001000000 @ 135.00 ns
-Timestep = 0, OutSpike = 0, PE Node = 2, Residue =      8
-node           2 sends packet 0020031 from North to PE at  136.00 ns
-node           2 receives packet 188a00c00 from West input at   137.00 ns
-node           2 sends packet 0030051 from West to PE at  139.00 ns
-node           2 receives packet 188e00600 from West input at   140.00 ns
-DB top_tb.db_content receives output data = 000000000000010010000000001100000 @ 140.00 ns
-Timestep = 0, OutSpike = 0, PE Node = 3, Residue =      9
-node           2 sends packet 0060071 from West to PE at  144.00 ns
-DB top_tb.db_content receives output data = 000000000000001010000000000010001 @ 145.00 ns
-Timestep = 1, OutSpike = 1, PE Node = 0, Residue =      5
-DB top_tb.db_content receives output data = 000000000000000100000000000110001 @ 150.00 ns
-Timestep = 1, OutSpike = 1, PE Node = 1, Residue =      2
-DB top_tb.db_content receives output data = 000000000000000110000000001010001 @ 153.00 ns
-Timestep = 1, OutSpike = 1, PE Node = 2, Residue =      3
-DB top_tb.db_content receives output data = 000000000000001100000000001110001 @ 158.00 ns
-Timestep = 1, OutSpike = 1, PE Node = 3, Residue =      6
+node           3 receives packet 1e0858000 from PE input at      53.00 ns
+node           4 receives packet 19720a080 from West input at    53.00 ns
+DG top_tb.dg sends data = 000000000000000010000100000010011 @   54.00 ns
+node           4 sends packet 19720a080 from West to South at    55.00 ns
+node           5 receives packet 18720a080 from West input at    55.00 ns
+node           0 receives packet 18720a080 from North input at   56.00 ns
+node           3 sends packet 1e0858000 from PE to East at   57.00 ns
+node           5 sends packet 010504e from West to PE at   57.00 ns
+node           0 sends packet 010504e from North to PE at   58.00 ns
+node           3 receives packet 190210000 from PE input at      58.00 ns
+node           4 receives packet 1800b0000 from West input at    58.00 ns
+DG top_tb.dg sends data = 000000000000000100001001000011011 @   59.00 ns
+node           3 sends packet 190210000 from PE to South at   60.00 ns
+node           4 sends packet 0000d00 from West to PE at   60.00 ns
+node           3 receives packet 1b0908000 from PE input at      61.00 ns
+DG top_tb.dg sends data = 000000000000000001010000000101011 @   62.00 ns
+node           3 sends packet 1b0908000 from PE to East at   63.00 ns
+node           4 receives packet 1a0858000 from West input at    63.00 ns
+node           3 receives packet 1a80a0000 from PE input at      64.00 ns
+DG top_tb.dg sends data = 000000000000000010100000000101111 @   65.00 ns
+node           4 sends packet 1a0858000 from West to East at   65.00 ns
+node           1 receives packet 18720a080 from North input at   67.00 ns
+node           3 sends packet 1a80a0000 from PE to East at   68.00 ns
+node           1 sends packet 010504e from North to PE at   69.00 ns
+node           3 receives packet 1e8050000 from PE input at      69.00 ns
+node           4 receives packet 190908000 from West input at    69.00 ns
+DG top_tb.dg sends data = 000000000000000010000011000110011 @   70.00 ns
+node           4 sends packet 190908000 from West to South at    71.00 ns
+node           5 receives packet 180858000 from West input at    71.00 ns
+node           0 receives packet 180210000 from North input at   72.00 ns
+node           3 sends packet 1e8050000 from PE to East at   73.00 ns
+node           5 sends packet 0001a10 from West to PE at   73.00 ns
+node           0 sends packet 0000840 from North to PE at   74.00 ns
+node           3 receives packet 198c10000 from PE input at      74.00 ns
+node           4 receives packet 1880a0000 from West input at    74.00 ns
+DG top_tb.dg sends data = 000000000000000100000111000111011 @   75.00 ns
+node           3 sends packet 198c10000 from PE to South at   76.00 ns
+node           4 sends packet 0000501 from West to PE at   76.00 ns
+node           3 receives packet 1b8e08000 from PE input at      77.00 ns
+node           3 sends packet 1b8e08000 from PE to East at   79.00 ns
+node           4 receives packet 1a8050000 from West input at    79.00 ns
+node           4 sends packet 1a8050000 from West to East at   81.00 ns
+node           1 receives packet 180908000 from North input at   83.00 ns
+node           1 sends packet 0001090 from North to PE at   85.00 ns
+node           4 receives packet 198e08000 from West input at    85.00 ns
+node           4 sends packet 198e08000 from West to South at    87.00 ns
+node           5 receives packet 188050000 from West input at    87.00 ns
+node           0 receives packet 188c10000 from North input at   88.00 ns
+node           5 sends packet 0000a01 from West to PE at   89.00 ns
+node           4 receives packet 1b0000600 from PE input at      89.00 ns
+node           0 sends packet 0000831 from North to PE at   90.00 ns
+node           4 sends packet 1b0000600 from PE to East at   91.00 ns
+node           5 receives packet 190000600 from West input at    97.00 ns
+node           5 sends packet 190000600 from West to South at    99.00 ns
+node           1 receives packet 188e08000 from North input at   99.00 ns
+node           1 sends packet 0001071 from North to PE at  101.00 ns
+node           5 receives packet 190400d00 from PE input at     102.00 ns
+node           0 receives packet 1e0200400 from PE input at     103.00 ns
+node           5 sends packet 190400d00 from PE to South at  104.00 ns
+node           0 sends packet 1e0200400 from PE to East at  105.00 ns
+node           4 receives packet 1b8000d00 from PE input at     107.00 ns
+node           4 sends packet 1b8000d00 from PE to East at  109.00 ns
+node           1 receives packet 1a0200400 from West input at   111.00 ns
+node           2 receives packet 180000600 from North input at  111.00 ns
+node           1 sends packet 1a0200400 from West to East at  113.00 ns
+node           2 sends packet 0060000 from North to PE at  113.00 ns
+node           1 receives packet 1a0600600 from PE input at     114.00 ns
+node           5 receives packet 198000d00 from West input at   115.00 ns
+node           1 sends packet 1a0600600 from PE to East at  116.00 ns
+node           2 receives packet 180400d00 from North input at  116.00 ns
+node           5 sends packet 198000d00 from West to South at   117.00 ns
+node           2 sends packet 00b0020 from North to PE at  118.00 ns
+node           2 receives packet 180200400 from West input at   119.00 ns
+node           5 receives packet 198400080 from PE input at     120.00 ns
+node           2 sends packet 0020040 from West to PE at  121.00 ns
+node           0 receives packet 1e8200300 from PE input at     121.00 ns
+node           5 sends packet 198400080 from PE to South at  122.00 ns
+node           2 receives packet 180600600 from West input at   122.00 ns
+node           0 sends packet 1e8200300 from PE to East at  123.00 ns
+node           2 sends packet 0060060 from West to PE at  126.00 ns
+DB top_tb.db_content receives output data = 000000000000001100000000000000000 @ 127.00 ns
+Timestep = 0, OutSpike = 0, PE Node = 0, Residue =      6
+node           1 receives packet 1a8200300 from West input at   129.00 ns
+node           2 receives packet 188000d00 from North input at  129.00 ns
+node           1 sends packet 1a8200300 from West to East at  131.00 ns
+node           2 sends packet 00b0001 from North to PE at  131.00 ns
+node           1 receives packet 1a8e00400 from PE input at     132.00 ns
+DB top_tb.db_content receives output data = 000000000000010110000000000100000 @ 132.00 ns
+Timestep = 0, OutSpike = 0, PE Node = 1, Residue =     11
+node           1 sends packet 1a8e00400 from PE to East at  134.00 ns
+node           2 receives packet 188400080 from North input at  134.00 ns
+DB top_tb.db_content receives output data = 000000000000000100000000001000000 @ 135.00 ns
+Timestep = 0, OutSpike = 0, PE Node = 2, Residue =      2
+node           2 sends packet 0100021 from North to PE at  136.00 ns
+node           2 receives packet 188200300 from West input at   137.00 ns
+node           2 sends packet 00c0041 from West to PE at  139.00 ns
+node           2 receives packet 188e00400 from West input at   140.00 ns
+DB top_tb.db_content receives output data = 000000000000001100000000001100000 @ 140.00 ns
+Timestep = 0, OutSpike = 0, PE Node = 3, Residue =      6
+node           2 sends packet 0020071 from West to PE at  144.00 ns
+DB top_tb.db_content receives output data = 000000000000010110000000000000001 @ 145.00 ns
+Timestep = 1, OutSpike = 0, PE Node = 0, Residue =     11
+DB top_tb.db_content receives output data = 000000000000100000000000000100001 @ 150.00 ns
+Timestep = 1, OutSpike = 0, PE Node = 1, Residue =     16
+DB top_tb.db_content receives output data = 000000000000011000000000001000001 @ 153.00 ns
+Timestep = 1, OutSpike = 0, PE Node = 2, Residue =     12
+DB top_tb.db_content receives output data = 000000000000000100000000001110001 @ 158.00 ns
+Timestep = 1, OutSpike = 1, PE Node = 3, Residue =      2
 ###Deadlock Detected on top_tb.top.mesh.N2S[8] @    0.00 ns
 ###Deadlock Detected on top_tb.top.mesh.N2S[7] @    0.00 ns
 ###Deadlock Detected on top_tb.top.mesh.N2S[6] @    0.00 ns
@@ -572,6 +574,6 @@ $finish called from file "./top_tb.sv", line 117.
 $finish at simulation time  250.00 ns
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 250000000 fs
-CPU Time:      0.330 seconds;       Data structure size:   1.3Mb
-Mon May  5 16:11:27 2025
-CPU time: .850 seconds to compile + .557 seconds to elab + .400 seconds to link + .592 seconds in simulation
+CPU Time:      0.540 seconds;       Data structure size:   3.3Mb
+Mon May  5 17:23:14 2025
+CPU time: 1.592 seconds to compile + .752 seconds to elab + .585 seconds to link + .605 seconds in simulation
