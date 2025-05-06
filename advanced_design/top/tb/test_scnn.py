@@ -84,9 +84,6 @@ def split_ifmap_bits(window_bits):
     chunks.reverse()
     return chunks
 
-
-
-
 def test():
     filtersize, ifmapsize = 4, 9
     threshold = 16
