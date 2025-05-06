@@ -85,7 +85,7 @@ def split_ifmap_bits(window_bits):
     return chunks
 
 def test():
-    filtersize, ifmapsize = 4, 9
+    filtersize, ifmapsize = 4, 10
     threshold = 16
 
     # Generate random tensors
