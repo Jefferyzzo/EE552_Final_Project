@@ -1,0 +1,24 @@
+.
+├── Makefile
+├── scnn_script
+│   ├── L1_filter.txt
+│   ├── L1_out_spike_t1.txt
+│   ├── L1_out_spike_t2.txt
+│   ├── L1_residue_t1.txt
+│   ├── L1_residue_t2.txt
+│   ├── ifmap_t1.txt
+│   ├── ifmap_t2.txt
+│   ├── send_values.sv
+│   └── send_values_bin.txt
+├── sim_results
+│   ├── sim.log
+│   ├── timestep1_outspike.txt
+│   ├── timestep1_residue.txt
+│   ├── timestep2_outspike.txt
+│   └── timestep2_residue.txt
+├── tb_tree.txt
+├── test_scnn.py
+├── top.f
+└── top_tb.sv
+
+3 directories, 19 files
