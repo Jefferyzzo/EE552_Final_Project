@@ -1,21 +1,18 @@
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'CentOS Linux release 7.9.2009 (Core)' is not supported on 
+  'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
                          Chronologic VCS (TM)
-       Version S-2021.09-SP1_Full64 -- Mon May  5 19:06:56 2025
+        Version L-2016.06-1_Full64 -- Mon May  5 22:32:31 2025
+               Copyright (c) 1991-2016 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
 
-                    Copyright (c) 1991 - 2021 Synopsys, Inc.
-   This software and the associated documentation are proprietary to Synopsys,
- Inc. This software may only be used in accordance with the terms and conditions
- of a written license agreement with Synopsys, Inc. All other use, reproduction,
-   or distribution of this software is strictly prohibited.  Licensed Products
-     communicate with Synopsys servers for the purpose of providing software
-    updates, detecting software piracy and verifying that customers are using
-    Licensed Products in conformity with the applicable License Key for such
-  Licensed Products. Synopsys will use information gathered in connection with
-    this process to deliver software updates and pursue software pirates and
-                                   infringers.
-
- Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
-            Inclusivity and Diversity" (Refer to article 000036315 at
-                        https://solvnetplus.synopsys.com)
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
 
 Parsing design file '../../PE/src/SystemVerilogCSP.sv'
 Parsing design file './top_tb.sv'
@@ -26,7 +23,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/PE.sv'
 
@@ -35,7 +32,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/depacketizer.sv'
 
@@ -44,7 +41,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/split.sv'
 
@@ -53,7 +50,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/special_split.sv'
 
@@ -62,7 +59,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/priority_mux.sv'
 
@@ -71,7 +68,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/copy4.sv'
 
@@ -80,7 +77,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/copy.sv'
 
@@ -89,7 +86,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/conditional_copy.sv'
 
@@ -98,7 +95,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/mac.sv'
 
@@ -107,7 +104,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/spike_residue.sv'
 
@@ -116,7 +113,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/two_input_adder.sv'
 
@@ -125,7 +122,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/merge.sv'
 
@@ -134,7 +131,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../PE/src/packetizer.sv'
 
@@ -143,7 +140,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../mesh/design/dummy.sv'
 
@@ -152,7 +149,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../mesh/design/arbiter.sv'
 
@@ -161,7 +158,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../mesh/design/router_reversed.sv'
 
@@ -170,7 +167,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/Allocate.sv'
 
@@ -179,7 +176,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/arbiter_14in.sv'
 
@@ -188,7 +185,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/arbiter_merge_4in.sv'
 
@@ -197,7 +194,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/arbiter_merge.sv'
 
@@ -206,7 +203,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/control_unit.sv'
 
@@ -215,7 +212,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/Filter_Inst_Generator.sv'
 
@@ -224,7 +221,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/Filter_Mem.sv'
 
@@ -233,7 +230,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/Ifmap_Inst_Generator.sv'
 
@@ -242,7 +239,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/Ifmap_Mem.sv'
 
@@ -251,7 +248,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/Inst_FIFO.sv'
 
@@ -260,7 +257,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/Instr_Decoder.sv'
 
@@ -269,7 +266,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/packetizer_cu.sv'
 
@@ -278,7 +275,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Parsing design file '../../control/design/token_buffer.sv'
 
@@ -287,7 +284,7 @@ Note-[SV-LCM-PPWI] Package previously wildcard imported
 $unit
   Package 'SystemVerilogCSP' already wildcard imported. 
   Ignoring SystemVerilogCSP::*
-  See the SystemVerilog LRM(1800-2005), section 19.2.1.
+  See the System Verilog LRM(1800-2005), section 18.1.
 
 Top Level Modules:
        top_tb
@@ -297,11 +294,23 @@ Warning-[AOUP] Attempt to override undefined parameter
   Attempting to override undefined parameter "FL", will ignore it.
 
 TimeScale is 1 ns / 1 fs
-Notice: Ports coerced to inout, use -notice for details
 Starting vcs inline pass...
-
-29 modules and 0 UDP read.
+29 unique modules to generate
 recompiling package SystemVerilogCSP
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
+recompiling module Channel
 recompiling module Channel
 recompiling module data_generator
 recompiling module data_bucket
@@ -309,9 +318,12 @@ recompiling module top_tb
 recompiling module PE
 recompiling module priority_mux
 recompiling module copy
+recompiling module copy
 recompiling module dummy_dg
 recompiling module dummy_db
 recompiling module arbiter
+recompiling module router
+recompiling module router
 recompiling module router
 recompiling module input_buffer_E
 recompiling module input_buffer_W
@@ -321,6 +333,10 @@ recompiling module input_buffer_PE
 recompiling module Allocate
 recompiling module arbiter_14in
 recompiling module arbiter_merge_4in
+recompiling module arbiter_merge_4in
+recompiling module arbiter_merge_4in
+recompiling module arbiter_merge
+recompiling module arbiter_merge
 recompiling module arbiter_merge
 recompiling module Filter_Inst_Generator
 recompiling module Filter_Mem
@@ -330,18 +346,17 @@ recompiling module Inst_FIFO
 recompiling module Instr_Decoder
 recompiling module packetizer_cu
 recompiling module token_buffer
-All of 29 modules done
-make[1]: Entering directory `/home/ychiu078/EE552_Final_Project/advanced_design/top/tb/csrc'
-make[1]: Leaving directory `/home/ychiu078/EE552_Final_Project/advanced_design/top/tb/csrc'
-make[1]: Entering directory `/home/ychiu078/EE552_Final_Project/advanced_design/top/tb/csrc'
-rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
-if [ -x ../simv ]; then chmod a-x ../simv; fi
-g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/cad/synopsys/vcs/S-2021.09-SP1/linux64/lib -L/cad/synopsys/vcs/S-2021.09-SP1/linux64/lib  -Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _153100_archive_1.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o           -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /cad/synopsys/vcs/S-2021.09-SP1/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive        _vcs_pli_stub_.o   /cad/synopsys/vcs/S-2021.09-SP1/linux64/lib/vcs_save_restore_new.o /cad/synopsys/verdi/T-2022.06-SP2-6//share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl 
+make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/advanced_design/top/tb/csrc'
+make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/advanced_design/top/tb/csrc'
+make[1]: Entering directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/advanced_design/top/tb/csrc'
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   amcQwB.o objs/amcQw_d.o   _88583_archive_1.so  SIM_l.o       rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libzerosoft_rt_stubs.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvirsim.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/liberrorinf.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsnpsmalloc.so    /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsnew.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libsimprofile.so /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libuclinative.so   -Wl,-whole-archive /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/libvcsucli.so -Wl,-no-whole-archive          /usr/local/synopsys//VCS_2016/L-2016.06-1/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
 ../simv up to date
-make[1]: Leaving directory `/home/ychiu078/EE552_Final_Project/advanced_design/top/tb/csrc'
-Chronologic VCS simulator copyright 1991-2021
+make[1]: Leaving directory `/home/viterbi/06/ychiu078/552/EE552_Final_Project/advanced_design/top/tb/csrc'
+Chronologic VCS simulator copyright 1991-2016
 Contains Synopsys proprietary information.
-Compiler version S-2021.09-SP1_Full64; Runtime version S-2021.09-SP1_Full64;  May  5 19:07 2025
+Compiler version L-2016.06-1_Full64; Runtime version L-2016.06-1_Full64;  May  5 22:32 2025
 At time                    0, send packet 00000000000001000000010100000011000000001001100000011
 Start simulation!!!
 node          12 receives packet 00000000110010000000011000000101000000010000000000000 from North input at    0.00 ns
@@ -4283,6 +4298,6 @@ $finish called from file "./top_tb.sv", line 144.
 $finish at simulation time 10000.00 ns
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 10000000000 fs
-CPU Time:      0.950 seconds;       Data structure size:  11.3Mb
-Mon May  5 19:07:02 2025
-CPU time: 2.842 seconds to compile + 1.450 seconds to elab + .650 seconds to link + 1.024 seconds in simulation
+CPU Time:      0.620 seconds;       Data structure size:   4.5Mb
+Mon May  5 22:32:36 2025
+CPU time: 1.495 seconds to compile + .606 seconds to elab + .352 seconds to link + .824 seconds in simulation
