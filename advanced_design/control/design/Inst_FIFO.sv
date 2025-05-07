@@ -43,8 +43,9 @@ module Inst_FIFO  #(
     // Write Operation
     always begin
         wait((wp-rp) != DEPTH);  
+        $display("At %t, FIFO %d wp = %h, rp = %h, wp - rp = %h, (wp-rp) != DEPTH) = %b", $time, PE_node, wp, rp, (wp-rp), (wp-rp) != DEPTH);
         I_inst.Receive(data[wp[3:0]]);
-        // $display("At %t, FIFO %d finish storing Inst %b", $time, PE_node, data[wp]);
+        $display("At %t, FIFO %d finish storing Inst %b", $time, PE_node, data[wp]);
         #FL;
         wp++;
     end
