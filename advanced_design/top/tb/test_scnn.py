@@ -85,8 +85,9 @@ def split_ifmap_bits(window_bits):
     return chunks
 
 def test():
-    filtersize, ifmapsize = 4, 10
-    threshold = 16
+    filtersize = int(input("Enter filtersize (2–5): "))
+    ifmapsize  = int(input("Enter ifmapsize: "))
+    threshold  = 16
 
     # Generate random tensors
     filter_L1 = torch.randint(6, (1,1,filtersize,filtersize)).float()

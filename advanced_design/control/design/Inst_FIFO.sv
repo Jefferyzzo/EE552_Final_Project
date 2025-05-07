@@ -43,7 +43,7 @@ module Inst_FIFO  #(
     // Write Operation
     always begin
         wait((wp-rp) != DEPTH);  
-        I_inst.Receive(data[wp]);
+        I_inst.Receive(data[wp[3:0]]);
         // $display("At %t, FIFO %d finish storing Inst %b", $time, PE_node, data[wp]);
         #FL;
         wp++;
@@ -60,7 +60,7 @@ module Inst_FIFO  #(
             #FL;
         end
         // $display("At %t, %m start sending Inst %h to Arb", $time, {data[rp], PE_node[3:0]});
-        O_arb.Send({data[rp], PE_node[3:0]}); 
+        O_arb.Send({data[rp[3:0]], PE_node[3:0]}); 
         // $display("At %t, %m finishes sending Inst %h to Arb", $time, {data[rp], PE_node[3:0]});
         #BL;
         rp++;
